@@ -1,0 +1,6 @@
+# Ignore Google Drive / temporary download/upload folders created by Drive clients
+# These appear as folders like ".tmp.drivedownload" and ".tmp.driveupload"
+
+# Ignore any directory with these names anywhere in the repo
+.tmp.drivedownload/
+.tmp.driveupload/
