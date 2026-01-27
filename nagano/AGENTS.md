@@ -431,3 +431,76 @@ Step 5. references_nagano.csv で出典を確認
 という、理想的な「ご当地ヒーロー」を実現します。
 
 ---
+
+## H. ファイル分割とモジュール化の設計思想 (File‑splitting principles) 🔧
+目的: ドキュメントとアセットを "誰が"・"いつ"・"どの粒度で" 使うかに応じて最小単位に切り、変更コストと認知負荷を下げる。
+
+### 要点（結論先出し）
+- 単一責任に従って分割する（SRP: single‑responsibility）。
+- "読み手" と "更新頻度" を第一基準に分離する（例: ストーリー台本は高頻度、世界観Bibleは低頻度）。
+- 表示向け（外部）と設計向け（内部）は別ファイルにする。
+
+### いつ分割するか（ルール）
+1. 変更責任が異なる場合は分割する（脚本チーム vs 設計チーム）。
+2. 対象読者が異なる場合は分割する（子供向け脚本 vs 開発向け設計）。
+3. 再利用されるコンポーネントは独立ファイルにする（フォーム定義、敵テンプレ、データCSV）。
+4. ファイルがレビューで頻繁にコンフリクトするなら分割する。
+5. ファイルが「読み切り」できない長さ（目安: 2,000–4,000語）になったら分割を検討する。
+
+### どのように分割するか（パターン）
+- separation by concern: `worldbuilding/` (地理・歴史), `mechanics/` (素体・フォーム), `scripts/` (話・台本), `art/` (ビジュアル指示), `data/` (CSV, 表)。
+- audience split: `docs/public/`（視聴者向け短縮版） vs `docs/internal/`（設計深掘り）。
+- granularity: "概念 (概説) → コンポーネント (フォーム定義) → インスタンス (第1話脚本)" の3層を基本とする。
+
+### 命名規則（必須）
+- スネークケース/ケバブケース推奨：`forms-magma-asama.md`, `script-ep01-initial-attack.md`。
+- プレフィックスで用途を明示：`spec-`, `script-`, `design-`, `data-`, `art-`。
+- バージョンはファイル名に付けず、Front‑matter (`version:`)／Git履歴で管理。
+
+### ドキュメント・メタデータ（テンプレ）
+すべての主要ドキュメントに以下を含める（YAML front‑matter 推奨）：
+```
+---
+title: <短いタイトル>
+kind: spec|script|design|data
+audience: public|internal|legal
+owners: [name1, name2]
+status: draft|reviewed|final
+references: [regions_nagano.csv, products_nagano.csv]
+version: 0.1
+---
+```
+
+### 現場運用ルール（チェックリスト） ✅
+- [ ] この変更は「単一責任」で説明できるか？
+- [ ] 期待読者は誰か？ public/internal のどちらかに明示したか？
+- [ ] 参照元データ（CSV等）へのリンクを明記したか？
+- [ ] ファイルごとのオーナーとレビュー担当を設定したか？
+- [ ] 自動リンクチェック / markdownlint を通すCIがあるか？
+
+### CI・品質ゲート提案 (自動化) 🔁
+- markdownlint + front‑matter チェック（必須フィールドの存在確認）。
+- dead‑link チェック（`references:` に記載したファイルが実在するか）。
+- 大きすぎるファイルを検出して分割提案（行数閾値）。
+- ドキュメント変更時は影響範囲ラベル自動追加（`area:worldbuilding` など）。
+
+### 具体例（このリポジトリ向け）
+- `hero-design-alpsgear.md` → 分割案:
+  - `design/worldbuilding.md` (背景・敵組織)
+  - `design/forms.md` (フォーム別定義と代償)
+  - `scripts/ep01-initial-transformation.md` (第1話脚本)
+  - `data/` に既存の CSV を移動（`data/products_nagano.csv` 等）
+- `AGENTS.md` は「ガイドラインの単一ソース」として残し、実装チェックリストを `docs/internal/` に置く。
+
+### 変更ポリシー（ガバナンス）
+- 小変更（文言修正、軽微な数値変更）: 直接PR。レビュワー1名以上。
+- 構造変更（ファイル分割・移動）: RFC 形式の短い提案 + 2名以上のレビュー必須。移行スクリプトを同梱。
+- 破壊的変更（命名規則・CIルールの変更）: チーム合意（Issue+1週間の公開コメント期間）を要する。
+
+---
+
+以上をAGENTSの『検証の連鎖』『翻訳プロトコル』に接続してください：
+- ドキュメント分割は「見えない氷山」と「水面から見える美しい一角」を両立するための実務化です。
+- 次アクション: 主要ドキュメント（`hero-design-alpsgear.md`）を上記パターンで分割するプランを書きます。
+
+---
