@@ -4,3 +4,6 @@
 # Ignore any directory with these names anywhere in the repo
 .tmp.drivedownload/
 .tmp.driveupload/
+
+# Python virtual environment
+.venv/
