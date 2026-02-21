@@ -7,3 +7,7 @@
 
 # Python virtual environment
 .venv/
+.venv-1/
+
+# VS Code workspace settings
+.vscode/
