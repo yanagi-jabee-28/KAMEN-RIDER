@@ -19,6 +19,7 @@
 - **神のターゲット計算式 (God_AI_Logic):**
   - 各ターン開始時、現状のステータスに基づき最適解（`Target`）をUI予告する。
   - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`（行者うかみNPCの独立行動）** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
+  - **Ukami_AI_Constraint:** うかみの自律行動は、プレイヤーが構築した状態異常（睡眠・凍結等）を解除しない行動を優先選択する。また、ミコトが「うかみの技」を選択している場合、高確率でそれに合わせた「共鳴」行動を取る。
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus`
   - `Understand >= Threshold` でミコトが当該特技を習得。
@@ -27,7 +28,7 @@
   - 条件A: 同ターンにミコトと仲間が同一特技を使用。
   - **条件B (第4幕専用): ミコトが継承済みの「うかみの技」を使用し、NPC行者うかみが同ターンに行動した場合、確定で派生発動。**
 - **代受苦発動条件:**
-  - `Durability == 1` かつ `PlayerIntent = true`
+  - `Durability <= Critical_Threshold` (e.g. 10%) かつ `PlayerIntent = true`
   - 発動時に武器データ（`Item_Instance`）を完全消去し、蓄積履歴から `SoulIdea` を抽出・加算（次期武器へ継承）。
 
 ## 2. マスターデータ定義
