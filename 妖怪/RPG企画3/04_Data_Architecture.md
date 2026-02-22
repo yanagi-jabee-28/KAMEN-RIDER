@@ -18,13 +18,14 @@
   - `Intentional_Cost` はプレイヤーが任意に支払う「自傷・耐久過剰消費」コストであり、神の計算を狂わせる「ノイズ」の源泉となる。
 - **神のターゲット計算式 (God_AI_Logic):**
   - 各ターン開始時、現状のステータスに基づき最適解（`Target`）をUI予告する。
-  - プレイヤーの `Intentional_Cost`（自傷等によるHP変動）が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
+  - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`（行者うかみNPCの独立行動）** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus`
   - `Understand >= Threshold` でミコトが当該特技を習得。
 - **共鳴（ユニゾン）補正:**
   - `ResonanceDamage = BaseDamage * (1 + ResonanceRate)`
-  - 条件: 同ターンにミコトと仲間が同一特技を使用。
+  - 条件A: 同ターンにミコトと仲間が同一特技を使用。
+  - **条件B (第4幕専用): ミコトが継承済みの「うかみの技」を使用し、NPC行者うかみが同ターンに行動した場合、確定で派生発動。**
 - **代受苦発動条件:**
   - `Durability == 1` かつ `PlayerIntent = true`
   - 発動時に武器データ（`Item_Instance`）を完全消去し、蓄積履歴から `SoulIdea` を抽出・加算（次期武器へ継承）。
@@ -36,7 +37,7 @@
 - **Enemy_Master:** 白化神、澱神、裁定者（タケミカヅチ等）、別天津神。
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
 - **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。
-- **Party_Composition_Master:** 戦闘枠4、控え枠2、離脱時自動編成ルール。
+- **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン「常世」進入時のみ、システム制御外の `5th_NPC_Slot` を解放する。**
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
   - `UKAMI_LEFT_KATSURAGI`
