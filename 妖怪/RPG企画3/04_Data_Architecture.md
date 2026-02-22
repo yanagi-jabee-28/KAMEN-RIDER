@@ -13,10 +13,12 @@
 ## 1. コア計算式（採用版）
 
 - **武器耐久値の減衰モデル:**
-  - `D_new = D_old - (k * Friction)`
-  - `Friction` は属性不一致、危険行動、自傷行動で増加し、金継ぎ結果の希少度へ影響する。
-- **ダメージ計算思想:**
-  人間武器は使用回数・耐久低下に伴い乱数幅が拡大し、神の計算を狂わせる。
+  - `D_new = D_old - (k * Friction) - Intentional_Cost`
+  - `Friction` は属性不一致や連続使用で増加する。
+  - `Intentional_Cost` はプレイヤーが任意に支払う「自傷・耐久過剰消費」コストであり、神の計算を狂わせる「ノイズ」の源泉となる。
+- **神のターゲット計算式 (God_AI_Logic):**
+  - 各ターン開始時、現状のステータスに基づき最適解（`Target`）をUI予告する。
+  - プレイヤーの `Intentional_Cost`（自傷等によるHP変動）が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus`
   - `Understand >= Threshold` でミコトが当該特技を習得。
@@ -24,15 +26,16 @@
   - `ResonanceDamage = BaseDamage * (1 + ResonanceRate)`
   - 条件: 同ターンにミコトと仲間が同一特技を使用。
 - **代受苦発動条件:**
-  - `Durability <= 1` かつ `PlayerIntent = true`
-  - 発動時に武器を消去し、`SoulIdea` を加算。
+  - `Durability == 1` かつ `PlayerIntent = true`
+  - 発動時に武器データ（`Item_Instance`）を完全消去し、蓄積履歴から `SoulIdea` を抽出・加算（次期武器へ継承）。
 
 ## 2. マスターデータ定義
 
 - **Item_Master:** 武器、防具、金継ぎ素材、消費アイテム。
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
 - **Enemy_Master:** 白化神、澱神、裁定者（タケミカヅチ等）、別天津神。
-- **Kintsugi_Result_Master:** 破損履歴タイプ、必要素材、付与特性、PTG変換先。
+- **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
+- **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2、離脱時自動編成ルール。
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
