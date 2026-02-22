@@ -21,11 +21,12 @@
   - **AI_Evolution (学習深度):**
     - **Lv1 (Static):** 現在HP/防御力のみを参照。
     - **Lv2 (Adaptive):** プレイヤーの過去の行動傾向（自傷頻度）を係数に組み込み、安易な自傷ではターゲットがブレない。
+    - **Lv2.5 (Psychological):** 同じパターンの「自傷」や「摩擦行動」が繰り返された場合、`Pattern_Penalty` を付与し、その行動を無効化またはカウンターする（メタ合理の排除）。
     - **Lv3 (Absolute - 別天津神):** 高い `Noise_Resistance` を持ち、通常の `Intentional_Cost` を無効化する。これを突破するには `Autonomous_Noise`（うかみの自律行動）や `SoulIdea`（武器破壊級の熱量）が必要となる。
   - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`（行者うかみNPCの独立行動）** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
   - **Ukami_AI_Constraint:** うかみの自律行動は、プレイヤーが構築した状態異常（睡眠・凍結等）を解除しない行動を優先選択する。また、ミコトが「うかみの技」を選択している場合、高確率でそれに合わせた「共鳴」行動を取る。
 - **神写し理解度:**
-  - `Understand(skill, ally) += action_count * context_bonus`
+  - `Understand(skill, ally) += action_count * context_bonus` (Critical_HP: x2.0, Disadvantage: x1.5)
   - `Understand >= Threshold` でミコトが当該特技を習得。
 - **共鳴（ユニゾン）補正:**
   - `ResonanceDamage = BaseDamage * (1 + ResonanceRate)`
@@ -41,7 +42,7 @@
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
 - **Enemy_Master:** 白化神、澱神、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
-- **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放される）**
+ - **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン「常世」進入時のみ、システム制御外の `5th_NPC_Slot` を解放する。**
 - **Story_Flag_Master:**
