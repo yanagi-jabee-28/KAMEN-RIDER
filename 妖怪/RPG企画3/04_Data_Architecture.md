@@ -67,11 +67,18 @@
   - `Kibutsu_Spawn_Weight_By_Area`
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**第4幕の帰還イベント以降（カガセオ戦および別天津神戦）、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
+- **Party_Area_Constraint_Master:** キャラ単位の地域拘束ルールを管理。
+  - `TargetCharacter`: `UKAMI_GYOJA`
+  - `LockFromFlag`: `UKAMI_RETURNED_YOMOTSU`
+  - `UnlockFlag`: `KOTOAMATSUKAMI_DEFEATED`
+  - `LockedAreas`: `TOKOYO`, `YOMI_NO_KUNI`, `YOMOTSU_HIRASAKA`
+  - `ConstraintMode`: `CHARACTER_ONLY`（パーティ全体ではなく、うかみ本人のみに適用）
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
   - `UKAMI_LEFT_KATSURAGI`
   - `ACT3_SHADOW_INTERVENTION`
   - `UKAMI_RETURNED_YOMOTSU`
+  - `UKAMI_AREA_LOCK_ACTIVE`
   - `KAGASEO_TRIAL_CLEARED`
   - `KOTOAMATSUKAMI_DEFEATED`
 
@@ -100,6 +107,7 @@
 - 武具データへ `TsukumogamiState` と履歴密度を追加し、敵化/味方化分岐をデータ上で担保。
 - 代受苦の処理に `Remnant_Bone` 生成と `Global_Daijuku_Count` 加算を追加。
 - 付喪神覚醒条件と棄物化条件をマスタ化し、シナリオ依存のハードコードを回避。
+- 行者うかみ再加入後〜別天津神撃破までの「うかみ本人のみ離脱不可（常世・黄泉の国・黄泉比良坂）」を `Party_Area_Constraint_Master` と進行フラグで管理する方針を追加。
 
 ## 6. 会話ログ参照（根拠）
 
