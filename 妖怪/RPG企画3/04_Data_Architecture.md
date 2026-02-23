@@ -24,8 +24,8 @@
     - **Lv2 (Adaptive):** プレイヤーの過去の行動傾向（自傷頻度）を係数に組み込み、安易な自傷ではターゲットがブレない。
     - **Lv2.5 (Psychological):** 同じパターンの「自傷」や「摩擦行動」が繰り返された場合、`Pattern_Penalty` を付与し、その行動を無効化またはカウンターする（メタ合理の排除）。
     - **Lv3 (Absolute - 別天津神):** 高い `Noise_Resistance` を持ち、通常の `Intentional_Cost` を無効化する。これを突破するには `Autonomous_Noise`（うかみの自律行動）や `SoulIdea`（武器破壊級の熱量）が必要となる。
-  - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`（行者うかみNPCの独立行動）** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
-  - **Ukami_AI_Constraint:** うかみの自律行動は、プレイヤーが構築した状態異常（睡眠・凍結等）を解除しない行動を優先選択する。また、ミコトが「うかみの技」を選択している場合、高確率でそれに合わせた「共鳴」行動を取る。
+  - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
+  - **Ukami_AI_Constraint:** うかみの自律行動は、ミコトが「うかみの技」を選択し、かつ一定以上の「Intentional_Cost（代受苦や自傷）」を払ったターンを検知して確定発動する。行動順を無視した割り込み（代受身）により、ミコトの自傷リスクを肩代わりしつつ神の予測を粉砕する。
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus` (Critical_HP: x2.0, Disadvantage: x1.5)
   - `Understand >= Threshold` でミコトが当該特技を習得。
@@ -35,10 +35,11 @@
   - **条件B (第4幕専用): ミコトが継承済みの「うかみの技」を使用し、NPC行者うかみが同ターンに行動した場合、確定で派生発動。**
 - **代受苦発動条件:**
   - `Durability <= Critical_Threshold` (e.g. 10%)
-  - 発動時に武器データ（`Item_Instance`）を完全消去し、以下の2つを生成する。
-    1. `SoulIdea`: 次期武器へ継承されるデータ特性。
-    2. `Remnant_Bone`: インベントリに残る「遺骨」アイテム（呼び継ぎ素材）。
-  - **Sword_Mound_Damage:** `Base * (Global_Daijuku_Count * Log_Density_Sum)`
+  - 発動時にプレイヤーに二者択一を求め、武器データ（`Item_Instance`）消去と引き換えに以下の**どちらか1つ**を生成する。
+    1. `SoulIdea`: 次期武器へ継承されるデータ特性（輪廻ルート）。
+    2. `Remnant_Bone`: インベントリに残る「遺骨」アイテム（執着キメラルート）。
+  - **オーバーフロー計算式:** 神の「無傷の合理性」を冷笑するため、残耐久値に反比例する倍率を掛ける。
+  - `Sword_Mound_Damage = Base * (Global_Daijuku_Count * Log_Density_Sum) * (Max_Durability / max(1, Current_Durability))^2`
 
 ## 2. マスターデータ定義
 
@@ -65,10 +66,11 @@
   - `Musubi_AutoAction_Chance`
   - `Kibutsu_Spawn_Weight_By_Area`
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
-- **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン「常世」進入時のみ、システム制御外の `5th_NPC_Slot` を解放する。**
+- **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン最深部（別天津神）、またはカガセオ戦での極限ノイズ発生時のみ、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
   - `UKAMI_LEFT_KATSURAGI`
+  - `ACT3_SHADOW_INTERVENTION`
   - `UKAMI_RETURNED_YOMOTSU`
   - `KAGASEO_TRIAL_CLEARED`
   - `KOTOAMATSUKAMI_DEFEATED`
