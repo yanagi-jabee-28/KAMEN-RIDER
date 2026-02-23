@@ -39,7 +39,16 @@
     1. `SoulIdea`: 次期武器へ継承されるデータ特性（輪廻ルート）。
     2. `Remnant_Bone`: インベントリに残る「遺骨」アイテム（執着キメラルート）。
   - **オーバーフロー計算式:** 神の「無傷の合理性」を冷笑するため、残耐久値に反比例する倍率を掛ける。
-  - `Sword_Mound_Damage = Base * (Global_Daijuku_Count * Log_Density_Sum) * (Max_Durability / max(1, Current_Durability))^2`
+  - `Sword_Mound_Damage = Base * (
+    Global_Daijuku_Count * Log_Density_Sum
+    + Repair_Factor * Global_Kintsugi_Count
+    + Usage_Factor * Cumulative_Durability_Hours
+  ) * (Max_Durability / max(1, Current_Durability))^2`
+  - **補足:**
+    * `Global_Kintsugi_Count` は累計修復回数。修復（=金継ぎ）を重ねた武具の価値を高めるため、`Repair_Factor`（小さい定数）が掛けられる。
+    * `Cumulative_Durability_Hours` は一本の武器をどれだけ長く使い込んだかを示す総耐久時間。時間経過や使用頻度に応じて増加し、`Usage_Factor` によって影響力を調整する。
+    * これにより、「破壊した数だけ強くなる」だけでなく、「大切に使い続け、直してきた歴史そのものが威力に反映される」形となり、
+      **泥臭い修復と継承というコアテーマ**が計算式にも織り込まれる。
 
 ## 2. マスターデータ定義
 
