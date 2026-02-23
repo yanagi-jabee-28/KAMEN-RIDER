@@ -39,10 +39,25 @@
 ## 2. マスターデータ定義
 
 - **Item_Master:** 武器、防具、金継ぎ素材、消費アイテム。
+- **Item_State_Extension:**
+  - `TraumaLogDensity`（履歴密度）
+  - `TsukumogamiState`（`Dormant` / `Kibutsu` / `Musubi`）
+  - `AbandonFlag`（遺棄判定）
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
-- **Enemy_Master:** 白化神、澱神、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
+- **Enemy_Master:** 白化神、澱神、荒魂獣、棄物、擬神兵、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
+- **Enemy_Behavior_Tag:**
+  - `Predictive_Fixed`（白化神）
+  - `Predictive_Broken`（澱神）
+  - `Predictive_Fluctuating`（荒魂獣）
+  - `Trauma_Resentment`（棄物）
+  - `Pseudo_Perfect_With_Gap`（擬神兵）
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
  - **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
+- **Tsukumogami_Awakening_Master:**
+  - `Awaken_Threshold_LogDensity`
+  - `Awaken_Required_Kintsugi_MaterialKinds`
+  - `Musubi_AutoAction_Chance`
+  - `Kibutsu_Spawn_Weight_By_Area`
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン「常世」進入時のみ、システム制御外の `5th_NPC_Slot` を解放する。**
 - **Story_Flag_Master:**
@@ -64,10 +79,19 @@
 - `FrictionBase` / `FrictionPenaltyInventory`
 - `PTG_RareChance`（PTG効果発生率）
 - `SoulIdeaCarryRate`（魂のイデア継承率）
+- `TsukumogamiAwakeThreshold`（付喪神覚醒閾値）
+- `KibutsuSpawnRate`（棄物出現率）
+- `WildInstinctVariance`（荒魂獣の行動揺らぎ幅）
 
 ※ 実数値はプレイテストで更新し、本ファイルを唯一の更新点とする。
 
-## 5. 会話ログ参照（根拠）
+## 5. 新規採用メモ（2026-02-23）
+
+- 敵データは5系統（白化神/澱神/荒魂獣/棄物/擬神兵）を基本軸として管理。
+- 武具データへ `TsukumogamiState` と履歴密度を追加し、敵化/味方化分岐をデータ上で担保。
+- 付喪神覚醒条件と棄物化条件をマスタ化し、シナリオ依存のハードコードを回避。
+
+## 6. 会話ログ参照（根拠）
 
 - 参照元: `チャット履歴/gemini-conversation-2026-02-22-21-36-20.md`
 - 主要根拠トピック:
@@ -75,3 +99,5 @@
   - 神写し理解度閾値と共鳴倍率のデータ管理
   - 代受苦発動条件と魂のイデア継承
   - 進行フラグ（うかみ加入/離脱/帰還、カガセオ試練、別天津神撃破）
+  - 雑魚敵系統の拡張に伴う敵行動タグ設計
+  - 付喪神の敵味方分岐を支える状態管理項目
