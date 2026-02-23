@@ -75,6 +75,7 @@
   - `ConstraintMode`: `CHARACTER_ONLY`（パーティ全体ではなく、うかみ本人のみに適用）
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
+  # ヒルコとミコトの船の象徴性は物語上常に意識されるため、該当フラグではないがメタ注釈を設計者文書へ残す。
   - `UKAMI_LEFT_KATSURAGI`
   - `ACT3_SHADOW_INTERVENTION`
   - `UKAMI_RETURNED_YOMOTSU`
