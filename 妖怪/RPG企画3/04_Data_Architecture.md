@@ -66,7 +66,7 @@
   - `Musubi_AutoAction_Chance`
   - `Kibutsu_Spawn_Weight_By_Area`
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
-- **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン最深部（別天津神）、またはカガセオ戦での極限ノイズ発生時のみ、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
+- **Party_Composition_Master:** 戦闘枠4、控え枠2。**第4幕の帰還イベント以降（カガセオ戦および別天津神戦）、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
   - `UKAMI_LEFT_KATSURAGI`
