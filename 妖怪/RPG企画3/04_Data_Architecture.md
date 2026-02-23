@@ -15,6 +15,7 @@
 - **武器耐久値の減衰モデル:**
   - `D_new = D_old - (k * Friction) - Intentional_Cost`
   - `Friction` は属性不一致や連続使用で増加する。
+  - **Yobitsugi_Penalty:** 「呼び継ぎ」を行った武器は、`Friction` の基本係数 `k` が **1.5倍〜3.0倍** に跳ね上がる（強力だが脆い）。
   - `Intentional_Cost` はプレイヤーが任意に支払う「自傷・耐久過剰消費」コストであり、神の計算を狂わせる「ノイズ」の源泉となる。
 - **神のターゲット計算式 (God_AI_Logic):**
   - 各ターン開始時、現状のステータスに基づき最適解（`Target`）をUI予告する。
@@ -33,15 +34,20 @@
   - 条件A: 同ターンにミコトと仲間が同一特技を使用。
   - **条件B (第4幕専用): ミコトが継承済みの「うかみの技」を使用し、NPC行者うかみが同ターンに行動した場合、確定で派生発動。**
 - **代受苦発動条件:**
-  - `Durability <= Critical_Threshold` (e.g. 10%) かつ `PlayerIntent = true`
-  - 発動時に武器データ（`Item_Instance`）を完全消去し、蓄積履歴から `SoulIdea` を抽出・加算（次期武器へ継承）。
+  - `Durability <= Critical_Threshold` (e.g. 10%)
+  - 発動時に武器データ（`Item_Instance`）を完全消去し、以下の2つを生成する。
+    1. `SoulIdea`: 次期武器へ継承されるデータ特性。
+    2. `Remnant_Bone`: インベントリに残る「遺骨」アイテム（呼び継ぎ素材）。
+  - **Sword_Mound_Damage:** `Base * (Global_Daijuku_Count * Log_Density_Sum)`
 
 ## 2. マスターデータ定義
 
 - **Item_Master:** 武器、防具、金継ぎ素材、消費アイテム。
+  - `Remnant_Bone`: 代受苦後の遺骨。元の武器IDと特性を保持。
 - **Item_State_Extension:**
   - `TraumaLogDensity`（履歴密度）
   - `TsukumogamiState`（`Dormant` / `Kibutsu` / `Musubi`）
+  - `Is_Chimera`（呼び継ぎフラグ）
   - `AbandonFlag`（遺棄判定）
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
 - **Enemy_Master:** 白化神、澱神、荒魂獣、棄物、擬神兵、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
@@ -58,7 +64,7 @@
   - `Awaken_Required_Kintsugi_MaterialKinds`
   - `Musubi_AutoAction_Chance`
   - `Kibutsu_Spawn_Weight_By_Area`
-- **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義。
+- **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**最終ダンジョン「常世」進入時のみ、システム制御外の `5th_NPC_Slot` を解放する。**
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
@@ -77,6 +83,7 @@
 - `Threshold`（神写し習得閾値）
 - `ResonanceRate`（共鳴倍率）
 - `FrictionBase` / `FrictionPenaltyInventory`
+- `Yobitsugi_Friction_Mult`（呼び継ぎ時の摩擦倍率）
 - `PTG_RareChance`（PTG効果発生率）
 - `SoulIdeaCarryRate`（魂のイデア継承率）
 - `TsukumogamiAwakeThreshold`（付喪神覚醒閾値）
@@ -89,6 +96,7 @@
 
 - 敵データは5系統（白化神/澱神/荒魂獣/棄物/擬神兵）を基本軸として管理。
 - 武具データへ `TsukumogamiState` と履歴密度を追加し、敵化/味方化分岐をデータ上で担保。
+- 代受苦の処理に `Remnant_Bone` 生成と `Global_Daijuku_Count` 加算を追加。
 - 付喪神覚醒条件と棄物化条件をマスタ化し、シナリオ依存のハードコードを回避。
 
 ## 6. 会話ログ参照（根拠）
