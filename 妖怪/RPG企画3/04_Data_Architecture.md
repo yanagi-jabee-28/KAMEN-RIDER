@@ -59,7 +59,10 @@
   - `Trauma_Resentment`（棄物）
   - `Pseudo_Perfect_With_Gap`（擬神兵）
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
- - **Daijuku_Master:** 耐久1武器の消滅と引き換えに生成される「魂のイデア」テーブル。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
+ - **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
+- **Shrine_Part_Master:** 鳥居・参道・本殿など、各建築パーツのコスト（泥/木材/金漆）、受容力ボーナス、対応属性、敷地占有サイズを定義。
+- **Shrine_Layout_Data:** プレイヤーが作成した社の配置情報。パーツIDとグリッド座標のセットを保持し、受容力算出に利用。
+- **Shrine_Faith_Master:** 祀った御霊ごとの恩恵バフと解放される神写しツリー枝などを紐付ける。
 - **Tsukumogami_Awakening_Master:**
   - `Awaken_Threshold_LogDensity`
   - `Awaken_Required_Kintsugi_MaterialKinds`
@@ -109,6 +112,7 @@
 - 代受苦の処理に `Remnant_Bone` 生成と `Global_Daijuku_Count` 加算を追加。
 - 付喪神覚醒条件と棄物化条件をマスタ化し、シナリオ依存のハードコードを回避。
 - 行者うかみ再加入後〜別天津神撃破までの「うかみ本人のみ離脱不可（常世・黄泉の国・黄泉比良坂）」を `Party_Area_Constraint_Master` と進行フラグで管理する方針を追加。
+- 拠点の神社建立機能に対応するため、`Shrine_Part_Master`・`Shrine_Layout_Data`・`Shrine_Faith_Master` を追加し、御霊と受容力の紐付けを行う。
 
 ## 6. 会話ログ参照（根拠）
 
