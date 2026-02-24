@@ -86,6 +86,12 @@
   - `Kibutsu_Spawn_Weight_By_Area`
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**第4幕の帰還イベント以降（カガセオ戦および別天津神戦）、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
+- **Visual_Prompt_Master（追加）:** 画像生成プロンプトの版管理テーブル。
+  - `PromptSetId`: `TORIYAMA_V2`
+  - `SourcePath`: `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md`
+  - `AnchorId`: `00_STYLE_ANCHOR_TORIYAMA_V2`
+  - `AncientConstraint`: `true`
+  - `SaiyanHairAvoidance`: `true`
 - **Party_Area_Constraint_Master:** キャラ単位の地域拘束ルールを管理。
   - `TargetCharacter`: `UKAMI_GYOJA`
   - `LockFromFlag`: `UKAMI_RETURNED_YOMOTSU`
@@ -143,3 +149,8 @@
   - 進行フラグ（うかみ加入/離脱/帰還、カガセオ試練、別天津神撃破）
   - 雑魚敵系統の拡張に伴う敵行動タグ設計
   - 付喪神の敵味方分岐を支える状態管理項目
+
+## 7. ビジュアルデータ運用メモ（2026-02-24）
+
+- 生成物アセットのメタデータには `PromptSetId` を必須付与し、再生成時の再現性を担保する。
+- `AncientConstraint=true` のアセットは、レビュー時に西洋甲冑/SF意匠の混入チェックを必須にする。

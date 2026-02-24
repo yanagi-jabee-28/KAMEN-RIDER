@@ -27,6 +27,9 @@
 
 全アセット生成時に適用する基本スタイル定義。
 
+> 実制作で使用する最新版プロンプト一式は `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を参照。
+> 本章は「世界観・美術制約の正本」、Promptファイルは「運用テンプレート」として扱う。
+
 ```text
 # 00_STYLE_ANCHOR_ANCIENT_JRPG
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Chrono Trigger), 1990s classic JRPG concept art,
@@ -36,6 +39,11 @@ NO photorealism, NO gritty textures, NO painterly blending, NO complex lighting,
 ```
 
 ## 3. キャラクター・プロンプト定義
+
+### 3.0 運用制約（2026-02-24 追加）
+- **古代コンセプト固定:** 近代衣装・西洋甲冑・SF意匠は採用しない。
+- **髪型シルエット分離:** 主要キャラ間で輪郭が被らないこと。特に「黒い逆立ちサイヤ人型」に収束させない。
+- **画風より役割優先:** 画風は共通化しつつ、役割が読める装備・姿勢・表情を優先する。
 
 ### 主人公「ミコト」【古代アレンジ版】
 - **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。
@@ -72,3 +80,8 @@ details: Jomon-style pottery patterns on the fabric, barefoot.
   - **人のUI（コマンド等）:** 縄文土器の荒々しい粘土の質感。金継ぎのラインで枠が補修されている。
 - **マップ表現:**
   - 世界地図は「ひび割れた陶器」。移動ルートは「金継ぎのライン」として描画される。
+
+## 5. Prompt運用導線（追加）
+
+- ミコト冒険者初期装備（赤スカーフ版）を含む生成実行は `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を使用。
+- 生成結果の採否判定は同ファイル末尾のチェックリスト（古代感・非SF・シルエット・髪型重複・物語整合）に従う。
