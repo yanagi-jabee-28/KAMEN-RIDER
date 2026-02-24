@@ -19,6 +19,7 @@
   - `Intentional_Cost` はプレイヤーが任意に支払う「自傷・耐久過剰消費」コストであり、神の計算を狂わせる「ノイズ」の源泉となる。
 - **神のターゲット計算式 (God_AI_Logic):**
   - 各ターン開始時、現状のステータスに基づき最適解（`Target`）をUI予告する。
+  - **HPコスト型行動:** キャラクターが自身のHPを代償に発動する異能（例: タチバナの「冷たい水圧」）は`Intentional_Cost`の一種と見做され、神は通常のフリクションとは別に`HP_Cost_Attack`として扱う。発動式は `Damage = Base * (1 + HP_Cost_Mult * (MaxHP-CurrentHP))` のように設定できる。
   - **AI_Evolution (学習深度):**
     - **Lv1 (Static):** 現在HP/防御力のみを参照。
     - **Lv2 (Adaptive):** プレイヤーの過去の行動傾向（自傷頻度）を係数に組み込み、安易な自傷ではターゲットがブレない。
@@ -125,6 +126,7 @@
 - `TsukumogamiAwakeThreshold`（付喪神覚醒閾値）
 - `KibutsuSpawnRate`（棄物出現率）
 - `WildInstinctVariance`（荒魂獣の行動揺らぎ幅）
+- `Tachibana_HP_Cost_Mult`（タチバナHP消費倍率）   <!-- 自傷型術の係数 -->
 
 ※ 実数値はプレイテストで更新し、本ファイルを唯一の更新点とする。
 
@@ -142,7 +144,7 @@
 
 ## 6. 会話ログ参照（根拠）
 
-- 参照元: `チャット履歴/gemini-conversation-2026-02-22-21-36-20.md`
+- 参照元: `チャット履歴/gemini-conversation-2026-02-22-21-36-20.md`, `チャット履歴/gemini-conversation-2026-02-24-21-53-06.md`
 - 主要根拠トピック:
   - 摩擦係数を含む耐久減衰式
   - 神写し理解度閾値と共鳴倍率のデータ管理

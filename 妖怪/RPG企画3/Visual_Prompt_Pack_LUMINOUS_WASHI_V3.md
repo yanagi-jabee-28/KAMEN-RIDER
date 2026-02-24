@@ -31,6 +31,8 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 
 ## 2. 主人公「ミコト」冒険者初期装備（赤スカーフ版）
 
+> ※赤いマフラーは漁村アマで村人から贈られ、うかみが無造作に巻いた「英雄の印」。第2幕で形見となる重要小道具として描写する。
+
 ### Prompt for Mikoto (protagonist)
 
 ```markdown
