@@ -151,6 +151,21 @@ Negative Prompt:
 oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
+
+
+### Prompt for Ukami (the ascetic 行者 variant)
+# NANOBANANAPRO_PROMPT_UKAMI_GYOJA_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, fiercely handsome yet fully human facial features, a solemn male ascetic (行者) with tanned skin and regular rounded ears. He is dressed in weathered saffron robes and has prayer beads around his neck, carrying a wooden staff stamped with sacred symbols and topped with a traditional shakujo ringed staff. His pose is meditative but alert, standing amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
+details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
+
+Negative Prompt:
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears
+Params:
+--ar 2:3 --stylize 250 --quality high --seed 44826
 ```
 
 ---
