@@ -151,7 +151,7 @@ style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, be
 details: wind‑tousled dark hair tied back with a cloth band. Toned, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash, not raw hides or bones. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink, evoking a world where tribes travel together, not a hostile primordial jungle.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, "ears must be rounded human" (affirmative restriction)
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 
@@ -161,12 +161,12 @@ Params:
 
 # PROMPT
 Prompt:
-Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exceptionally handsome male ascetic (行者) with a universally appealing heroic aura, tanned skin and regular rounded ears, yet keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck, carrying a wooden staff stamped with sacred symbols and topped with a traditional shakujo ringed staff. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exceptionally handsome male ascetic (行者) with a universally appealing heroic aura, tanned skin and regular rounded ears, yet keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
 details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, "ears must be rounded human" (affirmative restriction)
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 ```
