@@ -161,7 +161,7 @@ Params:
 
 # PROMPT
 Prompt:
-Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exquisitely beautiful 25-year-old young male ascetic (行者). He is exceptionally handsome, clean-shaven, with an elegant yet masculine heroic aura, tanned skin and regular rounded ears, keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exquisitely beautiful 25-year-old young male ascetic (行者). He is exceptionally handsome, clean-shaven, with an elegant yet masculine heroic aura, tanned skin and regular rounded ears, keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff; the top of the staff is a single, large hand-forged iron hoop featuring six smaller, loose metal rings dangling and looping from the main large ring. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
 details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
 
@@ -191,7 +191,7 @@ Params:
 
 # PROMPT
 Prompt:
-Use the uploaded scout image as the base – transform him into a masterpiece featuring a **rugged and heroic middle-aged male ascetic (行者)**. He is exceptionally handsome in a mature way, with a dignified beard and weathered, tanned skin. His expression is stoic and deeply spiritual. He wears layered, weathered saffron robes and heavy prayer beads. He holds a massive, ancient Shakujo (Khakkhara) staff with aged bronze rings that bleed rust into the paper. His build is powerful and imposing, reflecting a life of pilgrimage and physical discipline.
+Use the uploaded scout image as the base – transform him into a masterpiece featuring a **rugged and heroic middle-aged male ascetic (行者)**. He is exceptionally handsome in a mature way, with a dignified beard and weathered, tanned skin. His expression is stoic and deeply spiritual. He wears layered, weathered saffron robes and heavy prayer beads. He holds an ancient **Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings dangling and looping from the main ring.** The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His build is powerful and imposing, reflecting a life of pilgrimage and physical discipline.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
 details: long, flowing dark hair tied back with a frayed rope. The environment is a primordial forest rendered with deep, overlapping washes of green and brown ink.
 
