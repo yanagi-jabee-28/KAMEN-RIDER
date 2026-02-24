@@ -12,52 +12,55 @@
 
 ## 1. ビジュアル・フィロソフィー
 
-本作のアートワークは、鳥山明氏の系譜にある「明瞭なシルエット」と「生命力あふれる描線」を基調としつつ、古代日本の土着的な「泥臭さ」を融合させる。
+本作のアートワークは、「泥絵具・油彩風」と「白磁・幾何学」という全く異なる二つの質感を衝突させ、その間を「金継ぎ」で繋ぐ「ハイブリッド・ディコンストラクション（脱構築）」のアプローチを採用する。鳥山明風の均一な描線やポップな記号性からは完全に脱却し、質感の暴力的なコントラストによってテーマを視覚化する。
 
 - **西洋ファンタジーの禁止:**
   - 革鎧、プレートアーマー、西洋剣、マント、SFガジェットは原則排除する。
   - 代わりに「貫頭衣」「麻布」「縄」「骨」「石」「青銅」「鉄滓」を用いる。
 - **対立構造の視覚化:**
-  - **人（縄文・熱量）:** 非対称（アシンメトリー）、有機的、過剰な装飾、粗い質感、金継ぎの痕跡。泥臭い生命力。
-  - **神（弥生・理）:** 左右対称（シンメトリー）、幾何学的、無機質な白磁や鏡面、冷たい青銅。傷一つない無菌の美しさ。
+  - **人（縄文・熱量）:【泥絵具・油彩風モデリング】** 荒々しいインパスト（厚塗り）、泥を塗りたくったような重厚なテクスチャ。非対称（アシンメトリー）、有機的で粗い質感。主線は均一ではなく、擦れや滲みを伴うアナログな質感。
+  - **神（弥生・理）:【白磁・幾何学ベクターアート】** 筆致やノイズを一切排除した無機質で滑らかな質感。傷ひとつない鏡面反射と冷たい発光。左右対称（シンメトリー）、幾何学的で無菌の美しさ。有機的な揺らぎの一切の排除。
+  - **金継ぎの介入（摩擦と修復）:** 両者の衝突時の被弾エフェクト、拠点（社）の修復時、移動ルートの描写においてのみ、「鋭く発光する黄金（金漆・箔）」を介入させる。泥と白磁の隙間を金漆が縫い合わせる構成。
 - **シルエット重視:**
-  - キャラクターは黒塗りのシルエットでも判別可能な「特異なパーツ（巨大なリボン、ハンマー、注連縄など）」を持つ。
+  - 各キャラクターの「傷・生存・執着」の差異が一目で判別できる特異なシルエット（巨大なリボン、ハンマー、注連縄など）を採用する。
 
 ## 2. スタイルアンカー（AI生成用共通プロンプト）
 
 全アセット生成時に適用する基本スタイル定義。
 
-> 実制作で使用する最新版プロンプト一式は `Visual_Prompt_Pack_TORIYAMA_V2.md` を参照。
+> 実制作で使用する最新版プロンプト一式は `Visual_Prompt_Pack_DECONSTRUCTION_V1.md` を参照。
 > 本章は「世界観・美術制約の正本」、Promptファイルは「運用テンプレート」として扱う。
 
 ```text
-# 00_STYLE_ANCHOR_ANCIENT_JRPG
-masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Chrono Trigger), 1990s classic JRPG concept art,
-bold and confident outlines, clean linework, vibrant colors with sharp cel shading,
-ancient japanese mythology inspired motifs, Jomon and Yayoi period aesthetics, primitive and organic textures,
-NO photorealism, NO gritty textures, NO painterly blending, NO complex lighting, NO sci-fi, NO western medieval armor,
+# 00_STYLE_ANCHOR_HYBRID_DECONSTRUCTION
+masterpiece, best quality, high contrast dual texture art style, deconstructionist fantasy, ancient japanese mythology inspired motifs, Jomon and Yayoi period aesthetics,
+(for human elements): heavy impasto, thick modeling clay texture, rough organic strokes, asymmetrical, desaturated deep earth colors with crimson accents,
+(for divine elements): smooth white porcelain, flawless geometric shapes, mirror-like symmetry, cold metallic reflections, neon blue glow, completely inorganic,
+(for magic/combat effects): glowing kintsugi gold lacquer lines bridging or shattering elements,
+NO toriyama style, NO cel shading, NO 1990s anime style, NO clean outlines for humans, NO sci-fi greebles, NO western medieval armor,
 ```
 
 ## 3. キャラクター・プロンプト定義
 
-### 3.0 運用制約（2026-02-24 追加）
+### 3.0 運用制約（2026-02-24 更新）
 - **古代コンセプト固定:** 近代衣装・西洋甲冑・SF意匠は採用しない。
-- **髪型シルエット分離:** 主要キャラ間で輪郭が被らないこと。特に「黒い逆立ちサイヤ人型」に収束させない。
-- **画風より役割優先:** 画風は共通化しつつ、役割が読める装備・姿勢・表情を優先する。
+- **質感コントラスト厳守:** 人間側は泥・油彩の重さ、神（敵・システムUI）側は白磁の無機質さを徹底する。
+- **画風より役割優先:** ポップな記号記法を捨て、役割と「傷」が重厚な質感とシルエットから読み取れる姿勢・表情を優先する。
 
 ### 主人公「ミコト」【古代アレンジ版】
 - **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。
 ```text
 Prompt:
 Full body character design of the protagonist "Mikoto" in their first adventurer's outfit.
-hairstyle: a perfectly symmetrical, short bob of pure white hair.
+style: heavy impasto painting, thick clay-like textures, rough analog strokes.
+hairstyle: a short bob of pure white hair, textured like thick white paint.
 costume: An ancient Japanese sleeveless "Kantoui" (primitive tunic) made of rough, off-white woven fabric, tied with a thick, coarse rope (shimenawa) around the waist. A LONG, FLOWING SCARF of a BOLD RED color is wrapped around their neck. The clothes show subtle signs of being repaired with glowing gold lacquer (Kintsugi). Asymmetrical arm guards made of crude clay and bone.
 appearance: Their large, expressive eyes show a newfound determination.
 pose: Standing on a cliff with the wind blowing their red scarf, creating a dynamic silhouette.
-environment: A windy cliff overlooking a vast primitive landscape.
+environment: A windy cliff overlooking a vast primitive landscape, painted with heavy, textured earth tones.
 
 Negative Prompt:
-western armor, medieval clothes, modern clothing, uniform, goku hairstyle, black spiky saiyan hair
+anime style, toriyama style, cel shading, clean crisp lines, western armor, medieval clothes, modern clothing, uniform
 Params:
 --ar 2:3 --stylize 350 --quality high --seed 55831
 ```
@@ -67,7 +70,8 @@ Params:
 ```text
 Prompt:
 Full body character design of the female dancer "Uzu".
-hairstyle: High twin-tails tied with ancient cords, messy and energetic.
+style: heavy impasto painting, thick clay-like textures, rough analog strokes.
+hairstyle: High twin-tails tied with ancient cords, messy and energetic, rendered with thick brushstrokes.
 costume: A revealing, asymmetrical ancient dancer's outfit made of colorful hemp layers. A GIANT, FLOATING RIBBON (hagoromo) made of translucent fabric wraps around her, creating a distinct silhouette. She holds a cluster of bronze bells (kagura suzu).
 appearance: Mischievous grin, dynamic pose mid-dance.
 details: Jomon-style pottery patterns on the fabric, barefoot.
@@ -83,5 +87,5 @@ details: Jomon-style pottery patterns on the fabric, barefoot.
 
 ## 5. Prompt運用導線（追加）
 
-- ミコト冒険者初期装備（赤スカーフ版）を含む生成実行は `Visual_Prompt_Pack_TORIYAMA_V2.md` を使用。
-- 生成結果の採否判定は同ファイル末尾のチェックリスト（古代感・非SF・シルエット・髪型重複・物語整合）に従う。
+- ミコト冒険者初期装備（赤スカーフ版）などを含む生成実行は新設の `Visual_Prompt_Pack_DECONSTRUCTION_V1.md` を使用。
+- 生成結果の採否判定は同ファイル末尾のチェックリスト（古代感・非SF・人間側の泥絵具感・神側の白磁幾何学感・シルエット・物語整合）に従う。
