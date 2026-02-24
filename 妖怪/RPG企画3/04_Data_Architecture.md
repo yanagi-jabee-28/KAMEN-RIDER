@@ -70,10 +70,15 @@
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
  - **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
 - **Shrine_Part_Master:** 鳥居・参道・本殿など、各建築パーツのコスト（泥/木材/金漆）、受容力ボーナス、対応属性、敷地占有サイズを定義。
+  - `PartType`: `INPUT` (鳥居), `LINE` (参道), `FILTER` (手水舎), `OUTPUT` (本殿), `OBSTACLE` (岩/水), `BUFFER` (鎮守の森).
+  - `Impedance`: 信号通過時の抵抗値。
 - **Shrine_Layout_Data:** プレイヤーが作成した社の配置情報。パーツIDとグリッド座標のセットを保持し、受容力算出に利用。
+  - `ConnectionGraph`: パーツ間の接続状態を保持するグラフデータ。`Input` から `Output` へのパス到達可否を判定する。
 - **Shrine_Faith_Master:** 祀った御霊ごとの恩恵バフと解放される神写しツリー枝などを紐付ける。
 - **Shrine_Network_Master:** 各社をノードとし、ワープライン（ひび割れに沿った金継ぎ）の接続情報を管理する。線は無条件で開通しており、視覚/音響演出パラメータを保持。
 - **FastTravel_Master:** ファストトラベル固有の演出・UTXデータを定義。社受容力・澱みポイントが次戦闘ボーナスに変換される係数や、キャラクター台詞候補リストを含む。
+  - `Weathering_Threshold`: 仮設ラインが風化するまでの使用回数。
+  - `Reignition_Cost`: 風化したラインを再点火するためのコスト係数。
 - **Tsukumogami_Awakening_Master:**
   - `Awaken_Threshold_LogDensity`
   - `Awaken_Required_Kintsugi_MaterialKinds`
@@ -125,6 +130,8 @@
 - 行者うかみ再加入後〜別天津神撃破までの「うかみ本人のみ離脱不可（常世・黄泉の国・黄泉比良坂）」を `Party_Area_Constraint_Master` と進行フラグで管理する方針を追加。
 - 拠点の神社建立機能に対応するため、`Shrine_Part_Master`・`Shrine_Layout_Data`・`Shrine_Faith_Master` を追加し、御霊と受容力の紐付けを行う。
 - ワープネットワーク対応マスタとして `Shrine_Network_Master` と `FastTravel_Master` を追加し、社間接続と演出データを管理する。  
+- **回路データ:** `Shrine_Part_Master` に `PartType` と `Impedance` を追加し、回路シミュレーションを可能にする。
+- **風化データ:** `FastTravel_Master` に風化閾値と再点火コストを追加。
 
 ## 6. 会話ログ参照（根拠）
 
