@@ -80,6 +80,23 @@ appearance: Mischievous grin, dynamic pose mid-dance.
 details: Jomon-style pottery patterns on the fabric, barefoot.
 ```
 
+### 3.4 スクナ（冷徹な薬学者）
+- **コンセプト:** 外見は小児体型だが、視線と立ち振る舞いはまるで老練な化学者。可愛げを排し、知的な不気味さと狂気の匂いを前面に出す。臨場感のため、通常は薬鉢を引きずるが、別バージョンとして背負って担いでいるスタイルも指定しておく。
+- **表情:** 三白眼、冷徹な侮蔑の視線、ニヒルな笑み。ダークサークルを強調し、睡眠不足と研究疲れを示す。
+- **雰囲気:** 水彩の滲みは毒や薬品を想起させる酸緑や傷紫。背景は危険な実験室の汚れと毒液の飛沫。
+```text
+Prompt:
+masterpiece, highly detailed, a small boy with a sharp, intellectual, and slightly menacing aura.
+style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
+facial features: NOT CUTE, NOT CHERUBIC. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that dissects the viewer. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face. He looks like a weary adult soul trapped in a child's body.
+details: extremely short hair under a rough woven cap. He is dragging a disproportionately MASSIVE, heavy iron mortar and pestle, which is stained with dark, suspicious residues. He wears a heavy leather apron stained with soot and chemical burns.
+atmosphere: The washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
+
+Negative Prompt:
+innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence
+Params:
+--ar 4:5 --stylize 350 --quality high --seed 44899
+```
 ### 3.3 うかみ（野生の斥候／行者）
 - **コンセプト:** 25歳前後の洗練された美青年。普段は俊敏な野生の斥候として行動し、のちに荒野を巡礼する行者へと変貌する二面性を持つ。年齢表記を明示しつつ、中年化バイアスを排除するためクリーンシェーブを徹底。
   * **成熟バリエーション:** 物語の別視点用として、猿田ヒコ的な渋みと威厳を持った40歳前後の「rugged mature」ウカミ版も運用可能。こちらは短い髭と厚い胸板、weathered但気品ある風貌をプロンプトに含める。

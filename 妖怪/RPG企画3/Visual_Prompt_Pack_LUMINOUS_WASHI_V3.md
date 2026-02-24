@@ -124,19 +124,39 @@ Params:
 ```
 
 ```markdown
-### Prompt for Sukuna (the child alchemist)
-# NANOBANANAPRO_PROMPT_SUKUNA_WASHI
+### Prompt for Sukuna (Revised: The Toxic Scholar)
+# NANOBANANAPRO_PROMPT_SUKUNA_WASHI_V2
 
 # PROMPT
 Prompt:
-masterpiece, beautifully detailed with expressive yet natural eyes, a tiny scholar child with a cherubic, universally appealing charm.
-style: rich Japanese mineral pigments on Washi paper, detailed with organic, soft bleeding edges maintaining watercolor warmth.
-details: extremely short hair under a woven cap. Hauling a disproportionately massive mortar and pestle rendered with heavy, granulated watercolor washes. A leather satchel bulging with botanical roots. The surrounding paper is splattered elegantly with vibrant, bleeding drops of alchemical ink (crushed minerals and plant juices).
+masterpiece, highly detailed, a small boy with a sharp, intellectual aura tinged with wry mischief and relentless focus.
+style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
+facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He looks like a weary adult soul trapped in a child's body.
+details: extremely short hair under a rough woven cap. He is dragging a disproportionately MASSIVE, ancient stone mortar or grinding usu, its surface scarred and stained with dark, suspicious residues; the pestle is heavy and worn. He wears a heavy leather apron stained with soot and chemical burns.
+atmosphere: The washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, modern laboratory, glass beakers, completely clean environment
+innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence
 Params:
---ar 4:5 --stylize 250 --quality high --seed 44825
+--ar 4:5 --stylize 350 --quality high --seed 44899
+
+---
+
+### Prompt for Sukuna (Revised: The Toxic Scholar, Backpack Variant)
+# NANOBANANAPRO_PROMPT_SUKUNA_WASHI_V2_BACKPACK
+
+# PROMPT
+Prompt:
+masterpiece, highly detailed, a small boy with a sharp, intellectual aura tinged with wry mischief and relentless focus.
+style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
+facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He looks like a weary adult soul trapped in a child's body.
+details: extremely short hair under a rough woven cap. He carries an enormous ancient stone mortar or grinding usu on his back, secured by heavy ropes or a wooden frame; the mortar is scarred and stained with dark, suspicious residues. The pestle either hangs at his side or is tucked in the frame. He wears a heavy leather apron stained with soot and chemical burns.
+atmosphere: The washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
+
+Negative Prompt:
+innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence
+Params:
+--ar 4:5 --stylize 350 --quality high --seed 44898
 ```
 
 ```markdown
