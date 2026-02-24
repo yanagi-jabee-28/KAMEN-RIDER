@@ -27,7 +27,7 @@
 
 全アセット生成時に適用する基本スタイル定義。
 
-> 実制作で使用する最新版プロンプト一式は `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を参照。
+> 実制作で使用する最新版プロンプト一式は `Visual_Prompt_Pack_TORIYAMA_V2.md` を参照。
 > 本章は「世界観・美術制約の正本」、Promptファイルは「運用テンプレート」として扱う。
 
 ```text
@@ -83,5 +83,5 @@ details: Jomon-style pottery patterns on the fabric, barefoot.
 
 ## 5. Prompt運用導線（追加）
 
-- ミコト冒険者初期装備（赤スカーフ版）を含む生成実行は `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を使用。
+- ミコト冒険者初期装備（赤スカーフ版）を含む生成実行は `Visual_Prompt_Pack_TORIYAMA_V2.md` を使用。
 - 生成結果の採否判定は同ファイル末尾のチェックリスト（古代感・非SF・シルエット・髪型重複・物語整合）に従う。

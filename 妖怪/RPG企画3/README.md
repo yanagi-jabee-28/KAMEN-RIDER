@@ -22,7 +22,7 @@
 	 - 計算式、マスタ項目、バランス調整パラメータを規定する。
 5. **05_Art_and_Visual_Design.md**
 	 - キャラクターデザイン、プロンプト定義、UI/マップの美術様式を規定する。
-6. **Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md**
+6. **Visual_Prompt_Pack_TORIYAMA_V2.md**
 	 - 画像生成の実運用プロンプト（共通アンカー、各キャラクター、品質チェック）を規定する。
 
 ---
@@ -53,10 +53,10 @@
 
 - 反映元: `Prompt` フォルダ向けビジュアル要件（鳥山明風/髪型調整版）
 - 反映内容:
-	- `Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を新設。
+	- `Visual_Prompt_Pack_TORIYAMA_V2.md` を新設。
 	- ミコト赤スカーフ版を含む主要キャラの生成プロンプトを一本化。
 	- 「古代神話ファンタジーを崩さない」「悟空系シルエットへの過剰接近を避ける」運用チェックを明文化。
-- 運用方針: 画像生成は `05_Art_and_Visual_Design.md` の美術仕様を正、`Prompt/Visual_Prompt_Pack_TORIYAMA_V2.md` を実制作テンプレートとして扱う。
+- 運用方針: 画像生成は `05_Art_and_Visual_Design.md` の美術仕様を正、`Visual_Prompt_Pack_TORIYAMA_V2.md` を実制作テンプレートとして扱う。
 
 ## 運用ルール
 
