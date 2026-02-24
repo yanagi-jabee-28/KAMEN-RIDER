@@ -69,7 +69,7 @@
   - `Trauma_Resentment`（棄物）
   - `Pseudo_Perfect_With_Gap`（擬神兵）
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
- - **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
+- **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
 - **Shrine_Part_Master:** 鳥居・参道・本殿など、各建築パーツのコスト（泥/木材/金漆）、受容力ボーナス、対応属性、敷地占有サイズを定義。
   - `PartType`: `INPUT` (鳥居), `LINE` (参道), `FILTER` (手水舎), `OUTPUT` (本殿), `OBSTACLE` (岩/水), `BUFFER` (鎮守の森).
   - `Impedance`: 信号通過時の抵抗値。
@@ -102,7 +102,7 @@
   - `ConstraintMode`: `CHARACTER_ONLY`（パーティ全体ではなく、うかみ本人のみに適用）
 - **Story_Flag_Master:**
   - `UKAMI_JOINED_EARLY`
-  # ヒルコとミコトの船の象徴性は物語上常に意識されるため、該当フラグではないがメタ注釈を設計者文書へ残す。
+  <!-- ヒルコとミコトの船の象徴性は物語上常に意識されるため、該当フラグではないがメタ注釈を設計者文書へ残す。 -->
   - `UKAMI_LEFT_KATSURAGI`
   - `ACT3_SHADOW_INTERVENTION`
   - `UKAMI_RETURNED_YOMOTSU`
