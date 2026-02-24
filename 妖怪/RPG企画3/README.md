@@ -22,8 +22,7 @@
 	 - 計算式、マスタ項目、バランス調整パラメータを規定する。
 5. **05_Art_and_Visual_Design.md**
 	 - キャラクターデザイン、プロンプト定義、UI/マップの美術様式を規定する。
-6. **Visual_Prompt_Pack_DECONSTRUCTION_V1.md**
-	 - 画像生成の実運用プロンプト（共通アンカー、各キャラクター、品質チェック）を規定する。
+6.	- **[NEW] `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md`:** 画像生成AI用プロンプト集（和紙・岩絵具と白磁の対立）。共通アンカー、各キャラクター、品質チェック）を規定する。
 
 ---
 
@@ -52,9 +51,10 @@
 ## 追加反映（### 2026-02-24: アートスタイルの脱構築（Deconstruction）への全面刷新
 - 反映元: `Prompt` フォルダ向けビジュアル要件（泥絵具/白磁/金継ぎ）
 - 変更内容:
-	- `Visual_Prompt_Pack_DECONSTRUCTION_V1.md` を新設。
-	- `05_Art_and_Visual_Design.md` の記述を、鳥山明風から脱構築（質感の暴力的コントラスト）へ完全移行。
-- 運用方針: 画像生成は `05_Art_and_Visual_Design.md` の美術仕様を正、`Visual_Prompt_Pack_DECONSTRUCTION_V1.md` を実制作テンプレートとして扱う。
+	- `Visual_Prompt_Pack_TORIYAMA_V2.md` を廃止・削除。
+	- 新規ファイル `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` を作成し、ホラー感のある泥絵具（V1）から「和紙と水彩・岩絵具の予測不要な滲み」による高コントラスト描写へ完全移行した。
+	- `05_Art_and_Visual_Design.md` の記述を、鳥山明風から水彩の滲みと白磁の静かなコントラスト（和紙・水彩モックアップ化）へ完全移行。
+	- `01_Narrative_Design.md`、`04_Data_Architecture.md` などの古いビジュアル制約（シルエット重視やアニメ回避）を V3 の物理質感重視へと更新。実制作テンプレートとして扱う。
 
 ## 運用ルール
 

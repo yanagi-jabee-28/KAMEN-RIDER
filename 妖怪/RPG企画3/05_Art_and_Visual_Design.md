@@ -12,32 +12,32 @@
 
 ## 1. ビジュアル・フィロソフィー
 
-本作のアートワークは、「泥絵具・油彩風」と「白磁・幾何学」という全く異なる二つの質感を衝突させ、その間を「金継ぎ」で繋ぐ「ハイブリッド・ディコンストラクション（脱構築）」のアプローチを採用する。鳥山明風の均一な描線やポップな記号性からは完全に脱却し、質感の暴力的なコントラストによってテーマを視覚化する。
+本作のアートワークは、「和紙と岩絵具の滲み」と「白磁・幾何学」という全く異なる二つの質感を衝突させ、その間を「金継ぎ」で繋ぐ「ハイブリッド・ディコンストラクション（脱構築）」のアプローチを採用する。鳥山明風の均一な描線やポップな記号性からは完全に脱却し、同時に大衆性を損なうホラー的厚塗りも排し、質感の暴力的なコントラストによってテーマを視覚化する。
 
 - **西洋ファンタジーの禁止:**
   - 革鎧、プレートアーマー、西洋剣、マント、SFガジェットは原則排除する。
   - 代わりに「貫頭衣」「麻布」「縄」「骨」「石」「青銅」「鉄滓」を用いる。
 - **対立構造の視覚化:**
-  - **人（縄文・熱量）:【泥絵具・油彩風モデリング】** 荒々しいインパスト（厚塗り）、泥を塗りたくったような重厚なテクスチャ。非対称（アシンメトリー）、有機的で粗い質感。主線は均一ではなく、擦れや滲みを伴うアナログな質感。
+  - **人（縄文・熱量）:【和紙・水彩・岩絵具の滲み】** キャラクターの造形自体は現代的で万人に愛される美しさを担保する。しかし塗りの質感は、和紙の繊維に吸い込まれるような水彩・岩絵具の予測不要な滲み（Bokashi/Bleeding）に限定する。デジタルに制御しきれない「生者のノイズと温もり」をアナログなマチエールで表現する。
   - **神（弥生・理）:【白磁・幾何学ベクターアート】** 筆致やノイズを一切排除した無機質で滑らかな質感。傷ひとつない鏡面反射と冷たい発光。左右対称（シンメトリー）、幾何学的で無菌の美しさ。有機的な揺らぎの一切の排除。
   - **金継ぎの介入（摩擦と修復）:** 両者の衝突時の被弾エフェクト、拠点（社）の修復時、移動ルートの描写においてのみ、「鋭く発光する黄金（金漆・箔）」を介入させる。泥と白磁の隙間を金漆が縫い合わせる構成。
-- **シルエット重視:**
-  - 各キャラクターの「傷・生存・執着」の差異が一目で判別できる特異なシルエット（巨大なリボン、ハンマー、注連縄など）を採用する。
+- **物理的質感とシルエットの融合:**
+  - 各キャラクターの「傷・生存・執着」の痛切さが、特異なシルエットと、和紙の上で予測不可能に広がる「色彩の滲み」の両面から直感的に伝わる設計とする。
 
 ## 2. スタイルアンカー（AI生成用共通プロンプト）
 
 全アセット生成時に適用する基本スタイル定義。
 
-> 実制作で使用する最新版プロンプト一式は `Visual_Prompt_Pack_DECONSTRUCTION_V1.md` を参照。
+> 実制作で使用する最新版プロンプト一式は `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` を参照。
 > 本章は「世界観・美術制約の正本」、Promptファイルは「運用テンプレート」として扱う。
 
 ```text
-# 00_STYLE_ANCHOR_HYBRID_DECONSTRUCTION
-masterpiece, best quality, high contrast dual texture art style, deconstructionist fantasy, ancient japanese mythology inspired motifs, Jomon and Yayoi period aesthetics,
-(for human elements): heavy impasto, thick modeling clay texture, rough organic strokes, asymmetrical, desaturated deep earth colors with crimson accents,
-(for divine elements): smooth white porcelain, flawless geometric shapes, mirror-like symmetry, cold metallic reflections, neon blue glow, completely inorganic,
-(for magic/combat effects): glowing kintsugi gold lacquer lines bridging or shattering elements,
-NO toriyama style, NO cel shading, NO 1990s anime style, NO clean outlines for humans, NO sci-fi greebles, NO western medieval armor,
+# 00_STYLE_ANCHOR_LUMINOUS_WASHI
+masterpiece, highly detailed, exquisitely beautiful character faces,
+(for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
+(for divine elements): extremely flawless white porcelain sculpture, perfectly smooth ceramic surface, completely inorganic, geometric perfection, modern 3D render feel, zero bleeding, zero texture,
+(for shared/magic elements): glowing raised metallic gold kintsugi lacquer filling cracks and boundaries,
+NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 ```
 
 ## 3. キャラクター・プロンプト定義

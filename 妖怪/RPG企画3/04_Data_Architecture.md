@@ -87,11 +87,12 @@
 - **Sea_Exploration_Master（クリア後）:** 傷跡の海のノード生成ルール、サルベージテーブル、ボスラッシュの遭遇定義、**幻曜の代受苦（Phantom_Daijuku）に必要な泥コスト定義**。
 - **Party_Composition_Master:** 戦闘枠4、控え枠2。**第4幕の帰還イベント以降（カガセオ戦および別天津神戦）、システム制御外の `5th_NPC_Slot` を解放する。**（※第3幕の正体不明の加勢は、システム上のスロットやバフではなく、イベント戦闘専用のスクリプト処理とする）
 - **Visual_Prompt_Master（追加）:** 画像生成プロンプトの版管理テーブル。
-  - `PromptSetId`: `TORIYAMA_V2`
-  - `SourcePath`: `Visual_Prompt_Pack_DECONSTRUCTION_V1.md`
-  - `AnchorId`: `00_STYLE_ANCHOR_TORIYAMA_V2`
+  - `PromptSetId`: `LUMINOUS_WASHI_V3`
+  - `SourcePath`: `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md`
+  - `AnchorId`: `00_STYLE_ANCHOR_LUMINOUS_WASHI`
   - `AncientConstraint`: `true`
-  - `SaiyanHairAvoidance`: `true`
+  - `WatercolorBleedEnforced`: `true`
+  - `AnimeStyleBlocked`: `true`
 - **Party_Area_Constraint_Master:** キャラ単位の地域拘束ルールを管理。
   - `TargetCharacter`: `UKAMI_GYOJA`
   - `LockFromFlag`: `UKAMI_RETURNED_YOMOTSU`
