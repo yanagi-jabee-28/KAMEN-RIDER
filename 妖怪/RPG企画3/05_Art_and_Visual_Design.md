@@ -80,6 +80,35 @@ appearance: Mischievous grin, dynamic pose mid-dance.
 details: Jomon-style pottery patterns on the fabric, barefoot.
 ```
 
+### 3.3 うかみ（野生の斥候／行者）
+- **コンセプト:** 25歳前後の洗練された美青年。普段は俊敏な野生の斥候として行動し、のちに荒野を巡礼する行者へと変貌する二面性を持つ。年齢表記を明示しつつ、中年化バイアスを排除するためクリーンシェーブを徹底。
+  * **成熟バリエーション:** 物語の別視点用として、猿田ヒコ的な渋みと威厳を持った40歳前後の「rugged mature」ウカミ版も運用可能。こちらは短い髭と厚い胸板、weathered但気品ある風貌をプロンプトに含める。
+- **視覚ディテール:** 風に乱れる暗髪、引き締まった筋肉美、丸い人間耳。斥候装備は麻と革の実用的なギア。行者版では色あせた斎衣と祈りの念珠、錆びた錫杖を持つ。
+
+```text
+Prompt:
+masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
+style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
+
+Negative Prompt:
+old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
+Params:
+--ar 2:3 --stylize 250 --quality high --seed 44826
+```
+
+```text
+Prompt:
+Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exquisitely beautiful 25-year-old young male ascetic (行者). He is exceptionally handsome, clean-shaven, with an elegant yet masculine heroic aura, tanned skin and regular rounded ears, keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
+details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
+
+Negative Prompt:
+old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
+Params:
+--ar 2:3 --stylize 250 --quality high --seed 44826
+```
+
 ## 4. UI/マップ・ビジュアル定義
 
 - **UIデザイン:**

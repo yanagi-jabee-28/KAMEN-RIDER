@@ -146,12 +146,12 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, strikingly handsome with a universally appealing heroic aura, sharp defined jawline, piercing yet reliable eyes, fully human facial features, a seasoned, agile male scout with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization rather than a caveman.
+masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair tied back with a cloth band. Toned, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash, not raw hides or bones. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink, evoking a world where tribes travel together, not a hostile primordial jungle.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
+old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 
@@ -161,14 +161,44 @@ Params:
 
 # PROMPT
 Prompt:
-Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exceptionally handsome male ascetic (行者) with a universally appealing heroic aura, tanned skin and regular rounded ears, yet keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exquisitely beautiful 25-year-old young male ascetic (行者). He is exceptionally handsome, clean-shaven, with an elegant yet masculine heroic aura, tanned skin and regular rounded ears, keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
 details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
+old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
+
+---
+
+### Prompt for Ukami (the wild scout - Rugged Mature Variant)
+# NANOBANANAPRO_PROMPT_UKAMI_WASHI_MATURE
+
+# PROMPT
+Prompt:
+masterpiece, strikingly handsome and highly charismatic facial features of a **dignified middle-aged male warrior**, approximately 40 years old. He has a ruggedly attractive face with a well-groomed, short beard and mustache that adds to his mature charm. Piercing, wise eyes that have seen many battles, a sharp aquiline nose, and a strong, defined jawline. A commanding, "Sarutahiko-like" presence that exudes reliability and authority. Fully human facial features with regular rounded ears.
+style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
+details: wind‑tousled dark hair with subtle silver strands, tied back. Broad, muscular build painted with warm, organic watercolor washes. Wearing a combination of woven hemp, thick leather armor pieces, and a faded sash. Standing in a powerful, grounded pose, holding a heavy wooden spear with a broad stone tip. The ancient woodland background is rendered with deep, atmospheric washes of ink.
+
+Negative Prompt:
+boyish, feminine, skinny, immature, weak, oil painting, thick impasto, ugly, horror, flat cel-shading, modern clothes, pointed ears, elven features, animal ears, nudity, exposed torso, "ears must be rounded human"
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 44827
+
+### Prompt for Ukami (the ascetic 行者 variant - Rugged Mature Variant)
+# NANOBANANAPRO_PROMPT_UKAMI_GYOJA_WASHI_MATURE
+
+# PROMPT
+Prompt:
+Use the uploaded scout image as the base – transform him into a masterpiece featuring a **rugged and heroic middle-aged male ascetic (行者)**. He is exceptionally handsome in a mature way, with a dignified beard and weathered, tanned skin. His expression is stoic and deeply spiritual. He wears layered, weathered saffron robes and heavy prayer beads. He holds a massive, ancient Shakujo (Khakkhara) staff with aged bronze rings that bleed rust into the paper. His build is powerful and imposing, reflecting a life of pilgrimage and physical discipline.
+style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
+details: long, flowing dark hair tied back with a frayed rope. The environment is a primordial forest rendered with deep, overlapping washes of green and brown ink.
+
+Negative Prompt:
+youthful, weak, clean-shaven, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, pointed ears, animal ears, "ears must be rounded human"
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 44827
 ```
 
 ---
