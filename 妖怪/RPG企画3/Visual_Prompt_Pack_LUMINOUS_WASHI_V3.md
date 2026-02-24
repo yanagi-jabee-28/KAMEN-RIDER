@@ -7,7 +7,7 @@
 - しかし、単なるフラットなセルルックにはさせない。塗り（マチエール）を **「和紙のテクスチャと、予測不可能な水彩・岩絵具の滲み（Bokashi/Bleeding）」** に限定する。
 - **人間側（生者のノイズ）:** 美しい造形でありながら、色彩が滲み、和紙の繊維に吸い込まれるようなアナログな温もりと「コントロール不能な揺らぎ」を持たせる。
 - **神・天側（無菌の理）:** 滲みの一切ない、工業製品のように滑らかな白磁の彫刻、または完璧な3Dベクターアートの質感を強制する。
-- 両者が接する箇所にのみ、**「金継ぎの黄金の漆」** が立体傷として輝く。
+- 両者が接する箇所にのみ、**淡い金色のライン**が輝く。
 
 > **注意:** 以下のプロンプトブロックはドキュメント用の例示であり、
 > 実際に画像生成AIに入力する際は *コードフェンスや
@@ -23,7 +23,7 @@
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
 (for divine elements): extremely flawless white porcelain sculpture, perfectly smooth ceramic surface, completely inorganic, geometric perfection, modern 3D render feel, zero bleeding, zero texture,
-(for shared/magic elements): glowing raised metallic gold kintsugi lacquer filling cracks and boundaries,
+(for shared/magic elements): subtle glowing metallic accents along boundaries,
 NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 ```
 
@@ -42,7 +42,7 @@ Prompt:
 masterpiece, exquisitely beautiful facial features, an expressive young adventurer character standing on a windy cliff.
 style: traditional Japanese watercolor on textured Washi paper, beautiful chromatic bleeding, translucent mineral pigments.
 details (the figure): pure white short bob hair painted with soft, luminous watercolor bleeds. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist.
-texture contrast: delicate, glowing gold kintsugi lines map across the clothing, contrasting with the soft watercolor washes. The background is a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
+texture contrast: delicate, glowing accents map across the clothing, contrasting with the soft watercolor washes. The background is a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
 oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, western medieval armor, sci-fi
@@ -111,9 +111,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highly attractive, cynical smirking facial features, a male archer with a dual-natured design.
+masterpiece, highly attractive, cynical smirking facial features, a male archer with subtle divine accents.
 style: striking contrast on Washi paper.
-details: medium-length, silver hair painted softly. Asymmetrical tunic: one half is utterly flawless, rendered like smooth vector-art porcelain (divine), while the other half is painted with organic, slightly bleeding watercolors depicting rough hemp cloth (human). A sharp, glowing raised gold kintsugi line completely separates the two styles. He casually holds a massive, asymmetrical mythological Japanese longbow (yumi) painted with loose watercolor strokes.
+details: medium-length, silver hair painted softly. His tunic is primarily rendered with organic, slightly bleeding watercolors depicting rough hemp cloth, with a small patch or shoulder piece of flawless porcelain-like texture suggesting divine interference. Subtle metallic accents trace the edge of this detail without bisecting the outfit. He casually holds a massive, asymmetrical mythological Japanese longbow (yumi) painted with loose watercolor strokes.
 
 Negative Prompt:
 oil painting, thick impasto, ugly, horror, messy all over, completely symmetrical, modern archery gear, western fantasy ranger
@@ -143,12 +143,12 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, fiercely handsome and wild facial features, a highly agile, tanned male scout character.
+masterpiece, fiercely handsome yet fully human facial features, a highly agile, tanned male scout character – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wild, flowing dark hair held by a frayed rope. Deeply tanned, lean, and highly muscular physique painted with warm, organic watercolor washes. Primitive clothing of hide, bone, and rope. Crouching low like a predator with a confident grin, holding a stone-tipped spear. The primordial forest background is created with deep, overlapping washes of green and brown ink.
+details: wild, flowing dark hair held by a frayed rope. Deeply tanned, lean, and highly muscular physique painted with warm, organic watercolor washes. Primitive clothing of hide, bone, and rope. Standing in a ready stance with a confident grin, holding a stone-tipped spear. The primordial forest background is created with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 ```
@@ -184,4 +184,4 @@ Params:
 - **テクスチャコントラスト（コアテーマ）:** 
   - 人間側は、デジタルな「セル塗り」ではなく、「和紙の繊維感」と「水彩・岩絵具の予測不能な滲み（ノイズ）」を帯びているか。
   - 神側は、一切の滲みがない「ツルツルに磨き上げられた無菌の白磁・3DCG感」が出ているか。
-- **因果の金継ぎ:** 滲む塗りと、無機質な金継ぎの「黄金の立体ライン」が高いコントラストを描いているか。
+- **因果のアクセント:** 滲む塗りと、無機質な**黄金のライン**が高いコントラストを描いているか。
