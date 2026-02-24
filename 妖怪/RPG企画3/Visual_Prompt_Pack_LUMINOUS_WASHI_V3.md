@@ -39,7 +39,7 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 
 # PROMPT
 Prompt:
-masterpiece, exquisitely beautiful facial features, an expressive young adventurer character standing on a windy cliff.
+masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
 style: traditional Japanese watercolor on textured Washi paper, beautiful chromatic bleeding, translucent mineral pigments.
 details (the figure): pure white short bob hair painted with soft, luminous watercolor bleeds. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist.
 texture contrast: delicate, glowing accents map across the clothing, contrasting with the soft watercolor washes. The background is a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
@@ -61,7 +61,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, extremely beautiful and mischievous facial features, an energetic female ritual dancer in mid-air.
+masterpiece, extremely beautiful and irresistibly captivating facial features, an energetic female ritual dancer in mid-air.
 style: vibrant Japanese watercolor on textured Washi paper, dynamic splashes of color, beautiful unpredictable bleeding.
 details: high twin-tails painted with sweeping, soft watercolor strokes. Asymmetrical, multi-layered hemp outfit with Jomon motifs. A giant, translucent ribbon (hagoromo) floats around her, the colors bleeding softly into the background. Bronze magatama bells hang loosely.
 mood: ancient high-energy ritual dance. The ruins in the background are suggested with loose, expressive watercolor washes.
@@ -79,7 +79,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, handsome but fiercely rugged facial features, a muscular, one-eyed blacksmith.
+masterpiece, strikingly handsome and highly charismatic facial features, a rugged and fiercely masculine one-eyed blacksmith with an undeniably glamorous aura.
 style: heavy Japanese mineral pigments (Iwa-enogu) on rough Washi paper, strong contrast, somber watercolor bleeding.
 details: short, bristly dark hair bound by cloth. Heavily scarred but dignified single eye. Thick, cracked leather apron and baggy pants rendered with deep, earthy watercolor pigments that bleed slightly at the edges. Leaning on an anvil, holding a blunt warhammer. The forge embers are painted as intense, glowing splashes of red and orange pigment soaking into the paper.
 
@@ -95,7 +95,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, stunningly beautiful with a gentle, even cute innocence in her facial features, a slender female warrior standing on a rocky shore.
+masterpiece, stunningly beautiful with a gentle, even cute innocence in her facial features and a luminous, universally appealing elegance, a slender female warrior standing on a rocky shore.
 style: melancholic Japanese watercolor on Washi paper, cold color palette softened by a hint of warmth, soft translucent washes of deep blues and greens.
 details: long, straight hair clinging to her as if wet, painted with elegant, flowing ink lines. A flowing white robe stained softly at the hem with dark, bleeding earth colors. She holds a driftwood-like primitive spear. The turbulent ocean behind her is depicted with moody, overlapping watercolor bleeds and sea-green washes, but the overall mood hints at fragile beauty rather than fear.
 
@@ -111,7 +111,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highly attractive, cynical smirking facial features, a male archer with subtle divine accents.
+masterpiece, strikingly handsome and highly charismatic facial features, a cynical smirking male archer with subtle divine accents.
 style: striking contrast on Washi paper.
 details: medium-length, silver hair painted softly. His tunic is primarily rendered with organic, slightly bleeding watercolors depicting rough hemp cloth, with a small patch or shoulder piece of flawless porcelain-like texture suggesting divine interference. Subtle metallic accents trace the edge of this detail without bisecting the outfit. He casually holds a massive, asymmetrical mythological Japanese longbow (yumi) painted with loose watercolor strokes.
 
@@ -127,7 +127,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, beautifully detailed with expressive yet natural eyes, a tiny scholar child.
+masterpiece, beautifully detailed with expressive yet natural eyes, a tiny scholar child with a cherubic, universally appealing charm.
 style: rich Japanese mineral pigments on Washi paper, detailed with organic, soft bleeding edges maintaining watercolor warmth.
 details: extremely short hair under a woven cap. Hauling a disproportionately massive mortar and pestle rendered with heavy, granulated watercolor washes. A leather satchel bulging with botanical roots. The surrounding paper is splattered elegantly with vibrant, bleeding drops of alchemical ink (crushed minerals and plant juices).
 
@@ -144,9 +144,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, fiercely handsome yet fully human facial features, a highly agile, tanned male scout character – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits.
+masterpiece, exceptionally handsome with a universally appealing heroic aura, fully human facial features, a seasoned, agile male scout radiating strong masculine charisma – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization rather than a caveman.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wild, flowing dark hair held by a frayed rope. Deeply tanned, lean, and highly muscular physique painted with warm, organic watercolor washes. Primitive clothing of hide, bone, and rope. Standing in a ready stance with a confident grin, holding a stone-tipped spear. The primordial forest background is created with deep, overlapping washes of green and brown ink.
+details: wind‑tousled dark hair tied back with a cloth band. Toned, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash, not raw hides or bones. Standing in a relaxed, alert pose with a friendly, confident grin, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink, evoking a world where tribes travel together, not a hostile primordial jungle.
 
 Negative Prompt:
 oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, "ears must be rounded human" (affirmative restriction)
@@ -159,7 +159,7 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, fiercely handsome yet fully human facial features, a solemn male ascetic (行者) with tanned skin and regular rounded ears. He is dressed in weathered saffron robes and has prayer beads around his neck, carrying a wooden staff stamped with sacred symbols and topped with a traditional shakujo ringed staff. His pose is meditative but alert, standing amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
+Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exceptionally handsome male ascetic (行者) with a universally appealing heroic aura, tanned skin and regular rounded ears, yet keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck, carrying a wooden staff stamped with sacred symbols and topped with a traditional shakujo ringed staff. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
 details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
 
