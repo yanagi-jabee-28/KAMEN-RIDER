@@ -63,7 +63,7 @@ Params:
 Prompt:
 masterpiece, extremely beautiful and irresistibly captivating facial features, an energetic female ritual dancer in mid-air.
 style: vibrant Japanese watercolor on textured Washi paper, dynamic splashes of color, beautiful unpredictable bleeding.
-details: high twin-tails painted with sweeping, soft watercolor strokes. Asymmetrical, multi-layered hemp outfit with Jomon motifs. A giant, translucent ribbon (hagoromo) floats around her, the colors bleeding softly into the background. Bronze magatama bells hang loosely.
+details: high twin-tails painted with sweeping, soft watercolor strokes; the hair is braided in a loose shimenawa‑style rope pattern to suggest ritual purity. Asymmetrical, multi-layered hemp outfit with Jomon motifs. A giant, translucent ribbon (hagoromo) floats around her, the colors bleeding softly into the background. Bronze magatama bells hang loosely.
 mood: ancient high-energy ritual dance. The ruins in the background are suggested with loose, expressive watercolor washes.
 
 Negative Prompt:
