@@ -90,7 +90,7 @@ environment: simple stone ruins on a grassy field under a bright blue sky, iconi
 visualizing a classic "Dancer/Jester" class character from a Dragon Quest game
 
 Negative Prompt:
-sad expression, modern clothing, realistic shading, dark atmosphere, spiky black hair like a saiyan, goku hairstyle, clown outfit, jester hat
+sad expression, modern clothing, realistic shading, dark atmosphere, spiky black hair like a saiyan, goku hairstyle, clown outfit, jester hat, any kind of circus hat, floppy brim, pom‑pom, overtly comedic headwear, mime makeup
 
 Params:
 --ar 2:3 --stylize 350 --quality high --seed 44821
