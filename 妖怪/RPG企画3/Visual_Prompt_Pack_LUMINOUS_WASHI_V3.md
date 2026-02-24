@@ -95,9 +95,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, stunningly beautiful yet haunting facial features, a slender female warrior standing on a rocky shore.
-style: melancholic Japanese watercolor on Washi paper, cold color palette, soft translucent washes of deep blues and greens.
-details: long, straight hair clinging to her as if wet, painted with elegant, flowing ink lines. A flowing white robe stained softly at the hem with dark, bleeding earth colors. She holds a driftwood-like primitive spear. The turbulent ocean behind her is depicted with moody, overlapping watercolor bleeds and sea-green washes.
+masterpiece, stunningly beautiful with a gentle, even cute innocence in her facial features, a slender female warrior standing on a rocky shore.
+style: melancholic Japanese watercolor on Washi paper, cold color palette softened by a hint of warmth, soft translucent washes of deep blues and greens.
+details: long, straight hair clinging to her as if wet, painted with elegant, flowing ink lines. A flowing white robe stained softly at the hem with dark, bleeding earth colors. She holds a driftwood-like primitive spear. The turbulent ocean behind her is depicted with moody, overlapping watercolor bleeds and sea-green washes, but the overall mood hints at fragile beauty rather than fear.
 
 Negative Prompt:
 oil painting, thick impasto, ugly, horror, flat cel-shading, cheerful sunny anime, bright pop colors, dry flawless hair
@@ -127,8 +127,8 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, beautifully detailed and incredibly intense oversized eyes, a tiny scholar child.
-style: rich Japanese mineral pigments on Washi paper, detailed but with organic, soft bleeding edges.
+masterpiece, beautifully detailed with expressive yet natural eyes, a tiny scholar child.
+style: rich Japanese mineral pigments on Washi paper, detailed with organic, soft bleeding edges maintaining watercolor warmth.
 details: extremely short hair under a woven cap. Hauling a disproportionately massive mortar and pestle rendered with heavy, granulated watercolor washes. A leather satchel bulging with botanical roots. The surrounding paper is splattered elegantly with vibrant, bleeding drops of alchemical ink (crushed minerals and plant juices).
 
 Negative Prompt:
@@ -139,6 +139,7 @@ Params:
 
 ```markdown
 ### Prompt for Ukami (the wild scout)
+# NOTE: AI models often associate "scout" with elven/pointed ears due to fantasy bias.  We explicitly enforce round human ears below and include this comment to remind future editors.
 # NANOBANANAPRO_PROMPT_UKAMI_WASHI
 
 # PROMPT
@@ -148,7 +149,7 @@ style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, be
 details: wild, flowing dark hair held by a frayed rope. Deeply tanned, lean, and highly muscular physique painted with warm, organic watercolor washes. Primitive clothing of hide, bone, and rope. Standing in a ready stance with a confident grin, holding a stone-tipped spear. The primordial forest background is created with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 
@@ -163,7 +164,7 @@ style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, be
 details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears
+oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 ```
