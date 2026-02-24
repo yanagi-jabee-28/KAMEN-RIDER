@@ -55,6 +55,7 @@
 
 - **Item_Master:** 武器、防具、金継ぎ素材、消費アイテム。
   - `Remnant_Bone`: 代受苦後の遺骨。元の武器IDと特性を保持。
+  - `Ame_no_Murakumo` (天叢雲剣): スサノオの遺産。過去のプレイで折られてきた `Global_Daijuku_Log_Data` (歴代の死の蓄積) を特殊パラメータとして参照・内包する究極の歴史集積武器。
 - **Item_State_Extension:**
   - `TraumaLogDensity`（履歴密度）
   - `TsukumogamiState`（`Dormant` / `Kibutsu` / `Musubi`）
@@ -62,6 +63,8 @@
   - `AbandonFlag`（遺棄判定）
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
 - **Enemy_Master:** 白化神、澱神、荒魂獣、棄物、擬神兵、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
+  - `Amaterasu_Core_OS`: 戦闘対象ではなく、天岩戸の「システムフリーズ状態」を管理する特殊プロセスとして機能する。
+  - `Tsukuyomi_AntiVirus`: 完全無菌化の執行者。プレイヤーの「食事（回復）」等代謝行動＝穢れを検知した際、特殊なエラー状態（行動キャンセル）へ移行するロジックを持つ。
   - `Kagaseo_Star_God`: 第4幕の試練ボス。無菌の星ではなく、熱と摩擦を放つ「原初の反逆者・最初の熱暴走」であり、金継ぎ（星の砂）の本体。
 - **Enemy_Behavior_Tag:**
   - `Predictive_Fixed`（白化神）

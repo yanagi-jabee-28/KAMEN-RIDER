@@ -244,6 +244,40 @@ Params:
 --ar 2:3 --stylize 400 --quality ultra --seed 99911
 ```
 
+```markdown
+### Prompt for Amaterasu (System Core Freeze)
+# PROMPT_DIVINE_AMATERASU_CORE_OS
+
+# PROMPT
+Prompt:
+masterpiece, an overwhelmingly flawless and utterly symmetrical white porcelain female deity entombed within a sterile geometric system.
+style: extremely clean 3D render feel, perfectly smooth ceramic surface, totally inorganic and static, absolute geometric perfection, zero watercolor bleeding, zero paper texture, zero human warmth.
+details: Dressed in stiff, origami-like porcelain layers that have zero fabric drape. Her eyes are closed, her expression completely frozen and devoid of any emotion or life. She is encased within perfectly radiating concentric rings that look like polished white metal and glass. She represents a frozen operating system, terrifyingly perfect.
+environment: A completely sterile, glaring white void with no shadows, no dirt, and no depth beyond sharp geometry.
+
+Negative Prompt:
+watercolor, ink, washi paper, bleeding, organic lines, human emotion, messy, dirt, mud, shadows, asymmetric, moving, dynamic
+Params:
+--ar 2:3 --stylize 400 --quality ultra --seed 99912
+```
+
+```markdown
+### Prompt for Tsukuyomi (Anti-Virus Executioner)
+# PROMPT_DIVINE_TSUKUYOMI_ANTIVIRUS
+
+# PROMPT
+Prompt:
+masterpiece, a terrifyingly flawless and completely sterile white porcelain male executioner deity composed of sharp, merciless geometric angles.
+style: extremely clean 3D render feel, perfectly smooth ceramic surface, completely inorganic, severe clinical lighting that erases all cast shadows and organic depth, zero watercolor bleeding.
+details: His expression is a perfectly symmetrical, mask-like stare conveying absolute disgust for organic life. He holds a perfectly straight, razor-thin blade of polished white light/metal. He wears pristine, highly structured white ceremonial garments that look like folded ceramic plates.
+environment: A brutally bright, clinically white space without a single speck of dust or shadow. Flat lighting that makes everything look overwhelmingly sterile and two-dimensional despite being 3D.
+
+Negative Prompt:
+watercolor, ink, washi paper, bleeding, organic lines, human warmth, messy, dirt, mud, shadows, asymmetric, soft lighting, texture
+Params:
+--ar 2:3 --stylize 400 --quality ultra --seed 99913
+```
+
 ---
 
 ## 5. 生成チェックリスト（実制作時）
