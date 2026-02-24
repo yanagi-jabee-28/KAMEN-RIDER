@@ -43,11 +43,11 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
 style: traditional Japanese watercolor on textured Washi paper, beautiful chromatic bleeding, translucent mineral pigments.
-details (the figure): pure white short bob hair painted with soft, luminous watercolor bleeds. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist.
+details (the figure): pure white short bob hair painted with soft, luminous watercolor bleeds. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist. He appears as a fragile but beautiful mortal human vessel, not a deity.
 texture contrast: delicate, glowing accents map across the clothing, contrasting with the soft watercolor washes. The background is a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, western medieval armor, sci-fi
+oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
 ```
