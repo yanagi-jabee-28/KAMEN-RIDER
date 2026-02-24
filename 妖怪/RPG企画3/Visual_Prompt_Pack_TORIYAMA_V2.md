@@ -7,6 +7,13 @@
 - 髪型は「悟空系の黒い逆立ちシルエット」を避け、各キャラの役割が一目で分かる個別シルエットを採用する。
 - 画風指定はあくまで「90年代JRPGコンセプトアートの文法」を目標にし、キャラ固有性（シルエット、装備、姿勢）で差別化する。
 
+> **注意:** 以下のプロンプトブロックはドキュメント用の例示であり、
+> 実際に画像生成AIに入力する際は *コードフェンスや
+> "# STYLE_ANCHOR" などのMarkdown記号を含めず*、
+> `Prompt:` から始まる説明文のみをコピーしてください。
+> 余分なテキストが含まれていると、生成画像に文字が
+> 描き込まれる原因になります。
+
 ---
 
 ## 1. STYLE_ANCHOR（共通）
@@ -24,8 +31,12 @@ NO photorealism, NO gritty textures, NO painterly blending, NO complex lighting,
 
 ## 2. 主人公「ミコト」冒険者初期装備（赤スカーフ版）
 
+### Prompt for Mikoto (protagonist)
+
 ```markdown
 # NANOBANANAPRO_PROMPT_MIKOTO_ADVENTURER_RED
+> (For human reference; remove all lines starting with '#' before use)
+
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
 bold and confident outlines, clean linework, vibrant colors with sharp cel shading,
@@ -45,6 +56,8 @@ environment: A windy cliff top overlooking a vast landscape, emphasizing their r
 Negative Prompt:
 vest, complex armor, modern clothing, uniform, weak posture, goku hairstyle, black spiky saiyan hair
 
+> (Don't include this label in your AI input; it's here for documentation.)
+
 Params:
 --ar 2:3 --stylize 350 --quality high --seed 55831
 ```
@@ -54,7 +67,11 @@ Params:
 ## 3. 追加キャラクター（髪型調整版）
 
 ```markdown
+
+### Prompt for Uzu (ritual shrine dancer, avoid jester/clown imagery)
 # NANOBANANAPRO_PROMPT_UZU_TORIYAMA_V2
+> (remove comments and headers before using)
+
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
 bold and confident outlines, clean linework, vibrant colors with sharp cel shading,
@@ -64,23 +81,27 @@ NO photorealism, NO gritty textures, NO painterly blending, NO complex lighting,
 
 # PROMPT
 Prompt:
-Full body character design of "Uzu", a cheerful and energetic female dancer,
-hairstyle: a high, bouncy ponytail tied with a large ribbon, creating a lively silhouette that moves with her,
-costume: a simple, brightly colored dancer's outfit, modified from a shrine maiden's robe, with big round bells, designed for big movements,
+Full body character design of "Uzu", a ritualistic, wild female dancer inspired by ancient shrine ceremonies (not a circus jester),
+hairstyle: a high, flowing ponytail tied with braided hemp cord and a large ribbon reminiscent of kagura stakes, creating a dynamic silhouette that moves with her,
+costume: a layered hemp ensemble with Jomon pottery pattern prints, asymmetrical and torn, accented by a GIANT floating hagoromo-like ribbon; bronze magatama bells (kagura suzu) hang at strategic points, evoking primitive ritual,
 expression: a confident, mischievous smirk, big expressive eyes full of life, classic Toriyama-style face,
 pose: mid-jump in a high-energy dance, arms outstretched, fan in one hand, creating a sense of fun and motion,
 environment: simple stone ruins on a grassy field under a bright blue sky, iconic JRPG setting,
 visualizing a classic "Dancer/Jester" class character from a Dragon Quest game
 
 Negative Prompt:
-sad expression, modern clothing, realistic shading, dark atmosphere, spiky black hair like a saiyan, goku hairstyle
+sad expression, modern clothing, realistic shading, dark atmosphere, spiky black hair like a saiyan, goku hairstyle, clown outfit, jester hat
 
 Params:
 --ar 2:3 --stylize 350 --quality high --seed 44821
 ```
 
 ```markdown
+
+### Prompt for Mahito (one-eyed blacksmith)
 # NANOBANANAPRO_PROMPT_MAHITO_TORIYAMA_V2
+> (remove comments and headers before using)
+
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
 bold and confident outlines, clean linework, vibrant colors with sharp cel shading,
@@ -107,7 +128,11 @@ Params:
 ```
 
 ```markdown
+
+### Prompt for Tachibana (female warrior)
 # NANOBANANAPRO_PROMPT_TACHIBANA_TORIYAMA_V2
+> (remove comments and headers before using)
+
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
 bold and confident outlines, clean linework, vibrant colors with sharp cel shading,
@@ -134,6 +159,8 @@ Params:
 ```
 
 ```markdown
+
+### Prompt for Wakahiko (archetypal archer)
 # NANOBANANAPRO_PROMPT_WAKAHIKO_TORIYAMA_V2
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
@@ -161,6 +188,8 @@ Params:
 ```
 
 ```markdown
+
+### Prompt for Sukuna (child sage)
 # NANOBANANAPRO_PROMPT_SUKUNA_TORIYAMA_V2
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
@@ -188,6 +217,8 @@ Params:
 ```
 
 ```markdown
+
+### Prompt for Ukami (young scout hero)
 # NANOBANANAPRO_PROMPT_UKAMI_SCOUT_TORIYAMA_V2
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
@@ -215,6 +246,8 @@ Params:
 ```
 
 ```markdown
+
+### Prompt for Ukami (ascetic warrior form)
 # NANOBANANAPRO_PROMPT_UKAMI_ASCETIC_TORIYAMA_V2
 # STYLE_ANCHOR
 masterpiece, best quality, in the style of Akira Toriyama (Dragon Quest, Dragon Ball), 1990s classic JRPG concept art,
