@@ -7,7 +7,7 @@
 - しかし、単なるフラットなセルルックにはさせない。塗り（マチエール）を **「和紙のテクスチャと、予測不可能な水彩・岩絵具の滲み（Bokashi/Bleeding）」** に限定する。
 - **人間側（生者のノイズ）:** 美しい造形でありながら、色彩が滲み、和紙の繊維に吸い込まれるようなアナログな温もりと「コントロール不能な揺らぎ」を持たせる。
 - **神・天側（無菌の理）:** 滲みの一切ない、工業製品のように滑らかな白磁の彫刻、または完璧な3Dベクターアートの質感を強制する。
-- 両者が接する箇所にのみ、**淡い金色のライン**が輝く。
+- 両者が接する箇所にのみ、**淡い金色のライン（砕かれた星・カガセオの光＝金継ぎ）**が輝く。
 
 > **注意:** 以下のプロンプトブロックはドキュメント用の例示であり、
 > 実際に画像生成AIに入力する際は *コードフェンスや
@@ -23,7 +23,7 @@
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
 (for divine elements): extremely flawless white porcelain sculpture, perfectly smooth ceramic surface, completely inorganic, geometric perfection, modern 3D render feel, zero bleeding, zero texture,
-(for shared/magic elements): subtle glowing metallic accents along boundaries,
+(for shared/magic elements): subtle glowing metallic gold kintsugi accents along boundaries (representing shattered stardust),
 NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 ```
 

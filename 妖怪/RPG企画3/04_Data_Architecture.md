@@ -62,13 +62,14 @@
   - `AbandonFlag`（遺棄判定）
 - **Skill_Master:** キャラ固有スキル、神写し対象可否、理解度閾値、共鳴タグ。
 - **Enemy_Master:** 白化神、澱神、荒魂獣、棄物、擬神兵、裁定者（タケミカヅチ等）、別天津神。**クリア後用の記憶残滓（ボスラッシュ用高ステータス・バグ行動版）を含む。**
+  - `Kagaseo_Star_God`: 第4幕の試練ボス。無菌の星ではなく、熱と摩擦を放つ「原初の反逆者・最初の熱暴走」であり、金継ぎ（星の砂）の本体。
 - **Enemy_Behavior_Tag:**
   - `Predictive_Fixed`（白化神）
   - `Predictive_Broken`（澱神）
   - `Predictive_Fluctuating`（荒魂獣）
   - `Trauma_Resentment`（棄物）
   - `Pseudo_Perfect_With_Gap`（擬神兵）
-- **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。
+- **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。**素材となる「星砂の白漆」などは、地に堕ちたカガセオの破片として定義されている。**
 - **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
 - **Shrine_Part_Master:** 鳥居・参道・本殿など、各建築パーツのコスト（泥/木材/金漆）、受容力ボーナス、対応属性、敷地占有サイズを定義。
   - `PartType`: `INPUT` (鳥居), `LINE` (参道), `FILTER` (手水舎), `OUTPUT` (本殿), `OBSTACLE` (岩/水), `BUFFER` (鎮守の森).
@@ -104,7 +105,7 @@
   - `UKAMI_JOINED_EARLY`
   <!-- ヒルコとミコトの船の象徴性は物語上常に意識されるため、該当フラグではないがメタ注釈を設計者文書へ残す。 -->
   - `UKAMI_LEFT_KATSURAGI`
-  - `ACT3_SHADOW_INTERVENTION`
+  - `ACT3_KAGASEO_RESONANCE`  <!-- 元 ACT3_SHADOW_INTERVENTION。カガセオの星の瞬きによる一度きりの加勢 -->
   - `UKAMI_RETURNED_YOMOTSU`
   - `UKAMI_AREA_LOCK_ACTIVE`
   - `KAGASEO_TRIAL_CLEARED`
