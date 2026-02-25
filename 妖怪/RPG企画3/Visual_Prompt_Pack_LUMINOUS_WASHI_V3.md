@@ -263,6 +263,7 @@ Params:
 
 ```markdown
 ### Prompt for Tsukuyomi (Anti-Virus Executioner)
+> ＊中盤の偽終幕を飾るため、プレイヤーに“勝利の白化”を感じさせつつ、その異質さが後半への不穏な伏線となるような冷徹な表現を目指す。無菌の美と憎悪を顔面に凝縮させる。
 # PROMPT_DIVINE_TSUKUYOMI_ANTIVIRUS
 
 # PROMPT
