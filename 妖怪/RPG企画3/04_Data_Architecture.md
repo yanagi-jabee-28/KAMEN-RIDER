@@ -81,10 +81,11 @@
 - **Shrine_Layout_Data:** プレイヤーが作成した社の配置情報。パーツIDとグリッド座標のセットを保持し、受容力算出に利用。
   - `ConnectionGraph`: パーツ間の接続状態を保持するグラフデータ。`Input` から `Output` へのパス到達可否を判定する。
 - **Shrine_Faith_Master:** 祀った御霊ごとの恩恵バフと解放される神写しツリー枝などを紐付ける。
-- **Shrine_Network_Master:** 各社をノードとし、ワープライン（ひび割れに沿った金継ぎ）の接続情報を管理する。線は無条件で開通しており、視覚/音響演出パラメータを保持。
+- **Shrine_Network_Master:** 祠や社など**祈りの場として設置された地点のみをノード**とし、ワープライン（ひび割れに沿った金継ぎ）の接続情報を管理する。ノード間の線は常に開通しており、視覚/音響演出パラメータを保持。
 - **FastTravel_Master:** ファストトラベル固有の演出・UTXデータを定義。社受容力・澱みポイントが次戦闘ボーナスに変換される係数や、キャラクター台詞候補リストを含む。
-  - `Weathering_Threshold`: 仮設ラインが風化するまでの使用回数。
-  - `Reignition_Cost`: 風化したラインを再点火するためのコスト係数。
+  - `Weathering_Threshold`: **(Deprecated)** 仮設ラインが風化するまでの使用回数。現在はワープラインが恒久化される仕様に変更されたため使用されない。
+  - `Reignition_Cost`: **(Deprecated)** 風化したラインを再点火するためのコスト係数。現在の仕様では関連項目は不要。
+
 - **Tsukumogami_Awakening_Master:**
   - `Awaken_Threshold_LogDensity`
   - `Awaken_Required_Kintsugi_MaterialKinds`
@@ -154,7 +155,7 @@
 - 拠点の神社建立機能に対応するため、`Shrine_Part_Master`・`Shrine_Layout_Data`・`Shrine_Faith_Master` を追加し、御霊と受容力の紐付けを行う。
 - ワープネットワーク対応マスタとして `Shrine_Network_Master` と `FastTravel_Master` を追加し、社間接続と演出データを管理する。  
 - **回路データ:** `Shrine_Part_Master` に `PartType` と `Impedance` を追加し、回路シミュレーションを可能にする。
-- **風化データ:** `FastTravel_Master` に風化閾値と再点火コストを追加。
+- **風化データ:** （廃止）当初は仮設ラインの風化を管理していたが、永続的な祈り場方式へ変更されたため本項は不要。
 
 ## 6. 会話ログ参照（根拠）
 

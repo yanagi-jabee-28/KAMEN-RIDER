@@ -57,6 +57,9 @@ Params:
 ## 3. 追加キャラクター（和紙・岩絵具仕様）
 
 ```markdown
+## キャラクタービジュアル注意
+- **うかみ（行者）**: 本編の正史で使用するのは猿田彦的に渋みと威厳のある中年・壮年版である。若々しい25歳前後の青年版はサイドストーリーやクリア後のIF用として別途管理する。
+
 ### Prompt for Uzu (ritual shrine dancer)
 # NANOBANANAPRO_PROMPT_UZU_WASHI
 > (remove comments and headers before using)
@@ -110,6 +113,22 @@ Params:
 ```markdown
 ### Prompt for Wakahiko (the cynical archer)
 # NANOBANANAPRO_PROMPT_WAKAHIKO_WASHI
+
+```markdown
+### Prompt for Ukami (mature guide)
+# NANOBANANAPRO_PROMPT_UKAMI_MATURE_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, ruggedly handsome mature male guide in his early forties, exuding the gravitas of a wandering sage. His build is solid and weathered; he wears tattered saffron robes and carries an oxidized bronze shakujo (khakkhara) staff, the rings of which emit a faint metallic chime. His face is lined with age and battle scars, his short hair peppered with grey, and a short trimmed beard adds to his venerable presence. His posture is grounded, feet planted in mud, and his eyes hold a fierce determination tempered by deep patience.
+style: traditional Japanese watercolor on textured Washi paper, warm earthy pigment bleeding with controlled drips.
+details: a faded rope (shimenawa) draped over one shoulder, mud splatters on his sleeves, and subtle golden kintsugi patterns running along the staff. Background hints at a misty field with distant mountains.
+
+Negative Prompt:
+oil painting, thick impasto, ugly, horror, flat cel-shading, youthful, clean modern clothing, western armor, sci-fi props
+Params:
+--ar 2:3 --stylize 250 --quality high --seed 77891
+```
 
 # PROMPT
 Prompt:
