@@ -32,7 +32,7 @@
     - **Lv2.5 (Psychological):** 同じパターンの「自傷」や「摩擦行動」が繰り返された場合、`Pattern_Penalty` を付与し、その行動を無効化またはカウンターする（メタ合理の排除）。
     - **Lv3 (Absolute - 別天津神):** 高い `Noise_Resistance` を持ち、通常の `Intentional_Cost` を無効化する。これを突破するには `Autonomous_Noise`（うかみの自律行動）や `SoulIdea`（武器破壊級の熱量）が必要となる。
   - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
-  - **Ukami_AI_Constraint:** うかみの自律行動は、ミコトが「うかみの技」を選択し、かつ一定以上の「Intentional_Cost（代受苦や自傷）」を払ったターンを検知して確定発動する。行動順を無視した割り込み（代受身）により、ミコトの自傷リスクを肩代わりしつつ神の予測を粉砕する。
+  - **Ukami_AI_Constraint:** フラグベースの単純仕様。プレイヤーが自傷や代受苦を開始するフレームを検出した時点で**無条件に介入しダメージを肩代わり**する。成功率は100%で、行動順も選択も無視する。該当フラグ `Ukami.AutoIntercept` が有効である限り、追加判定は存在しない.
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus` (Critical_HP: x2.0, Disadvantage: x1.5)
   - `Understand >= Threshold` でミコトが当該特技を習得。
