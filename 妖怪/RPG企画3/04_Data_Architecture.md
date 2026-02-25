@@ -106,6 +106,8 @@
   - `LockedAreas`: `TOKOYO`, `YOMI_NO_KUNI`, `YOMOTSU_HIRASAKA`
   - `ConstraintMode`: `CHARACTER_ONLY`（パーティ全体ではなく、うかみ本人のみに適用）
 - **Story_Flag_Master:**
+  <!-- フラグは物語進行の時系列を制御する。特に「うかみ離脱→ツクヨミ塔戦（偽終幕）→ヒルコ遭遇→黄泉比良坂帰還」といったジェットコースター構造を
+       ゲーム内トリガーで再現するために用いられる。 -->
   - `UKAMI_JOINED_EARLY`
   <!-- ヒルコとミコトの船の象徴性は物語上常に意識されるため、該当フラグではないがメタ注釈を設計者文書へ残す。 -->
   - `UKAMI_LEFT_KATSURAGI`
