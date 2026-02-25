@@ -114,6 +114,9 @@
   - `UKAMI_AREA_LOCK_ACTIVE`
   - `KAGASEO_TRIAL_CLEARED`
   - `ETERNITY_REJECTED_DEATH_IMPLEMENTED` <!-- 元 KOTOAMATSUKAMI_DEFEATED。別天津神を破り、ただの人間としての死（寿命バグ）を受け入れた証明 -->
+  - `TSUKUYOMI_FAKE_LASBOSS` <!-- ツクヨミ戦が偽ラスボスとして祝祭が発生したフラグ -->
+  - `TSUKUYOMI_TOWER_DEPLOYED` <!-- 白磁塔が建造され浄化プロトコルが起動された -->
+  - `TSUKUYOMI_CELEBRATION_CONDUCTED` <!-- 偽終幕の祝祭が行われた -->
 
 ## 3. 数値調整の責務分離
 
@@ -135,7 +138,11 @@
 
 ※ 実数値はプレイテストで更新し、本ファイルを唯一の更新点とする。
 
-## 5. 新規採用メモ（2026-02-23）
+## 5. 新規採用メモ（2026-02-23 → 02-25更新）
+
+- ツクヨミ戦の構造について、白磁塔＝地下ヒルコ浄化の楔という二段構成のジェットコースター型演出を導入。これに伴い、`TSUKUYOMI_TOWER_DEPLOYED` 等のストーリーフラグとイベントが追加される。
+- ツクヨミ撃破後の「偽終幕祝祭」「天岩戸凍結」イベントを `TSUKUYOMI_FAKE_LASBOSS` / `TSUKUYOMI_CELEBRATION_CONDUCTED` フラグで切り替え、プレイヤー心理をリセットさせる設計。
+
 
 - 敵データは5系統（白化神/澱神/荒魂獣/棄物/擬神兵）を基本軸として管理。
 - 武具データへ `TsukumogamiState` と履歴密度を追加し、敵化/味方化分岐をデータ上で担保。

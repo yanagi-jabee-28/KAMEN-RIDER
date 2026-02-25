@@ -148,6 +148,43 @@ Params:
 # PROMPT
 Prompt:
 masterpiece, highly detailed, a small boy with a sharp, intellectual aura tinged with wry mischief and relentless focus.
+
+---
+
+## 4. 環境 / ステージ用プロンプト
+
+### Prompt for White Porcelain Tower (ツクヨミの白磁塔)
+
+```markdown
+# NANOBANANAPRO_PROMPT_WHITE_TOWER_WASHI
+> (remove comments and headers before using)
+
+# PROMPT
+Prompt:
+masterpiece, breathtaking architectural scene of a towering white porcelain structure reaching into the clouds.  the tower is perfectly smooth, flawless, and geometric, with no visible seams or texture, giving it the feel of a divine cathedral.  the base of the tower is embedded into a cracked, mud-rich earth that bleeds golden kintsugi lines down its sides, hinting at a hidden connection to something beneath.  the sky around it is overcast with flat, sterile light that eliminates shadows, evoking an uneasy, surgical cleanliness.  faint cracks reveal glimpses of dripping golden lacquer (star-sand) and the diffuse glow suggests an internal vertical chasm leading downward.
+style: traditional Japanese watercolor on textured Washi paper for the ground and mud elements, bleeding earth tones; the tower itself rendered as flawless white porcelain with zero bleeding, zero texture, almost like a modern 3D render.  subtle metallic gold accents highlight the kintsugi seams.
+
+Negative Prompt:
+oil painting, thick impasto, horror, flat cel-shading, western cathedral, sci-fi cityscape, moss, vines, ancient ruins, rustic wood
+Params:
+--ar 9:16 --stylize 250 --quality high --seed 12345
+``` 
+
+### Prompt for Muddy Underground Chasm (ヤマト地下迷宮の楔部分)
+
+```markdown
+# NANOBANANAPRO_PROMPT_UNDERGROUND_CHASM_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, claustrophobic subterranean cave filled with dark mud and fetid water, the walls studded with giant glowing kintsugi veins that pulse like arteries.  at the center, a massive white porcelain wedge pierces the earth downward, its surface slick and unblemished, contrasting violently with the viscous brown surroundings.  pools of reflective, oily water show distorted reflections of the porcelain above, giving a sense of vertical drop.
+style: traditional Japanese watercolor on Washi paper for the mud and organic textures, bleeding deep browns and greens.  the porcelain wedge is rendered with hyperreal geometric perfection, zero bleeding.  the glowing veins use golden metallic pigment bleeds.
+
+Negative Prompt:
+oil painting, thick impasto, medieval dungeon, clean stone, fantasy torchlight, colorful crystals, lush vegetation
+Params:
+--ar 16:9 --stylize 250 --quality high --seed 54321
+```
 style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
 facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He looks like a weary adult soul trapped in a child's body.
 details: extremely short hair under a rough woven cap. He carries an enormous ancient stone mortar or grinding usu on his back, secured by heavy ropes or a wooden frame; the mortar is scarred and stained with dark, suspicious residues. The pestle either hangs at his side or is tucked in the frame. He wears a heavy leather apron stained with soot and chemical burns.
