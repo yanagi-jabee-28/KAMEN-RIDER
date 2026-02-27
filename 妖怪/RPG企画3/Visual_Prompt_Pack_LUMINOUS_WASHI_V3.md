@@ -115,7 +115,6 @@ Params:
 ### Prompt for Wakahiko (the cynical archer)
 # NANOBANANAPRO_PROMPT_WAKAHIKO_WASHI
 
-```markdown
 ### Prompt for Ukami (mature guide)
 # NANOBANANAPRO_PROMPT_UKAMI_MATURE_WASHI
 
@@ -131,6 +130,7 @@ Params:
 --ar 2:3 --stylize 250 --quality high --seed 77891
 ```
 
+```markdown
 # PROMPT
 Prompt:
 masterpiece, strikingly handsome and highly charismatic facial features, a cynical smirking male archer with subtle divine accents.
