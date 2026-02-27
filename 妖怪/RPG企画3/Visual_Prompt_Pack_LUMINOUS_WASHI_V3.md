@@ -144,9 +144,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highly detailed, a small boy with a sharp, intellectual aura tinged with wry mischief and relentless focus.
+masterpiece, highly detailed, a diminutive alchemist (think Sukunabikona) with a sharp, intellectual aura tinged with wry mischief and relentless focus.
 style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
-facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He looks like a weary adult soul trapped in a child's body.
+facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He has the look of a weary adult soul in a diminutive form.
 details: extremely short hair under a rough woven cap. He is dragging a disproportionately MASSIVE, ancient stone mortar or grinding usu along the ground, pulling it by a thick rope looped over one shoulder; the mortar leaves a smear of dark residue in its wake. The stone is scarred and stained with suspicious residues; the pestle is heavy and worn. He wears a heavy leather apron stained with soot and chemical burns.
 atmosphere: The washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
 
@@ -164,9 +164,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highly detailed, a small boy with a sharp, intellectual aura tinged with wry mischief and relentless focus.
+masterpiece, highly detailed, a diminutive alchemist (think Sukunabikona) with a sharp, intellectual aura tinged with wry mischief and relentless focus.
 style: traditional Japanese watercolor on textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
-facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He looks like a weary adult soul trapped in a child's body.
+facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He has the look of a weary adult soul in a diminutive form.
 details: extremely short hair under a rough woven cap. He carries an enormous ancient stone mortar or grinding usu on his back, secured by heavy ropes or a wooden frame; the mortar is scarred and stained with dark, suspicious residues. The pestle either hangs at his side or is tucked in the frame. He wears a heavy leather apron stained with soot and chemical burns.
 atmosphere: The washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
 
