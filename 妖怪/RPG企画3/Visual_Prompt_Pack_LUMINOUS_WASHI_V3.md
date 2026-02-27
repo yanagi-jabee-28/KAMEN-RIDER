@@ -11,7 +11,7 @@
 * **神・天側（無菌の理）:** 和紙の繊維を拒絶する、滲みの一切ない、工業製品のように滑らかで硬質な白磁の質感、または完璧な3Dベクターアートのような非有機的な存在感を強制する。
 
 
-* 両者が接する箇所にのみ、**淡い金色のライン（砕かれた星・カガセオの光＝金継ぎ）**が輝き、異質な質感を繋ぎ止める。
+* 両者の質感コントラストは、素材そのもの（滲みと無機質）で表現し、この段階では装飾的な金継ぎラインは使用しない。
 
 > **注意:** 以下のプロンプトブロックはドキュメント用の例示であり、
 > 実際に画像生成AIに入力する際は *コードフェンスや
@@ -27,7 +27,7 @@
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
 (for divine elements): extremely flawless white porcelain sculpture, perfectly smooth ceramic surface, completely inorganic, geometric perfection, modern 3D render feel, zero bleeding, zero texture,
-(for shared/magic elements): subtle glowing metallic gold kintsugi accents along boundaries (representing shattered stardust),
+(for shared/magic elements): keep effects minimal and non-metallic at this stage, prioritizing material contrast over decorative accents,
 NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 
 
@@ -47,7 +47,7 @@ Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
 style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
 details (the figure): pure white short bob hair painted with soft, translucent watercolor washes, appearing airy rather than solid. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist. He appears as a fragile but beautiful mortal human vessel, not a deity.
-texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. subtle, reflective gold dust or kintsugi particles are integrated into the clothing patterns, contrasting with the soft watercolor washes.
+texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte, with no metallic decorative particles.
 background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
@@ -131,7 +131,7 @@ Params:
 Prompt:
 masterpiece, strikingly handsome and highly charismatic facial features, a cynical smirking male archer with subtle divine accents.
 style: striking contrast on Washi paper.
-details: medium-length, silver hair painted softly with watercolor washes. His tunic is primarily rendered with organic, slightly bleeding watercolors depicting rough hemp cloth, contrasting with a small patch or shoulder piece of flawless, smooth porcelain-like texture, standing in stark contrast to the surrounding Washi texture. Subtle metallic accents trace the edge of this divine detail. He is casually gripping only ONE single, massive, asymmetrical mythological Japanese longbow (yumi) in his left hand, painted with loose watercolor strokes. The character's skin is rendered with natural watercolor washes.
+details: medium-length, silver hair painted softly with watercolor washes. His tunic is rendered with organic, slightly bleeding watercolors depicting rough hemp cloth and layered, practical fabric folds, with no armor-like shoulder parts and no metallic seams. He is casually gripping only ONE single, massive, asymmetrical mythological Japanese longbow (yumi) in his left hand, painted with loose watercolor strokes. The character's skin is rendered with natural watercolor washes.
 
 Negative Prompt:
 oil painting, thick impasto, ugly, horror, messy all over, completely symmetrical, modern archery gear, western fantasy ranger, multiple bows, two bows, porcelain skin all over, smooth all over
