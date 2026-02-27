@@ -92,10 +92,10 @@ Params:
 Prompt:
 masterpiece, strikingly handsome and highly charismatic facial features, a rugged and fiercely masculine one-eyed blacksmith with an undeniably glamorous aura.
 style: heavy Japanese mineral pigments (Iwa-enogu) on rough Washi paper, strong contrast, somber watercolor bleeding.
-details: short, bristly dark hair bound by cloth. Heavily scarred but dignified single eye. Thick, cracked leather apron and baggy pants rendered with deep, earthy watercolor pigments that bleed slightly at the edges. Leaning on an anvil, holding a blunt warhammer. The forge embers are painted as intense, glowing splashes of red and orange pigment soaking into the paper.
+details: short, bristly dark hair bound by cloth. Heavily scarred but dignified single eye. Thick, cracked leather apron and baggy pants rendered with deep, earthy watercolor pigments that bleed slightly at the edges. He is resting his left hand heavily on a large, realistic iron anvil, while his right hand grips a single, short-handled heavy iron forging hammer. The background is a strictly utilitarian, dark traditional forge consisting ONLY of soot-stained walls and a brick furnace, completely devoid of any statues or ornaments. The forge embers are painted as intense, glowing splashes of red and orange pigment soaking into the paper.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, skinny anime boy, perfect flawless skin, modern sci-fi forge
+oil painting, thick impasto, ugly, horror, flat cel-shading, skinny anime boy, perfect flawless skin, modern sci-fi forge, crutches, walking stick, statues, porcelain figures
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44822
 
@@ -128,10 +128,10 @@ Params:
 Prompt:
 masterpiece, strikingly handsome and highly charismatic facial features, a cynical smirking male archer with subtle divine accents.
 style: striking contrast on Washi paper.
-details: medium-length, silver hair painted softly. His tunic is primarily rendered with organic, slightly bleeding watercolors depicting rough hemp cloth, with a small patch or shoulder piece of flawless porcelain-like texture suggesting divine interference. Subtle metallic accents trace the edge of this detail without bisecting the outfit. He casually holds a massive, asymmetrical mythological Japanese longbow (yumi) painted with loose watercolor strokes.
+details: medium-length, silver hair painted softly. His tunic is primarily rendered with organic, slightly bleeding watercolors depicting rough hemp cloth, with a small patch or shoulder piece of flawless porcelain-like texture suggesting divine interference. Subtle metallic accents trace the edge of this detail without bisecting the outfit. He is casually gripping only ONE single, massive, asymmetrical mythological Japanese longbow (yumi) in his left hand, painted with loose watercolor strokes.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, messy all over, completely symmetrical, modern archery gear, western fantasy ranger
+oil painting, thick impasto, ugly, horror, messy all over, completely symmetrical, modern archery gear, western fantasy ranger, multiple bows, two bows
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44824
 
