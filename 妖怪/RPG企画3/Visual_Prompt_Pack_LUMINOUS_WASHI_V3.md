@@ -36,10 +36,11 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 
 ### Prompt for Mikoto (protagonist)
 
-```markdown
+
 # NANOBANANAPRO_PROMPT_MIKOTO_WASHI
 > (remove comments and headers before using)
 
+```markdown
 # PROMPT
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
@@ -57,7 +58,7 @@ Params:
 
 ## 3. 追加キャラクター（和紙・岩絵具仕様）
 
-```markdown
+
 ## キャラクタービジュアル注意
 - **うかみ（行者）**: 本編の正史で使用するのは猿田彦的に渋みと威厳のある中年・壮年版である。若々しい25歳前後の青年版はサイドストーリーやクリア後のIF用として別途管理する。**これ以降、デザイン資料や運用テンプレートでは必ず「渋イケオジ」40歳前後のルックを採用し、若年フェイスの生成は禁止する。**
 
@@ -65,6 +66,7 @@ Params:
 # NANOBANANAPRO_PROMPT_UZU_WASHI
 > (remove comments and headers before using)
 
+```markdown
 # PROMPT
 Prompt:
 masterpiece, extremely beautiful facial features with an irresistibly cute, bright smile that still reads as elegant and captivating; an energetic female ritual dancer in mid-air.
@@ -78,11 +80,11 @@ Params:
 --ar 2:3 --stylize 250 --quality high --seed 44821
 ```
 
-```markdown
 ### Prompt for Mahito (one-eyed blacksmith)
 # NANOBANANAPRO_PROMPT_MAHITO_WASHI
 > (remove comments and headers before using)
 
+```markdown
 # PROMPT
 Prompt:
 masterpiece, strikingly handsome and highly charismatic facial features, a rugged and fiercely masculine one-eyed blacksmith with an undeniably glamorous aura.
@@ -95,10 +97,10 @@ Params:
 --ar 3:4 --stylize 250 --quality high --seed 44822
 ```
 
-```markdown
 ### Prompt for Tachibana (the sacrificed warrior)
 # NANOBANANAPRO_PROMPT_TACHIBANA_WASHI
 
+```markdown
 # PROMPT
 Prompt:
 masterpiece, stunningly beautiful with a gentle, even cute innocence in her facial features and a luminous, universally appealing elegance, a slender female warrior standing on a rocky shore.
