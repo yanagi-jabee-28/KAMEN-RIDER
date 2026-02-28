@@ -6,12 +6,12 @@
 * **ロール対応:** キャラデザインは画面上の配置だけでなく、それぞれのRPGロール（リレイヤー、ヴァンガード・ガイド、トリックスターなど）を視覚的に伝えることにも配慮する。
 * キャラクターの造形（顔立ち、プロポーション）は、現代のメインストリームが好む「最高に美しく/魅力的」な造形を許容する。
 * しかし、単なるフラットなセルルックにはさせない。塗り（マチエール）を **「和紙のテクスチャと、予測不可能な水彩・岩絵具の滲み（Bokashi/Bleeding）」** に限定する。
-* **世界観の統一とテクスチャの棲み分け（根本的修正）**: 全てのビジュアルは「和紙」という媒体の上に描かれる。
-* **人間側（生者のノイズ）:** 和紙の繊維に色彩が滲み、吸い込まれるようなアナログな温もりと「コントロール不能な揺らぎ」を持たせる。陶器のような滑らかさは一切排除し、紙の質感を強調する。
-* **神・天側（無菌の理）:** 和紙の繊維を拒絶する、滲みの一切ない、工業製品のように滑らかで硬質な白磁の質感、または完璧な3Dベクターアートのような非有機的な存在感を強制する。
+* **世界観の統一（同一キャンバス原則）**: 神も人も、全て「和紙」という媒体の上に描く。素材の断絶（陶器/3D異物化）は採用しない。
+* **人間側（生者のノイズ）:** 和紙繊維に色彩が大きく滲み、掠れやにじみ戻りを含む奔放な筆致で「変化し続ける生命」を示す。色は泥・鉄錆・枯葉などの土系を主軸にする。
+* **神・天側（静謐の理）:** 同じ和紙上で、滲みを最小化した端正な細線と制御された筆運びを徹底する。色は胡粉・鈍い金箔・群青・朱など、格調高い伝統色で統一する。
 
 
-* 両者の質感コントラストは、素材そのもの（滲みと無機質）で表現し、この段階では装飾的な金継ぎラインは使用しない。
+* 両者のコントラストは素材差ではなく、**筆致の洗練度／色階の格調／静止と動揺**で表現する。金継ぎは境界を縫う意味論的アクセントとして用いる。
 
 > **注意:** 以下のプロンプトブロックはドキュメント用の例示であり、
 > 実際に画像生成AIに入力する際は *コードフェンスや
@@ -26,8 +26,8 @@
 # 00_STYLE_ANCHOR_LUMINOUS_WASHI
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
-(for divine elements): extremely flawless white porcelain sculpture, perfectly smooth ceramic surface, completely inorganic, geometric perfection, modern 3D render feel, zero bleeding, zero texture,
-(for shared/magic elements): keep effects minimal and non-metallic at this stage, prioritizing material contrast over decorative accents,
+(for divine elements): the same Washi + Iwa-enogu medium, ultra-refined disciplined brushwork, minimal controlled bleeding, precise line control, dignified traditional colors (gofun white, muted gold leaf, ultramarine, vermilion), solemn stillness,
+(for shared/magic elements): keep effects minimal and non-metallic at this stage, prioritizing brushwork hierarchy over decorative accents,
 NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 
 
@@ -122,27 +122,23 @@ Params:
 
 ```
 
-### Prompt for Wakahiko (the cynical archer)
+### Prompt for Wakahiko (Divine Elegance / 天の貴人)
 
 ```markdown
-# NANOBANANAPRO_PROMPT_WAKAHIKO_WASHI_REVISED
+# NEW_WAKAHIKO_DIVINE_ELEGANCE_PROMPT
 
 # PROMPT
 Prompt:
-masterpiece, strikingly handsome and highly charismatic 25-year-old male archer, cynical expression with a faint smirk, quiet but defiant presence.
-traditional Japanese watercolor (Iwa-enogu) on textured fibrous Washi paper, soft sumi ink washes, natural pigment granulation, subtle chromatic bleeding.
-medium-length silver hair, translucent watercolor layers softly bleeding into paper fibers.
-He holds ONE massive asymmetrical Japanese yumi (traditional wa-kyu) in his left hand, with the grip clearly below center (lower-third grip), very long upper limb and shorter lower limb, no modern attachments.
-On his back: an ancient quiver (YUKI), made of dark weathered wood bound with coarse hemp ropes.
-Inside the quiver: primitive arrows with large ragged white feathers, wind-worn and uneven.
-costume: rough hemp tunic with organic watercolor bleed, no armor-like shoulder parts.
-skin: natural translucent watercolor tones, visible paper texture, no glossy finish.
-environment: desolate windy wasteland in desaturated earth tones, atmospheric sumi-e haze.
-lighting: silver hair and white arrow fletching catch dim light like a fading star.
-mood: cynical stillness + stubborn attachment to life.
+masterpiece, strikingly beautiful and youthful male archer, Wakahiko.
+Style: Traditional Japanese watercolor (Iwa-enogu) on textured fibrous Washi paper. Unified art style across all elements.
+Character: He represents "Divine Order" through extreme refinement. His skin is rendered with pale, matte Gofun (seashell white) pigments, showing subtle paper texture but no blemishes. His silver hair is painted with precise, fine brushstrokes using dilute sumi ink and metallic silver pigment, flowing like silk thread.
+Costume: Noble Heian-period inspired divine robes (Kariginu style) in luminous pearl-white and pale gold. The fabric patterns are intricate but elegant, with subtle chromatic bleeding only at the very edges of the ink lines.
+Weapon: A massive asymmetrical Japanese yumi (wa-kyu) made of polished white wood and gold leaf, glowing with a soft, ethereal inner light. No modern or plastic textures.
+Environment: A serene, misty landscape of the celestial plain (Takamanohara). Atmospheric sumi-e haze, soft-focus mountains in the background.
+Mood: Arrogant stillness, the quiet before a divine decree. A "perfectly painted" entity that looks too beautiful to be touched by mud.
 
 Negative Prompt:
-oil painting, impasto, horror, grotesque, over-detailed noise, full symmetry, modern archery gear, western fantasy ranger, multiple bows, two bows, western longbow, recurve bow, compound bow, olympic bow, crossbow, center-grip bow, bow sight, stabilizer, arrow rest, pulley cams, release aid, sci-fi, modern clothes, plastic texture, porcelain skin, glossy ceramic skin
+porcelain skin, plastic, ceramic texture, 3D render, glossy finish, vector art, modern clothes, mechanical gear, rough hemp (on this version), dirt, mud, chaotic bleeding, messy brushwork, western fantasy.
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44824
 
@@ -213,22 +209,22 @@ Params:
 
 ## 4. 神の眷属（白化神・三貴子）の描画例
 
-※ 天側のシステムや敵対存在を描画する場合は、人間側（滲み・和紙）の対極である「無機質・幾何学・ベクター/3D」の質感を強制します。和紙という媒体の上に現れる「異物」としての白磁です。
+※ 天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致の制御精度・構図の整然さ・格調色の運用で表現する。
 
 ### Prompt for Hakka-shin (Divine Emissary)
 
 ```markdown
-# PROMPT_DIVINE_EMISSARY_PORCELAIN_REVISED
+# PROMPT_DIVINE_EMISSARY_WASHI_REFINED
 
 # PROMPT
 Prompt:
-Macro photography of a flawless, absolutely smooth white porcelain sculpture representing a divine emissary, appearing as an impenetrable object resting upon a textured Washi paper substrate.
-style: extremely clean 3D render feel, utterly perfect geometric vector-art, zero watercolor, zero bleeding, standing in stark, jarring contrast to the underlying paper texture.
-details: A perfectly symmetrical, humanoid-adjacent shape composed of hovering, mirror-polished porcelain shards and cold, reflective bronze plates. The surface has a wet, glossy, ceramic sheen. A cold, neon blue sigil glows from its center.
-environment: Suspended in a sterile void, with a strong suggestion that it does not belong in the organic, bleeding world of Washi.
+masterpiece, divine emissary rendered in unified Japanese watercolor on textured Washi paper, austere and perfectly balanced composition.
+style: ultra-controlled sumi and Iwa-enogu brushwork, minimal bleeding, razor-clean contour rhythm, high ceremonial stillness.
+details: humanoid-adjacent sacred figure with strict symmetry, layered gofun whites, muted gold leaf accents, ultramarine and vermilion glyph motifs, matte mineral surface with visible paper fibers.
+environment: sacred empty court at dawn, thin mist, restrained palette, no modern elements.
 
 Negative Prompt:
-watercolor, ink, washi paper texture on the object, bleeding, organic lines, human face, illustration, drawing, uneven textures, dirt, mud, warmth
+3D render, glossy ceramic, porcelain shards, plastic texture, neon sci-fi, mechanical parts, cyberpunk UI, western fantasy armor, chaotic splatter, cartoon cel-shading
 Params:
 --ar 2:3 --stylize 400 --quality ultra --seed 99911
 
@@ -239,19 +235,20 @@ Params:
 
 ## 5. 環境 / ステージ用プロンプト
 
-### Prompt for White Porcelain Tower (ツクヨミの白磁塔)
+### Prompt for Serene Tower (ツクヨミの静謐塔)
 
 ```markdown
-# NANOBANANAPRO_PROMPT_WHITE_TOWER_WASHI_REVISED
+# NANOBANANAPRO_PROMPT_SERENE_TOWER_WASHI_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, breathtaking architectural scene of a towering white porcelain structure reaching into the clouds. The tower is perfectly smooth, flawless, and geometric, with no visible seams or texture, appearing like a divine, unyielding cathedral that rejects the ground it stands on. The base of the tower is embedded into a cracked, mud-rich earth painted with dynamic Japanese watercolor and ink washes on Washi paper. The mud bleeds golden kintsugi lines up the sides of the porcelain tower, trying to hold onto it. Faint cracks reveal glimpses of dripping golden lacquer (star-sand).
-style: dynamic Japanese watercolor on highly absorbent Washi paper for the ground and mud, emphasizing bleeding; the tower itself rendered as flawless white porcelain with zero bleeding, zero texture, almost like a modern 3D render, standing in jarring contrast to the Washi environment.
-atmosphere: overcast sky with flat, sterile light that eliminates shadows, evoking an uneasy, surgical cleanliness.
+masterpiece, breathtaking architectural scene of a towering sacred structure reaching into the clouds, painted entirely in unified Japanese watercolor and mineral pigments on Washi paper.
+style: the tower uses disciplined, thin, highly controlled brushwork with restrained bleeding and dignified colors (gofun white, muted gold, ultramarine); surrounding mud-rich earth uses bold expressive bleeding and rough strokes.
+details: cracked terrain is stitched by glowing kintsugi lines (star-sand lacquer) that climb toward the tower, emphasizing tension between wild life-noise and ritual stillness.
+atmosphere: overcast sky, quiet flat illumination, solemn and ceremonial mood without modern or sci-fi texture.
 
 Negative Prompt:
-oil painting, thick impasto, horror, flat cel-shading, western cathedral, sci-fi cityscape, moss, vines, ancient ruins, rustic wood, organic texture on the tower, watercolor bleeding on the tower surface
+3D render, porcelain sheen, glossy ceramic, neon sci-fi cityscape, western cathedral, cyberpunk lighting, plastic texture, modern signage, cel-shading
 Params:
 --ar 9:16 --stylize 250 --quality high --seed 12345
 
@@ -263,9 +260,9 @@ Params:
 ## 6. 生成チェックリスト（実制作時・更新版）
 
 * **大衆性と造形の担保:** キャラクターの顔面や体型は、しっかり「美麗・魅力的（可愛い/かっこいい）」になっているか。ホラーや奇形になっていないか。
-* **テクスチャコントラスト（コアテーマ・最重要）:**
-* **人間側は、和紙の繊維感と水彩・岩絵具の予測不能な滲み（ノイズ）**を帯び、アナログな温もりを持っているか。**陶器のような滑らかな質感（陶器肌）やセル塗りは完全に排除**されているか。
-* 神側は、一切の滲みがない**「ツルツルに磨き上げられた無菌の白磁・3DCG感」**が出ているか。和紙という媒体の上に、不自然に滑らかな異物として存在しているか。
+* **筆致コントラスト（コアテーマ・最重要）:**
+* **人間側は、和紙の繊維感と水彩・岩絵具の予測不能な滲み（ノイズ）**を帯び、アナログな温もりを持っているか。
+* 神側は、同じ和紙媒体のまま、**極度に制御された筆運び・最小滲み・格調色（胡粉/金箔/群青/朱）**で「静止した理」を示せているか。
 
 
-* **因果のアクセント:** 滲む塗りと、無機質な**黄金のライン（金継ぎ）**が、異なる質感を繋ぎ止め、高いコントラストを描いているか。
+* **因果のアクセント:** 滲む塗りと、儀礼的な**黄金のライン（金継ぎ）**が、異なる筆致階調を繋ぎ止め、高いコントラストを描いているか。
