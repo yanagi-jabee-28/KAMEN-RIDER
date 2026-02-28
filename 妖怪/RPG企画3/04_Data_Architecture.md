@@ -81,16 +81,17 @@
   - `Pseudo_Perfect_With_Gap`（擬神兵）
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。**素材となる「星砂の白漆」などは、地に堕ちたカガセオの破片として定義されている。**
 - **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
-- **Shrine_Part_Master:** 鳥居・参道・本殿など、各建築パーツのコスト（泥/木材/金漆）、受容力ボーナス、対応属性、敷地占有サイズを定義。
-  - `PartType`: `INPUT` (鳥居), `LINE` (参道), `FILTER` (手水舎), `OUTPUT` (本殿), `OBSTACLE` (岩/水), `BUFFER` (鎮守の森).
-  - `Impedance`: 信号通過時の抵抗値。
-- **Shrine_Layout_Data:** プレイヤーが作成した社の配置情報。パーツIDとグリッド座標のセットを保持し、受容力算出に利用。
-  - `ConnectionGraph`: パーツ間の接続状態を保持するグラフデータ。`Input` から `Output` へのパス到達可否を判定する。
-- **Shrine_Faith_Master:** 祀った御霊ごとの恩恵バフと解放される神写しツリー枝などを紐付ける。
-- **Shrine_Network_Master:** 祠や社など**祈りの場として設置された地点のみをノード**とし、ワープライン（ひび割れに沿った金継ぎ）の接続情報を管理する。ノード間の線は常に開通しており、視覚/音響演出パラメータを保持。
-- **FastTravel_Master:** ファストトラベル固有の演出・UTXデータを定義。社受容力・澱みポイントが次戦闘ボーナスに変換される係数や、キャラクター台詞候補リストを含む。
-  - `Weathering_Threshold`: **(Deprecated)** 仮設ラインが風化するまでの使用回数。現在はワープラインが恒久化される仕様に変更されたため使用されない。
-  - `Reignition_Cost`: **(Deprecated)** 風化したラインを再点火するためのコスト係数。現在の仕様では関連項目は不要。
+- **Shrine_Master:** 拠点に建立する大型の「神社」と、フィールドに点在する「祠」のデータを定義。
+  - `ShrineID`: 一意のID。
+  - `Type`: `JINJA` (神社) or `HOKORA` (祠).
+  - `Prayer_Points_Base`: 祈りを捧げた際に得られる基本的な「祈りポイント」。
+  - `Mitama_Slot`: (`JINJA`のみ) 祀ることができる御霊の種類。
+- **Shrine_Faith_Master:** 祀った御霊ごとに、ネットワーク全体に与える恩恵（バフ）や、解放される神写しツリーの枝などを定義する。
+- **Shrine_Network_Data:** プレイヤーのゲーム進行におけるネットワークの状態を保持。
+  - `Total_Prayer_Points`: ネットワーク全体の「祈りポイント」の総量。これが**受容力**として機能する。
+  - `Connected_Shrines`: 開通済みの神社と祠のIDリスト。
+  - `Unlocked_Buffs`: 受容力に応じて解放されたネットワーク全体のバフ。
+- **FastTravel_Master:** 「星土の脈継ぎ」によるファストトラベルの演出や、移動中のキャラクターの掛け合いセリフなどを定義する。
 
 - **Tsukumogami_Awakening_Master:**
   - `Awaken_Threshold_LogDensity`
@@ -158,10 +159,7 @@
 - 代受苦の処理に `Remnant_Bone` 生成と `Global_Daijuku_Count` 加算を追加。
 - 付喪神覚醒条件と棄物化条件をマスタ化し、シナリオ依存のハードコードを回避。
 - 行者うかみ再加入後〜別天津神撃破までの「うかみ本人のみ離脱不可（常世・黄泉の国・黄泉比良坂）」を `Party_Area_Constraint_Master` と進行フラグで管理する方針を追加。
-- 拠点の神社建立機能に対応するため、`Shrine_Part_Master`・`Shrine_Layout_Data`・`Shrine_Faith_Master` を追加し、御霊と受容力の紐付けを行う。
-- ワープネットワーク対応マスタとして `Shrine_Network_Master` と `FastTravel_Master` を追加し、社間接続と演出データを管理する。  
-- **回路データ:** `Shrine_Part_Master` に `PartType` と `Impedance` を追加し、回路シミュレーションを可能にする。
-- **風化データ:** （廃止）当初は仮設ラインの風化を管理していたが、永続的な祈り場方式へ変更されたため本項は不要。
+- **神社システム関連データ:** 複雑な回路設計（`Shrine_Part_Master`, `Shrine_Layout_Data`）を廃止。「祈り」をベースにしたシステムに変更するため、`Shrine_Master`（祠・神社の定義）、`Shrine_Faith_Master`（御霊の恩恵）、`Shrine_Network_Data`（ネットワーク状態）を再定義。
 
 ## 6. 会話ログ参照（根拠）
 
