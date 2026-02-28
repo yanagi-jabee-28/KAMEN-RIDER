@@ -32,7 +32,7 @@
     - **Lv2.5 (Psychological):** 同じパターンの「自傷」や「摩擦行動」が繰り返された場合、`Pattern_Penalty` を付与し、その行動を無効化またはカウンターする（メタ合理の排除）。
     - **Lv3 (Absolute - 別天津神):** 高い `Noise_Resistance` を持ち、通常の `Intentional_Cost` を無効化する。これを突破するには `Autonomous_Noise`（うかみの自律行動）や `SoulIdea`（武器破壊級の熱量）が必要となる。
   - プレイヤーの `Intentional_Cost`（自傷等）や、**第4幕限定の `Autonomous_Noise`** が発生した際、AIはターゲットを再計算できず、空振りや `ActionError` 状態に陥る。
-  - **Ukami_AI_Constraint:** フラグベースの単純仕様。プレイヤーが自傷や代受苦を開始するフレームを検出した時点で**無条件に介入しダメージを肩代わり**する。成功率は100%で、行動順も選択も無視する。該当フラグ `Ukami.AutoIntercept` が有効である限り、追加判定は存在しない.
+  - **Ukami_AI_Constraint:** フラグベースの単純仕様。プレイヤーが自傷や代受苦を開始するフレームを検出した時点で**無条件に介入しダメージを肩代わり**する。成功率は100%で、行動順も選択も無視する。該当フラグ `Ukami.AutoIntercept` が有効である限り、追加判定は存在しない（※ただし、`Party_Area_Constraint_Master`で定義された「行者の誓約」に基づき、うかみが常世・黄泉エリア外にいるパーティに帯同していない場合、このフラグは一時的に無効化される）。
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus` (Critical_HP: x2.0, Disadvantage: x1.5)
   - `Understand >= Threshold` でミコトが当該特技を習得。
@@ -60,8 +60,7 @@
 ## 2. マスターデータ定義
 
 - **Item_Master:** 武器、防具、金継ぎ素材、消費アイテム。
-  - `Remnant_Bone`: 代受苦後の遺骨。元の武器IDと特性を保持。
-    * **補足:** ゲーム進行上、遺骨が０本になった状態で八咫鏡作成イベントへ到達した場合は、システムが自動的に最低1本を生成（例: 主人公の初期武器の残骸を転化）する仕様とし、進行不能を防止する。
+  - `Remnant_Bone`: 代受苦後の遺骨。元の武器IDと特性を保持。「呼び継ぎ」によるキメラ武器作成にのみ使用される。
   - `Ame_no_Murakumo` (天叢雲剣): スサノオの遺産。過去のプレイで折られてきた `Global_Daijuku_Log_Data` (歴代の死の蓄積) を特殊パラメータとして参照・内包する究極の歴史集積武器。
 - **Item_State_Extension:**
   - `TraumaLogDensity`（履歴密度）
@@ -80,7 +79,7 @@
   - `Trauma_Resentment`（棄物）
   - `Pseudo_Perfect_With_Gap`（擬神兵）
 - **Kintsugi_Master:** 耐久1より大きい武器への修復素材と付与特性（被ダメ履歴参照）。**素材となる「星砂の白漆」などは、地に堕ちたカガセオの破片として定義されている。**
-- **Daijuku_Master:** 耐久が**閾値以下**（例: 10%／赤ゲージ）になった武器の消滅と引き換えに生成される「魂のイデア」テーブル。耐久1以外で発動した場合でもデータ生成が発生する。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
+- **Daijuku_Master:** 武器の消滅と引き換えに生成される「魂のイデア」テーブル。プレイヤーは耐久値に関わらず任意に発動可能。**（クリア後は世代継承無制限フラグ `Infinite_Idea_Chain` が解放されるが、比例して `Fragility` も上昇する）**
 - **Shrine_Master:** 拠点に建立する大型の「神社」と、フィールドに点在する「祠」のデータを定義。
   - `ShrineID`: 一意のID。
   - `Type`: `JINJA` (神社) or `HOKORA` (祠).
