@@ -166,6 +166,7 @@ Params:
 
 ```
 
+<!-- Canonical Ukami design: middle-aged (~40) appearance is primary. Youthful 25‑year-old variant is secondary/IF only; ensure AI workflows prioritize mature look and disable younger features for core assets. -->
 ### Prompt for Ukami (the wild scout - Rugged Mature Variant)
 
 ```markdown
