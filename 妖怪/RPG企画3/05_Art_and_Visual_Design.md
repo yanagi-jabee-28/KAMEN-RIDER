@@ -10,26 +10,33 @@
 
 # 05_Art_and_Visual_Design
 
-## 1. ビジュアル・フィロソフィー
+## 1. ビジュアル・フィロソフィー：同一キャンバス原則と筆致の対立
 
-- **静謐塔／地下楔の対比:** ツクヨミ戦の主要環境として登場する「静謐の塔」は、上昇する天空要素と地下深淵に突き刺さる楔を同一構造に持つ。塔も地表も同じ和紙と岩絵具で描きつつ、塔は迷いのない細線・抑制された滲み・胡粉と金箔主体の格調色で表現する。このコントラストは物語構造の「登る→落ちる」というジェットコースター的時系列を視覚的にも補強する。
+本作のアートワークは、単なる背景やキャラクターの装飾ではなく、物語の根幹テーマである「完璧な理への、不完全な熱量による抵抗」をプレイヤーが直感的に感じ取るための、最も重要な言語である。
 
-本作のアートワークは、神も人も同じ「和紙と岩絵具」の一幅に描くことを前提とし、差異は素材断絶ではなく「筆致の洗練度」「色彩の格調」「静止と動揺」の三軸で表現する。鳥山明風の均一な描線やポップな記号性からは完全に脱却し、同時に大衆性を損なうホラー的厚塗りも排し、統一画風の中での階調差によってテーマを視覚化する。
+- **世界観の統一（同一キャンバス原則）:**
+  神も、人も、世界も、すべてが**「一枚の生きた和紙（Washi）」**の上に、**「岩絵具（Iwa-enogu）」**という同じ画材で描かれる。素材の断絶（例：神だけが3Dや異質なテクスチャを持つ）は採用しない。両者の違いは、画材ではなく**「筆致のあり方」**そのもので表現される。
 
-- **西洋ファンタジーの禁止:**
-  - 革鎧、プレートアーマー、西洋剣、マント、SFガジェットは原則排除する。
-  - 代わりに「貫頭衣」「麻布」「縄」「骨」「石」「青銅」「鉄滓」を用いる。
 - **対立構造の視覚化:**
-  - **人（縄文・熱量）:【奔放な筆致と土色】** キャラクターの造形自体は現代的で万人に愛される美しさを担保する。一方で筆致は掠れや大きな滲みを許容し、泥・鉄錆・枯葉の低彩度を軸に「生者のノイズと温もり」を表現する。
-  - **神（弥生・理）:【端正な筆致と格調色】** 同じ和紙上で、迷いのない細線、最小限の滲み、均整の取れた構図で「静止した理」を示す。色彩は胡粉・鈍い金箔・群青・朱を中心に、静かで高貴な秩序を描く。
-  - **金継ぎの介入（摩擦と修復）:** 両者の衝突時の被弾エフェクト、拠点（社）の修復時、移動ルートの描写においてのみ、「鋭く発光する黄金（金漆・箔）」を介入させる。揺らぎと静止の境界を金漆が縫い合わせる構成。
-  - **三貴子の視覚メタファー（特異点）:** 
-    - **アマテラス:** システムの中核として「凍てついた静止」と「完璧な円環（停止）」で表現され、一切の揺らぎがない。
-    - **ツクヨミ:** 浄化の執行者として「影（立体感）を消し去るフラットな光」と「過剰に整えられた余白」を放ち、画面から泥臭いコントラストを奪い取る。
-    - **スサノオの遺産（天叢雲剣）:** 「極限の摩擦」と「赤錆」、そして夥しいまでの「金継ぎの歴史（歴代の傷）」の集合体として描画する。
-- **物理的質感とシルエットの融合:**
-  - 各キャラクターの「傷・生存・執着」の痛切さが、特異なシルエットと、和紙の上で予測不可能に広がる「色彩の滲み」の両面から直感的に伝わる設計とする。
-- **ウズとうかみの共犯者感:** 彼らは神話的夫婦像からのロマンスではなく、互いの「場を壊す能力」に気付いた泥臭い同士として描写される。視覚的には二人が並んだとき、動きのリズムや色彩がひそやかに響き合うよう演出する。* **ウズのダンス:** シンコペーション的な裏拍の微細なずれをカットインで表現し、狂騒の一瞬ごとに紙面がリズムに合わせて歪む描写を加える。
+  - **人（地・泥／縄文的・熱量）: 【奔放な滲みと土の色彩】**
+    - プレイヤー側、特に仲間キャラクターたちは、生命の「ノイズ」と「予測不可能性」を体現する。
+    - **筆致:** 和紙の繊維に色がじんわりと広がる、制御しきれない**「滲み（Bleeding）」**や、掠れ、色のむらを積極的に許容する。
+    - **色彩:** 泥、鉄錆、枯葉、血といった、生命の循環を感じさせる暖色・低彩度の**アースカラー**を主軸とする。
+    - **印象:** 粗野だが温かい、アナログな生命感。
+
+  - **神（天／弥生的・静謐）: 【端正な筆致と天上の色彩】**
+    - 敵となる神々は、傷や変化を許さない「完璧な秩序」と「静止した理」を体現する。
+    - **筆致:** 同じ和紙の上で、滲みを極限まで抑えた、迷いのない端正な**細線**。寸分の狂いもない、幾何学的な構図。
+    - **色彩:** 胡粉（ごふん）の白、鈍い金箔、群青、朱など、静かで高貴な**格調高い伝統色**で描かれる。
+    - **印象:** 冷たく美しい、絶対的な秩序と静寂。
+
+- **境界を縫う、金継ぎの輝き:**
+  - 人と神、相反する二つの理が衝突する瞬間（戦闘のエフェクト）、あるいは人が傷を修復し、世界を繋ぎとめる行為（金継ぎ、星土の脈継ぎ）においてのみ、両者の境界を縫うように**「鋭く盛り上がって光る黄金（金漆・箔）」**が介入する。これは、砕かれた星神カガセオの熱量が、泥の地上にもたらした唯一の希望の光である。
+
+- **徹底事項:**
+  - **西洋ファンタジー意匠の禁止:** プレートアーマー、西洋剣、マント等は排除し、「貫頭衣」「麻布」「縄」「骨」「石」といった古代日本のモチーフに純化する。
+  - **鳥山明風・アニメ的記号性の脱却:** 均一な線で描かれるキャラクターではなく、和紙の質感や絵の具の滲み、筆の勢い自体がキャラクターの感情や性質を物語るような、重厚な絵画的表現を目指す。
+  - **ホラー的厚塗りの回避:** 「泥臭さ」は、グロテスクな表現ではなく、あくまで生命の温かみや土の匂いが感じられる範囲に留める。キャラクターの造形美は常に担保される。
 ## 2. スタイルアンカー（AI生成用共通プロンプト）
 
 全アセット生成時に適用する基本スタイル定義。
@@ -61,18 +68,14 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 - **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。赤いスカーフは漁村アマで贈られた英雄の証として常時巻かれ、物語の旅路を通じて“形見”“呪い”と意味が変化する。見た目は海風と血に晒されたように端が擦り切れ、ところどころ泥汚れが滲んでいる。
 ```text
 Prompt:
-Full body character design of the protagonist "Mikoto" in their first adventurer's outfit.
-style: heavy impasto painting, thick clay-like textures, rough analog strokes.
-hairstyle: a short bob of pure white hair, textured like thick white paint.
-costume: An ancient Japanese sleeveless "Kantoui" (primitive tunic) made of rough, off-white woven fabric, tied with a thick, coarse rope (shimenawa) around the waist. A LONG, FLOWING SCARF of a BOLD RED color is wrapped around their neck. The clothes show subtle signs of being repaired with glowing gold lacquer (Kintsugi). Asymmetrical arm guards made of crude clay and bone.
-appearance: Their large, expressive eyes show a newfound determination.
-pose: Standing on a cliff with the wind blowing their red scarf, creating a dynamic silhouette.
-environment: A windy cliff overlooking a vast primitive landscape, painted with heavy, textured earth tones.
+masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
+style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
+details (the figure): pure white short bob hair painted with soft, translucent watercolor washes, appearing airy rather than solid. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist. He appears as a fragile but beautiful mortal human vessel, not a deity.
+texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte.
+background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
-anime style, toriyama style, cel shading, clean crisp lines, western armor, medieval clothes, modern clothing, uniform
-Params:
---ar 2:3 --stylize 350 --quality high --seed 55831
+oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5)
 ```
 
 ### 狂騒の踊り子「ウズ」【古代アレンジ版】
@@ -80,12 +83,13 @@ Params:
 - **髪型アイデア:** しめ縄を模した編み込みを取り入れ、神聖さと土地感を視覚化する。
 ```text
 Prompt:
-Full body character design of the female dancer "Uzu".
-style: heavy impasto painting, thick clay-like textures, rough analog strokes.
-hairstyle: High twin-tails tied with ancient cords, messy and energetic, rendered with thick brushstrokes.
-costume: A revealing, asymmetrical ancient dancer's outfit made of colorful hemp layers. A GIANT, FLOATING RIBBON (hagoromo) made of translucent fabric wraps around her, creating a distinct silhouette. She holds a cluster of bronze bells (kagura suzu).
-appearance: Mischievous grin, dynamic pose mid-dance.
-details: Jomon-style pottery patterns on the fabric, barefoot.
+masterpiece, extremely beautiful facial features with an irresistibly cute, bright smile that still reads as elegant and captivating; an energetic female ritual dancer in mid-air.
+style: vibrant Japanese watercolor on highly absorbent, fibrous Washi paper, dynamic splashes of color, beautiful unpredictable bleeding.
+details: high twin-tails painted with sweeping, soft watercolor strokes, appearing light and airy; the hair is braided in a loose shimenawa‑style rope pattern. Asymmetrical, multi-layered hemp outfit with Jomon motifs. A giant, translucent ribbon (hagoromo) floats around her, the colors bleeding softly into the background. Bronze magatama bells hang loosely. The character's skin is painted with natural watercolor washes, showing the underlying paper texture, not smooth like porcelain.
+mood: ancient high-energy ritual dance. The ruins in the background are suggested with loose, expressive watercolor washes.
+
+Negative Prompt:
+oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, porcelain skin, smooth ceramic surface, modern idol outfit, perfectly clean lines
 ```
 
 ### 3.4 スクナ（冷徹な薬学者）
