@@ -129,12 +129,20 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, strikingly handsome and highly charismatic facial features, a cynical smirking male archer with subtle divine accents.
-style: striking contrast on Washi paper.
-details: medium-length, silver hair painted softly with watercolor washes. His tunic is rendered with organic, slightly bleeding watercolors depicting rough hemp cloth and layered, practical fabric folds, with no armor-like shoulder parts and no metallic seams. He is casually gripping only ONE single, massive, asymmetrical mythological Japanese longbow (yumi) in his left hand, painted with loose watercolor strokes. The character's skin is rendered with natural watercolor washes.
+masterpiece, strikingly handsome and highly charismatic 25-year-old male archer, cynical expression with a faint smirk, quiet but defiant presence.
+traditional Japanese watercolor (Iwa-enogu) on textured fibrous Washi paper, soft sumi ink washes, natural pigment granulation, subtle chromatic bleeding.
+medium-length silver hair, translucent watercolor layers softly bleeding into paper fibers.
+He holds ONE massive asymmetrical Japanese yumi (traditional wa-kyu) in his left hand, with the grip clearly below center (lower-third grip), very long upper limb and shorter lower limb, no modern attachments.
+On his back: an ancient quiver (YUKI), made of dark weathered wood bound with coarse hemp ropes.
+Inside the quiver: primitive arrows with large ragged white feathers, wind-worn and uneven.
+costume: rough hemp tunic with organic watercolor bleed, no armor-like shoulder parts.
+skin: natural translucent watercolor tones, visible paper texture, no glossy finish.
+environment: desolate windy wasteland in desaturated earth tones, atmospheric sumi-e haze.
+lighting: silver hair and white arrow fletching catch dim light like a fading star.
+mood: cynical stillness + stubborn attachment to life.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, messy all over, completely symmetrical, modern archery gear, western fantasy ranger, multiple bows, two bows, porcelain skin all over, smooth all over
+oil painting, impasto, horror, grotesque, over-detailed noise, full symmetry, modern archery gear, western fantasy ranger, multiple bows, two bows, western longbow, recurve bow, compound bow, olympic bow, crossbow, center-grip bow, bow sight, stabilizer, arrow rest, pulley cams, release aid, sci-fi, modern clothes, plastic texture, porcelain skin, glossy ceramic skin
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44824
 
