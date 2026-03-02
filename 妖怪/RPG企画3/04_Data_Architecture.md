@@ -36,6 +36,9 @@
 - **神写し理解度:**
   - `Understand(skill, ally) += action_count * context_bonus` (Critical_HP: x2.0, Disadvantage: x1.5)
   - `Understand >= Threshold` でミコトが当該特技を習得。
+- **侵食ゲージ計算式:** 黄泉戸喫状態にあるキャラクターは食料価値や自傷行動に応じて侵食ゲージが増加する。
+  - `Invasion_new = Invasion_old + (Food_Value * k) + (SelfHurt_Count * h)`
+  - ゲージが閾値 `YomotsuInvasionThreshold` を超えると、毎ターン侵食ダメージと最大HP減少が発生する。
 - **共鳴（ユニゾン）補正:**
   - `ResonanceDamage = BaseDamage * (1 + ResonanceRate)`
   - 条件A: 同ターンにミコトと仲間が同一特技を使用。
@@ -92,6 +95,10 @@
   - `Connected_Shrines`: 開通済みの神社と祠のIDリスト。
   - `Unlocked_Buffs`: 受容力に応じて解放されたネットワーク全体のバフ。
 - **FastTravel_Master:** 「星土の脈継ぎ」によるファストトラベルの演出や、移動中のキャラクターの掛け合いセリフなどを定義する。
+- **Yomotsu_Eat_Master:** 黄泉戸喫に関するデータ。侵食ゲージ閾値、食材ID、回復反転係数、キャラクター別耐性などを管理する。
+- **Yomotsu_Invasion_Gauge:** キャラクターが黄泉戸喫状態になるたびに上昇するゲージ。最大到達で侵食ダメージと最大HP減少が発生し、地上帰還後もHPゲージに永続的な黒墨・金継ぎラインを追加する。
+- **Party_Yomotsu_State:** 各パーティメンバーの黄泉適合状態（`NONE`／`ACTIVE`／`PERMANENT`）。`PERMANENT`になると二度と元の清浄な体に戻れないフラグとして他システムに影響を与える。
+- **UI_Invasion_Effect:** 黄泉戸喫時のHPゲージ演出、回復時の痛みエフェクト、UIノイズなどを定義する。
 
 - **Tsukumogami_Awakening_Master:**
   - `Awaken_Threshold_LogDensity`
@@ -138,6 +145,9 @@
 - `Threshold`（神写し習得閾値）
 - `ResonanceRate`（共鳴倍率）
 - `FrictionBase` / `FrictionPenaltyInventory`
+- `YomotsuInvasionThreshold`（黄泉侵食ゲージ閾値）
+- `YomotsuRecoveryReversalRate`（黄泉戸喫時の回復反転係数）
+- `YomotsuInvasionDecayRate`（地上帰還後の侵食ゲージ減衰率）
 - `Yobitsugi_Friction_Mult`（呼び継ぎ時の摩擦倍率）
 - `PTG_RareChance`（PTG効果発生率）
 - `SoulIdeaCarryRate`（魂のイデア継承率）
@@ -163,7 +173,7 @@
 
 ## 6. 会話ログ参照（根拠）
 
-- 参照元: `チャット履歴/gemini-conversation-2026-02-22-21-36-20.md`, `チャット履歴/gemini-conversation-2026-02-24-21-53-06.md`
+- 参照元: `チャット履歴/gemini-conversation-2026-02-22-21-36-20.md`, `チャット履歴/gemini-conversation-2026-02-24-21-53-06.md`, `チャット履歴/gemini-conversation-selection-2026-03-02-00-33-16.md`
 - 主要根拠トピック:
   - 摩擦係数を含む耐久減衰式
   - 神写し理解度閾値と共鳴倍率のデータ管理

@@ -213,6 +213,31 @@ Params:
 
 ※ 天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致の制御精度・構図の整然さ・格調色の運用で表現する。
 
+---
+
+## 4.5 黄泉の女陰／怨念集合体
+
+### Prompt for Yomotsu Shikome (Izanami-entity)
+
+```markdown
+# NANOBANANAPRO_PROMPT_YOMOTSU_SHIKOME_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, terrifying female apparition born of rot and obsessive grief, a living amalgam of decayed court garments and writhing maggots, painted on fibrous Washi paper with Japanese watercolor.
+style: the figure uses uncontrolled bleeding of acid greens, bruised purples, and black iron inks to suggest corruption; the surrounding void is composed of tight, controlled gold-lined cracks.
+details: pale, gaunt face half-covered by tattered white kimono stained with ink-black blood; hair is long and matted with earth, interwoven with bones and dead leaves; multiple pale arms extend like roots, each ending in clawed fingers. Swarms of smaller yōkai (黄泉醜女) circle at her feet, their forms suggested by rapid, expressive ink splatters. Her eyes glow with a cold, otherworldly vermilion light.
+mood: absolute dread, the sensation of being pursued by a nightmare that knows your every weakness.
+
+Negative Prompt:
+cute, beautiful, clean, serene, oil painting, flat cel-shading, 3D render, pastel colors, western fantasy, mechanical parts, comic style, glossy surfaces
+Params:
+--ar 2:3 --stylize 350 --quality high --seed 99999
+
+```
+
+---
+
 ### Prompt for Hakka-shin (Divine Emissary)
 
 ```markdown
@@ -236,6 +261,26 @@ Params:
 ---
 
 ## 5. 環境 / ステージ用プロンプト
+
+### Prompt for Yomotsu Hegui Ritual
+
+```markdown
+# NANOBANANAPRO_PROMPT_YOMOTSU_RITUAL_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, a haunting ritual scene where weathered characters eat foul, glowing food in a cavernous, dripping shrine, painted on textured Washi paper in Japanese watercolor.
+style: rich uncontrolled bleeding of dark greens, browns, and black inks for rot; contrasting sharp gold kintsugi lines outlining cracked earthenware bowls.
+details: weary faces contort with pain and determination as they bite into mud-like offerings; wisps of black smoke rise; ritual implements (bamboo skewers, cracked bowls) are rendered with rough mineral pigments; background is a claustrophobic underground passage with wet stone and bone fragments.
+mood: dread mixed with grim resolve, an act that seals characters to a corrupted fate.
+
+Negative Prompt:
+bright, cheerful, oil painting, cel-shading, 3D render, clean surfaces, modern props, pastel colors, western fantasy, cute, innocent
+Params:
+--ar 16:9 --stylize 300 --quality high --seed 123456
+
+```
+
 
 ### Prompt for Serene Tower (ツクヨミの静謐塔)
 
