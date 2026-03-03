@@ -24,12 +24,17 @@
 ## 1. STYLE_ANCHOR（共通・和紙水彩ベース）
 
 ```markdown
-# 00_STYLE_ANCHOR_LUMINOUS_WASHI
+# 00_STYLE_ANCHOR_LUMINOUS_WASHI_V4
+
+# PROMPT
+Prompt:
 masterpiece, highly detailed, exquisitely beautiful character faces,
-(for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
-(for divine elements): the same Washi + Iwa-enogu medium, ultra-refined disciplined brushwork with visible paper fibers and powdery mineral granulation, low but organic controlled bleeding at edges, matte chalk-like gofun layering, precise line control, dignified traditional colors (gofun white, muted gold leaf, ultramarine, vermilion), solemn stillness,
-(for shared/magic elements): keep effects minimal and non-metallic at this stage, prioritizing brushwork hierarchy over decorative accents,
-NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
+entirely painted on highly textured, fibrous Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and soft ink washes. visible paper fibers, powdery mineral granulation, organic analog warmth.
+The visual core is a breathtaking artistic harmony: ultra-refined, disciplined fine lines intersecting with expressive, unpredictable chromatic bleeding (Bokashi). Absolutely no smooth, synthetic, or 3D surfaces.
+supernatural or magical elements are rendered strictly through traditional analog mediums, sumi-e strokes, or pigment splashes.
+
+Negative Prompt:
+oil painting, thick impasto, 3D render, CGI, glossy surface, plastic, ceramic, porcelain, metallic sheen, flat cel-shading, modern digital VFX, western fantasy medieval armor, sci-fi, photorealistic, photography, messy mud
 
 
 ```
@@ -40,19 +45,21 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 
 ### Prompt for Mikoto (protagonist)
 
+ミコトの「泥臭さと熱量」を、スカーフから溢れ出す赤い岩絵具の激烈な滲みとして定義しました。
+
 ```markdown
 # NANOBANANAPRO_PROMPT_MIKOTO_WASHI_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
-style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details (the figure): pure white short bob hair painted with soft, translucent watercolor washes, appearing airy rather than solid. Wearing an off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist. He appears as a fragile but beautiful mortal human vessel, not a deity.
-texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte, with no metallic decorative particles.
-background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
+masterpiece, exquisitely beautiful and expressive young male adventurer standing on a windy cliff.
+style application: aggressive, organic watercolor bleeding (Bokashi) focused entirely around his bold red scarf, contrasting with fragile, translucent white washes for his hair. 
+details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of an INTENSE, BOLD RED tightly wraps his neck—the red pigment violently bleeds and splashes into the surrounding paper texture, symbolizing his inner heat and human friction. A thick coarse hemp rope (shimenawa) binds his waist. His physical form expresses a fragile yet profoundly beautiful mortal existence. 
+texture: natural, matte cloth textures defined entirely by paper fiber and raw pigment.
+background: a vast, ancient landscape suggested through atmospheric, desaturated earth-tone ink washes.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5)
+oil painting, thick impasto, ugly, flat cel-shading, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
 
@@ -63,60 +70,68 @@ Params:
 
 ## 3. 追加キャラクター（和紙・岩絵具仕様）
 
-### Prompt for Uzu (ritual shrine dancer)
+### Uzu（踊り子）
+
+「可愛い」と「古代の荒々しさ」の衝突を避け、躍動感あふれる爆発的な筆致のエネルギーとして可愛さを表現します。
 
 ```markdown
 # NANOBANANAPRO_PROMPT_UZU_WASHI_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, extremely beautiful facial features with an irresistibly cute, bright smile that still reads as elegant and captivating; an energetic female ritual dancer in mid-air.
-style: vibrant Japanese watercolor on highly absorbent, fibrous Washi paper, dynamic splashes of color, beautiful unpredictable bleeding.
-details: high twin-tails painted with sweeping, soft watercolor strokes, appearing light and airy; the hair is braided in a loose shimenawa‑style rope pattern. Asymmetrical, multi-layered hemp outfit with Jomon motifs. A giant, translucent ribbon (hagoromo) floats around her, the colors bleeding softly into the background. Bronze magatama bells hang loosely. The character's skin is painted with natural watercolor washes, showing the underlying paper texture, not smooth like porcelain.
-mood: ancient high-energy ritual dance. The ruins in the background are suggested with loose, expressive watercolor washes.
+masterpiece, extremely captivating and brightly expressive female ritual dancer leaping in mid-air.
+style application: explosive, dynamic splashes of vibrant pigment and sweeping, fast brushstrokes that embody primal kinetic energy. 
+details: exceptionally charming facial features with a lively, fierce smile. High twin-tails painted with airy, sweeping watercolor strokes, loosely braided like ancient shimenawa ropes. She wears an asymmetrical, multi-layered rough hemp outfit adorned with bold Jomon-period clay motifs. A giant, translucent ribbon (hagoromo) aggressively swirls around her, its colors melting softly into the air. Chunky, unpolished bronze magatama bells swing wildly. 
+texture: skin rendered with warm, natural washes revealing the paper grain, emphasizing vital human warmth.
+background: ancient ruins implied by loose, energetic ink washes.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, porcelain skin, smooth ceramic surface, modern idol outfit, perfectly clean lines
+oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, porcelain skin, smooth ceramic surface, modern idol outfit, perfectly clean lines, synthetic fabric, modern jewelry
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44821
 
 
 ```
 
-### Prompt for Mahito (one-eyed blacksmith)
+### Mahito（隻眼の鍛冶師）
+
+鍛冶場の暗闇と、赤熱する火花の「焦げ跡」のような滲みにフォーカスし、男性的で野趣あふれる色気を強調します。
 
 ```markdown
 # NANOBANANAPRO_PROMPT_MAHITO_WASHI_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, strikingly handsome and highly charismatic facial features, a rugged and fiercely masculine one-eyed blacksmith with an undeniably glamorous aura.
-style: heavy Japanese mineral pigments (Iwa-enogu) on rough, textured Washi paper, strong contrast, somber watercolor bleeding.
-details: short, bristly dark hair bound by cloth. Heavily scarred but dignified single eye. Thick, cracked leather apron and baggy pants rendered with deep, earthy watercolor pigments that bleed slightly at the edges, the texture of the rough paper showing through. He is resting his left hand heavily on a large, realistic iron anvil, while his right hand grips a single, short-handled heavy iron forging hammer. The character's build is powerful, with muscles defined by rough watercolor blending and paper texture.
-environment: strictly utilitarian, dark traditional forge consisting ONLY of soot-stained walls and a brick furnace, completely devoid of any statues or ornaments. The forge embers are painted as intense, glowing splashes of red and orange pigment soaking into the paper.
+masterpiece, strikingly handsome, rugged, and fiercely masculine one-eyed blacksmith emitting a glamorous, heavy aura.
+style application: heavy, somber application of dark mineral pigments; intense glowing embers bleeding fiercely into the dark paper like burn marks.
+details: bristly dark hair bound by a rough cloth. A dignified, heavily scarred single eye. He wears a thick, cracked leather apron and baggy pants rendered in deep, earthy tones with rough edges. He stands powerfully: his left hand rests heavily on a massive, realistic iron anvil, while his right hand firmly grips a short-handled heavy iron forging hammer. His muscular physique is defined by bold ink washes and the rough texture of the Washi paper.
+environment: strictly utilitarian, dark traditional forge (ONLY soot-stained walls and a brick furnace). Vivid red and orange splashes of watercolor depict the heat of the forge.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, skinny anime boy, perfect flawless skin, porcelain skin, smooth surface, modern sci-fi forge, crutches, walking stick, statues, porcelain figures
+oil painting, thick impasto, ugly, horror, flat cel-shading, skinny anime boy, flawless skin, porcelain skin, smooth surface, modern sci-fi forge, crutches, walking stick, statues, porcelain figures, decorative ornaments
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44822
 
 
 ```
 
-### Prompt for Tachibana (the sacrificed warrior)
+### タチバナ（贄の戦士）
+
+「可愛さ」よりも「濡れたような透明感」と「悲哀」に全振りし、冷たい海の色が紙に滲み入るような美しさを追求します。
 
 ```markdown
 # NANOBANANAPRO_PROMPT_TACHIBANA_WASHI_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, stunningly beautiful with a gentle, even cute innocence in her facial features and a luminous, universally appealing elegance, a slender female warrior standing on a rocky shore.
-style: melancholic Japanese watercolor on Washi paper, cold color palette softened by a hint of warmth, soft translucent washes of deep blues and greens.
-details: long, straight hair clinging to her as if wet, painted with elegant, flowing ink lines. A flowing white robe stained softly at the hem with dark, bleeding earth colors. She holds a driftwood-like primitive spear. The character's skin has a natural, translucent watercolor quality, allowing the paper grain to be seen, emphasizing her fragility.
-environment: turbulent ocean behind her depicted with moody, overlapping watercolor bleeds and sea-green washes, but the overall mood hints at fragile beauty rather than fear.
+masterpiece, stunningly beautiful, slender female warrior standing on a rocky shore, exuding a luminous and fragile elegance.
+style application: melancholic, weeping washes of deep ocean blues and sea-greens; delicate, fragile ink lines that seem to dissolve into the paper.
+details: incredibly pure, gentle facial features. Long, straight hair clinging to her pale skin as if soaked with seawater, painted with flowing, elegant brushstrokes. She wears a simple, flowing white robe, its hem stained by dark, bleeding earth colors. She gently holds a primitive spear carved from pale driftwood. 
+texture: her skin has a translucent watercolor quality, allowing the paper grain to show through, deeply emphasizing her mortal fragility and quiet resolve.
+environment: a turbulent, moody ocean behind her, depicted with overlapping, cold watercolor bleeds.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, cheerful sunny anime, bright pop colors, dry flawless hair, porcelain skin, smooth ceramic surface
+oil painting, thick impasto, ugly, horror, flat cel-shading, cheerful sunny anime, bright pop colors, dry flawless hair, porcelain skin, smooth ceramic surface, metallic armor, heavy weapons
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44823
 
@@ -125,21 +140,21 @@ Params:
 
 ### Prompt for Wakahiko (Divine Elegance / 天の貴人)
 
+泥の対極。一切の乱れを許さない「神の理」を、完璧に統制された筆使いと冷たい胡粉の層で表現します。
+
 ```markdown
 # NEW_WAKAHIKO_DIVINE_ELEGANCE_PROMPT
 
 # PROMPT
 Prompt:
-masterpiece, strikingly beautiful and youthful male archer, Wakahiko.
-Style: Traditional Japanese watercolor (Iwa-enogu) on textured fibrous Washi paper. Unified art style across all elements.
-Character: He represents "Divine Order" through extreme refinement. His skin is rendered with pale, matte Gofun (seashell white) pigments, showing subtle paper texture but no blemishes. His silver hair is painted with precise, fine brushstrokes using dilute sumi ink and metallic silver pigment, flowing like silk thread.
-Costume: Noble Heian-period inspired divine robes (Kariginu style) in luminous pearl-white and pale gold. The fabric patterns are intricate but elegant, with subtle chromatic bleeding only at the very edges of the ink lines.
-Weapon: A massive asymmetrical Japanese yumi (wa-kyu) made of white-lacquered wood with visible brush streaks and gold leaf seams, glowing with a soft, ethereal inner light. No modern or plastic textures.
-Environment: A serene, misty landscape of the celestial plain (Takamanohara). Atmospheric sumi-e haze, soft-focus mountains in the background.
-Mood: Arrogant stillness, the quiet before a divine decree. A meticulously hand-painted entity whose restraint and brush discipline make him look distant from mud, but never synthetic.
+masterpiece, strikingly beautiful, ethereal, and coldly arrogant youthful male archer, Wakahiko.
+style application: absolute brush discipline, zero chaotic bleeding. Flawless, matte Gofun (seashell white) layering and razor-sharp, pristine ink lines.
+details: His skin is unnervingly perfect, rendered with pale gofun pigments that show the paper texture but absolutely no human blemishes. Silver hair painted with precise, microscopic brushstrokes using dilute ink and metallic silver pigment, flowing like unearthly silk. He wears noble Heian-period inspired divine robes (Kariginu) in luminous pearl-white and pale gold; intricate patterns exist with terrifying precision. He holds a massive asymmetrical Japanese yumi (wa-kyu) made of white-lacquered wood with delicate gold leaf seams, glowing softly.
+environment: Takamanohara (celestial plain). A serene, misty landscape of atmospheric sumi-e haze.
+mood: The suffocating, perfect stillness of divine logic.
 
 Negative Prompt:
-porcelain skin, plastic, ceramic texture, 3D render, glossy finish, vector art, modern clothes, mechanical gear, rough hemp (on this version), dirt, mud, chaotic bleeding, messy brushwork, western fantasy.
+porcelain skin, plastic, ceramic texture, 3D render, glossy finish, vector art, modern clothes, mechanical gear, rough hemp, dirt, mud, chaotic bleeding, messy brushwork, expressive splashes, human warmth, western fantasy
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44824
 
@@ -153,14 +168,14 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highly detailed, a diminutive alchemist (think Sukunabikona) with a sharp, intellectual aura tinged with wry mischief and relentless focus.
-style: traditional Japanese watercolor on highly absorbent, textured Washi paper, mineral pigments (Iwa-enogu), but the bleeding colors suggest toxins and chemicals (acid green, bruised purple).
-facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant smirk (sneer) on his face, more weary than menacing. He has the look of a weary adult soul in a diminutive form.
-details: extremely short hair under a rough woven cap. He is dragging a disproportionately MASSIVE, ancient stone mortar or grinding usu along the ground, pulling it by a thick rope looped over one shoulder; the mortar leaves a smear of dark residue in its wake. The stone is scarred and stained with suspicious residues; the pestle is heavy and worn. He wears a heavy leather apron stained with soot and chemical burns. The alchemist's skin is painted with sallow watercolor washes, showing the paper's texture.
-atmosphere: The Washi paper texture around him is stained with splatters of black ink and poisonous colorful washes, suggesting a dangerous laboratory environment.
+masterpiece, highly detailed diminutive alchemist with a sharp, weary, and fiercely intellectual aura.
+style application: acidic and toxic chromatic bleeding (bruised purples, sickly acid greens) staining the paper, contrasting with his heavy, oppressive dark tools.
+facial features: not overtly cherubic; there remains a faint youthful softness beneath the severity of his expression. He has sharp, narrowing "Sanpaku" eyes with a cold, analytical gaze that still allows a brief amused glint. Dark circles under his eyes from sleepless research. A cynical, arrogant sneer graces his lips. He wears a rough woven cap over extremely short hair, and a heavy leather apron scarred by chemical burns. He violently drags a disproportionately MASSIVE, ancient stone mortar (usu) by a thick rope over his shoulder; the heavy stone leaves a dark, smudged residue trail on the paper. 
+texture: sallow, sickly watercolor washes for his skin, heavily emphasizing the rough paper grain.
+atmosphere: a dangerous, toxic laboratory environment implied by splatters of poisonous ink.
 
 Negative Prompt:
-innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence, porcelain skin, smooth surface
+innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence, porcelain skin, smooth surface, huge architecture
 Params:
 --ar 4:5 --stylize 350 --quality high --seed 44899
 
@@ -168,6 +183,12 @@ Params:
 ```
 
 <!-- Canonical Ukami design: middle-aged (~40) appearance is primary. Youthful 25‑year-old variant is secondary/IF only; ensure AI workflows prioritize mature look and disable younger features for core assets. -->
+### ウカミ（斥候・行者 / 共通ベース）
+
+渋みのある中年の魅力を、和紙の「掠れ（Kasure）」と酸化した金属の滲みによって引き出します。
+
+**【斥候（Scout）バージョン】**
+
 ### Prompt for Ukami (the wild scout - Rugged Mature Variant)
 
 ```markdown
@@ -175,13 +196,13 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, strikingly handsome and highly charismatic facial features of a **dignified middle-aged male warrior**, approximately 40 years old. He has a ruggedly attractive face with a well-groomed, short beard and mustache that adds to his mature charm. Piercing, wise eyes that have seen many battles, a sharp aquiline nose, and a strong, defined jawline. A commanding, "Sarutahiko-like" presence that exudes reliability and authority. Fully human facial features with regular rounded ears.
-style: dynamic Japanese watercolor and ink on highly absorbent, fibrous Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair with subtle silver strands, tied back. Broad, muscular build painted with warm, organic watercolor washes, the paper grain defining the texture of his skin and muscle, not smooth. Wearing a combination of woven hemp, thick leather armor pieces, and a faded sash. Standing in a powerful, grounded pose, holding a heavy wooden spear with a broad stone tip.
-background: ancient woodland background is rendered with deep, atmospheric washes of ink (sumi-e style).
+masterpiece, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm.
+style application: rough, dry brushstrokes (Kasure) and earthy pigment washes, emphasizing weathered textures and fast, aggressive movement.
+details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. He stands grounded, holding a heavy wooden spear with a broad stone tip.
+background: deep, atmospheric sumi-e washes of ancient woodland.
 
 Negative Prompt:
-boyish, feminine, skinny, immature, weak, oil painting, thick impasto, ugly, horror, flat cel-shading, modern clothes, pointed ears, elven features, animal ears, nudity, exposed torso, porcelain skin, smooth surface, "ears must be rounded human"
+boyish, feminine, skinny, immature, weak, young, clean-shaven, oil painting, thick impasto, ugly, flat cel-shading, modern clothes, pointed ears, elven features, animal ears, nudity, porcelain skin, smooth surface
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44827
 
@@ -195,14 +216,15 @@ Params:
 
 # PROMPT
 Prompt:
-Use the uploaded scout image as the base – transform him into a masterpiece featuring a **rugged and heroic middle-aged male ascetic (行者)**. He is exceptionally handsome in a mature way, with a dignified beard and weathered, tanned skin painted with watercolor washes that reveal the underlying Washi paper grain. His expression is stoic and deeply spiritual. He wears layered, weathered saffron robes and heavy prayer beads. He holds an ancient **Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings dangling and looping from the main ring.** The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His build is powerful and imposing, reflecting a life of pilgrimage and physical discipline.
-style: dynamic Japanese watercolor and ink on highly absorbent, fibrous Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: long, flowing dark hair tied back with a frayed rope. The environment is a primordial forest rendered with deep, overlapping washes of green and brown ink.
+masterpiece, exceptionally handsome, rugged middle-aged male ascetic (Gyoja) radiating stoic spiritual weight.
+style application: solemn, heavy earthy washes with tones of metallic oxidation (rust and verdigris) bleeding into the paper from his staff.
+details: weathered, tanned skin painted with textural watercolor washes. A dignified beard and deep, wise eyes. He wears heavily layered, weathered saffron robes and thick wooden prayer beads. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful build reflects decades of harsh physical pilgrimage.
+background: a primordial forest rendered with deep, overlapping washes of muted green and brown ink.
 
 Negative Prompt:
-youthful, weak, clean-shaven, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, pointed ears, animal ears, porcelain skin, smooth surface, "ears must be rounded human"
+youthful, weak, boyish, clean-shaven, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, pointed ears, animal ears, porcelain skin, smooth surface, shiny metal, golden jewelry
 Params:
---ar 2:3 --stylize 300 --quality high --seed 44827
+--ar 2:3 --stylize 300 --quality high --seed 44828
 
 
 ```
