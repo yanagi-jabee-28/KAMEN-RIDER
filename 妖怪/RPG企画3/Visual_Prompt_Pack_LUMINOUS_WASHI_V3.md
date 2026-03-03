@@ -53,13 +53,13 @@ oil painting, thick impasto, 3D render, CGI, glossy surface, plastic, ceramic, p
 # PROMPT
 Prompt:
 masterpiece, exquisitely beautiful and expressive young male adventurer standing on a windy cliff.
-style application: aggressive, organic watercolor bleeding (Bokashi) focused entirely around his bold red scarf, contrasting with fragile, translucent white washes for his hair. 
-details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A LONG, FLOWING SCARF of an INTENSE, BOLD RED tightly wraps his neck—the red pigment violently bleeds and splashes into the surrounding paper texture, symbolizing his inner heat and human friction. A thick coarse hemp rope (shimenawa) binds his waist. His physical form expresses a fragile yet profoundly beautiful mortal existence. 
+style application: aggressive, organic watercolor bleeding (Bokashi) focused entirely around his bold red muffler, contrasting with fragile, translucent white washes for his hair. 
+details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A simple, BOLD RED muffler wrapped once around his neck, with exactly two distinct ends trailing in the wind. The red pigment of these two fabric tails violently bleeds and splashes into the surrounding paper texture, symbolizing his inner heat and human friction. A thick coarse hemp rope (shimenawa) binds his waist. His physical form expresses a fragile yet profoundly beautiful mortal existence. 
 texture: natural, matte cloth textures defined entirely by paper fiber and raw pigment.
 background: a vast, ancient landscape suggested through atmospheric, desaturated earth-tone ink washes.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, flat cel-shading, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments
+oil painting, thick impasto, ugly, flat cel-shading, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, three ends, multiple tails, multiple scarves, extra fabric, tangled drapery, tentacle-like fabric
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
 
@@ -120,18 +120,18 @@ Params:
 「可愛さ」よりも「濡れたような透明感」と「悲哀」に全振りし、冷たい海の色が紙に滲み入るような美しさを追求します。
 
 ```markdown
-# NANOBANANAPRO_PROMPT_TACHIBANA_WASHI_REVISED
+# NANOBANANAPRO_PROMPT_TACHIBANA_WASHI_REVISED_V2
 
 # PROMPT
 Prompt:
 masterpiece, stunningly beautiful, slender female warrior standing on a rocky shore, exuding a luminous and fragile elegance.
 style application: melancholic, weeping washes of deep ocean blues and sea-greens; delicate, fragile ink lines that seem to dissolve into the paper.
-details: incredibly pure, gentle facial features. Long, straight hair clinging to her pale skin as if soaked with seawater, painted with flowing, elegant brushstrokes. She wears a simple, flowing white robe, its hem stained by dark, bleeding earth colors. She gently holds a primitive spear carved from pale driftwood. 
+details: incredibly pure, gentle facial features. Long, straight hair clinging to her pale skin as if soaked with seawater, painted with flowing, elegant brushstrokes. She wears a simple, flowing white robe, its hem stained by dark, bleeding earth colors. She gently holds EXACTLY ONE single primitive spear carved from pale driftwood with both of her hands. 
 texture: her skin has a translucent watercolor quality, allowing the paper grain to show through, deeply emphasizing her mortal fragility and quiet resolve.
 environment: a turbulent, moody ocean behind her, depicted with overlapping, cold watercolor bleeds.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, cheerful sunny anime, bright pop colors, dry flawless hair, porcelain skin, smooth ceramic surface, metallic armor, heavy weapons
+oil painting, thick impasto, ugly, horror, flat cel-shading, cheerful sunny anime, bright pop colors, dry flawless hair, porcelain skin, smooth ceramic surface, metallic armor, heavy weapons, two spears, multiple spears, dual wielding, extra poles, twin spears, extra weapons
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44823
 
