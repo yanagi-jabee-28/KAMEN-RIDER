@@ -10,7 +10,7 @@
 * **武器プロンプト:** 武器は上記素材セット（石・骨・木・麻・和紙・泥）を強調し、破砕・修復（ひび割れ＋金継ぎ）の表現を積極的に指示する。日用品／祭具カテゴリは荒れた滲みと用途外の不均衡な形状を許容し、王道武器は機能美と泥汚れを併せ持つ。共有カテゴリを用いる場合は、各キャラ固有の装飾や色調で差別化するようプロンプトに明記する。
 * **人間側（生者のノイズ）:** 和紙繊維に色彩が大きく滲み、掠れやにじみ戻りを含む奔放な筆致で「変化し続ける生命」を示す。色は泥・鉄錆・枯葉などの土系を主軸にする。
 * **神・天側（静謐の理）:** 同じ和紙上で、滲みを最小化した端正な細線と制御された筆運びを徹底する。色は胡粉・鈍い金箔・群青・朱など、格調高い伝統色で統一する。
-  * 三柱の主神（アマテラス・ツクヨミ・カガセオ）はそれぞれ「凍結する白い繭」「直線刃としての無慈悲な月」「破片と金継ぎで繋がれた熱暴走巨像」という対比的なコンセプトで描写される。これらの専用プロンプトは後半セクションに記載。
+  * 三貴子（アマテラス・ツクヨミ・スサノオ）と、反逆の星神カガセオは別系統として扱う。ビジュアル上は「太陽（凍結する白い繭）」「月（直線刃としての無慈悲）」「星（破片と金継ぎで繋がれた熱暴走）」の対比で描写する。
 
 * 両者のコントラストは素材差ではなく、**筆致の洗練度／色階の格調／静止と動揺**で表現する。金継ぎは境界を縫う意味論的アクセントとして用いる。
 
@@ -209,7 +209,7 @@ Params:
 
 ---
 
-## 4. 神の眷属（白化神・三貴子）の描画例
+## 4. 神の眷属（三貴子＋反逆星神）の描画例
 
 ※ 天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致の制御精度・構図の整然さ・格調色の運用で表現する。
 
@@ -224,10 +224,10 @@ Params:
 Prompt:
 masterpiece, incredibly beautiful but terrifyingly still female deity, Amaterasu, locked in self-imposed absolute isolation.
 style: painted on Washi paper with dense matte Gofun (seashell white) layering, while paper fibers and mineral grain remain visible to preserve the hand-painted materiality. Bleeding is strictly restrained, not absent.
-details: enveloped in excessive, heavy layers of white ceremonial robes (Kariginu/Heian style), forming a cocoon-like spherical silhouette with hidden hands. Robe edges keep dry-brush fray and faint pigment pooling at seams. Her expression is beautiful but frozen in eternal, fragile fear, eyes closed or gazing blankly. A muted gold leaf halo sits in a near-perfect circle behind her. The surrounding space is a pale, oppressive shrine-like void with faint washi fibers and soft ink haze.
+details: enveloped in intricate multi-layered white ceremonial robes (Kariginu/Heian style) that read like frozen lily petals rather than a heavy sphere, keeping a slender and majestic silhouette with hidden hands. Robe edges keep dry-brush fray and faint pigment pooling at seams. Her expression is beautiful but frozen in eternal, fragile fear, eyes closed or gazing blankly. Build the silhouette as an annular-eclipse motif: the cocooned core is obscured while a sharp, opulent muted-gold corona radiates from the outer ring. The surrounding space is a pale, oppressive shrine-like void where pigments and lines are bleached toward near-white, conveying a sun that freezes rather than warms.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, bright pop colors, plastic sheen, seamless synthetic surfaces, modern elements, high contrast shadows, hard 3D render look
+oil painting, thick impasto, ugly, horror, flat cel-shading, chubby proportions, bulky cocoon mass, bright pop colors, plastic sheen, seamless synthetic surfaces, modern elements, high contrast shadows, hard 3D render look
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 12345
 ```
@@ -243,10 +243,10 @@ Params:
 Prompt:
 masterpiece, exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, representing extreme purification and ruthless execution.
 style: Traditional Japanese watercolor on Washi paper, executed with razor-sharp, ultra-controlled fine ink lines while preserving visible paper fibers and matte mineral texture. Bleeding is minimal and tightly controlled. Colors are limited to cold gofun white, freezing ultramarine, and muted silver-gray mineral accents.
-details: Very tall, impossibly slender and rigid posture. Wearing highly geometric, sharp-edged ancient court attire that looks like folded blades, but rendered with brush texture and pigment grain. His face is terrifyingly symmetrical, expressionless with cold, downward-looking Sanpaku eyes. Holding a staff or sword that resembles a ritual purification blade. Lighting is quiet and flat with faint ink-shadow layering, removing warmth without becoming synthetic.
+details: Very tall and imposing posture with absolute authority. Wearing luxurious, sharp-edged ancient court attire that cascades like folded steel blades, rendered with brush texture and pigment grain. His face is terrifyingly symmetrical, expressionless, and arrogant with cold downward-looking Sanpaku eyes. His weapon silhouette should read as an enormous ornate crescent execution blade that dominates the composition. Place him in a deep indigo-to-black night wash where his white body appears flat and shadow-thin, as if self-luminous. Behind him, add a brilliant full-moon halo in silver or platinum-like fine lines to visualize uncompromising purity and boss-level presence.
 
 Negative Prompt:
-soft pastel tones, excessive bleeding, sloppy asymmetry, warm cinematic shadows, oil painting, thick impasto, horror, flat cel-shading, portrait orientation inconsistency, modern elements, synthetic 3D smoothness
+soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetry, warm cinematic shadows, oil painting, thick impasto, horror, flat cel-shading, portrait orientation inconsistency, modern elements, synthetic 3D smoothness
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 23456
 ```
@@ -260,12 +260,12 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, a tragic but awe-inspiring giant deity composed entirely of shattered fragments, Kagaseo, the primal rebellious star.
+masterpiece, a tragically beautiful and awe-inspiring human-like male deity, Kagaseo, the primal rebellious star.
 style: high contrast Japanese watercolor on rough Washi paper. A violent collision of precise divine line-work and chaotic, expressive chromatic bleeding of dark earth tones, rust, and burning vermilion.
-details: The entity's body is asymmetrical, made of broken pieces of ancient stone, bone, oxidized bronze, and chalky gofun-plastered shards with cracked brush marks, forcefully stitched together by thick, glowing, raised golden Kintsugi lacquer. The gold bleeds and cracks across the paper surface. Intense inner heat radiates from the gaps between the fragments, scorching the paper. The face is half-shattered, one eye blazing with uncontainable rebellious thermal energy; all pale regions remain fractured, matte, and grainy rather than smooth. A visual representation of a system bug and raw human passion crystallized.
+details: He has a powerful human-like body and a strikingly beautiful face, not a full rock golem. Pale flesh-and-blood surfaces are marred by deep catastrophic fissures and scars, forcefully stitched by thick, glowing, raised golden Kintsugi lacquer. Shape the kintsugi network to evoke constellation paths and celestial chart geometry rather than random cracks. Fragmented meteoric plates and mineral shards remain as partial overlays on shoulders, ribs, and limbs, while the human core stays readable. Intense inner heat radiates from the cracks as supernova-like flicker bursts and star-spark spray, scorching the paper. One eye blazes with uncontainable rebellious thermal energy. A visual representation of raw tragic human passion and divine rebellion crystallized.
 
 Negative Prompt:
-smooth lines, perfect symmetry, calm palette, flat cel-shading, oil painting, modern props, serene expressions, minimalist backgrounds
+rock golem, full-stone monster, robotic, mechanical, non-human body, smooth lines, perfect symmetry, calm palette, flat cel-shading, oil painting, modern props, serene expressions, minimalist backgrounds
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 34567
 ```
@@ -364,6 +364,7 @@ Params:
 ## 6. 生成チェックリスト（実制作時・更新版）
 
 * **大衆性と造形の担保:** キャラクターの顔面や体型は、しっかり「美麗・魅力的（可愛い/かっこいい）」になっているか。ホラーや奇形になっていないか。
+* **天体属性の即読性:** ツクヨミ=月（弧と夜）、アマテラス=太陽（隠れた日輪/コロナ）、カガセオ=星（星図状金継ぎと瞬き）が判別できるか（※カガセオは三貴子ではなく反逆星神）。
 * **筆致コントラスト（コアテーマ・最重要）:**
 * **人間側は、和紙の繊維感と水彩・岩絵具の予測不能な滲み（ノイズ）**を帯び、アナログな温もりを持っているか。
 * 神側は、同じ和紙媒体のまま、**極度に制御された筆運び・最小滲み・格調色（胡粉/金箔/群青/朱）**で「静止した理」を示せているか。

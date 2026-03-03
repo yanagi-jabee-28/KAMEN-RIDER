@@ -114,6 +114,9 @@
   - `AncientConstraint`: `true`
   - `WatercolorBleedEnforced`: `true`
   - `AnimeStyleBlocked`: `true`
+  - `DeityRegaliaOpulence`: `HIGH`（アマテラス／ツクヨミの儀礼装束の華やかさ下限）
+  - `BossPresenceBias`: `TSUKUYOMI_HIGH`（偽ラスボス威圧感の優先）
+  - `KagaseoHumanityBias`: `true`（岩塊主体を避け、人間的骨格を優先）
 - **Party_Area_Constraint_Master:** キャラ単位の地域拘束ルールを管理。
   - `TargetCharacter`: `UKAMI_GYOJA`
   - `LockFromFlag`: `UKAMI_RETURNED_YOMOTSU`
