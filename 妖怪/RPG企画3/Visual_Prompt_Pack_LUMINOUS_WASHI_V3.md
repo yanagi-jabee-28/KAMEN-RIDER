@@ -10,7 +10,7 @@
 * **武器プロンプト:** 武器は上記素材セット（石・骨・木・麻・和紙・泥）を強調し、破砕・修復（ひび割れ＋金継ぎ）の表現を積極的に指示する。日用品／祭具カテゴリは荒れた滲みと用途外の不均衡な形状を許容し、王道武器は機能美と泥汚れを併せ持つ。共有カテゴリを用いる場合は、各キャラ固有の装飾や色調で差別化するようプロンプトに明記する。
 * **人間側（生者のノイズ）:** 和紙繊維に色彩が大きく滲み、掠れやにじみ戻りを含む奔放な筆致で「変化し続ける生命」を示す。色は泥・鉄錆・枯葉などの土系を主軸にする。
 * **神・天側（静謐の理）:** 同じ和紙上で、滲みを最小化した端正な細線と制御された筆運びを徹底する。色は胡粉・鈍い金箔・群青・朱など、格調高い伝統色で統一する。
-
+  * 三柱の主神（アマテラス・ツクヨミ・カガセオ）はそれぞれ「凍結する白い繭」「直線刃としての無慈悲な月」「破片と金継ぎで繋がれた熱暴走巨像」という対比的なコンセプトで描写される。これらの専用プロンプトは後半セクションに記載。
 
 * 両者のコントラストは素材差ではなく、**筆致の洗練度／色階の格調／静止と動揺**で表現する。金継ぎは境界を縫う意味論的アクセントとして用いる。
 
@@ -27,7 +27,7 @@
 # 00_STYLE_ANCHOR_LUMINOUS_WASHI
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
-(for divine elements): the same Washi + Iwa-enogu medium, ultra-refined disciplined brushwork, minimal controlled bleeding, precise line control, dignified traditional colors (gofun white, muted gold leaf, ultramarine, vermilion), solemn stillness,
+(for divine elements): the same Washi + Iwa-enogu medium, ultra-refined disciplined brushwork with visible paper fibers and powdery mineral granulation, low but organic controlled bleeding at edges, matte chalk-like gofun layering, precise line control, dignified traditional colors (gofun white, muted gold leaf, ultramarine, vermilion), solemn stillness,
 (for shared/magic elements): keep effects minimal and non-metallic at this stage, prioritizing brushwork hierarchy over decorative accents,
 NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO flat cel-shading,
 
@@ -134,9 +134,9 @@ masterpiece, strikingly beautiful and youthful male archer, Wakahiko.
 Style: Traditional Japanese watercolor (Iwa-enogu) on textured fibrous Washi paper. Unified art style across all elements.
 Character: He represents "Divine Order" through extreme refinement. His skin is rendered with pale, matte Gofun (seashell white) pigments, showing subtle paper texture but no blemishes. His silver hair is painted with precise, fine brushstrokes using dilute sumi ink and metallic silver pigment, flowing like silk thread.
 Costume: Noble Heian-period inspired divine robes (Kariginu style) in luminous pearl-white and pale gold. The fabric patterns are intricate but elegant, with subtle chromatic bleeding only at the very edges of the ink lines.
-Weapon: A massive asymmetrical Japanese yumi (wa-kyu) made of polished white wood and gold leaf, glowing with a soft, ethereal inner light. No modern or plastic textures.
+Weapon: A massive asymmetrical Japanese yumi (wa-kyu) made of white-lacquered wood with visible brush streaks and gold leaf seams, glowing with a soft, ethereal inner light. No modern or plastic textures.
 Environment: A serene, misty landscape of the celestial plain (Takamanohara). Atmospheric sumi-e haze, soft-focus mountains in the background.
-Mood: Arrogant stillness, the quiet before a divine decree. A "perfectly painted" entity that looks too beautiful to be touched by mud.
+Mood: Arrogant stillness, the quiet before a divine decree. A meticulously hand-painted entity whose restraint and brush discipline make him look distant from mud, but never synthetic.
 
 Negative Prompt:
 porcelain skin, plastic, ceramic texture, 3D render, glossy finish, vector art, modern clothes, mechanical gear, rough hemp (on this version), dirt, mud, chaotic bleeding, messy brushwork, western fantasy.
@@ -212,6 +212,63 @@ Params:
 ## 4. 神の眷属（白化神・三貴子）の描画例
 
 ※ 天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致の制御精度・構図の整然さ・格調色の運用で表現する。
+
+---
+
+### Prompt for Amaterasu (system-freeze cocoon)
+
+```markdown
+# PROMPT_AMATERASU_FREEZE_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, incredibly beautiful but terrifyingly still female deity, Amaterasu, locked in self-imposed absolute isolation.
+style: painted on Washi paper with dense matte Gofun (seashell white) layering, while paper fibers and mineral grain remain visible to preserve the hand-painted materiality. Bleeding is strictly restrained, not absent.
+details: enveloped in excessive, heavy layers of white ceremonial robes (Kariginu/Heian style), forming a cocoon-like spherical silhouette with hidden hands. Robe edges keep dry-brush fray and faint pigment pooling at seams. Her expression is beautiful but frozen in eternal, fragile fear, eyes closed or gazing blankly. A muted gold leaf halo sits in a near-perfect circle behind her. The surrounding space is a pale, oppressive shrine-like void with faint washi fibers and soft ink haze.
+
+Negative Prompt:
+oil painting, thick impasto, ugly, horror, flat cel-shading, bright pop colors, plastic sheen, seamless synthetic surfaces, modern elements, high contrast shadows, hard 3D render look
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 12345
+```
+
+---
+
+### Prompt for Tsukuyomi (sterile execution)
+
+```markdown
+# PROMPT_TSUKUYOMI_PURGE_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, representing extreme purification and ruthless execution.
+style: Traditional Japanese watercolor on Washi paper, executed with razor-sharp, ultra-controlled fine ink lines while preserving visible paper fibers and matte mineral texture. Bleeding is minimal and tightly controlled. Colors are limited to cold gofun white, freezing ultramarine, and muted silver-gray mineral accents.
+details: Very tall, impossibly slender and rigid posture. Wearing highly geometric, sharp-edged ancient court attire that looks like folded blades, but rendered with brush texture and pigment grain. His face is terrifyingly symmetrical, expressionless with cold, downward-looking Sanpaku eyes. Holding a staff or sword that resembles a ritual purification blade. Lighting is quiet and flat with faint ink-shadow layering, removing warmth without becoming synthetic.
+
+Negative Prompt:
+soft pastel tones, excessive bleeding, sloppy asymmetry, warm cinematic shadows, oil painting, thick impasto, horror, flat cel-shading, portrait orientation inconsistency, modern elements, synthetic 3D smoothness
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 23456
+```
+
+---
+
+### Prompt for Kagaseo (shattered kintsugi giant)
+
+```markdown
+# PROMPT_KAGASEO_KINTSUGI_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, a tragic but awe-inspiring giant deity composed entirely of shattered fragments, Kagaseo, the primal rebellious star.
+style: high contrast Japanese watercolor on rough Washi paper. A violent collision of precise divine line-work and chaotic, expressive chromatic bleeding of dark earth tones, rust, and burning vermilion.
+details: The entity's body is asymmetrical, made of broken pieces of ancient stone, bone, oxidized bronze, and chalky gofun-plastered shards with cracked brush marks, forcefully stitched together by thick, glowing, raised golden Kintsugi lacquer. The gold bleeds and cracks across the paper surface. Intense inner heat radiates from the gaps between the fragments, scorching the paper. The face is half-shattered, one eye blazing with uncontainable rebellious thermal energy; all pale regions remain fractured, matte, and grainy rather than smooth. A visual representation of a system bug and raw human passion crystallized.
+
+Negative Prompt:
+smooth lines, perfect symmetry, calm palette, flat cel-shading, oil painting, modern props, serene expressions, minimalist backgrounds
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 34567
+```
 
 ---
 
