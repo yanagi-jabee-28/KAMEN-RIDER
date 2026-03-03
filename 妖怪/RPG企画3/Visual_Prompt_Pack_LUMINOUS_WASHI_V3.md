@@ -10,7 +10,7 @@
 * **武器プロンプト:** 武器は上記素材セット（石・骨・木・麻・和紙・泥）を強調し、破砕・修復（ひび割れ＋金継ぎ）の表現を積極的に指示する。日用品／祭具カテゴリは荒れた滲みと用途外の不均衡な形状を許容し、王道武器は機能美と泥汚れを併せ持つ。共有カテゴリを用いる場合は、各キャラ固有の装飾や色調で差別化するようプロンプトに明記する。
 * **人間側（生者のノイズ）:** 和紙繊維に色彩が大きく滲み、掠れやにじみ戻りを含む奔放な筆致で「変化し続ける生命」を示す。色は泥・鉄錆・枯葉などの土系を主軸にする。
 * **神・天側（静謐の理）:** 同じ和紙上で、滲みを最小化した端正な細線と制御された筆運びを徹底する。色は胡粉・鈍い金箔・群青・朱など、格調高い伝統色で統一する。
-  * 三貴子（アマテラス・ツクヨミ・スサノオ）と、反逆の星神カガセオは別系統として扱う。ビジュアル上は「太陽（凍結する白い繭）」「月（直線刃としての無慈悲）」「星（破片と金継ぎで繋がれた熱暴走）」の対比で描写する。
+  * 三貴子（アマテラス・ツクヨミ・スサノオ）は天の理の三面相として一塊に扱い、原初の反逆者である星神カガセオは完全に独立した対極として位置付ける。三貴子側は「太陽」「月」「嵐（泥）」の天体モチーフを共有しつつ、カガセオは「星」の破片と熱暴走を表現し、人間側と同じく（あるいはそれ以上に）荒々しい滲みと熱量で描く。
 
 * 両者のコントラストは素材差ではなく、**筆致の洗練度／色階の格調／静止と動揺**で表現する。金継ぎは境界を縫う意味論的アクセントとして用いる。
 
@@ -209,11 +209,16 @@ Params:
 
 ---
 
-## 4. 神の眷属（三貴子＋反逆星神）の描画例
+## 4. 天の理（三貴子）の描画例
 
-※ 天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致の制御精度・構図の整然さ・格調色の運用で表現する。
+※ 三貴子を天の理の三面相として扱う。天側のシステムや敵対存在を描画する場合も、人間側と同じ和紙媒体で統一する。差異は「滲みゼロの異物感」ではなく、筆致的な制御精度・構図の整然さ・格調色の運用で表現する。
 
 ---
+
+## 5. 原初の反逆者（反逆星神カガセオ）の描画例
+
+※ 三貴子とは独立したカテゴリとして、カガセオは「熱暴走のバグ」及び人間側の荒々しさを併せ持った表現をする。
+
 
 ### Prompt for Amaterasu (system-freeze cocoon)
 
@@ -248,6 +253,27 @@ soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetr
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 23456
 ```
+
+```markdown
+# PROMPT_SUSANOO_STORM_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, an overwhelmingly handsome and fiercely masculine ancient storm god, Susanoo, radiating a wild, heroic aura.
+style: traditional Japanese watercolor (Iwa-enogu) on fibrous Washi paper. A breathtaking fusion of immaculate divine line-work and the chaotic, dynamic bleeding of storm-cloud grays, deep ocean blues, and flashes of lightning-gold.
+details: He has a fiercely attractive, battle-hardened face with piercing eyes that burn with untamed, primal passion. His wild, wind-whipped dark hair merges with aggressive ink washes of stormy skies. He wears ancient, asymmetrical divine garments (rough woven hemp mixed with torn celestial silk) whipping violently in a typhoon, adorned with massive magatama. His legendary Ame-no-Murakumo sword is held in a powerful grip—a massive, rugged blade visibly patched with thick, glowing gold kintsugi, studded with ancient iron and bone, symbolizing the first defiant act of human repair. The edges of his form and the background erupt into expressive, splashing watercolor strokes resembling crashing waves, driving rain, and thunderous gales. He embodies the majestic violence of a storm, the very first emotional 'bug' to shatter the silent heavens.
+atmosphere: Epic, tempestuous, and undeniably cool. The Washi paper texture grounds the mythical storm in a heavy, organic, hand-painted reality.
+
+Negative Prompt:
+oil painting, thick impasto, ugly, horror, flat cel-shading, modern fantasy armor, glossy surface, plastic texture, serene expression, 3D render, excessive literal mud, dirty face, weak, delicate, western mythology
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 77777
+```
+---
+
+## 5. 原初の反逆者（反逆星神カガセオ）の描画例
+
+※ 三貴子とは独立したカテゴリとして、カガセオは「熱暴走のバグ」及び人間側の荒々しさを併せ持った表現をする。
 
 ---
 
