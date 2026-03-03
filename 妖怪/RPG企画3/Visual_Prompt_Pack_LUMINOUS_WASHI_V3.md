@@ -23,7 +23,7 @@
 
 ## 1. STYLE_ANCHOR（共通・和紙水彩ベース）
 
-```text
+```markdown
 # 00_STYLE_ANCHOR_LUMINOUS_WASHI
 masterpiece, highly detailed, exquisitely beautiful character faces,
 (for human elements): traditional Japanese watercolor style, painted on textured Washi paper, mineral pigments (Iwa-enogu), beautiful unpredictable chromatic bleeding, soft ink washes, organic analog warmth, visible paper fibers,
