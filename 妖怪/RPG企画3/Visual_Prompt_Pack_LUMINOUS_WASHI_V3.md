@@ -43,7 +43,7 @@ oil painting, thick impasto, 3D render, CGI, glossy surface, plastic, ceramic, p
 
 ## 2. 主人公「ミコト」冒険者初期装備（赤スカーフ版）
 
-### Prompt for Mikoto (protagonist)
+### ミコト（主人公）
 
 ミコトの「泥臭さと熱量」を、スカーフから溢れ出す赤い岩絵具の激烈な滲みとして定義しました。
 
@@ -138,12 +138,12 @@ Params:
 
 ```
 
-### Prompt for Wakahiko (Divine Elegance / 天の貴人)
+### ワカヒコ（天の貴人 / Divine Elegance）
 
 泥の対極。一切の乱れを許さない「神の理」を、完璧に統制された筆使いと冷たい胡粉の層で表現します。
 
 ```markdown
-# NEW_WAKAHIKO_DIVINE_ELEGANCE_PROMPT
+# NANOBANANAPRO_PROMPT_WAKAHIKO_DIVINE_ELEGANCE_WASHI
 
 # PROMPT
 Prompt:
@@ -161,10 +161,10 @@ Params:
 
 ```
 
-### Prompt for Sukuna (Revised: The Toxic Scholar)
+### スクナ（毒物学者）
 
 ```markdown
-# NANOBANANAPRO_PROMPT_SUKUNA_WASHI_V2_REVISED
+# NANOBANANAPRO_PROMPT_SUKUNA_WASHI
 
 # PROMPT
 Prompt:
@@ -189,7 +189,7 @@ Params:
 
 **【斥候（Scout）バージョン】**
 
-### Prompt for Ukami (the wild scout - Rugged Mature Variant)
+### ウカミ（斥候）
 
 ```markdown
 # NANOBANANAPRO_PROMPT_UKAMI_WASHI_MATURE_REVISED
@@ -209,7 +209,7 @@ Params:
 
 ```
 
-### Prompt for Ukami (the ascetic 行者 variant - Rugged Mature Variant)
+### ウカミ（行者）
 
 ```markdown
 # NANOBANANAPRO_PROMPT_UKAMI_GYOJA_WASHI_MATURE_REVISED
