@@ -115,12 +115,12 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 - **造形美と華の担保:** 泥臭い世界観であっても、キャラクターの顔立ちや骨格は「万人受けする圧倒的な美しさ・華やかさ」を大前提とする。無骨さや男らしさは、骨格を崩す醜悪さ（ブサイク）としてではなく、整った顔立ちの上に添えられた「色気のある傷」や「力強い視線」として表現する。
 
 ### 主人公「ミコト」【古代アレンジ版】
-- **コンセプト:** 空の器、白と赤、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。**赤いスカーフ（マフラー）はミコトの唯一の「赤」であり、他の部位に赤色は現れない。** これは村人の手による丁寧な平織りの一本の強固な布であり、先端まで決して分岐したり裂けたりすることのない「意志の端正さ」を象徴する。
+- **コンセプト:** 空の器、白と赤、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。**赤いスカーフ（マフラー）はミコトの唯一の「赤」であり、他の部位に赤色は現れない。** これは首にしっかりと巻き付けられ、一方の端はしまい込まれ、風になびく一本の端の**合計「1つ」のみ**が視覚的に存在する構造を持つ。先端まで決して分岐したり裂けたりすることのない「意志の端正さ」を象徴する。
 ```text
 Prompt:
 masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, and resolute gaze with straighter brows.
 style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. **A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH** wrapped once around the neck; the fabric is a solid, firmly woven piece with **CLEAN, FINISHED EDGES**. The scarf has **EXACTLY TWO DISTINCT CLEAN ENDS** trailing in the wind as firm, unbroken rectangular shapes — **RED IS EXCLUSIVE TO THIS SCARF; NO OTHER RED ACCENTS ALLOWED. NO branching, NO bifurcation, NO split fabric.** A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
+details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. **SCARF STRICT LOGIC:** A SINGLE STRIP OF BOLD RED CLOTH wrapped securely around the neck. The front end is tucked away; **ONLY ONE SINGLE TAIL trails in the wind behind.** THERE IS EXACTLY ONE VISIBLE TRAILING PIECE OF FABRIC. RED IS EXCLUSIVE TO THIS SCARF. **NO front drape, NO branching, NO second tail, NO bifurcation, NO split fabric.** A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
 texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte.
 background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
