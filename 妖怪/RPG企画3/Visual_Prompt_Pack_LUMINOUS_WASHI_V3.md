@@ -437,23 +437,34 @@ Params:
 --ar 1:1 --stylize 300 --quality high --seed 11111
 ```
 
-### Prompt for True Ame-no-Murakumo (Awakened Historical Vessel)
+### Prompt for Ame-no-Murakumo Vessel (Initial Soul Vessel)
 
 ```markdown
-# PROMPT_TRUE_AME_NO_MURAKUMO_WASHI
+# PROMPT_AME_NO_MURAKUMO_VESSEL_WASHI
 
 # PROMPT
 Prompt:
 OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of the sword. Re-render the surfaces into Japanese watercolor while preserving the sword's long, straight structure.
-masterpiece, highest quality, the legendary Ame-no-Murakumo (天叢雲剣) — an exceptionally long and narrow Japanese straight sword (Chokuto) floating horizontally, radiating overwhelming heat and history.
+masterpiece, highest quality, the legendary Ame-no-Murakumo (天叢雲剣) in its dormant vessel state — an exceptionally long and narrow Japanese straight sword (Chokuto) floating horizontally, radiating overwhelming heat and the weight of history.
 style: traditional Japanese watercolor on Washi paper, extreme contrast between the NEAR-BLACK matte iron of the blade and blinding, raised golden Kintsugi lacquer seams.
-details: The blade is long, narrow, and dark as charcoal — NOT a katana, but a primitive Japanese straight sword. The blade is built in EXACTLY THREE visible segmented sections joined end-to-end, each join sealed by THICK, RAISED golden Kintsugi lacquer lines that pulse with supernova-level thermal energy. NO western crossguard — the hilt is a simple cylinder with a wide DISC POMMEL at the end. The blade surface is entirely matte and light-absorbing — Kintsugi veins are the ONLY source of light. Gold lacquer droplets bleed into the Washi paper.
+details: The blade is long, narrow, and dark as charcoal — NOT a katana, but a primitive Japanese straight sword. The blade is built in EXACTLY THREE visible segmented sections joined end-to-end, each join sealed by THICK, RAISED golden Kintsugi lacquer lines that pulse with thermal energy. NO western crossguard — the hilt is a simple cylinder with a wide DISC POMMEL at the end. The blade surface is entirely matte and light-absorbing — Kintsugi veins are the ONLY source of light. This is a hollow vessel waiting to absorb the souls of other broken weapons. Gold lacquer droplets bleed into the Washi paper.
 background: minimal sumi-e void, faint scorched paper texture radiating outward from the sword.
 
 Negative Prompt:
 extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 77777
+```
+
+### Prompt Modifier for Chimera Weapon / True Ame-no-Murakumo Soul
+
+When generating a weapon that has undergone Chimera Grafting (呼び継ぎ) or is imbued with the True Ame-no-Murakumo soul, use the base weapon's prompt and add the following descriptive elements:
+
+```markdown
+# PROMPT_MODIFIER_CHIMERA_AND_TRUE_SOUL_WASHI
+
+# PROMPT MODIFIER (Append to the base weapon prompt)
+details (Chimera/Soul state): The weapon is grotesquely yet beautifully fused with jagged, mismatched iron fragments from other destroyed weapons, bound violently together by thick, raised, intensely glowing golden Kintsugi seams. These golden seams pulse like veins overflowing with supernova heat. Faint, ghostly afterimages (sumi-e blurred silhouettes) of the consumed weapons' original forms linger around the blade like a mirage. The weapon transcends its original shape, radiating the immense, abrasive, uncontainable history of "Daijuku" self-sacrifice.
 ```
 
 ---
