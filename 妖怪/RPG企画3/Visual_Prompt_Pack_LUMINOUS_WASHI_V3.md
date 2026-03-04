@@ -333,19 +333,18 @@ Params:
 ### Prompt for Boss Orochi Tsurugizuka (Chimera of Discarded Swords)
 
 ```markdown
-# PROMPT_OROCHI_TSURUGIZUKA_FRICTION_V7
+# PROMPT_OROCHI_TSURUGIZUKA_LIVING_FRICTION_V8
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, an absolute mechanical-nightmare entity, **strictly composed of exactly eight (8) separate, isolated clusters of jagged metal rising from a singular central mound**.
-**Count Enforcement:** Precisely eight distinct neck-like pillars of steel. Each of the eight (8) pillars ends in a **blade-cluster "head" lacking any biological features**. There are **NO eyes, NO scales, NO flesh, and NO biological faces**. The "mouths" are merely jagged gaps between broken katanas.
-**Style Application:** **FRICTION-DRY-BRUSH STYLE (Kasure)**. Zero-bleeding, zero-blending. Painted on **highly textured, raw fibrous Washi paper**. Every stroke is a dry, scratchy line of mineral pigment. Visible paper grain through every layer.
-**Material Detail:** Each of the 8 heads is a high-density, **unlubricated friction-grind of thousands of rusted ancient swords, jagged iron shards, and shattered bronze hilts**. The entire structure is violently stitched by **jagged, raised golden Kintsugi lacquer lines** that act as the only structural binding.
-**Environment:** A stark, minimalist background of dry sumi-e fog. No extra structures. Only the 8-headed mountain of iron.
-**Lighting:** Cold, harsh light catching on the dry edges of the rusted metal, rendered with **mineral granulation** to show the grit and rust.
+masterpiece, highest quality, a colossal and terrifying **living-chimera entity**, strictly composed of **exactly eight (8) distinct serpentine heads** rising from a central mound of rusted iron.
+**Structural Detail:** This is a grotesque fusion of steel and flesh. The eight heads feature **exposed, raw muscle sinews and decaying organic tissue** that wrap around thousands of rusted swords and broken blades like a parasite. **Ancient bone fragments** serve as jagged structural supports.
+**Biological Features:** Each of the 8 heads now possesses **vengeful, glowing vermilion eyes** buried deep within the metal-and-meat clusters. The "mouths" are a horrific mix of broken katana shards and **stark white, jagged bone fangs**. There is NO smooth animal skin; the surface is a mix of **dried, cracked reptilian scales and rusted iron**.
+**Style Application:** **FRICTION-DRY-BRUSH STYLE**. Minimize soft bleeding. Every stroke emphasizes **"Friction and Agony"**: the dry brush (Kasure) depicts both the grit of rust and the **stringy, fibrous texture of exposed muscle**.
+**Details:** The entity is violently bound together by **jagged golden Kintsugi lacquer lines** that glow like boiling blood. The washi paper fibers are visible throughout, highlighting the **dry, painful rubbing of metal against bone**.
 
 Negative Prompt:
-**biological snake, living eyes, reptile scales, animal teeth, monster flesh, organic skin, biological face, eyes in mouths, looking at camera**, watercolor bleeding, soft blending, liquid flow, smudging, blurry edges, washes, water, excessive shadows, extra heads beyond eight, fewer than eight heads, human shapes, modern technology, sci-fi, shiny chrome, oil painting, 3D render, plastic texture, signature, watermark.
+**smooth porcelain skin, healthy animal flesh, cute features, happy expressions, clean shiny scales, mechanical robot, sci-fi technology**, watercolor bleeding, soft blending, liquid flow, smudging, blurry washes, extra heads beyond eight, fewer than eight heads, human faces, 3D render, plastic texture, signature, watermark.
 
 Params:
 --ar 16:9 --stylize 450 --quality ultra --seed 88888
