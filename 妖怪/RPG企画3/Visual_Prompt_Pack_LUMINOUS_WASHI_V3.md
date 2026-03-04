@@ -24,17 +24,19 @@
 ## 1. STYLE_ANCHOR（共通・和紙水彩ベース）
 
 ```markdown
-# 00_STYLE_ANCHOR_LUMINOUS_WASHI_V5
+# 00_STYLE_ANCHOR_LUMINOUS_WASHI_V6
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, highly detailed, exquisitely beautiful character faces,
+masterpiece, highest quality, highly detailed, anatomically correct, perfect human proportions, natural and expressive posing, perfectly drawn hands and fingers, exquisitely beautiful character faces, entirely focused composition, STRICTLY NO extra items, NO random props,
 entirely painted on highly textured, fibrous Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and soft ink washes. visible paper fibers, powdery mineral granulation, organic analog warmth.
 The visual core is a breathtaking artistic harmony: ultra-refined, disciplined fine lines for divine elements, intersecting with ROUGH, SCRATCHY dry‑brush strokes and mineral granulation for human elements. Absolutely no smooth, synthetic, or 3D surfaces.
 supernatural or magical elements are rendered strictly through traditional analog mediums, sumi-e strokes, kintsugi lacquer, or pigment splashes.
 
 Negative Prompt:
-3D render, CGI, glossy surface, plastic, ceramic, porcelain, metallic sheen, flat cel-shading, oil painting, thick impasto, modern digital VFX, western fantasy medieval armor, sci-fi, photorealistic, photography, ugly, deformed, noisy, jpeg artifacts, blurry, low resolution, poorly drawn, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D render, CGI, glossy surface, plastic, ceramic, porcelain, metallic sheen, flat cel-shading, oil painting, thick impasto, modern digital VFX, western fantasy medieval armor, sci-fi, photorealistic, photography, ugly, deformed, noisy, jpeg artifacts, blurry, low resolution, poorly drawn, signature, watermark
+
+
 ```
 
 ---
@@ -57,7 +59,7 @@ texture: natural, matte cloth textures defined entirely by paper fiber and raw p
 background: a vast, ancient landscape suggested through atmospheric, desaturated earth-tone ink washes.
 
 Negative Prompt:
-3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, three ends, multiple tails, multiple scarves, extra fabric, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, three ends, multiple tails, multiple scarves, extra fabric, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
 ```
@@ -82,7 +84,7 @@ texture: skin rendered with warm, natural washes revealing the paper grain, emph
 background: ancient ruins implied by loose, energetic ink washes.
 
 Negative Prompt:
-3D render, porcelain skin, smooth ceramic surface, modern idol outfit, perfectly clean lines, synthetic fabric, modern jewelry, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D render, porcelain skin, smooth ceramic surface, modern idol outfit, perfectly clean lines, synthetic fabric, modern jewelry, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44821
 ```
@@ -102,7 +104,7 @@ details: bristly dark hair bound by a rough cloth. A dignified, heavily scarred 
 environment: strictly utilitarian, dark traditional forge (ONLY soot-stained walls and a brick furnace). Vivid red and orange splashes of watercolor depict the heat of the forge.
 
 Negative Prompt:
-skinny anime boy, flawless skin, porcelain skin, smooth surface, modern sci-fi forge, crutches, walking stick, statues, porcelain figures, decorative ornaments, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, skinny anime boy, flawless skin, porcelain skin, smooth surface, modern sci-fi forge, crutches, walking stick, statues, porcelain figures, decorative ornaments, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 3:4 --stylize 250 --quality high --seed 44822
 ```
@@ -123,7 +125,7 @@ texture: her skin has a translucent watercolor quality, allowing the paper grain
 environment: a turbulent, moody ocean behind her, depicted with overlapping, cold DRY‑BRUSH strokes and granular splatter.
 
 Negative Prompt:
-two spears, multiple spears, dual wielding, extra poles, twin spears, extra weapons, heavy weapons, metallic armor, dry flawless hair, porcelain skin, smooth ceramic surface, cheerful sunny anime, bright pop colors, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, two spears, multiple spears, dual wielding, extra poles, twin spears, extra weapons, heavy weapons, metallic armor, dry flawless hair, porcelain skin, smooth ceramic surface, cheerful sunny anime, bright pop colors, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44823
 ```
@@ -144,7 +146,7 @@ environment: Takamanohara (celestial plain). A serene landscape suggested by dry
 mood: The suffocating, perfect stillness of divine logic.
 
 Negative Prompt:
-watercolor bleeding, soft blending, liquid flow, smudging, dirt, mud, messy brushwork, expressive splashes, human warmth, western fantasy, rough hemp, mechanical gear, modern clothes, vector art, glossy finish, 3D render, plastic, ceramic texture, porcelain skin, oil painting, thick impasto, signature, watermark, multiple bows, extra bows, twin bows, duplicate weapons, front-facing pose, looking at camera, eboshi
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, watercolor bleeding, soft blending, liquid flow, smudging, dirt, mud, messy brushwork, expressive splashes, human warmth, western fantasy, rough hemp, mechanical gear, modern clothes, vector art, glossy finish, 3D render, plastic, ceramic texture, porcelain skin, oil painting, thick impasto, signature, watermark, multiple bows, extra bows, twin bows, duplicate weapons, front-facing pose, looking at camera, eboshi
 
 Params:
 --ar 3:4 --stylize 350 --quality high --seed 44824
@@ -165,7 +167,7 @@ texture: sallow, sickly watercolor washes for his skin, heavily emphasizing the 
 atmosphere: a dangerous, toxic laboratory environment implied by splatters of poisonous ink.
 
 Negative Prompt:
-innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence, porcelain skin, smooth surface, huge architecture, oil painting, thick impasto, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, innocent, adorable, cute, cherubic, blush, happy smile, disney style, ghibli style, soft pastel colors, clean clothes, mascot character, cheerful, round eyes, childish innocence, porcelain skin, smooth surface, huge architecture, oil painting, thick impasto, signature, watermark
 Params:
 --ar 4:5 --stylize 350 --quality high --seed 44899
 ```
@@ -190,7 +192,7 @@ details: a ruggedly attractive face, short well-groomed beard and mustache, shar
 background: deep, atmospheric sumi-e washes of ancient woodland.
 
 Negative Prompt:
-young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elfen features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elfen features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44827
 ```
@@ -208,7 +210,7 @@ details: weathered, tanned skin painted with textural watercolor washes. A digni
 background: a primordial forest rendered with deep, overlapping washes of muted green and brown ink.
 
 Negative Prompt:
-youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44828
 ```
@@ -231,7 +233,7 @@ Style: Traditional Japanese painting on Washi paper. The background features a m
 Details: Enveloped in intricate, sculptural multi-layered white ceremonial robes (Heian Kariginu style). The architectural draping mimics frozen lily petals, maintaining a slender, majestic silhouette. Her glossy, straight black silk hair flows beneath a translucent gossamer white veil. She wears an austere, feminine Amaterasu-style crown/kanzashi: a lacquered tiara shaped like a stylized rising sun braid with a tiny cracked gold ring motif. Deep within the immaculate white folds, elusive glimpses of a crimson silk lining cascade like a hidden red sash. A subtle golden luminescence emanates from beneath her skin and robes, trapping sunlight within her form. Her expression is flawlessly beautiful yet frozen in fragile, eternal fear, eyes closed or gazing blankly. The composition evokes an annular solar eclipse in a completely luminous palette: a brilliant, muted-gold corona radiates outward, while the cocooned core is obscured not by shadow, but by an intensely bright, pale overexposure (halation).
 
 Negative Prompt:
-chubby proportions, bulky cocoon mass, bright pop colors, plastic sheen, seamless synthetic surfaces, modern elements, high contrast shadows, hard 3D render look, depiction of spiky circles, cartoon sun icons, heavy blackness, dirty fabric, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, chubby proportions, bulky cocoon mass, bright pop colors, plastic sheen, seamless synthetic surfaces, modern elements, high contrast shadows, hard 3D render look, depiction of spiky circles, cartoon sun icons, heavy blackness, dirty fabric, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 ```
 
 ### Prompt for Tsukuyomi (sterile execution)
@@ -246,7 +248,7 @@ Style: Traditional Japanese watercolor on Washi paper, executed with razor-sharp
 Details: Imposing, towering posture with absolute authority. Adorned in sharp-edged, Origami-like ancient court attire that cascades in architectural, flat planes. He wears a subtle, kabuto-like silver lunar circlet integrated seamlessly into his glossy black hair. Bold streams of deep ultramarine and midnight-blue silk elegantly spill from within the intricate layers of his blinding white robes. His face is terrifyingly symmetrical and expressionless, projecting cold arrogance through downward-gazing Sanpaku eyes. In one hand, he wields a massive, exquisite execution weapon: a breathtaking Naginata featuring an enormous, elegantly curved crescent-like blade. The sweeping lunar arc of the blade perfectly mimics a waning moon. Behind him, a perfectly simple, fine-line silver-platinum full-moon halo frames his figure.
 
 Negative Prompt:
-soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetry, warm cinematic shadows, eboshi, bulky weapons, double-bladed haft, extra weapons, multiple weapons, secondary weapon, sheathed weapon, off-screen weapon, oil painting, thick impasto, horror, flat cel-shading, modern elements, synthetic 3D smoothness, signature, watermark
+bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetry, warm cinematic shadows, eboshi, bulky weapons, double-bladed haft, extra weapons, multiple weapons, secondary weapon, sheathed weapon, off-screen weapon, oil painting, thick impasto, horror, flat cel-shading, modern elements, synthetic 3D smoothness, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 23456
 ```
@@ -263,7 +265,7 @@ details: He has a fiercely attractive, battle-hardened face with piercing eyes t
 atmosphere: Epic, tempestuous, and undeniably cool.
 
 Negative Prompt:
-modern fantasy armor, glossy surface, plastic texture, serene expression, 3D render, excessive literal mud, dirty face, weak, delicate, western mythology, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, modern fantasy armor, glossy surface, plastic texture, serene expression, 3D render, excessive literal mud, dirty face, weak, delicate, western mythology, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 77777
 ```
@@ -284,7 +286,7 @@ details: pale, gaunt face half-covered by tattered white kimono stained with ink
 mood: absolute dread.
 
 Negative Prompt:
-cute, beautiful, clean, serene, pastel colors, western fantasy, mechanical parts, comic style, glossy surfaces, oil painting, flat cel-shading, 3D render, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, cute, beautiful, clean, serene, pastel colors, western fantasy, mechanical parts, comic style, glossy surfaces, oil painting, flat cel-shading, 3D render, signature, watermark
 Params:
 --ar 2:3 --stylize 350 --quality high --seed 99999
 ```
@@ -302,7 +304,7 @@ details: humanoid-adjacent sacred figure with strict symmetry, layered gofun whi
 environment: sacred empty court at dawn, thin mist, restrained palette, no modern elements.
 
 Negative Prompt:
-glossy ceramic, porcelain shards, plastic texture, neon sci-fi, mechanical parts, cyberpunk UI, western fantasy armor, chaotic splatter, cartoon cel-shading, 3D render, oil painting, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, glossy ceramic, porcelain shards, plastic texture, neon sci-fi, mechanical parts, cyberpunk UI, western fantasy armor, chaotic splatter, cartoon cel-shading, 3D render, oil painting, signature, watermark
 Params:
 --ar 2:3 --stylize 400 --quality ultra --seed 99911
 ```
@@ -325,7 +327,7 @@ style: high contrast Japanese watercolor on rough Washi paper. A violent collisi
 details: He has a powerful, god‑like presence with a war‑scarred, strikingly beautiful face and a veteran warrior's bearing. His entire silhouette suggests a walking constellation. He wears tattered ceremonial silks and battered divine armor pieces inset with meteorite fragments. Pale flesh-and-blood surfaces peek through gaps, marred by deep catastrophic fissures and scars. These scars are forcefully stitched by thick, glowing, raised golden Kintsugi lacquer. **Crucially, the kintsugi network must evoke constellation paths and celestial chart geometry, not random cracks**, reinforcing his cosmic motif. Intense inner heat radiates from the cracks as supernova-like flicker bursts, scorching the paper. One eye blazes with uncontainable rebellious thermal energy, like a dying star. His body itself is a map of the heavens.
 
 Negative Prompt:
-rock golem, full-stone monster, robotic, mechanical, non-human body, smooth lines, perfect symmetry, calm palette, serene expressions, minimalist backgrounds, oil painting, flat cel-shading, modern props, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, rock golem, full-stone monster, robotic, mechanical, non-human body, smooth lines, perfect symmetry, calm palette, serene expressions, minimalist backgrounds, oil painting, flat cel-shading, modern props, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 34567
 ```
@@ -344,7 +346,7 @@ masterpiece, highest quality, a colossal and terrifying **living-chimera entity*
 **Details:** The entity is violently bound together by **jagged golden Kintsugi lacquer lines** that glow like boiling blood. The washi paper fibers are visible throughout, highlighting the **dry, painful rubbing of metal against bone**.
 
 Negative Prompt:
-**smooth porcelain skin, healthy animal flesh, cute features, happy expressions, clean shiny scales, mechanical robot, sci-fi technology**, watercolor bleeding, soft blending, liquid flow, smudging, blurry washes, extra heads beyond eight, fewer than eight heads, human faces, 3D render, plastic texture, signature, watermark.
+**extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, smooth porcelain skin, healthy animal flesh, cute features, happy expressions, clean shiny scales, mechanical robot, sci-fi technology**, watercolor bleeding, soft blending, liquid flow, smudging, blurry washes, extra heads beyond eight, fewer than eight heads, human faces, 3D render, plastic texture, signature, watermark.
 
 Params:
 --ar 16:9 --stylize 450 --quality ultra --seed 88888
@@ -363,7 +365,7 @@ details: A jagged, irregular chunk of deeply rusted, scorched iron fused uncontr
 texture: the fibrous tooth of the Washi paper is highly visible, emphasizing the abrasive, unlubricated friction of the ruined metal.
 
 Negative Prompt:
-watercolor bleeding, soft blending, liquid flow, smudging, blurry edges, clean metal, shiny steel, smooth surfaces, perfect geometry, biological flesh, living tissue, 3D render, cel-shading, oil painting, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, watercolor bleeding, soft blending, liquid flow, smudging, blurry edges, clean metal, shiny steel, smooth surfaces, perfect geometry, biological flesh, living tissue, 3D render, cel-shading, oil painting, signature, watermark
 Params:
 --ar 1:1 --stylize 300 --quality high --seed 11111
 ```
@@ -381,7 +383,7 @@ details: The sword is thick, heavily weathered, and scarred by countless histori
 background: minimal atmospheric sumi-e wash, keeping focus entirely on the weapon's presence.
 
 Negative Prompt:
-clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 77777
 ```
@@ -403,7 +405,7 @@ details: weary faces contort with pain and determination as they bite into mud-l
 mood: dread mixed with grim resolve, an act that seals characters to a corrupted fate.
 
 Negative Prompt:
-bright, cheerful, clean surfaces, modern props, pastel colors, western fantasy, cute, innocent, oil painting, cel-shading, 3D render, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, bright, cheerful, clean surfaces, modern props, pastel colors, western fantasy, cute, innocent, oil painting, cel-shading, 3D render, signature, watermark
 Params:
 --ar 16:9 --stylize 300 --quality high --seed 123456
 ```
@@ -422,7 +424,7 @@ details: cracked terrain is stitched by glowing kintsugi lines (star-sand lacque
 atmosphere: overcast sky, quiet flat illumination, solemn and ceremonial mood without modern or sci-fi texture.
 
 Negative Prompt:
-porcelain sheen, glossy ceramic, neon sci-fi cityscape, western cathedral, cyberpunk lighting, plastic texture, modern signage, cel-shading, 3D render, oil painting, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, porcelain sheen, glossy ceramic, neon sci-fi cityscape, western cathedral, cyberpunk lighting, plastic texture, modern signage, cel-shading, 3D render, oil painting, signature, watermark
 Params:
 --ar 9:16 --stylize 250 --quality high --seed 12345
 ```
@@ -432,6 +434,8 @@ Params:
 ## 7. 生成チェックリスト（実制作時・更新版）
 
 * **大衆性と造形の担保:** キャラクターの顔面や体型は、しっかり「美麗・魅力的（可愛い/かっこいい）」になっているか。ホラーや奇形になっていないか。
+  * **構造的破綻の排除（最重要）:** 手足の増減（指の数が多い、腕が3本ある等）、関節の不自然なねじれ、宙に浮く意図しない物体、物理的におかしい武器の持ち方など、AI特有の「もっともらしい嘘（構造的破綻）」が発生していないか必ず確認する。少しでも解剖学的に破綻している画像はリジェクトする。
+  * **アイテムと武器の厳密な統制:** プロンプトで指定されていない武器（複数の剣や、余計な槍など）や謎のオブジェクトが背景／キャラクター周辺に生成されていないか確認する。「EXACTLY ONE sword」等の数量指定をプロンプトに入れると効果的。意図しない所持品がある場合はリジェクトする。
 * **天体属性の即読性:** ツクヨミ=月（弧と夜）、アマテラス=太陽（隠れた日輪/コロナ）、カガセオ=星（星図状金継ぎと瞬き）が判別できるか（※カガセオは三貴子ではなく反逆星神）。
 * **筆致コントラスト（コアテーマ・最重要）:**
 * **人間側は、和紙の繊維感と水彩・岩絵具の予測不能な滲み（ノイズ）**を帯び、アナログな温もりを持っているか。
