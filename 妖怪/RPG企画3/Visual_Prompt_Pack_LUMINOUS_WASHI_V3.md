@@ -199,18 +199,25 @@ Params:
 
 ### ウカミ（行者）
 
+> **【運用注記】** ウカミの行者と斥候は**同一人物**です。
+> 生成ワークフローでは、まず斥候バージョンの画像を生成・確定させ、
+> その画像をAIツール（img2img / inpaint 等）に**アップロードした上で**
+> 以下のプロンプトを参照修正プロンプトとして入力し、
+> 「服装・装備・髪色・表情のみを変容させる」編集生成を行ってください。
+> キャラクターの骨格・顔立ち・体格の同一性を必ず保持すること。
+
 ```markdown
 # NANOBANANAPRO_PROMPT_UKAMI_GYOJA_WASHI_MATURE_REVISED
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, exceptionally handsome, rugged middle-aged male ascetic (Gyoja) radiating stoic spiritual weight.
+masterpiece, highest quality, exceptionally handsome, rugged middle-aged male ascetic (Gyoja) radiating stoic spiritual weight — the same man as the scout, transformed by pilgrimage.
 style application: solemn, heavy earthy DRY‑BRUSH with tones of metallic oxidation (rust and verdigris) rubbing into the paper from his staff.
-details: weathered, tanned skin painted with textural watercolor washes. A dignified beard and deep, wise eyes. He wears heavily layered, weathered saffron robes and thick wooden prayer beads. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful build reflects decades of harsh physical pilgrimage.
-background: a primordial forest rendered with deep, overlapping washes of muted green and brown ink.
+details: weathered, tanned skin painted with textural watercolor washes. The same dignified beard and strong jawline as the scout version, but now his previously dark hair has become **distinctly ash-gray and silver-streaked at the temples**, reflecting the toll of spiritual hardship. His eyes carry a deeper, more solemn gravity — still piercing, but now turned inward. He wears heavily layered, weathered **dark earth-tone and charcoal-gray robes** (deliberately subdued from saffron — the color of someone who has spent too long in shadow), and thick wooden prayer beads worn smooth by years of use. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful posture remains, but carries the stillness of one who has stopped fighting outward.
+background: a primordial mountain forest rendered with deep, overlapping washes of muted green and brown ink; sparse light filtering through dense canopy.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, bright saffron orange robes, vivid warm colors, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44828
 ```
