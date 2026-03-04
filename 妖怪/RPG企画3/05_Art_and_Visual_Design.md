@@ -115,17 +115,17 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 - **造形美と華の担保:** 泥臭い世界観であっても、キャラクターの顔立ちや骨格は「万人受けする圧倒的な美しさ・華やかさ」を大前提とする。無骨さや男らしさは、骨格を崩す醜悪さ（ブサイク）としてではなく、整った顔立ちの上に添えられた「色気のある傷」や「力強い視線」として表現する。
 
 ### 主人公「ミコト」【古代アレンジ版】
-- **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。赤いスカーフは漁村アマで贈られた英雄の証として常時巻かれ、物語の旅路を通じて“形見”“呪い”と意味が変化する。見た目は海風と血に晒されたように端が擦り切れ、ところどころ泥汚れが滲んでいる。
+- **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。赤いスカーフは漁村アマで贈られた英雄の証であり、村人の手による丁寧な平織りで、端までしっかりと整えられた一本の強固な布。分岐や裂けのない端正な作りがミコトの意志を象徴する。物語の旅路を通じて“形見”“呪い”と意味が変化する。
 ```text
 Prompt:
-masterpiece, exquisitely beautiful and universally appealing facial features, an expressive young adventurer character standing on a windy cliff.
+masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, and resolute gaze with straighter brows.
 style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details (the figure): pure white short bob hair painted with soft, translucent watercolor washes, appearing airy rather than solid. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. A LONG, FLOWING SCARF of a BOLD RED color wraps around the neck, the red pigment bleeding organically into the surrounding paper texture. A thick coarse rope (shimenawa) around the waist. He appears as a fragile but beautiful mortal human vessel, not a deity.
+details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH wrapped once around the neck; the fabric is a solid, firmly woven piece crafted by local villagers, with CLEAN, FINISHED EDGES. The scarf has EXACTLY TWO ENDS trailing in the wind as firm, unbroken rectangular shapes — NO branching, NO bifurcation, NO split fabric. A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
 texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte.
 background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5)
+split scarf, bifurcated fabric, forked ends, three ends, multiple tails, divided scarf, overly feminine, girly facial features, long eyelashes, seductive eyes, heavy makeup, oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5), (masculine, feminine, clearly male, clearly female, gendered:1.3)
 ```
 
 ### 狂騒の踊り子「ウズ」【古代アレンジ版】
@@ -165,13 +165,13 @@ Params:
 - **役割の表現:** 斥候時は軽やかな動きと先行者らしい遠望の視線を、行者時は重厚な姿勢と祈りの線でヴァンガード・ガイドを可視化する。
 - **青年ビジュアル（IF）:** 25歳前後の洗練された美青年。普段は俊敏な野生の斥候として行動し、のちに荒野を巡礼する行者へと変貌する二面性を持つ。年齢表記を明示しつつ、中年化バイアスを排除するためクリーンシェーブを徹底。
   * **成熟バリエーション:** 本編正史の中年版は、猿田ヒコ的な渋みと威厳を持った40歳前後で描写する。こちらは短い髭と厚い胸板、weathered但気品ある風貌をプロンプトに含める。
-- **視覚ディテール:** 風に乱れる暗髪、引き締まった筋肉美、丸い人間耳。斥候装備は麻と革の実用的なギア。行者版では色あせた斎衣と祈りの念珠、錆びた錫杖を持つ。
+- **視覚ディテール:** 風に乱れる暗髪、引き締まった筋肉美、丸い人間耳。斥候装備は麻と革の実用的なギア。**左前腕には彼を象徴する「手甲（THE BEAT GAUNTLET）」を装着し、先行者としての歴史を刻む。** 行者版では色あせた斎衣と祈りの念珠、錆びた錫杖を持つ。
 
 ```text
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Clothing made of woven hemp and soft leather with some decorative stitching and a faded sash. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy, asymmetrical black iron armor (Tekko) with a hammer-textured surface, featuring a large circular bronze disk embedded in the center. The bronze disk is etched with multiple concentric "ripple" grooves like a soundwave or pulsar. Cracks on the iron are filled with golden kintsugi. It is bound to the arm by a thick, deep-indigo braided cord (kumihimo) ending in a single tassel. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
 old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
@@ -191,7 +191,26 @@ Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 ```
 
-## 4. UI/マップ・ビジュアル定義
+---
+
+## 4. 通底するデザイン意匠 (Common Visual Motifs)
+
+キャラクター間で受け継がれ、あるいは共鳴を示すための「共通のデザイン要素」を定義する。
+
+### 4.1 ウカミの継承手甲（THE BEAT GAUNTLET）
+ウカミからミコトへ、あるいは特定の継承を象徴する「手甲」の定義。この意匠を指定することで、他キャラクターのプロンプトでも「共通の歴史」を視覚化できる。
+- **ベース:** 無骨な黒鉄（Kurourushi）の非対称な手甲（Tekko）。槌跡（Hammer marks）が残り、使い古された質感を持つ。
+- **中心意匠:** 前腕中央に埋め込まれた大型の「青銅（Bronze）の円盤」。
+- **詳細ディテール:** 
+    - 青銅円盤には、心音や鼓動を想起させる「同心円状の波紋（Ripples/Wave patterns）」が深く刻まれている。
+    - 鉄部には細かな「金継ぎ（Kintsugi）」の亀裂が走り、修理の歴史を示す。
+    - 濃紺（Indigo）の太い「組紐（Kumihimo）」で幾重にも腕に巻き付けられ、末端には一筋の房（Tassel）が垂れる。
+- **プロンプト用スニペット:** 
+  > *wearing the signature "BEAT GAUNTLET" on the forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+
+---
+
+## 5. UI/マップ・ビジュアル定義
 
 - **UIデザイン:**
   - **神のUI（タイムライン等）:** 弥生土器や銅鐸のラインを模した、細く幾何学的なデザイン。青白い胡粉や群青の岩絵具が浮かび上がるような、鉱石の鈍い艶を帯びる。
@@ -200,14 +219,14 @@ Params:
 - **マップ表現:**
   - 世界地図は「ひび割れた和紙」。移動ルートは「金継ぎのライン」として描画される。
 
-## 5. Prompt運用導線（追加）
+## 6. Prompt運用導線（追加）
 
 - ミコト冒険者初期装備（赤スカーフ版）などを含む生成実行は `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` を使用。
 - 生成結果の採否判定は同ファイル末尾のチェックリスト（古代感・非SF・同一和紙媒体・神側の端正筆致・人側の奔放筆致・シルエット・物語整合）に従う。
 
-## 6. 主要イベント・ビジュアル定義
+## 7. 主要イベント・ビジュアル定義
 
-### 6.1 天岩戸「神器作成」の儀
+### 7.1 天岩戸「神器作成」の儀
 
 - **八咫鏡の制作:**
   - **シーン:** たたら場の炉の前。マヒトが円盤状の金属を打ち、鏡の原型を制作する。

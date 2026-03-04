@@ -39,6 +39,14 @@ extra weapons, multiple weapons, extra swords, dual wielding, unrequested items,
 
 ```
 
+## 1. 共有ビジュアルモジュール (Shared Visual Modules)
+
+### 【モジュール：ウカミの継承手甲（UKAMI_GAUNTLET）】
+このプロンプトスニペットを、キャラクターの `details:` セクションに含める（または挿入する）ことで、ウカミから受け継いだ（あるいは彼自身の）特徴的な手甲を再現します。
+
+> **Prompt Module:**
+> *wearing the signature "BEAT GAUNTLET" on the left forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+
 ---
 
 ## 2. 主人公「ミコト」冒険者初期装備（赤スカーフ版）
@@ -52,14 +60,14 @@ extra weapons, multiple weapons, extra swords, dual wielding, unrequested items,
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, exquisitely beautiful and expressive young male adventurer standing on a windy cliff.
-style application: aggressive, DRY BRUSH strokes that catch on the paper fibers focused entirely around his bold red muffler, contrasting with fragile, translucent white textures for his hair and tunic.
-details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A simple, BOLD RED muffler wrapped once around his neck, with exactly two distinct ends trailing in the wind. The red pigment of these two fabric tails **frays and scratches** the surrounding paper texture, symbolizing his inner heat and human friction. A thick coarse hemp rope (shimenawa) binds his waist. His physical form expresses a fragile yet profoundly beautiful mortal existence.
+masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, resolute gaze with straighter brows, and moderate East Asian eyes that convey a calm, gender-blind identity.
+style application: vibrant watercolor washes focused on the bold red scarf, contrasting with fragile, translucent white textures for the hair and tunic.
+details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH wrapped once around the neck; the fabric is a solid, firmly woven piece crafted by local villagers, with CLEAN, FINISHED EDGES. The scarf has EXACTLY TWO ENDS trailing in the wind as firm, unbroken rectangular shapes — NO branching, NO bifurcation, NO split fabric, NO frayed threads. A thick coarse hemp rope (shimenawa) binds the waist. The physical form expresses a fragile yet profoundly beautiful mortal existence.
 texture: natural, matte cloth textures defined entirely by paper fiber and raw pigment.
 background: a vast, ancient landscape suggested through atmospheric, desaturated earth-tone ink washes.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, three ends, multiple tails, multiple scarves, extra fabric, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+split scarf, bifurcated fabric, forked ends, three ends, multiple tails, divided scarf, extra fabric tails, overly feminine, girly facial features, long eyelashes, seductive eyes, heavy makeup, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, multiple scarves, frayed fabric, torn edges, ragged fibers, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
 ```
@@ -78,19 +86,19 @@ Params:
 # PROMPT
 Prompt:
 OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit using exactly FOUR uploaded reference images: 1) Mikoto's default adventurer image, 2) the Ame-no-Murakumo sword, 3) the Yata no Kagami mirror, and 4) the Yasakani no Magatama necklace. Use Mikoto's base character structure but re-render and integrate the three sacred treasures using the following details.
-masterpiece, highest quality, exquisitely beautiful and determined young male warrior standing on a windswept, scarred battlefield — the same white-haired, red-muffler adventurer, now bearing the weight of legend.
-style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; the mirror surface reflects fragile, airy light; the magatama pulses with deep mineral green.
+masterpiece, highest quality, exquisitely beautiful and determined adventurer with neutral gender identity standing on a windswept, scarred battlefield — the same Japanese adventurer with a perfect balance of masculine and feminine features, bearing the weight of legend. The face is an androgynous masterwork, neither male nor female, with a resolute gaze.
+style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; vibrant red watercolor for the scarf.
 details:
-[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient primitive Japanese straight sword (Ame-no-Murakumo) firmly in his right hand. HIS LEFT HAND AND BACK ARE EMPTY OF WEAPONS. The blade is EXTREMELY LONG, NARROW, AND HAS PARALLEL SIDES — NOT A WESTERN BROADSWORD. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard, NO quillons.
-[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. HIS LEFT HAND HOLDS NOTHING ELSE. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
-[JEWEL — Yasakani no Magatama type] Draped around his neck as a heavy collar-necklace is a **single, simple non-wrapped strand** of large, freshly carved, curved teardrop-shaped magatama beads (nephrite jade and obsidian). No overlapping loops. Rough-cut surfaces showing stone-tool marks.
-His white hair and red muffler remain unchanged; the red pigment of the muffler ends still frays and SCRATCHES the paper edge, anchoring him as human, not divine.
+[SWORD — Ame-no-Murakumo type] Gripping EXACTLY ONE ancient primitive Japanese straight sword (Ame-no-Murakumo) firmly in the right hand. THE LEFT HAND AND BACK ARE EMPTY OF WEAPONS. The blade is EXTREMELY LONG, NARROW, AND HAS PARALLEL SIDES — NOT A WESTERN BROADSWORD. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard, NO quillons.
+[SHIELD — Yata no Kagami type] Strapped to the left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. THE LEFT HAND HOLDS NOTHING ELSE. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
+[JEWEL — Yasakani no Magatama type] Draped around the neck as a heavy collar-necklace is a **single, simple non-wrapped strand** of large, freshly carved, curved teardrop-shaped magatama beads (nephrite jade and obsidian). No overlapping loops. Rough-cut surfaces showing stone-tool marks.
+The white hair and RED SCARF remain unchanged; the scarf is a SINGLE CONTINUOUS SOLID RECTANGULAR STRIP OF CLOTH with only TWO ENDS visible, NO branching, NO split fabric, NO frayed edges.
 texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
 background: a scorched, broken landscape suggested through heavy sumi washes; golden kintsugi cracks spread across the earth like roots.
 mood: not divine ascension — a mortal who refused to let the tools of heaven remain broken.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, swords on back, sheathed swords, extra handles, floating swords, western longsword, broadsword, knight sword, cruciform hilt, crossguard, two shields, extra mirrors, extra jewels, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, shiny perfect blade, pristine clean sword, flawless mirror, divine glow, emperor, god, regal costume, crown, armor, three ends of muffler, multiple scarves, extra fabric, oil painting, thick impasto, 3D render, glossy surface, plastic texture, western fantasy medieval armor, sci-fi, photorealistic, ugly, deformed, flat cel-shading, signature, watermark
+split scarf, bifurcated fabric, forked ends, three ends, multiple tails, overly feminine, girly facial features, long eyelashes, extra weapons, multiple weapons, extra swords, dual wielding, swords on back, sheathed swords, extra handles, floating swords, western longsword, broadsword, knight sword, cruciform hilt, crossguard, two shields, extra mirrors, extra jewels, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, shiny perfect blade, pristine clean sword, flawless mirror, divine glow, emperor, god, regal costume, crown, armor, three ends of muffler, multiple scarves, extra fabric, frayed fabric, torn edges, ragged fibers, oil painting, thick impasto, 3D render, glossy surface, plastic texture, western fantasy medieval armor, sci-fi, photorealistic, ugly, deformed, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 55832
 ```
@@ -219,7 +227,7 @@ Params:
 Prompt:
 masterpiece, highest quality, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm.
 style application: rough, dry brushstrokes (Kasure) and earthy pigment washes, emphasizing weathered textures and fast, aggressive movement.
-details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. He stands grounded, holding a heavy wooden spear with a broad stone tip.
+details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples, repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel. He stands grounded, holding a heavy wooden spear with a broad stone tip.
 background: deep, atmospheric sumi-e washes of ancient woodland.
 
 Negative Prompt:
@@ -244,7 +252,7 @@ Params:
 Prompt:
 masterpiece, highest quality, exceptionally handsome, rugged middle-aged male ascetic (Gyoja) radiating stoic spiritual weight — the same man as the scout, transformed by pilgrimage.
 style application: solemn, heavy earthy DRY‑BRUSH with tones of metallic oxidation (rust and verdigris) rubbing into the paper from his staff.
-details: weathered, tanned skin painted with textural watercolor washes. The same dignified beard and strong jawline as the scout version, but now his previously dark hair has become **distinctly ash-gray and silver-streaked at the temples**, reflecting the toll of spiritual hardship. His eyes carry a deeper, more solemn gravity — still piercing, but now turned inward. He wears heavily layered, weathered **dark earth-tone and charcoal-gray robes** (deliberately subdued from saffron — the color of someone who has spent too long in shadow), and thick wooden prayer beads worn smooth by years of use. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful posture remains, but carries the stillness of one who has stopped fighting outward.
+details: weathered, tanned skin painted with textural watercolor washes. The same dignified beard and strong jawline as the scout version, but now his previously dark hair has become **distinctly ash-gray and silver-streaked at the temples**, reflecting the toll of spiritual hardship. His eyes carry a deeper, more solemn gravity — still piercing, but now turned inward. He wears heavily layered, weathered **dark earth-tone and charcoal-gray robes** (deliberately subdued from saffron), and thick wooden prayer beads worn smooth by years of use. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) with a central circular bronze disk etched with ripple grooves, partially obscured by his weathered robes. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful posture remains, but carries the stillness of one who has stopped fighting outward.
 background: a primordial mountain forest rendered with deep, overlapping washes of muted green and brown ink; sparse light filtering through dense canopy.
 
 Negative Prompt:
