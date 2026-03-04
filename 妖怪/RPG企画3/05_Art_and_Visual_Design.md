@@ -165,7 +165,7 @@ Params:
 - **役割の表現:** 斥候時は軽やかな動きと先行者らしい遠望の視線を、行者時は重厚な姿勢と祈りの線でヴァンガード・ガイドを可視化する。
 - **青年ビジュアル（IF）:** 25歳前後の洗練された美青年。普段は俊敏な野生の斥候として行動し、のちに荒野を巡礼する行者へと変貌する二面性を持つ。年齢表記を明示しつつ、中年化バイアスを排除するためクリーンシェーブを徹底。
   * **成熟バリエーション:** 本編正史の中年版は、猿田ヒコ的な渋みと威厳を持った40歳前後で描写する。こちらは短い髭と厚い胸板、weathered但気品ある風貌をプロンプトに含める。
-- **視覚ディテール:** 風に乱れる暗髪、引き締まった筋肉美、丸い人間耳。斥候装備は麻と革の実用的なギア。**左前腕には彼を象徴する「手甲（THE BEAT GAUNTLET）」を装着し、先行者としての歴史を刻む。** 行者版では色あせた斎衣と祈りの念珠、錆びた錫杖を持つ。
+- **視覚ディテール:** 風に乱れる暗髪、引き締まった筋肉美、丸い人間耳。斥候装備は麻と革の実用的なギア。**左前腕にはかつて彼を象徴した「手甲（THE BEAT GAUNTLET）」を装着していたが、現在はミコトへ継承されている。** 行者版では色あせた斎衣と祈りの念珠、錆びた錫杖を持ち、手甲を外した素の左腕がその遍歴を物語る。
 
 ```text
 Prompt:
@@ -183,7 +183,7 @@ Params:
 Prompt:
 Use the uploaded scout image as the base – edit and transform it into a masterpiece featuring a solemn yet exquisitely beautiful 25-year-old young male ascetic (行者). He is exceptionally handsome, clean-shaven, with an elegant yet masculine heroic aura, tanned skin and regular rounded ears, keeping the original scout’s posture and proportions. He is dressed in weathered saffron robes and has prayer beads around his neck. He holds an ancient Shakujo (Khakkhara) staff. The metal is rendered with the texture of aged, oxidized bronze and rust that bleeds into the paper. His pose remains meditative but alert, set amidst a primordial forest background rendered with deep, overlapping washes of green and brown ink.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. The environment remains the same primordial forest.
+details: long, flowing dark hair tied back with a frayed rope, lean muscular build painted with warm, organic watercolor washes. Robes and simple sandals show signs of wear from pilgrimage. **HE NO LONGER WEARS THE GAUNTLET, HAVING PASSED IT TO HIS SUCCESSOR.** The environment remains the same primordial forest.
 
 Negative Prompt:
 old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
