@@ -66,6 +66,36 @@ Params:
 
 ---
 
+### ミコト（三種の神器装備バリエーション）
+
+ミコトが「人間が修復した器」として三種の神器を手にした瞬間。神の理を完璧な姿で再現するのではなく、傷だらけの人間の手で握り直した、**歪で熱量ある三種**として描く。
+
+> **【運用注記】** このバリエーションは、通常ミコトの画像（上記プロンプト）を img2img / inpaint 等に**アップロードした上で**、以下のプロンプトを修正プロンプトとして使用してください。白い短髪・赤いマフラーといった基本的なアイデンティティを保持しつつ、装備のみを変容させることで同一人物性を担保します。
+
+```markdown
+# NANOBANANAPRO_PROMPT_MIKOTO_SANSHU_NO_JINGI_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, exquisitely beautiful and determined young male warrior standing on a windswept, scarred battlefield — the same white-haired, red-muffler adventurer, now bearing the weight of legend.
+style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; the mirror surface reflects fragile, airy light; the magatama pulses with deep mineral green.
+details:
+[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient straight tsurugi firmly in his right hand at a low-guard angle. The blade is DARK NEAR-BLACK iron — not polished, but absorbing light like charred stone. Its cross-section is thick and heavy like a Bronze Age chopper, NOT a refined katana. The blade is segmented in construction: EXACTLY THREE visible joined sections run from hilt to tip, their seams filled with RAISED golden Kintsugi lacquer that glows with dying-star heat. The T-shaped crossguard is simple, blunt, and industrial — worn smooth. The hilt is wrapped in rope-burnt dark hemp over crude iron riveted fittings. No shine anywhere on the blade surface — only the Kintsugi gold burns.
+[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT ancient. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center, giving a faint diffuse glow rather than a clear reflection.
+[JEWEL — Yasakani no Magatama type] Draped across his chest and shoulder is a single heavy strand of large, raw magatama beads — teardrop-curved comma-shaped gems carved from deep jade-green nephrite and unpolished obsidian, threaded on rough hemp cord. They knock together with quiet weight, catching flickers of the kintsugi light.
+His white hair and red muffler remain unchanged; the red pigment of the muffler ends still frays and SCRATCHES the paper edge, anchoring him as human, not divine.
+texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
+background: a scorched, broken landscape suggested through heavy sumi washes; golden kintsugi cracks spread across the earth like roots.
+mood: not divine ascension — a mortal who refused to let the tools of heaven remain broken.
+
+Negative Prompt:
+extra weapons, multiple weapons, extra swords, dual wielding, two shields, extra mirrors, extra jewels, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, shiny perfect blade, pristine clean sword, flawless mirror, divine glow, emperor, god, regal costume, crown, armor, three ends of muffler, multiple scarves, extra fabric, oil painting, thick impasto, 3D render, glossy surface, plastic texture, western fantasy medieval armor, sci-fi, photorealistic, ugly, deformed, flat cel-shading, signature, watermark
+Params:
+--ar 2:3 --stylize 300 --quality high --seed 55832
+```
+
+---
+
 ## 3. 追加キャラクター（和紙・岩絵具仕様）
 
 ### Uzu（踊り子）
@@ -384,15 +414,109 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, a single legendary ancient Japanese straight sword (tsurugi) resting or floating, radiating overwhelming heat and history.
-style: traditional Japanese watercolor on Washi paper, striking contrast between the dark, rusted iron of the blade and blinding, raised golden Kintsugi lacquer.
-details: The sword is thick, heavily weathered, and scarred by countless historical battles. Its entirety is intricately fractured and reconnected by a beautiful, glowing network of golden Kintsugi. The gold pulses with intense, supernova-like thermal energy. Small splatters of gold lacquer and black ink bleed into the surrounding Washi paper, suggesting a heat so intense it scorches reality. It is the ultimate vessel of human friction and repair.
-background: minimal atmospheric sumi-e wash, keeping focus entirely on the weapon's presence.
+masterpiece, highest quality, a single legendary ancient straight tsurugi sword floating horizontally, radiating overwhelming heat and history.
+style: traditional Japanese watercolor on Washi paper, extreme contrast between the NEAR-BLACK matte iron of the blade and blinding, raised golden Kintsugi lacquer seams.
+details: The blade is thick, heavy, and dark as charcoal — NOT a katana, but a primitive Bronze-Age style double-edged chopper with a BLUNT, T-SHAPED iron crossguard and a rope-wrapped hilt with crude iron rivets. The blade is built in EXACTLY THREE visible segmented sections, each join forcibly sealed by THICK, RAISED golden Kintsugi lacquer lines that pulse with supernova-level thermal energy. The blade surface is entirely matte and light-absorbing — no polished sheen anywhere — making the Kintsugi veins the ONLY source of light on the weapon. Small splatters of gold lacquer bleed into the surrounding Washi paper, scorching the fibers at the contact point.
+background: minimal sumi-e void, faint scorched paper texture radiating outward from the sword.
 
 Negative Prompt:
 extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 77777
+```
+
+---
+
+## 5.5. 三種の神器（単体アイテムプロンプト）
+
+三種の神器をそれぞれ独立したアイテムとして描写するプロンプト集。「神の完品」ではなく「神器が人間の手に触れ、傷を負い、修復された器」として統一する。
+
+> **⚠️ 写真化防止**: アイテム単体プロンプトは単独使用で写真的レンダリングになりやすい。必ずセクション1の `00_STYLE_ANCHOR` を**先頭に結合**してから生成すること。
+
+### 天叢雲剣（Ame-no-Murakumo）
+
+```markdown
+# PROMPT_SANSHU_AME_NO_MURAKUMO_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, painted close-up composition of a single ancient tsurugi — the Ame-no-Murakumo — lying diagonally on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible SCRATCHY DRY-BRUSH strokes throughout.
+style: FRICTION-DRY-BRUSH painting. Zero watercolor bleeding. Heavy mineral pigments on textured Washi paper, paper fibers visible beneath all surfaces.
+details: The blade is massive and DARK NEAR-BLACK iron — matte, light-absorbing, like compressed charcoal and storm cloud. NOT a katana. A primitive, brutal Bronze-Age straight double-edged chopper. The blade consists of EXACTLY THREE distinct assembled sections, each seam forcibly filled with THICK, RAISED golden Kintsugi lacquer that pulses with faint ember heat. The T-shaped crossguard is blunt, wide, and featureless — worn utterly smooth. The hilt is wrapped in dark, frayed hemp rope over crude iron-riveted fittings. The entire surface of the blade is non-reflective — the Kintsugi seams are the SOLE light source on the weapon. Tiny gold lacquer droplets have bled onto the paper edge around the blade, scorching the fibers.
+texture: the rough tooth of the Washi paper shows through every brushstroke, amplifying the sense of ancient, unlubricated friction.
+background: near-void; minimal scorched sumi-e wash radiating from where the blade rests.
+
+Negative Prompt:
+photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, realistic material render, physically based rendering, 3D render, CGI, glossy surface, smooth surface, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, bad anatomy, surreal AI artifacts, katana silhouette, curved blade, shiny polished metal, pristine clean surface, perfect symmetry, western longsword, fantasy glowing runes, human figure, character, cel-shading, oil painting, signature, watermark
+Params:
+--ar 3:1 --stylize 300 --quality high --seed 22201
+```
+
+---
+
+### 八咫鏡（Yata no Kagami）
+
+```markdown
+# PROMPT_SANSHU_YATA_NO_KAGAMI_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, painted close-up composition of a single ancient bronze disc-mirror — the Yata no Kagami — resting face-up on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH strokes throughout.
+style: solemn DRY-BRUSH painting with muted verdigris-and-iron palette. Paper grain visible beneath all surfaces.
+details: A single, newly cast bronze disc-mirror — freshly made by human hands, NOT an ancient relic. The face is UNCRACKED AND INTACT. Fresh bronze has a warm amber-gold hue at the rim where the casting is thickest, transitioning to dull olive-grey at the center where it has been partially hand-polished with rough stone. The polishing is imperfect — the reflective surface shows faint wobbly tool-marks and irregular patches of matte and dim shine, giving a cloudy, ghost-like internal glow rather than a clear reflection. The rim shows simple, freshly incised Jomon-style spiral motifs (tomoe) — the lines are clean but hand-drawn, slightly uneven. The mirror cord (himo) — thick, undyed hemp — is freshly knotted, still stiff.
+texture: Washi paper grain is visible beneath the mineral pigment of the bronze surface.
+background: near-void; a faint atmospheric sumi-e haze, cool and dim.
+
+Negative Prompt:
+photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, realistic render, physically based rendering, 3D render, CGI, glossy surface, cracked mirror, broken mirror, shattered mirror, fissures, kintsugi on mirror, cracks, fractures, extra items, multiple mirrors, unrequested objects, random clutter, shiny perfect clean mirror, modern glass, porcelain, human figure, character, extra ropes, elaborate frame, gold frame, ornate border, western decorative mirror, cel-shading, oil painting, signature, watermark
+Params:
+--ar 1:1 --stylize 300 --quality high --seed 22202
+```
+
+---
+
+### 八尺瓊勾玉（Yasakani no Magatama）
+
+```markdown
+# PROMPT_SANSHU_YASAKANI_NO_MAGATAMA_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, painted close-up composition of a sacred strand of ancient magatama beads — the Yasakani no Magatama — coiled loosely on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH mineral pigment strokes throughout.
+style: intimate, mineral-rich DRY-BRUSH painting. Jade tones rendered with granulating Iwa-enogu pigments and scratchy brushstrokes on Washi paper — NOT smooth photorealistic material rendering.
+details: A single coiled strand of large, freshly carved comma-shaped magatama gems (teardrop silhouette with a hand-drilled top hole) — NEW, not ancient. The primary stones are carved from raw nephrite jade — the cuts are rough and unpolished, still showing stone-tool marks on the surface. Matte deep green with visible natural mineral veining; no smoothing or finishing. Interspersed are several freshly knapped pieces of raw black obsidian, their conchoidal fracture faces catching a faint cold edge-light. The threading cord is thick, undyed hemp — freshly cut and tied, stiff at the knot. There is nothing refined about these objects — they are tools of intent, shaped by mortal hands that do not yet know what they are making.
+texture: Washi paper grain shows through the mineral paint layer of every bead surface.
+background: near-void Washi paper; only a dry ink-wash shadow beneath the coiled strand.
+
+Negative Prompt:
+photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, caustics, subsurface scattering, realistic material render, physically based rendering, 3D render, CGI, glossy surface, extra items, multiple strands, necklace chain, metal setting, gold setting, jewelry box, modern gemstone cut, faceted crystal, sparkle, shine, glossy gem surface, porcelain, synthetic materials, human figure, character, cel-shading, oil painting, signature, watermark
+Params:
+--ar 1:1 --stylize 300 --quality high --seed 22203
+```
+
+---
+
+### 三種の神器（集合アイコン）
+
+```markdown
+# PROMPT_SANSHU_TRINITY_STILL_LIFE_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, a painted still-life composition of EXACTLY THREE sacred objects on raw, textured Washi paper. THIS IS A TRADITIONAL JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible dry-brush mineral pigment strokes throughout every surface.
+style: disciplined FRICTION-DRY-BRUSH painting. Unified mineral pigment palette. Paper fiber texture visible beneath all surfaces.
+arrangement: loose triangular composition. Center-top: dark iron tsurugi sword lying diagonally, Kintsugi seams glowing. Bottom-left: newly cast bronze disc-mirror face-up, INTACT surface, warm amber-gold rim. Bottom-right: coiled hemp strand of jade and obsidian magatama.
+each object:
+— SWORD: near-black matte iron, three-section Bronze-Age tsurugi with T-shaped crossguard; raised gold Kintsugi at seams.
+— MIRROR: newly cast bronze disc, INTACT face, warm amber-gold rim, imperfectly hand-polished surface with faint diffuse glow — NO cracks, NOT ancient.
+— JEWEL: coiled strand, rough-cut jade and obsidian beads on hemp cord, largest bead with golden Kintsugi hairline.
+unifying detail: hairline golden kintsugi cracks in the Washi paper surface itself connect the three objects.
+background: raw Washi paper only.
+
+Negative Prompt:
+photography, photorealistic, photograph, product photography, studio lighting, depth of field, bokeh, realistic render, physically based rendering, 3D render, CGI, glossy surfaces, extra items, additional weapons, multiple swords, extra mirrors, extra bead strands, unrequested clutter, human figure, character, hands holding items, elaborate background, ornate setting, display case, museum label, cel-shading, oil painting, signature, watermark
+Params:
+--ar 3:2 --stylize 350 --quality ultra --seed 22200
 ```
 
 ---
