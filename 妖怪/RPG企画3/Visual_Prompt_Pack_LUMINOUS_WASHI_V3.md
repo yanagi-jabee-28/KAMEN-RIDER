@@ -217,11 +217,11 @@ Params:
 Prompt:
 masterpiece, highest quality, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm.
 style application: rough, dry brushstrokes (Kasure) and earthy pigment washes, emphasizing weathered textures and fast, aggressive movement.
-details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples, repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel. He stands grounded, holding a SINGLE-HEADED heavy wooden spear with EXACTLY ONE broad stone tip at the top; the bottom of the staff is a plain wooden butt with NO blade.
+details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline defined by bold sumi-e outlines. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes and pigment bleeding that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. **ON THE LEFT ARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron gauntlet rendered with hand-painted textures and articulated finger plates; the piece features a central circular bronze disk with etched ripples showing subtle ink-bleed and a thick indigo braided cord. He stands grounded, holding a SINGLE-HEADED heavy wooden spear with EXACTLY ONE broad stone tip at the top; the bottom of the staff is a plain wooden butt.
 background: deep, atmospheric sumi-e washes of ancient woodland.
 
 Negative Prompt:
-double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elven features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+photorealistic, photography, 3D render, CGI, smooth digital painting, hyper-realistic, double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elven features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44827
 ```
@@ -242,11 +242,11 @@ Params:
 Prompt:
 masterpiece, highest quality, exceptionally handsome, rugged middle-aged male ascetic (Gyoja) radiating stoic spiritual weight — the same man as the scout, transformed by pilgrimage.
 style application: solemn, heavy earthy DRY‑BRUSH with tones of metallic oxidation (rust and verdigris) rubbing into the paper from his staff.
-details: weathered, tanned skin painted with textural watercolor washes. The same dignified beard and strong jawline as the scout version, but now his previously dark hair has become **distinctly ash-gray and silver-streaked at the temples**, reflecting the toll of spiritual hardship. His eyes carry a deeper, more solemn gravity — still piercing, but now turned inward. He wears heavily layered, weathered **dark earth-tone and charcoal-gray robes** (deliberately subdued from saffron), and thick wooden prayer beads worn smooth by years of use. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) with a central circular bronze disk etched with ripple grooves, partially obscured by his weathered robes. He firmly holds an ancient iron Shakujo (Khakkhara) staff; the top features a single large iron hoop with six smaller, loose metal rings. The metal is painted to look ancient and oxidized. His powerful posture remains, but carries the stillness of one who has stopped fighting outward.
+details: weathered, tanned skin painted with textural watercolor washes. The same dignified beard and strong jawline as the scout version, but now his previously dark hair has become **distinctly ash-gray and silver-streaked at the temples**, reflecting the toll of spiritual hardship. His eyes carry a deeper, more solemn gravity — still piercing, but now turned inward. He wears heavily layered, weathered **dark earth-tone and charcoal-gray robes** (deliberately subdued from saffron), and thick wooden prayer beads worn smooth by years of use. **ON THE LEFT ARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron gauntlet (Tekko) that extends over the back of the hand with articulated, segmented finger plates covering each digit; the piece features a central circular bronze disk etched with ripple grooves, partially obscured by his robes. His powerful posture remains, but carries the stillness of one who has stopped fighting inward.
 background: a primordial mountain forest rendered with deep, overlapping washes of muted green and brown ink; sparse light filtering through dense canopy.
 
 Negative Prompt:
-double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, bright saffron orange robes, vivid warm colors, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+photorealistic, photography, 3D render, CGI, smooth digital painting, hyper-realistic, double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, bright saffron orange robes, vivid warm colors, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44828
 ```
@@ -429,13 +429,13 @@ Params:
 
 ## 5.4. ウカミの継承手甲（THE BEAT GAUNTLET）
 
-この神器（手甲）をキャラクターデザインに組み込むためのプロンプトモジュール、および単体アイテムとしての詳細プロンプトです。
+この神器（手甲）をキャラクターデザインに組み込むためのプロンプトモジュール、および単体アイテムとしての詳細プロンプトです。腕・甲・指先までを繋ぎ止める「動的な装甲」として定義されています。
 
 ### 【キャラクター用：継承手甲（UKAMI_GAUNTLET）】
 キャラクターの `details:` セクションに含める（または挿入する）ことで、ウカミから受け継いだ特徴的な手甲を再現します。
 
 > **Prompt Module:**
-> *wearing the signature "BEAT GAUNTLET" on the left forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+> *wearing the signature "BEAT GAUNTLET" on the left arm: a heavy antique black iron gauntlet rendered with a hand-painted aesthetic, featuring bold sumi-e outlines and articulated finger plates. A central circular bronze disk is etched with ripples showing subtle ink-bleed (suimoku-nijimi). The armor is bound by a thick indigo braided cord. The entire armor exhibits coarse mineral granulation and expressive brushstrokes on textured Washi paper.*
 
 ---
 
@@ -447,12 +447,12 @@ Params:
 Prompt:
 masterpiece, highest quality, an exquisite close-up study of a legendary artifact: THE BEAT GAUNTLET (Tekko). 
 The armor is resting on a sheet of highly textured, fibrous off-white Washi paper. 
-details: a heavy, asymmetrical forearm guard made of antique black iron (Kurourushi) with a rough hammer-textured surface. In the center is a large, recessed circular bronze disk. The bronze is deeply etched with multiple concentric "ripple" grooves that mimic soundwaves or a rhythmic pulse. Jagged cracks across the iron sections are meticulously repaired with raised golden Kintsugi lacquer lines. A thick, deep-indigo braided cord (kumihimo) is wrapped partially around the iron, ending in a single dangling tassel. 
-style: traditional Japanese watercolor and ink on Washi paper, with powdery mineral granulation and visible paper fibers. Subtle atmospheric sumi-e ink washes frame the artifact.
-texture: matte, raw material textures of iron, bronze, and stone-ground gold.
+details: a heavy, asymmetrical gauntlet made of antique black iron (Kurourushi) with a hand-painted, rough hammer-textured surface. The piece consists of a forearm guard, a hand plate, and articulated finger sections with visible brushstrokes and bold ink outlines. In the center is a large, recessed circular bronze disk deeply etched with concentric "ripple" grooves; the bronze shows beautiful earthy pigment bleeding and mineral textures. A thick, deep-indigo braided cord (kumihimo) is wrapped partially around the iron, ending in a single dangling tassel. 
+style: traditional Japanese watercolor and ink on fibrous off-white Washi paper, with powdery mineral granulation (Iwa-enogu) and expressive ink washes. 
+texture: matte, raw artistic textures of ink, pigment, and stone-ground gold.
 
 Negative Prompt:
-extra weapons, unrequested items, dual wielding, bad anatomy, deformed, modern technology, sci-fi, plastic, glossy ceramic, perfectly smooth surfaces, 3D render, oil painting, signature, watermark
+photorealistic, photography, realistic lighting, 3D render, CGI, octanerender, Unreal Engine, smooth digital rendering, hyper-realistic, glossy, plastic, ceramic, perfectly smooth, extra weapons, unrequested items, dual wielding, bad anatomy, deformed, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 12345
 ```

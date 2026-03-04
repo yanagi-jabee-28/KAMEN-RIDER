@@ -171,7 +171,7 @@ Params:
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy, asymmetrical black iron armor (Tekko) with a hammer-textured surface, featuring a large circular bronze disk embedded in the center. The bronze disk is etched with multiple concentric "ripple" grooves like a soundwave or pulsar. Cracks on the iron are filled with golden kintsugi. It is bound to the arm by a thick, deep-indigo braided cord (kumihimo) ending in a single tassel. Standing in a relaxed, alert pose with a calm, resolute expression, holding a SINGLE-HEADED wooden spear with EXACTLY ONE shaped stone tip at the top and a plain wooden butt at the bottom. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT ARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron gauntlet (Tekko) that extends from the forearm to cover the back of the hand and knuckles with a protective hand plate; the piece features a central circular bronze disk etched with concentric ripples, repaired with golden kintsugi cracks, and bound by a thick indigo braided cord that weaves around the palm and wrist. Standing in a relaxed, alert pose with a calm, resolute expression, holding a SINGLE-HEADED wooden spear with EXACTLY ONE shaped stone tip at the top and a plain wooden butt at the bottom. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
 double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
@@ -199,14 +199,17 @@ Params:
 
 ### 4.1 ウカミの継承手甲（THE BEAT GAUNTLET）
 ウカミからミコトへ、あるいは特定の継承を象徴する「手甲」の定義。この意匠を指定することで、他キャラクターのプロンプトでも「共通の歴史」を視覚化できる。
-- **ベース:** 無骨な黒鉄（Kurourushi）の非対称な手甲（Tekko）。槌跡（Hammer marks）が残り、使い古された質感を持つ。
+- **ベース:** 無骨な黒鉄（Kurourushi）の非対称な手甲（Tekko）。前腕から「手の甲」、さらに「指の第一関節付近」までを強固に保護する形状。
+- **構造:** 
+    - 腕から甲へと続く一体型の鉄板構造（手甲プレート）。
+    - **指の装甲:** 各指に「小札（Segmented plates）」状の分割装甲を備える。これは指の関節（Joints）の動きに合わせて自然に折れ曲がるように設計されており、握り込んだ際も美しく連動する。
 - **中心意匠:** 前腕中央に埋め込まれた大型の「青銅（Bronze）の円盤」。
 - **詳細ディテール:** 
     - 青銅円盤には、心音や鼓動を想起させる「同心円状の波紋（Ripples/Wave patterns）」が深く刻まれている。
-    - 鉄部には細かな「金継ぎ（Kintsugi）」の亀裂が走り、修理の歴史を示す。
-    - 濃紺（Indigo）の太い「組紐（Kumihimo）」で幾重にも腕に巻き付けられ、末端には一筋の房（Tassel）が垂れる。
+    - 鉄部には長年の使用による微細な「擦れ」や「傷」が走り、実戦の歴史を示す。
+    - 濃紺（Indigo）の太い「組紐（Kumihimo）」により、手首と掌（Palm）を縫うようにして幾重にも巻き付けられ、末端には一筋の房（Tassel）が垂れる。
 - **プロンプト用スニペット:** 
-  > *wearing the signature "BEAT GAUNTLET" on the forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+  > *wearing the signature "BEAT GAUNTLET" on the left arm: a heavy antique black iron gauntlet rendered with a hand-painted aesthetic, featuring articulated finger plates and bold sumi-e outlines. A central circular bronze disk is etched with ripples showing subtle ink-bleed. The armor is bound by a thick indigo braided cord with a single tassel. The entire piece exhibits mineral granulation on textured Washi paper.*
 - **単体アイテム用プロンプト:** `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` 内の 「5.4. ウカミの継承手甲」を参照。
 
 ---
