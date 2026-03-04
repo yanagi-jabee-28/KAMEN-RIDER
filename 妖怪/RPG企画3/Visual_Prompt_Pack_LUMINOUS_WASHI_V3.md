@@ -77,12 +77,12 @@ Params:
 
 # PROMPT
 Prompt:
-OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of Mikoto. Use the base character structure but re-render the sword, mirror, and magatama surfaces using the following details.
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit using exactly FOUR uploaded reference images: 1) Mikoto's default adventurer image, 2) the Ame-no-Murakumo sword, 3) the Yata no Kagami mirror, and 4) the Yasakani no Magatama necklace. Use Mikoto's base character structure but re-render and integrate the three sacred treasures using the following details.
 masterpiece, highest quality, exquisitely beautiful and determined young male warrior standing on a windswept, scarred battlefield — the same white-haired, red-muffler adventurer, now bearing the weight of legend.
 style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; the mirror surface reflects fragile, airy light; the magatama pulses with deep mineral green.
 details:
-[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient Japanese straight sword (Ame-no-Murakumo) firmly in his right hand. The blade is EXTREMELY LONG AND NARROW — Niji/Midjourney should fill the horizontal span. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard.
-[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
+[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient primitive Japanese straight sword (Ame-no-Murakumo) firmly in his right hand. HIS LEFT HAND AND BACK ARE EMPTY OF WEAPONS. The blade is EXTREMELY LONG, NARROW, AND HAS PARALLEL SIDES — NOT A WESTERN BROADSWORD. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard, NO quillons.
+[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. HIS LEFT HAND HOLDS NOTHING ELSE. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
 [JEWEL — Yasakani no Magatama type] Draped around his neck as a heavy collar-necklace is a **single, simple non-wrapped strand** of large, freshly carved, curved teardrop-shaped magatama beads (nephrite jade and obsidian). No overlapping loops. Rough-cut surfaces showing stone-tool marks.
 His white hair and red muffler remain unchanged; the red pigment of the muffler ends still frays and SCRATCHES the paper edge, anchoring him as human, not divine.
 texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
@@ -90,7 +90,7 @@ background: a scorched, broken landscape suggested through heavy sumi washes; go
 mood: not divine ascension — a mortal who refused to let the tools of heaven remain broken.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, two shields, extra mirrors, extra jewels, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, shiny perfect blade, pristine clean sword, flawless mirror, divine glow, emperor, god, regal costume, crown, armor, three ends of muffler, multiple scarves, extra fabric, oil painting, thick impasto, 3D render, glossy surface, plastic texture, western fantasy medieval armor, sci-fi, photorealistic, ugly, deformed, flat cel-shading, signature, watermark
+extra weapons, multiple weapons, extra swords, dual wielding, swords on back, sheathed swords, extra handles, floating swords, western longsword, broadsword, knight sword, cruciform hilt, crossguard, two shields, extra mirrors, extra jewels, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, shiny perfect blade, pristine clean sword, flawless mirror, divine glow, emperor, god, regal costume, crown, armor, three ends of muffler, multiple scarves, extra fabric, oil painting, thick impasto, 3D render, glossy surface, plastic texture, western fantasy medieval armor, sci-fi, photorealistic, ugly, deformed, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 55832
 ```
@@ -499,11 +499,11 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, painted close-up composition of the Yasakani no Magatama — a sacred necklace of ancient magatama beads — arranged as a **single, simple circular loop** on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH mineral pigment strokes throughout.
+masterpiece, highest quality, painted close-up composition of the Yasakani no Magatama — a sacred necklace of ancient magatama beads — arranged in a **clear, wide circular loop** on raw fibrous Washi paper so that **every individual bead is fully visible without overlapping**. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH mineral pigment strokes throughout.
 style: intimate, mineral-rich DRY-BRUSH painting. Jade tones rendered with granulating Iwa-enogu pigments and scratchy brushstrokes on Washi paper — NOT smooth photorealistic material rendering.
-details: A **single, non-overlapping circular strand (necklace)** of large, freshly carved, curved teardrop-shaped magatama beads (traditional silhouette with a hand-drilled top hole) — NEW, not ancient. The primary stones are carved from raw nephrite jade — the cuts are rough and unpolished, still showing stone-tool marks on the surface. Matte deep green with visible natural mineral veining; no smoothing or finishing. Interspersed are several freshly knapped pieces of raw black obsidian, their conchoidal fracture faces catching a faint cold edge-light. The threading cord is thick, undyed hemp — freshly cut and tied with a prominent, heavy knot. There is nothing refined about these objects — they are tools of intent, shaped by mortal hands that do not yet know what they are making.
+details: A **single, non-overlapping circular strand (necklace)** of large, freshly carved, curved teardrop-shaped magatama beads (traditional silhouette with a hand-drilled top hole) — NEW, not ancient. **EVERY BEAD MUST BE DISTINCT AND SEPARATED**, positioned cleanly along the cord. The primary stones are carved from raw nephrite jade — the cuts are rough and unpolished, still showing stone-tool marks on the surface. Matte deep green with visible natural mineral veining; no smoothing or finishing. Interspersed are several freshly knapped pieces of raw black obsidian, their conchoidal fracture faces catching a faint cold edge-light. The threading cord is thick, undyed hemp — **a single, clear line** freshly cut and tied with a prominent, heavy knot. There is nothing refined about these objects — they are tools of intent, shaped by mortal hands that do not yet know what they are making.
 texture: Washi paper grain shows through the mineral paint layer of every bead surface.
-background: near-void Washi paper; only a dry ink-wash shadow beneath the coiled strand.
+background: near-void Washi paper; only a dry ink-wash shadow beneath the circular strand.
 
 Negative Prompt:
 photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, caustics, subsurface scattering, realistic material render, physically based rendering, 3D render, CGI, glossy surface, extra items, multiple necklaces, **coiled strand, wrapped strand, multiple loops, spiral necklace, stacked necklaces**, metal setting, gold setting, jewelry box, modern gemstone cut, faceted crystal, sparkle, shine, glossy gem surface, porcelain, synthetic materials, human figure, character, cel-shading, oil painting, signature, watermark
@@ -596,12 +596,12 @@ Prompt:
 OPERATIONAL INSTRUCTION (NANOBANANA): Transform and re-render the uploaded image into the following specific artistic style. Preserve the original composition, subject placement, and character silhouettes exactly, but translate all materials, lighting, and textures into traditional Japanese analog art.
 masterpiece, highest quality, professional painting on highly textured, fibrous Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and sumi-e ink washes.
 style core: FRICTION-DRY-BRUSH (Kasure) strokes throughout. Every surface must show the organic tooth and raw fiber of the Washi paper. No smooth digital gradients or 3D surfaces.
-color & light: powdery mineral granulation, organic analog warmth, and soft ink-bleed at the edges. Highlights are rendered as unpainted paper or pale gofun-white pigment. Darkest tones are scratchy charcoal-grey sumi ink.
-key accent: if any cracks or borders exist in the subject, they are emphasized with thin, raised golden Kintsugi lacquer lines.
+color & light: powdery mineral granulation, organic analog warmth, **ZERO chaotic bleeding, and tightly controlled moisture**. Highlights are rendered as unpainted paper or pale gofun-white pigment. Darkest tones are scratchy charcoal-grey sumi ink.
+key accent: **STRICTLY ONLY if visible cracks or breakage already exist in the source image**, they may be subtly emphasized with thin, raised golden Kintsugi lacquer lines. **DO NOT add kintsugi or gold lines where none exist in the original composition.**
 texture focus: visible paper fibers, powdery pigment texture, tactile analog depth.
 
 Negative Prompt:
-photography, photorealistic, photograph, 3D render, CGI, glossy, smooth, plastic, ceramic, porcelain, digital VFX, neon, cyberpunk, modern, sci-fi, oil painting, thick impasto, cel-shading, flat vector, clean gradients, blurry, out of focus, signature, watermark
+photography, photorealistic, photograph, 3D render, CGI, glossy, smooth, plastic, ceramic, porcelain, digital VFX, neon, cyberpunk, modern, sci-fi, oil painting, thick impasto, cel-shading, flat vector, clean gradients, blurry, out of focus, **bleeding, messy washes, chaotic smudging, unrequested kintsugi, hallucinated gold lines, unnecessary decorative cracks**, signature, watermark
 ```
 
 ---
