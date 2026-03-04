@@ -115,18 +115,22 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 - **造形美と華の担保:** 泥臭い世界観であっても、キャラクターの顔立ちや骨格は「万人受けする圧倒的な美しさ・華やかさ」を大前提とする。無骨さや男らしさは、骨格を崩す醜悪さ（ブサイク）としてではなく、整った顔立ちの上に添えられた「色気のある傷」や「力強い視線」として表現する。
 
 ### 主人公「ミコト」【古代アレンジ版】
-- **コンセプト:** 空の器、白と赤、金継ぎ、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。赤いスカーフは漁村アマで贈られた英雄の証であり、村人の手による丁寧な平織りで、端までしっかりと整えられた一本の強固な布。分岐や裂けのない端正な作りがミコトの意志を象徴する。物語の旅路を通じて“形見”“呪い”と意味が変化する。
+- **コンセプト:** 空の器、白と赤、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。**赤いスカーフ（マフラー）はミコトの唯一の「赤」であり、他の部位に赤色は現れない。** これは村人の手による丁寧な平織りの一本の強固な布であり、先端まで決して分岐したり裂けたりすることのない「意志の端正さ」を象徴する。
 ```text
 Prompt:
 masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, and resolute gaze with straighter brows.
 style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH wrapped once around the neck; the fabric is a solid, firmly woven piece crafted by local villagers, with CLEAN, FINISHED EDGES. The scarf has EXACTLY TWO ENDS trailing in the wind as firm, unbroken rectangular shapes — NO branching, NO bifurcation, NO split fabric. A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
+details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. **A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH** wrapped once around the neck; the fabric is a solid, firmly woven piece with **CLEAN, FINISHED EDGES**. The scarf has **EXACTLY TWO DISTINCT CLEAN ENDS** trailing in the wind as firm, unbroken rectangular shapes — **RED IS EXCLUSIVE TO THIS SCARF; NO OTHER RED ACCENTS ALLOWED. NO branching, NO bifurcation, NO split fabric.** A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
 texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte.
 background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
 Negative Prompt:
 split scarf, bifurcated fabric, forked ends, three ends, multiple tails, divided scarf, overly feminine, girly facial features, long eyelashes, seductive eyes, heavy makeup, oil painting, thick impasto, ugly, horror, flat cel-shading, modern gacha game 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, (regal, emperor, divine ruler, god:1.5), (masculine, feminine, clearly male, clearly female, gendered:1.3)
 ```
+
+- **バリエーション:** 
+    - **手甲継承版:** ウカミから手甲を受け継ぎ、左腕に装着した中盤の姿。 `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` の 「ミコト（手甲継承バリエーション）」を参照。
+    - **三種の神器版:** 剣・鏡・勾玉、および手甲をすべて装備した最終決戦の姿。
 
 ### 狂騒の踊り子「ウズ」【古代アレンジ版】
 - **コンセプト:** アメノウズメ、非対称な舞衣、巨大なリボン（羽衣）、神楽鈴。**道化やピエロ的な要素は排除し、あくまで古代の奉納舞を強調する。**

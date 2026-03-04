@@ -52,14 +52,40 @@ extra weapons, multiple weapons, extra swords, dual wielding, unrequested items,
 Prompt:
 masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, resolute gaze with straighter brows, and moderate East Asian eyes that convey a calm, gender-blind identity.
 style application: vibrant watercolor washes focused on the bold red scarf, contrasting with fragile, translucent white textures for the hair and tunic.
-details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH wrapped once around the neck; the fabric is a solid, firmly woven piece crafted by local villagers, with CLEAN, FINISHED EDGES. The scarf has EXACTLY TWO ENDS trailing in the wind as firm, unbroken rectangular shapes — NO branching, NO bifurcation, NO split fabric, NO frayed threads. A thick coarse hemp rope (shimenawa) binds the waist. The physical form expresses a fragile yet profoundly beautiful mortal existence.
+details: pure white short bob hair painted with soft, airy watercolor layers. Wearing a worn, off-white sleeveless tunic and baggy pants. **A SINGLE CONTINUOUS RECTANGULAR STRIP OF BOLD RED CLOTH** wrapped once around the neck; the fabric is a solid, firmly woven piece with **CLEAN, FINISHED EDGES**. The scarf has **EXACTLY TWO CLEAN ENDS** trailing in the wind as firm, unbroken rectangular shapes — **RED IS EXCLUSIVE TO THIS SCARF; NO OTHER RED ELEMENTS ALLOWED. NO branching, NO bifurcation, NO split fabric, NO frayed threads.** A thick coarse hemp rope (shimenawa) binds the waist. The physical form expresses a fragile yet profoundly beautiful mortal existence.
 texture: natural, matte cloth textures defined entirely by paper fiber and raw pigment.
 background: a vast, ancient landscape suggested through atmospheric, desaturated earth-tone ink washes.
 
 Negative Prompt:
-split scarf, bifurcated fabric, forked ends, three ends, multiple tails, divided scarf, extra fabric tails, overly feminine, girly facial features, long eyelashes, seductive eyes, heavy makeup, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, multiple scarves, frayed fabric, torn edges, ragged fibers, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+split scarf, bifurcated fabric, forked ends, three ends, multiple tails, divided scarf, extra fabric tails, red clothing (other than scarf), red armor, red eyes, red hair, red magic, red aura, red accents on cloth, overly feminine, girly facial features, long eyelashes, seductive eyes, heavy makeup, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D model, perfectly smooth clothing, porcelain skin, glossy surface, plastic texture, western medieval armor, sci-fi, regal, emperor, divine ruler, god, metallic ornaments, multiple scarves, frayed fabric, torn edges, ragged fibers, tangled drapery, tentacle-like fabric, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 55831
+```
+
+---
+
+### ミコト（手甲継承バリエーション）
+
+ウカミから「手甲」を正式に受け継いだ中盤の姿。三種の神器はまだ手にしていないが、左腕に宿る先達の意志がミコトを「器」から「英雄」へと変え始める。
+
+> **【運用注記】** 初期装備版（上記）のミコト画像をベースに、左腕のみを変容させる編集生成に使用してください。
+
+```markdown
+# NANOBANANAPRO_PROMPT_MIKOTO_GAUNTLET_INHERITANCE
+
+# PROMPT
+Prompt:
+Use the uploaded adventurer image of Mikoto as the base – transform and edit the left arm using the following details.
+masterpiece, highest quality, exquisitely beautiful adventurer with neutral gender identity standing in a windswept ancient landscape.
+style application: bold sumi-e outlines and expressive watercolor washes on textured Washi paper.
+details:
+[CHARACTER] The same Japanese youth with white short bob hair and a **BOLD RED SCARF** (SINGLE continuous solid rectangular strip, clean edges). **RED IS EXCLUSIVE TO THE SCARF; NO RED ON OTHER GEAR.** The scarf ends are **ONE SOLID PIECE EACH**, never splitting or forking. Wearing the off-white sleeveless tunic and baggy pants.
+[GAUNTLET — THE BEAT GAUNTLET] **ON THE LEFT ARM, HE WEARS UKAMI'S LEGACY:** a heavy antique black iron gauntlet (THE BEAT GAUNTLET) with articulated finger plates and a hand-painted aesthetic. A central circular bronze disk is etched with soundwave ripples showing subtle ink-bleed. The armor is bound by a thick indigo braided cord. **NO sword, NO mirror-shield, NO magatama necklace yet.**
+texture: raw artistic textures of ink, mineral pigment, and paper fiber.
+mood: the burden of inheritance; a fragile human vessel beginning to carry the weight of legend.
+
+Negative Prompt:
+Ame-no-Murakumo, sword, weapon, Yata no Kagami, mirror, shield, Yasakani no Magatama, necklace, jewels, photorealistic, photography, 3D render, CGI, smooth digital painting, overly feminine, girly, split scarf, bifurcated fabric, bad anatomy, signature, watermark
 ```
 
 ---
@@ -83,7 +109,7 @@ details:
 [SHIELD — Yata no Kagami type] Strapped to the left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
 [GAUNTLET — THE BEAT GAUNTLET] **ON THE LEFT ARM, UNDER THE MIRROR-SHIELD, MIKOTO WEARS UKAMI'S LEGACY:** a heavy antique black iron gauntlet (THE BEAT GAUNTLET) with articulated finger plates. A central circular bronze disk is etched with soundwave ripples. Bound by a thick indigo braided cord. This is the fourth artifact, inherited from the scout.
 [JEWEL — Yasakani no Magatama type] Draped around the neck as a heavy collar-necklace is a **single, simple non-wrapped strand** of large, freshly carved, curved teardrop-shaped magatama beads (nephrite jade and obsidian). No overlapping loops. Rough-cut surfaces showing stone-tool marks.
-The white hair and RED SCARF remain unchanged; the scarf is a SINGLE CONTINUOUS SOLID RECTANGULAR STRIP OF CLOTH with only TWO ENDS visible, NO branching, NO split fabric, NO frayed edges.
+**SCARF LOGIC:** The white hair and **RED SCARF** remain unchanged; THE RED COLOR IS EXCLUSIVE TO THIS SCARF. The scarf is a **SINGLE CONTINUOUS SOLID RECTANGULAR STRIP OF CLOTH** with only TWO CLEAN ENDS visible, **NO branching, NO splitting, NO bifurcated fabric, NO frayed edges.**
 texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
 background: a scorched, broken landscape suggested through heavy sumi washes; golden kintsugi cracks spread across the earth like roots.
 mood: not divine ascension — a mortal who refused to let the tools of heaven remain broken.
@@ -448,12 +474,12 @@ Params:
 Prompt:
 masterpiece, highest quality, an exquisite close-up study of a legendary artifact: THE BEAT GAUNTLET (Tekko). 
 The armor is resting on a sheet of highly textured, fibrous off-white Washi paper. 
-details: a heavy, asymmetrical gauntlet made of antique black iron (Kurourushi) with a hand-painted, rough hammer-textured surface. The piece consists of a forearm guard, a hand plate, and articulated finger sections with visible brushstrokes and bold ink outlines. In the center is a large, recessed circular bronze disk deeply etched with concentric "ripple" grooves; the bronze shows beautiful earthy pigment bleeding and mineral textures. A thick, deep-indigo braided cord (kumihimo) is wrapped partially around the iron, ending in a single dangling tassel. 
+details: a **sleek, ergonomic, and stylish silhouette** for an asymmetrical gauntlet made of **refined antique black iron (Kurourushi)** with a hand-painted, subtly hammered texture. The design is **lean and well-proportioned**, consisting of a curved forearm guard, a precisely fitted hand plate, and **slender, articulated finger sections** that follow natural joint anatomy with bold sumi-e outlines. In the center is a large, recessed circular bronze disk deeply etched with concentric "ripple" grooves; the bronze shows beautiful earthy pigment bleeding and mineral textures. A thick, deep-indigo braided cord (kumihimo) is wrapped with **elegant tension** partially around the iron, ending in a single dangling tassel. 
 style: traditional Japanese watercolor and ink on fibrous off-white Washi paper, with powdery mineral granulation (Iwa-enogu) and expressive ink washes. 
 texture: matte, raw artistic textures of ink, pigment, and stone-ground gold.
 
 Negative Prompt:
-photorealistic, photography, realistic lighting, 3D render, CGI, octanerender, Unreal Engine, smooth digital rendering, hyper-realistic, glossy, plastic, ceramic, perfectly smooth, extra weapons, unrequested items, dual wielding, bad anatomy, deformed, signature, watermark
+clunky, bulky, botebote, bloated, oversized, thick-edged, low-detail, heavy-handed, photorealistic, photography, realistic lighting, 3D render, CGI, octanerender, Unreal Engine, smooth digital rendering, hyper-realistic, glossy, plastic, ceramic, perfectly smooth, extra weapons, unrequested items, dual wielding, bad anatomy, deformed, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 12345
 ```
