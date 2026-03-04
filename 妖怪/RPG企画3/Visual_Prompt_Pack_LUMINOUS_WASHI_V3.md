@@ -226,7 +226,7 @@ Params:
 
 # PROMPT
 Prompt:
-Masterpiece, highest quality, a terrifyingly serene and impeccably beautiful female deity, Amaterasu, locked in self-imposed absolute isolation.
+Masterpiece, highest quality, a terrifyingly serene yet pulsatingly regal female deity, Amaterasu, locked in self-imposed absolute isolation with an undeniable life‑force that radiates through the stillness.
 Style: Traditional Japanese painting on Washi paper. The background features a matte Gofun (seashell white) wash with visible paper fibers and mineral grain. The subject herself is rendered with pristine, flawlessly smooth surfaces and controlled, subtle ink wash elements.
 Details: Enveloped in intricate, sculptural multi-layered white ceremonial robes (Heian Kariginu style). The architectural draping mimics frozen lily petals, maintaining a slender, majestic silhouette. Her glossy, straight black silk hair flows beneath a translucent gossamer white veil. She wears an austere, feminine Amaterasu-style crown/kanzashi: a lacquered tiara shaped like a stylized rising sun braid with a tiny cracked gold ring motif. Deep within the immaculate white folds, elusive glimpses of a crimson silk lining cascade like a hidden red sash. A subtle golden luminescence emanates from beneath her skin and robes, trapping sunlight within her form. Her expression is flawlessly beautiful yet frozen in fragile, eternal fear, eyes closed or gazing blankly. The composition evokes an annular solar eclipse in a completely luminous palette: a brilliant, muted-gold corona radiates outward, while the cocooned core is obscured not by shadow, but by an intensely bright, pale overexposure (halation).
 
@@ -241,12 +241,12 @@ chubby proportions, bulky cocoon mass, bright pop colors, plastic sheen, seamles
 
 # PROMPT
 Prompt:
-Masterpiece, highest quality, an exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, embodying extreme purification and absolute, ruthless execution.
+Masterpiece, highest quality, an exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, embodying extreme purification and absolute, ruthless execution, his very form crackling with contained vitality and sovereign menace.
 Style: Traditional Japanese watercolor on Washi paper, executed with razor-sharp, ultra-controlled fine ink lines. Background retains visible paper fibers and matte mineral texture, with minimal, tightly controlled bleeding. Palette is strictly restricted to freezing Gofun white, intense ultramarine, and muted lunar silver-gray.
 Details: Imposing, towering posture with absolute authority. Adorned in sharp-edged, Origami-like ancient court attire that cascades in architectural, flat planes. He wears a subtle, kabuto-like silver lunar circlet integrated seamlessly into his glossy black hair. Bold streams of deep ultramarine and midnight-blue silk elegantly spill from within the intricate layers of his blinding white robes. His face is terrifyingly symmetrical and expressionless, projecting cold arrogance through downward-gazing Sanpaku eyes. In one hand, he wields a massive, exquisite execution weapon: a breathtaking Naginata featuring an enormous, elegantly curved crescent-like blade. The sweeping lunar arc of the blade perfectly mimics a waning moon. Behind him, a perfectly simple, fine-line silver-platinum full-moon halo frames his figure.
 
 Negative Prompt:
-soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetry, warm cinematic shadows, eboshi, bulky weapons, double-bladed haft, oil painting, thick impasto, horror, flat cel-shading, modern elements, synthetic 3D smoothness, signature, watermark
+soft pastel tones, weak aura, plain costume, excessive bleeding, sloppy asymmetry, warm cinematic shadows, eboshi, bulky weapons, double-bladed haft, extra weapons, multiple weapons, secondary weapon, sheathed weapon, off-screen weapon, oil painting, thick impasto, horror, flat cel-shading, modern elements, synthetic 3D smoothness, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 23456
 ```
