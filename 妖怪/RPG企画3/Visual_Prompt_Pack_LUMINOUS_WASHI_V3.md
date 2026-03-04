@@ -485,9 +485,35 @@ Params:
 --ar 3:2 --stylize 300 --seed 12345
 ```
 
+
 ---
 
-## 5.5. 三種の神器（単体アイテムプロンプト）
+## 5.5. ワカヒコの天上弓と靭（Ame-no-Makakumi & Yugi）
+
+天鳥船の主、ワカヒコの象徴である「天之麻迦古弓（あめのまかこゆみ）」と、その矢を収める「靭（ゆき）」。
+泥を一切許さない天上の美学を、静謐な和紙の上で一対の静物として描きます。
+
+```markdown
+# NANOBANANAPRO_PROMPT_WAKAHIKO_CELESTIAL_BOW_AND_QUIVER
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, a breathtaking painted still-life composition of **EXACTLY TWO (2) distinct items: ONE strung bow and ONE quiver**, resting side-by-side on raw, textured off-white Washi paper. THIS IS A TRADITIONAL JAPANESE WATERCOLOR PAINTING.
+style: absolute brush discipline, "Friction and Stillness". High-texture Washi paper base with visible fibers and mineral granulation.
+[BOW — Ame-no-Makakumi] A massive, asymmetrical Japanese longbow (wa-kyu) lying horizontally. **GEOMETRIC LOGIC: The bow follows exactly ONE primary, elegant, single-directional curve like a crescent moon.** **The bow is FULLY STRUNG with a taut, razor-sharp straight bowstring (tsuru)** connecting the two tips. The bowstring is a single, continuous, straight white line of silk with NO loose ends or tangles. The wood is a SINGLE continuous piece with NO counter-curves, NO S-curves, and NO reverse-bending limbs. The upper limb is long and the lower limb is short. Surface is white lacquer (Gofun) with thin gold leaf seams. Dark charcoal-grey hemp grip.
+[QUIVER — Yugi] Beside the bow is **EXACTLY ONE (1) elegant wood and leather quiver**. **ARROW LOGIC: Only the blood-red fletching (feathers) of the eight arrows are visible at the quiver's opening; ALL arrowheads are hidden deep inside the body of the quiver.** The red fletching is the only sharp accent of color.
+texture: fibrous Washi paper tooth visible through the dry, matte paint.
+background: minimal sumi-e void, a serene celestial space.
+
+Negative Prompt:
+unstrung bow, loose string, detached string, coiled string, broken string, messy lines, tangled rope, S-curve bow, reverse curved limbs, dual-curved limbs, wavy bow, jagged bow, notched limb, bifurcated bow, split tips, arrowheads at quiver opening, reversed arrows, multiple bows, multiple quivers, photography, photorealistic, 3D render, CGI, modern bow, european longbow, recurring patterns, unrequested items, background clutter, human, oil painting, signature, watermark
+Params:
+--ar 3:2 --stylize 350 --quality high --seed 44825
+```
+
+---
+
+## 5.6. 三種の神器（単体アイテムプロンプト）
 
 三種の神器をそれぞれ独立したアイテムとして描写するプロンプト集。「神の完品」ではなく「神器が人間の手に触れ、傷を負い、修復された器」として統一する。
 
