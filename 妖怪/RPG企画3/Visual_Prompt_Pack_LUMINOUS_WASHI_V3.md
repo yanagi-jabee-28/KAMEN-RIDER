@@ -39,16 +39,6 @@ extra weapons, multiple weapons, extra swords, dual wielding, unrequested items,
 
 ```
 
-## 1. 共有ビジュアルモジュール (Shared Visual Modules)
-
-### 【モジュール：ウカミの継承手甲（UKAMI_GAUNTLET）】
-このプロンプトスニペットを、キャラクターの `details:` セクションに含める（または挿入する）ことで、ウカミから受け継いだ（あるいは彼自身の）特徴的な手甲を再現します。
-
-> **Prompt Module:**
-> *wearing the signature "BEAT GAUNTLET" on the left forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
-
----
-
 ## 2. 主人公「ミコト」冒険者初期装備（赤スカーフ版）
 
 ### ミコト（主人公）
@@ -227,11 +217,11 @@ Params:
 Prompt:
 masterpiece, highest quality, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm.
 style application: rough, dry brushstrokes (Kasure) and earthy pigment washes, emphasizing weathered textures and fast, aggressive movement.
-details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples, repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel. He stands grounded, holding a heavy wooden spear with a broad stone tip.
+details: a ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, and a strong jawline. Fully human features with regular rounded ears. Wind-tousled dark hair with subtle silver strands, tied back. Broad, muscular build defined by warm, organic watercolor washes that highlight the paper grain. He wears worn woven hemp, thick leather armor pieces, and a faded sash. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples, repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel. He stands grounded, holding a SINGLE-HEADED heavy wooden spear with EXACTLY ONE broad stone tip at the top; the bottom of the staff is a plain wooden butt with NO blade.
 background: deep, atmospheric sumi-e washes of ancient woodland.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elfen features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
+double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, young, boyish, feminine, skinny, immature, weak, clean-shaven, pointed ears, elven features, animal ears, nudity, porcelain skin, smooth surface, modern clothes, oil painting, thick impasto, ugly, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44827
 ```
@@ -256,7 +246,7 @@ details: weathered, tanned skin painted with textural watercolor washes. The sam
 background: a primordial mountain forest rendered with deep, overlapping washes of muted green and brown ink; sparse light filtering through dense canopy.
 
 Negative Prompt:
-extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, bright saffron orange robes, vivid warm colors, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, youthful, weak, boyish, clean-shaven, shiny metal, golden jewelry, bright saffron orange robes, vivid warm colors, porcelain skin, smooth surface, clean modern clothes, pointed ears, animal ears, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
 Params:
 --ar 2:3 --stylize 300 --quality high --seed 44828
 ```
@@ -433,6 +423,38 @@ Negative Prompt:
 extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
 Params:
 --ar 3:2 --stylize 300 --quality high --seed 77777
+```
+
+---
+
+## 5.4. ウカミの継承手甲（THE BEAT GAUNTLET）
+
+この神器（手甲）をキャラクターデザインに組み込むためのプロンプトモジュール、および単体アイテムとしての詳細プロンプトです。
+
+### 【キャラクター用：継承手甲（UKAMI_GAUNTLET）】
+キャラクターの `details:` セクションに含める（または挿入する）ことで、ウカミから受け継いだ特徴的な手甲を再現します。
+
+> **Prompt Module:**
+> *wearing the signature "BEAT GAUNTLET" on the left forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+
+---
+
+### 【アイテム単体：ウカミの継承手甲】
+```markdown
+# NANOBANANAPRO_PROMPT_BEAT_GAUNTLET_ITEM
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, an exquisite close-up study of a legendary artifact: THE BEAT GAUNTLET (Tekko). 
+The armor is resting on a sheet of highly textured, fibrous off-white Washi paper. 
+details: a heavy, asymmetrical forearm guard made of antique black iron (Kurourushi) with a rough hammer-textured surface. In the center is a large, recessed circular bronze disk. The bronze is deeply etched with multiple concentric "ripple" grooves that mimic soundwaves or a rhythmic pulse. Jagged cracks across the iron sections are meticulously repaired with raised golden Kintsugi lacquer lines. A thick, deep-indigo braided cord (kumihimo) is wrapped partially around the iron, ending in a single dangling tassel. 
+style: traditional Japanese watercolor and ink on Washi paper, with powdery mineral granulation and visible paper fibers. Subtle atmospheric sumi-e ink washes frame the artifact.
+texture: matte, raw material textures of iron, bronze, and stone-ground gold.
+
+Negative Prompt:
+extra weapons, unrequested items, dual wielding, bad anatomy, deformed, modern technology, sci-fi, plastic, glossy ceramic, perfectly smooth surfaces, 3D render, oil painting, signature, watermark
+Params:
+--ar 3:2 --stylize 300 --quality high --seed 12345
 ```
 
 ---

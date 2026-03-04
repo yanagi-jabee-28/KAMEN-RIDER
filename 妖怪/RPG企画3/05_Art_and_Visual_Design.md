@@ -171,10 +171,10 @@ Params:
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy, asymmetrical black iron armor (Tekko) with a hammer-textured surface, featuring a large circular bronze disk embedded in the center. The bronze disk is etched with multiple concentric "ripple" grooves like a soundwave or pulsar. Cracks on the iron are filled with golden kintsugi. It is bound to the arm by a thick, deep-indigo braided cord (kumihimo) ending in a single tassel. Standing in a relaxed, alert pose with a calm, resolute expression, holding a wooden spear with a shaped stone tip. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT FOREARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy, asymmetrical black iron armor (Tekko) with a hammer-textured surface, featuring a large circular bronze disk embedded in the center. The bronze disk is etched with multiple concentric "ripple" grooves like a soundwave or pulsar. Cracks on the iron are filled with golden kintsugi. It is bound to the arm by a thick, deep-indigo braided cord (kumihimo) ending in a single tassel. Standing in a relaxed, alert pose with a calm, resolute expression, holding a SINGLE-HEADED wooden spear with EXACTLY ONE shaped stone tip at the top and a plain wooden butt at the bottom. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
-old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
+double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
 Params:
 --ar 2:3 --stylize 250 --quality high --seed 44826
 ```
@@ -207,6 +207,7 @@ Params:
     - 濃紺（Indigo）の太い「組紐（Kumihimo）」で幾重にも腕に巻き付けられ、末端には一筋の房（Tassel）が垂れる。
 - **プロンプト用スニペット:** 
   > *wearing the signature "BEAT GAUNTLET" on the forearm: a heavy antique black iron armor (Tekko) featuring a central circular bronze disk etched with concentric soundwave ripples. The armor is repaired with golden kintsugi cracks and bound by a thick indigo braided cord with a single tassel.*
+- **単体アイテム用プロンプト:** `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` 内の 「5.4. ウカミの継承手甲」を参照。
 
 ---
 
