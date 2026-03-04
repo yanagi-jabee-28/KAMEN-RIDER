@@ -82,8 +82,8 @@ masterpiece, highest quality, exquisitely beautiful and determined young male wa
 style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; the mirror surface reflects fragile, airy light; the magatama pulses with deep mineral green.
 details:
 [SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient Japanese straight sword (Ame-no-Murakumo) firmly in his right hand. The blade is EXTREMELY LONG AND NARROW — Niji/Midjourney should fill the horizontal span. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard.
-[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT ancient. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
-[JEWEL — Yasakani no Magatama type] Draped across his chest is a single heavy strand of large, freshly carved magatama beads (nephrite jade and obsidian). Rough-cut surfaces showing stone-tool marks.
+[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast solid bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT an ancient relic. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
+[JEWEL — Yasakani no Magatama type] Draped around his neck as a heavy collar-necklace is a **single, simple non-wrapped strand** of large, freshly carved, curved teardrop-shaped magatama beads (nephrite jade and obsidian). No overlapping loops. Rough-cut surfaces showing stone-tool marks.
 His white hair and red muffler remain unchanged; the red pigment of the muffler ends still frays and SCRATCHES the paper edge, anchoring him as human, not divine.
 texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
 background: a scorched, broken landscape suggested through heavy sumi washes; golden kintsugi cracks spread across the earth like roots.
@@ -110,7 +110,7 @@ Params:
 Prompt:
 masterpiece, highest quality, extremely captivating and brightly expressive female ritual dancer leaping in mid-air.
 style application: explosive, dynamic splashes of vibrant pigment and sweeping, fast brushstrokes that embody primal kinetic energy.
-details: exceptionally charming facial features with a lively, fierce smile. High twin-tails painted with airy, sweeping watercolor strokes, **loosely braided like ancient shimenawa ropes**. She wears an asymmetrical, multi-layered rough hemp outfit adorned with bold **Jomon-period clay motifs**. A giant, translucent ribbon (hagoromo) aggressively swirls around her, its colors melting softly into the air. Chunky, unpolished bronze magatama bells swing wildly.
+details: exceptionally charming facial features with a lively, fierce smile. High twin-tails painted with airy, sweeping watercolor strokes, **loosely braided to resemble thick shimenawa ropes**. She wears an asymmetrical, multi-layered rough hemp outfit adorned with bold **Jomon-period clay motifs**. A giant, translucent ribbon (hagoromo) aggressively swirls around her, its colors melting softly into the air. Chunky, unpolished bronze magatama bells swing wildly.
 texture: skin rendered with warm, natural washes revealing the paper grain, emphasizing vital human warmth.
 background: ancient ruins implied by loose, energetic ink washes.
 
@@ -299,7 +299,7 @@ Params:
 Prompt:
 masterpiece, highest quality, an overwhelmingly handsome and fiercely masculine ancient storm god, Susanoo, radiating a wild, heroic aura.
 style: traditional Japanese watercolor (Iwa-enogu) on fibrous Washi paper. A breathtaking fusion of immaculate divine line-work and the chaotic, dynamic bleeding of storm-cloud grays, deep ocean blues, and flashes of lightning-gold.
-details: He has a fiercely attractive, battle-hardened face with piercing eyes that burn with untamed, primal passion. His wild, wind-whipped dark hair merges with aggressive ink washes of stormy skies. He wears ancient, asymmetrical divine garments (rough woven hemp mixed with torn celestial silk) whipping violently in a typhoon, adorned with massive magatama. His legendary **Ame-no-Murakumo sword** is held in a powerful grip—a massive, rugged blade **visibly patched with thick, glowing gold kintsugi, and studded with ancient iron and bone**, symbolizing the first defiant act of human repair. The edges of his form erupt into expressive, splashing watercolor strokes. He embodies the majestic violence of a storm, the very first emotional 'bug' to shatter the silent heavens.
+details: He has a fiercely attractive, battle-hardened face with piercing eyes that burn with untamed, primal passion. His wild, wind-whipped dark hair merges with aggressive ink washes of stormy skies. He wears ancient, asymmetrical divine garments (rough woven hemp mixed with torn celestial silk) whipping violently in a typhoon, adorned with massive, curved teardrop-shaped magatama. His legendary **Ame-no-Murakumo sword** is held in a powerful grip—a massive, rugged straight blade **built from three dark iron segments, bound seamlessly by thick, glowing gold kintsugi**, symbolizing the first defiant act of human repair. The edges of his form erupt into expressive, splashing watercolor strokes. He embodies the majestic violence of a storm, the very first emotional 'bug' to shatter the silent heavens.
 atmosphere: Epic, tempestuous, and undeniably cool.
 
 Negative Prompt:
@@ -320,7 +320,7 @@ Params:
 Prompt:
 masterpiece, highest quality, terrifying female apparition born of rot and obsessive grief, a living amalgam of decayed court garments and writhing maggots, painted on fibrous Washi paper with Japanese watercolor.
 style: the figure uses uncontrolled bleeding of acid greens, bruised purples, and black iron inks to suggest corruption; the surrounding void is composed of tight, controlled gold-lined cracks.
-details: pale, gaunt face half-covered by tattered white kimono stained with ink-black blood; hair is long and matted with earth, interwoven with bones and dead leaves; multiple pale arms extend like roots, each ending in clawed fingers. Swarms of smaller yōkai (黄泉醜女) circle at her feet, their forms suggested by rapid, expressive ink splatters. Her eyes glow with a cold, otherworldly vermilion light.
+details: pale, gaunt face partially obscured by a tattered white kimono draped over her head, stained with ink-black blood; hair is long and matted with earth, interwoven with bones and dead leaves; multiple pale arms extend like roots, each ending in clawed fingers. Swarms of smaller yōkai (黄泉醜女) circle at her feet, their forms suggested by rapid, expressive ink splatters. Her eyes glow with a cold, otherworldly vermilion light.
 mood: absolute dread.
 
 Negative Prompt:
@@ -478,9 +478,9 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, painted close-up composition of a single ancient bronze disc-mirror — the Yata no Kagami — resting face-up on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH strokes throughout.
-style: solemn DRY-BRUSH painting with muted verdigris-and-iron palette. Paper grain visible beneath all surfaces.
-details: A single, newly cast bronze disc-mirror — freshly made by human hands, NOT an ancient relic. The face is UNCRACKED AND INTACT. Fresh bronze has a warm amber-gold hue at the rim where the casting is thickest, transitioning to dull olive-grey at the center where it has been partially hand-polished with rough stone. The polishing is imperfect — the reflective surface shows faint wobbly tool-marks and irregular patches of matte and dim shine, giving a cloudy, ghost-like internal glow rather than a clear reflection. The rim shows simple, freshly incised Jomon-style spiral motifs (tomoe) — the lines are clean but hand-drawn, slightly uneven. The mirror cord (himo) — thick, undyed hemp — is freshly knotted, still stiff.
+masterpiece, highest quality, painted close-up composition of a single mythological bronze disc-mirror — the Yata no Kagami — resting face-up on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH strokes throughout.
+style: solemn DRY-BRUSH painting with a warm bronze, amber-gold, and dull olive-grey palette. Paper grain visible beneath all surfaces.
+details: A single, newly cast bronze disc-mirror — freshly made by human hands, NOT an ancient relic. MUST BE A SOLID METAL DISC. NO glass mirror, NO western decorative frame. The face is UNCRACKED AND INTACT. Fresh bronze has a warm amber-gold hue at the rim where the casting is thickest, transitioning to dull olive-grey at the center where it has been partially hand-polished with rough stone. The polishing is imperfect — the reflective surface shows faint wobbly tool-marks and irregular patches of matte and dim shine, giving a cloudy, ghost-like internal glow rather than a clear reflection. The rim shows simple, freshly incised Jomon-style spiral motifs (tomoe) — the lines are clean but hand-drawn, slightly uneven. The mirror cord (himo) — thick, undyed hemp — is freshly knotted, still stiff.
 texture: Washi paper grain is visible beneath the mineral pigment of the bronze surface.
 background: near-void; a faint atmospheric sumi-e haze, cool and dim.
 
@@ -499,14 +499,14 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, painted close-up composition of a sacred strand of ancient magatama beads — the Yasakani no Magatama — coiled loosely on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH mineral pigment strokes throughout.
+masterpiece, highest quality, painted close-up composition of the Yasakani no Magatama — a sacred necklace of ancient magatama beads — arranged as a **single, simple circular loop** on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible DRY-BRUSH mineral pigment strokes throughout.
 style: intimate, mineral-rich DRY-BRUSH painting. Jade tones rendered with granulating Iwa-enogu pigments and scratchy brushstrokes on Washi paper — NOT smooth photorealistic material rendering.
-details: A single coiled strand of large, freshly carved comma-shaped magatama gems (teardrop silhouette with a hand-drilled top hole) — NEW, not ancient. The primary stones are carved from raw nephrite jade — the cuts are rough and unpolished, still showing stone-tool marks on the surface. Matte deep green with visible natural mineral veining; no smoothing or finishing. Interspersed are several freshly knapped pieces of raw black obsidian, their conchoidal fracture faces catching a faint cold edge-light. The threading cord is thick, undyed hemp — freshly cut and tied, stiff at the knot. There is nothing refined about these objects — they are tools of intent, shaped by mortal hands that do not yet know what they are making.
+details: A **single, non-overlapping circular strand (necklace)** of large, freshly carved, curved teardrop-shaped magatama beads (traditional silhouette with a hand-drilled top hole) — NEW, not ancient. The primary stones are carved from raw nephrite jade — the cuts are rough and unpolished, still showing stone-tool marks on the surface. Matte deep green with visible natural mineral veining; no smoothing or finishing. Interspersed are several freshly knapped pieces of raw black obsidian, their conchoidal fracture faces catching a faint cold edge-light. The threading cord is thick, undyed hemp — freshly cut and tied with a prominent, heavy knot. There is nothing refined about these objects — they are tools of intent, shaped by mortal hands that do not yet know what they are making.
 texture: Washi paper grain shows through the mineral paint layer of every bead surface.
 background: near-void Washi paper; only a dry ink-wash shadow beneath the coiled strand.
 
 Negative Prompt:
-photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, caustics, subsurface scattering, realistic material render, physically based rendering, 3D render, CGI, glossy surface, extra items, multiple strands, necklace chain, metal setting, gold setting, jewelry box, modern gemstone cut, faceted crystal, sparkle, shine, glossy gem surface, porcelain, synthetic materials, human figure, character, cel-shading, oil painting, signature, watermark
+photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, caustics, subsurface scattering, realistic material render, physically based rendering, 3D render, CGI, glossy surface, extra items, multiple necklaces, **coiled strand, wrapped strand, multiple loops, spiral necklace, stacked necklaces**, metal setting, gold setting, jewelry box, modern gemstone cut, faceted crystal, sparkle, shine, glossy gem surface, porcelain, synthetic materials, human figure, character, cel-shading, oil painting, signature, watermark
 Params:
 --ar 1:1 --stylize 300 --quality high --seed 22203
 ```
@@ -524,9 +524,9 @@ masterpiece, highest quality, a painted still-life composition of EXACTLY THREE 
 style: disciplined FRICTION-DRY-BRUSH painting. Unified mineral pigment palette. Paper fiber texture visible beneath all surfaces.
 arrangement: loose triangular composition. Center-top: dark iron tsurugi sword lying diagonally, Kintsugi seams glowing. Bottom-left: newly cast bronze disc-mirror face-up, INTACT surface, warm amber-gold rim. Bottom-right: coiled hemp strand of jade and obsidian magatama.
 each object:
-— SWORD: near-black matte iron, three-section Bronze-Age tsurugi with T-shaped crossguard; raised gold Kintsugi at seams.
-— MIRROR: newly cast bronze disc, INTACT face, warm amber-gold rim, imperfectly hand-polished surface with faint diffuse glow — NO cracks, NOT ancient.
-— JEWEL: coiled strand, rough-cut jade and obsidian beads on hemp cord, largest bead with golden Kintsugi hairline.
+— SWORD: near-black matte iron, three-section Bronze-Age straight tsurugi with a wide DISC POMMEL and NO CROSSGUARD; raised gold Kintsugi at seams.
+— MIRROR: newly cast solid bronze disc, INTACT face, warm amber-gold rim, imperfectly hand-polished surface with faint diffuse glow — NO cracks, NOT an ancient relic. NO glass mirror.
+— JEWEL: coiled strand, freshly carved curved teardrop-shaped magatama beads (jade and obsidian) on hemp cord, rough-cut surfaces.
 unifying detail: hairline golden kintsugi cracks in the Washi paper surface itself connect the three objects.
 background: raw Washi paper only.
 
