@@ -330,6 +330,42 @@ Params:
 --ar 2:3 --stylize 300 --quality high --seed 34567
 ```
 
+### Prompt for Boss Orochi Tsurugizuka (Chimera of Discarded Swords)
+
+```markdown
+# PROMPT_OROCHI_TSURUGIZUKA_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, a colossal and terrifying grotesque chimera entity formed entirely of countless discarded, rusted ancient swords, broken blades, and shattered hilts.
+style: aggressive, violent Japanese watercolor on textured Washi paper. Heavy, uncontrolled bleeding of black ink (Yomi mud) and dark rust-red iron pigments.
+details: It is NOT a biological snake; it is a moving mountain of abandoned human weapons. The jagged, chaotic mass of rusted iron and chipped steel is violently stitched and held together by thick, glowing, jagged golden Kintsugi lacquer lines and weeping black ink. Intense, resentful thermal energy burns deep within the gaps of the blades. The amalgamation evokes the shape of a multi-headed serpent only through the chaotic structural flow of the weapons, without any actual reptile scales, eyes, or flesh.
+mood: absolute dread, heavy karma, and tragic resentment of discarded history.
+
+Negative Prompt:
+biological snake, reptile scales, animal eyes, animal teeth, monster flesh, clean metal, shiny steel, smooth surfaces, modern weapons, sci-fi gear, porcelain, plastic texture, oil painting, flat cel-shading, 3D render, signature, watermark
+Params:
+--ar 16:9 --stylize 350 --quality ultra --seed 88888
+```
+
+### Prompt for True Ame-no-Murakumo (Awakened Historical Vessel)
+
+```markdown
+# PROMPT_TRUE_AME_NO_MURAKUMO_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, a single legendary ancient Japanese straight sword (tsurugi) resting or floating, radiating overwhelming heat and history.
+style: traditional Japanese watercolor on Washi paper, striking contrast between the dark, rusted iron of the blade and blinding, raised golden Kintsugi lacquer.
+details: The sword is thick, heavily weathered, and scarred by countless historical battles. Its entirety is intricately fractured and reconnected by a beautiful, glowing network of golden Kintsugi. The gold pulses with intense, supernova-like thermal energy. Small splatters of gold lacquer and black ink bleed into the surrounding Washi paper, suggesting a heat so intense it scorches reality. It is the ultimate vessel of human friction and repair.
+background: minimal atmospheric sumi-e wash, keeping focus entirely on the weapon's presence.
+
+Negative Prompt:
+clean pristine blade, shiny typical katana, modern weapon, western longsword, smooth metal, plastic texture, 3D render, cel-shading, oil painting, character holding sword, human, signature, watermark
+Params:
+--ar 3:2 --stylize 300 --quality high --seed 77777
+```
+
 ---
 
 ## 6. 環境 / ステージ用プロンプト
