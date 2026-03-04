@@ -472,16 +472,16 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, an exquisite close-up study of a legendary artifact: THE BEAT GAUNTLET (Tekko). 
-The armor is resting on a sheet of highly textured, fibrous off-white Washi paper. 
-details: a **sleek, ergonomic, and stylish silhouette** for an asymmetrical gauntlet made of **refined antique black iron (Kurourushi)** with a hand-painted, subtly hammered texture. The design is **lean and well-proportioned**, consisting of a curved forearm guard, a precisely fitted hand plate, and **slender, articulated finger sections** that follow natural joint anatomy with bold sumi-e outlines. In the center is a large, recessed circular bronze disk deeply etched with concentric "ripple" grooves; the bronze shows beautiful earthy pigment bleeding and mineral textures. A thick, deep-indigo braided cord (kumihimo) is wrapped with **elegant tension** partially around the iron, ending in a single dangling tassel. 
-style: traditional Japanese watercolor and ink on fibrous off-white Washi paper, with powdery mineral granulation (Iwa-enogu) and expressive ink washes. 
+masterpiece, highest quality, an exquisite close-up study of a legendary artifact: THE BEAT GAUNTLET (Tekko).
+**CRITICAL COMPOSITION:** The gauntlet is securely EQUIPPED on the **LEFT ARM AND HAND** of a completely featureless, pure white mannequin (a translucent, ghost-like human arm). The arm extends into the frame, clearly showing a left-hand anatomical structure. 
+details: a sleek, ergonomic, and stylish silhouette made of refined antique black iron (Kurourushi) with a hand-painted, subtly hammered texture. The design is lean and well-proportioned, consisting of a curved forearm guard, a precisely fitted hand plate exclusively for the left hand, and **COMPREHENSIVE FINGER ARMOR**. Every single finger is fully protected by slender, articulated black iron segmented plates (kozane) that meticulously follow natural joint anatomy, featuring distinct hinges and bold sumi-e outlines. In the center of the forearm is a large, recessed circular bronze disk deeply etched with concentric "ripple" grooves; the bronze shows beautiful earthy pigment bleeding and mineral textures. A thick, deep-indigo braided cord (kumihimo) is wrapped with elegant tension partially around the iron, ending in a single dangling tassel. 
+style: entirely painted on highly textured, fibrous off-white Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and soft ink washes. The featureless white mannequin arm blends softly into the Washi paper background, making the dark iron gauntlet the sole point of high contrast. visible paper fibers, powdery mineral granulation, organic analog warmth. 
 texture: matte, raw artistic textures of ink, pigment, and stone-ground gold.
 
 Negative Prompt:
-clunky, bulky, botebote, bloated, oversized, thick-edged, low-detail, heavy-handed, photorealistic, photography, realistic lighting, 3D render, CGI, octanerender, Unreal Engine, smooth digital rendering, hyper-realistic, glossy, plastic, ceramic, perfectly smooth, extra weapons, unrequested items, dual wielding, bad anatomy, deformed, signature, watermark
+real human skin, living arm, living fingers, human face, character, body, bare fingers, exposed fingertips, clunky, bulky, botebote, bloated, oversized, thick-edged, low-detail, heavy-handed, photorealistic, photography, realistic lighting, 3D render, CGI, octanerender, Unreal Engine, smooth digital rendering, hyper-realistic, glossy, plastic, ceramic, perfectly smooth, extra weapons, unrequested items, dual wielding, bad anatomy, deformed, signature, watermark, disconnected limbs, extra limbs, mutated hands, poorly drawn hands, extra fingers, floating objects, surreal AI artifacts
 Params:
---ar 3:2 --stylize 300 --quality high --seed 12345
+--ar 3:2 --stylize 300 --seed 12345
 ```
 
 ---
