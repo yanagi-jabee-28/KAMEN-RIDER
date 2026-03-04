@@ -195,9 +195,12 @@ Params:
 
 # PROMPT
 Prompt:
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit using exactly TWO uploaded reference images: 1) the image of the celestial bow (Ame-no-Makakumi) and 2) the image of the quiver (Yugi). Use these as the structural and aesthetic anchors for his equipment. Preserve Wakahiko's base character structure while integrating these tools.
 masterpiece, highest quality, strikingly beautiful, ethereal, and coldly arrogant youthful male archer, Wakahiko, standing in profile in a sharp Kyudo-inspired side-aiming pose.
 style application: absolute brush discipline, ZERO chaotic bleeding. The aesthetic is defined by "Friction and Stillness": dry brush calligraphy (Kasure) and visible mineral granulation on textured Washi paper.
-details: His skin is unnervingly perfect, rendered with pale gofun pigments that reveal the raw paper tooth but contain absolutely no human warmth or blemishes. His hair is beautifully short, sleek and silvered, emphasizing his austere features. He is frozen in a full draw (Kai), pulling a massive asymmetrical yumi (wa-kyu) to his ear; the bowstring is a razor-sharp, taut line with visible dry-rope friction texture. The white-lacquered wood of the bow is defined by SCRATCHED lines and gold leaf seams that catch light like worn, cold metal. He wears noble Heian-period inspired divine robes (Kariginu) in luminous pearl-white and pale gold; intricate patterns exist with terrifying, non-bleeding precision. A sharp accent of blood-red appears on his arrow fletchings, a cold visual echo of his connection to another.
+details:
+[CHARACTER] His skin is unnervingly perfect, rendered with pale gofun pigments that reveal the raw paper tooth but contain absolutely no human warmth or blemishes. His hair is beautifully short, sleek and silvered, emphasizing his austere features. He wears noble Heian-period inspired divine robes (Kariginu) in luminous pearl-white and pale gold; intricate patterns exist with terrifying, non-bleeding precision.
+[EQUIPMENT — The Celestial Bow & Quiver] He is frozen in a full draw (Kai). He holds his **massive asymmetrical white-lacquered longbow (Ame-no-Makakumi)**, which MUST match the uploaded reference exactly: a single, elegant curve with thin gold leaf seams. A **taut, straight white silk bowstring** connects the tips. On his back or hip is the **elegant wood and leather quiver (Yugi)** from the reference, containing arrows with sharp blood-red fletching. A sharp accent of blood-red appears on his arrow fletchings, a cold visual echo of his connection to another.
 environment: Takamanohara (celestial plain). A serene landscape suggested by dry, overlapping layers of ink and atmospheric sumi-e haze with minimal moisture.
 mood: The suffocating, perfect stillness of divine logic.
 
@@ -493,15 +496,23 @@ Params:
 天鳥船の主、ワカヒコの象徴である「天之麻迦古弓（あめのまかこゆみ）」と、その矢を収める「靭（ゆき）」。
 泥を一切許さない天上の美学を、静謐な和紙の上で一対の静物として描きます。
 
+> **【運用注記】**
+> 弓の複雑な曲線（和弓特有の非対称な曲線）や、弦の緊張感をAIで正確に再現するには、テキスト指示だけでは限界があります。
+> **このセクションにある成功例の画像を、生成ツールに image reference（画像プロンプト）として先にアップロード** した上で生成することを強く推奨します。
+>
+> - **Midjourney**: `/imagine` の後に画像URLを貼り付け、その後に以下のプロンプトを入力。`--iw 1.5` 程度を推奨。
+> - **Stable Diffusion**: `img2img` または `ControlNet (Canny/Depth)` で画像を読み込み、以下のプロンプトを入力。
+
 ```markdown
-# NANOBANANAPRO_PROMPT_WAKAHIKO_CELESTIAL_BOW_AND_QUIVER
+# NANOBANANAPRO_PROMPT_WAKAHIKO_CELESTIAL_BOW_AND_QUIVER_ANCHORED
 
 # PROMPT
 Prompt:
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of the bow and quiver. Use the reference as the structural skeleton while re-rendering every surface into high-quality Japanese watercolor on Washi paper.
 masterpiece, highest quality, a breathtaking painted still-life composition of **EXACTLY TWO (2) distinct items: ONE strung bow and ONE quiver**, resting side-by-side on raw, textured off-white Washi paper. THIS IS A TRADITIONAL JAPANESE WATERCOLOR PAINTING.
 style: absolute brush discipline, "Friction and Stillness". High-texture Washi paper base with visible fibers and mineral granulation.
-[BOW — Ame-no-Makakumi] A massive, asymmetrical Japanese longbow (wa-kyu) lying horizontally. **GEOMETRIC LOGIC: The bow follows exactly ONE primary, elegant, single-directional curve like a crescent moon.** **The bow is FULLY STRUNG with a taut, razor-sharp straight bowstring (tsuru)** connecting the two tips. The bowstring is a single, continuous, straight white line of silk with NO loose ends or tangles. The wood is a SINGLE continuous piece with NO counter-curves, NO S-curves, and NO reverse-bending limbs. The upper limb is long and the lower limb is short. Surface is white lacquer (Gofun) with thin gold leaf seams. Dark charcoal-grey hemp grip.
-[QUIVER — Yugi] Beside the bow is **EXACTLY ONE (1) elegant wood and leather quiver**. **ARROW LOGIC: Only the blood-red fletching (feathers) of the eight arrows are visible at the quiver's opening; ALL arrowheads are hidden deep inside the body of the quiver.** The red fletching is the only sharp accent of color.
+[BOW — Ame-no-Makakumi] A massive, asymmetrical Japanese longbow (wa-kyu) lying horizontally. **CRITICAL STRUCTURE: Preserve the single, elegant, crescent-moon curve from the reference.** The bow is FULLY STRUNG with a taut, razor-sharp straight bowstring (tsuru). The wood is a SINGLE continuous piece of white-lacquered (Gofun) wood with thin gold leaf seams. 
+[QUIVER — Yugi] Beside the bow is **EXACTLY ONE (1) elegant wood and leather quiver**. **ARROW LOGIC: Only the blood-red fletching (feathers) are visible; ALL arrowheads are hidden deep inside the body of the quiver.** The red fletching is the only sharp accent of color.
 texture: fibrous Washi paper tooth visible through the dry, matte paint.
 background: minimal sumi-e void, a serene celestial space.
 
