@@ -333,19 +333,40 @@ Params:
 ### Prompt for Boss Orochi Tsurugizuka (Chimera of Discarded Swords)
 
 ```markdown
-# PROMPT_OROCHI_TSURUGIZUKA_WASHI
+# PROMPT_OROCHI_TSURUGIZUKA_FRICTION_V7
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, a colossal and terrifying grotesque chimera entity formed entirely of countless discarded, rusted ancient swords, broken blades, and shattered hilts.
-style: aggressive, violent Japanese watercolor on textured Washi paper. Heavy, uncontrolled bleeding of black ink (Yomi mud) and dark rust-red iron pigments.
-details: It is NOT a biological snake; it is a moving mountain of abandoned human weapons. The jagged, chaotic mass of rusted iron and chipped steel is violently stitched and held together by thick, glowing, jagged golden Kintsugi lacquer lines and weeping black ink. Intense, resentful thermal energy burns deep within the gaps of the blades. The amalgamation evokes the shape of a multi-headed serpent only through the chaotic structural flow of the weapons, without any actual reptile scales, eyes, or flesh.
-mood: absolute dread, heavy karma, and tragic resentment of discarded history.
+masterpiece, highest quality, an absolute mechanical-nightmare entity, **strictly composed of exactly eight (8) separate, isolated clusters of jagged metal rising from a singular central mound**.
+**Count Enforcement:** Precisely eight distinct neck-like pillars of steel. Each of the eight (8) pillars ends in a **blade-cluster "head" lacking any biological features**. There are **NO eyes, NO scales, NO flesh, and NO biological faces**. The "mouths" are merely jagged gaps between broken katanas.
+**Style Application:** **FRICTION-DRY-BRUSH STYLE (Kasure)**. Zero-bleeding, zero-blending. Painted on **highly textured, raw fibrous Washi paper**. Every stroke is a dry, scratchy line of mineral pigment. Visible paper grain through every layer.
+**Material Detail:** Each of the 8 heads is a high-density, **unlubricated friction-grind of thousands of rusted ancient swords, jagged iron shards, and shattered bronze hilts**. The entire structure is violently stitched by **jagged, raised golden Kintsugi lacquer lines** that act as the only structural binding.
+**Environment:** A stark, minimalist background of dry sumi-e fog. No extra structures. Only the 8-headed mountain of iron.
+**Lighting:** Cold, harsh light catching on the dry edges of the rusted metal, rendered with **mineral granulation** to show the grit and rust.
 
 Negative Prompt:
-biological snake, reptile scales, animal eyes, animal teeth, monster flesh, clean metal, shiny steel, smooth surfaces, modern weapons, sci-fi gear, porcelain, plastic texture, oil painting, flat cel-shading, 3D render, signature, watermark
+**biological snake, living eyes, reptile scales, animal teeth, monster flesh, organic skin, biological face, eyes in mouths, looking at camera**, watercolor bleeding, soft blending, liquid flow, smudging, blurry edges, washes, water, excessive shadows, extra heads beyond eight, fewer than eight heads, human shapes, modern technology, sci-fi, shiny chrome, oil painting, 3D render, plastic texture, signature, watermark.
+
 Params:
---ar 16:9 --stylize 350 --quality ultra --seed 88888
+--ar 16:9 --stylize 450 --quality ultra --seed 88888
+```
+
+### Prompt for Remnant Bone (Item Icon)
+
+```markdown
+# PROMPT_REMNANT_BONE_ITEM_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, macro shot of a single, grotesque yet beautiful object: the "Remnant Bone" (遺骨) of a destroyed ancient weapon, resting on textured Washi paper.
+style application: absolute rejection of watercolor bleeding and soft blending. Painted with heavy, SCRATCHY dry-brush strokes (Kasure) and dense mineral pigments (Iwa-enogu) emphasizing raw friction and material obsession.
+details: A jagged, irregular chunk of deeply rusted, scorched iron fused uncontrollably with calcified, bone-like white material. The surface area is scarred with deep gouges. Thick, bulging, violent golden Kintsugi lacquer forcefully binds the disparate materials together, leaking a faint, dying ember-like heat. There is NO life, only the heavy, dry karma of a weapon that refused to disappear.
+texture: the fibrous tooth of the Washi paper is highly visible, emphasizing the abrasive, unlubricated friction of the ruined metal.
+
+Negative Prompt:
+watercolor bleeding, soft blending, liquid flow, smudging, blurry edges, clean metal, shiny steel, smooth surfaces, perfect geometry, biological flesh, living tissue, 3D render, cel-shading, oil painting, signature, watermark
+Params:
+--ar 1:1 --stylize 300 --quality high --seed 11111
 ```
 
 ### Prompt for True Ame-no-Murakumo (Awakened Historical Vessel)
