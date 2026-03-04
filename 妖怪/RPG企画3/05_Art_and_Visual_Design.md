@@ -115,12 +115,12 @@ NO thick impasto, NO oil painting, NO messy mud, NO western horror styles, NO fl
 - **造形美と華の担保:** 泥臭い世界観であっても、キャラクターの顔立ちや骨格は「万人受けする圧倒的な美しさ・華やかさ」を大前提とする。無骨さや男らしさは、骨格を崩す醜悪さ（ブサイク）としてではなく、整った顔立ちの上に添えられた「色気のある傷」や「力強い視線」として表現する。
 
 ### 主人公「ミコト」【古代アレンジ版】
-- **コンセプト:** 空の器、白と赤、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。**赤いスカーフ（マフラー）はミコトの唯一の「赤」であり、他の部位に赤色は現れない。** これは首にしっかりと巻き付けられ、一方の端はしまい込まれ、風になびく一本の端の**合計「1つ」のみ**が視覚的に存在する構造を持つ。先端まで決して分岐したり裂けたりすることのない「意志の端正さ」を象徴する。
+- **コンセプト:** 空の器、白と赤、アシンメトリーな防具。日本人らしい中世的なバランス（女性的になりすぎない、凛とした美しさ）を持ち、性別を超えた「人間そのもの」としての存在感を放つ。**赤いスカーフ（マフラー）はミコトの唯一の「赤」であり、他の部位に赤色は現れない。** これは首にしっかりと巻き付けられ、一方の端はしまい込まれ、風になびく一本の端の**合計「1つ」のみ**が視覚的に存在する構造を持つ。先端まで決して分岐したり裂けたりすることのない「意志の端正さ」を象徴する。**純白のボブヘアと赤い一本のスカーフは、必ず同じ方向になびくよう一貫した風の物理法則（Synchronized Wind）に従う。**
 ```text
 Prompt:
 masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile that is neither clearly male nor female; sharp yet balanced bone structure, straight noble nose, and resolute gaze with straighter brows.
 style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. **SCARF STRICT LOGIC:** A SINGLE STRIP OF BOLD RED CLOTH wrapped securely around the neck. The front end is tucked away; **ONLY ONE SINGLE TAIL trails in the wind behind.** THERE IS EXACTLY ONE VISIBLE TRAILING PIECE OF FABRIC. RED IS EXCLUSIVE TO THIS SCARF. **NO front drape, NO branching, NO second tail, NO bifurcation, NO split fabric.** A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
+details (the figure): pure white short bob hair painted with soft, translucent watercolor washes. Wearing an off-white sleeveless tunic ("Kantoui") and baggy pants. **SCARF STRICT LOGIC:** A SINGLE STRIP OF BOLD RED CLOTH wrapped securely around the neck. The front end is tucked away; **ONLY ONE SINGLE TAIL trails in the wind behind.** THERE IS EXACTLY ONE VISIBLE TRAILING PIECE OF FABRIC. RED IS EXCLUSIVE TO THIS SCARF. **NO front drape, NO branching, NO second tail, NO bifurcation, NO split fabric.** **SYNCHRONIZED WIND LOGIC: The white bob hair and the single red scarf tail MUST flutter dynamically in the EXACT SAME DIRECTION.** A thick coarse rope (shimenawa) around the waist. This character appears as a fragile but beautiful mortal human vessel, not a deity.
 texture: the character's form is defined by watercolor blending and paper fiber, with absolutely no smooth or ceramic-like surfaces. Keep costume textures natural and matte.
 background: a vast, ancient landscape painted with atmospheric ink washes (sumi-e style) and desaturated earth-tone watercolors.
 
@@ -175,7 +175,7 @@ Params:
 Prompt:
 masterpiece, exquisitely beautiful and universally appealing facial features, an exceptionally handsome 25-year-old young male scout with a clean-shaven, sharply defined jawline. He possesses an elegant yet masculine heroic aura, piercing yet reliable eyes, and fully human facial features. He is a youthful yet highly capable young adult with commanding presence and stoic dignity – unmistakably Japanese with regular rounded human ears (no pointiness at all) and no animalistic traits. He should look like someone respected and loved by his companions, dressed in simple yet functional gear befitting an early civilization.
 style: dynamic Japanese watercolor and ink on Washi paper, fast brushstrokes, beautiful earthy pigment bleeding.
-details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT ARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a heavy antique black iron gauntlet (Tekko) that extends from the forearm to cover the back of the hand and knuckles with a protective hand plate; the piece features a central circular bronze disk etched with concentric ripples, repaired with golden kintsugi cracks, and bound by a thick indigo braided cord that weaves around the palm and wrist. Standing in a relaxed, alert pose with a calm, resolute expression, holding a SINGLE-HEADED wooden spear with EXACTLY ONE shaped stone tip at the top and a plain wooden butt at the bottom. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
+details: wind‑tousled dark hair tied back with a cloth band. Lean, athletic build painted with warm, organic watercolor washes. Wearing functional gear of hemp and leather. **ON THE LEFT ARM, HE WEARS THE SIGNATURE "BEAT GAUNTLET":** a sleek, ergonomic, and stylish asymmetrical gauntlet (Tekko) made of refined antique black iron (Kurourushi) with a subtly hammered texture. Its lean design extends from the forearm to cover the back of the hand and knuckles with a precisely fitted hand plate. The piece features slender, articulated finger sections, a central circular bronze disk deeply etched with concentric ripples and repaired with golden kintsugi cracks. It is bound by a thick deep-indigo braided cord wrapped with elegant tension around the palm and wrist. Standing in a relaxed, alert pose with a calm, resolute expression, holding a SINGLE-HEADED wooden spear with EXACTLY ONE shaped stone tip at the top and a plain wooden butt at the bottom. The ancient woodland background is hinted with deep, overlapping washes of green and brown ink.
 
 Negative Prompt:
 double-ended weapon, bladed on both ends, two-headed spear, double-tipped spear, old, middle-aged, facial hair, stubble, wrinkles, rugged veteran, uncle, oil painting, thick impasto, ugly, horror, flat cel-shading, clean modern clothes, sophisticated weapons, perfectly neat hair, pointed ears, elven features, animal ears, exaggerated anime ears, nudity, exposed torso, undressing, "ears must be rounded human" (affirmative restriction)
@@ -203,17 +203,17 @@ Params:
 
 ### 4.1 ウカミの継承手甲（THE BEAT GAUNTLET）
 ウカミからミコトへ、あるいは特定の継承を象徴する「手甲」の定義。この意匠を指定することで、他キャラクターのプロンプトでも「共通の歴史」を視覚化できる。
-- **ベース:** 無骨な黒鉄（Kurourushi）の非対称な手甲（Tekko）。前腕から「手の甲」、さらに「指の第一関節付近」までを強固に保護する形状。
+- **ベース:** 洗練された黒鉄（Kurourushi）の流線型でアシンメトリーな手甲（Tekko）。前腕から「手の甲」、さらに「指の第一関節付近」までを強固かつエレガントに保護する形状。微細な叩き出し（hammered surface）が施されている。
 - **構造:** 
-    - 腕から甲へと続く一体型の鉄板構造（手甲プレート）。
-    - **指の装甲:** 各指に「小札（Segmented plates）」状の分割装甲を備える。これは指の関節（Joints）の動きに合わせて自然に折れ曲がるように設計されており、握り込んだ際も美しく連動する。
-- **中心意匠:** 前腕中央に埋め込まれた大型の「青銅（Bronze）の円盤」。
+    - 曲面的なフォルムの前腕ガードから、正確にフィットする手の甲のプレートへと続く無駄のない構造（手甲プレート）。
+    - **指の装甲:** 各指に「小札（Segmented plates）」状の極めて細く連動する分割装甲を備える。関節（Joints）の解剖学的な動きに沿って自然に折れ曲がり、握り込んだ際も美しく連動する精巧な作り。
+- **中心意匠:** 前腕中央の窪みに埋め込まれた大型の「青銅（Bronze）の円盤」。
 - **詳細ディテール:** 
-    - 青銅円盤には、心音や鼓動を想起させる「同心円状の波紋（Ripples/Wave patterns）」が深く刻まれている。
-    - 鉄部には長年の使用による微細な「擦れ」や「傷」が走り、実戦の歴史を示す。
-    - 濃紺（Indigo）の太い「組紐（Kumihimo）」により、手首と掌（Palm）を縫うようにして幾重にも巻き付けられ、末端には一筋の房（Tassel）が垂れる。
+    - 青銅円盤には、同心円状の波紋（Ripples/Wave patterns）が深く掘り込まれ、岩絵具の美しい滲みを見せる。
+    - 鉄部には無骨さではなく、使い込まれて磨き抜かれたアンティーク感が走り、実戦の歴史と手入れの行き届いた様を示す。
+    - 濃紺（Indigo）の太い「組紐（Kumihimo）」により、適度で優雅なテンション（elegant tension）で手甲の一部と腕を縫うように巻き付けられ、末端には一筋の絡み合う房（Tassel）が垂れる。
 - **プロンプト用スニペット:** 
-  > *wearing the signature "BEAT GAUNTLET" on the left arm: a heavy antique black iron gauntlet rendered with a hand-painted aesthetic, featuring articulated finger plates and bold sumi-e outlines. A central circular bronze disk is etched with ripples showing subtle ink-bleed. The armor is bound by a thick indigo braided cord with a single tassel. The entire piece exhibits mineral granulation on textured Washi paper.*
+  > *wearing the signature "BEAT GAUNTLET" on the left arm: a sleek, ergonomic, and stylish asymmetrical gauntlet made of refined antique black iron (Kurourushi) with a hand-painted, subtly hammered texture. The lean design features slender, articulated finger plates following natural joint anatomy with bold sumi-e outlines. A central circular bronze disk is deeply etched with concentric ripple grooves showing subtle ink-bleed. The armor is bound by a thick deep-indigo braided cord wrapped with elegant tension, ending in a single dangling tassel. The entire piece exhibits mineral granulation on textured Washi paper.*
 - **単体アイテム用プロンプト:** `Visual_Prompt_Pack_LUMINOUS_WASHI_V3.md` 内の 「5.4. ウカミの継承手甲」を参照。
 
 ---
