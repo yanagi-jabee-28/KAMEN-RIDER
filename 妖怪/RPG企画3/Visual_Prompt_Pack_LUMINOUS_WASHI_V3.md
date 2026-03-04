@@ -77,12 +77,13 @@ Params:
 
 # PROMPT
 Prompt:
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of Mikoto. Use the base character structure but re-render the sword, mirror, and magatama surfaces using the following details.
 masterpiece, highest quality, exquisitely beautiful and determined young male warrior standing on a windswept, scarred battlefield — the same white-haired, red-muffler adventurer, now bearing the weight of legend.
 style application: aggressive and forceful DRY BRUSH strokes concentrated around the glowing gold kintsugi of the sword; the mirror surface reflects fragile, airy light; the magatama pulses with deep mineral green.
 details:
-[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient straight tsurugi firmly in his right hand at a low-guard angle. The blade is DARK NEAR-BLACK iron — not polished, but absorbing light like charred stone. Its cross-section is thick and heavy like a Bronze Age chopper, NOT a refined katana. The blade is segmented in construction: EXACTLY THREE visible joined sections run from hilt to tip, their seams filled with RAISED golden Kintsugi lacquer that glows with dying-star heat. The T-shaped crossguard is simple, blunt, and industrial — worn smooth. The hilt is wrapped in rope-burnt dark hemp over crude iron riveted fittings. No shine anywhere on the blade surface — only the Kintsugi gold burns.
-[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT ancient. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center, giving a faint diffuse glow rather than a clear reflection.
-[JEWEL — Yasakani no Magatama type] Draped across his chest and shoulder is a single heavy strand of large, raw magatama beads — teardrop-curved comma-shaped gems carved from deep jade-green nephrite and unpolished obsidian, threaded on rough hemp cord. They knock together with quiet weight, catching flickers of the kintsugi light.
+[SWORD — Ame-no-Murakumo type] He grips EXACTLY ONE ancient Japanese straight sword (Ame-no-Murakumo) firmly in his right hand. The blade is EXTREMELY LONG AND NARROW — Niji/Midjourney should fill the horizontal span. DARK NEAR-BLACK matte iron. The blade is segmented in construction: EXACTLY THREE visible sections joined by THICK, RAISED golden Kintsugi seams that glow with ember heat. Hilt is simple with a DISC POMMEL at the end; NO western crossguard.
+[SHIELD — Yata no Kagami type] Strapped to his left forearm is EXACTLY ONE freshly cast bronze disc-mirror (kagami) used as a buckler shield — newly made, NOT ancient. The face is UNCRACKED AND INTACT. The bronze is warm amber-gold at the rim, dull and imperfectly hand-polished at the center.
+[JEWEL — Yasakani no Magatama type] Draped across his chest is a single heavy strand of large, freshly carved magatama beads (nephrite jade and obsidian). Rough-cut surfaces showing stone-tool marks.
 His white hair and red muffler remain unchanged; the red pigment of the muffler ends still frays and SCRATCHES the paper edge, anchoring him as human, not divine.
 texture: natural matte cloth and raw mineral surfaces defined by paper grain and dry pigment.
 background: a scorched, broken landscape suggested through heavy sumi washes; golden kintsugi cracks spread across the earth like roots.
@@ -414,9 +415,10 @@ Params:
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, a single legendary ancient straight tsurugi sword floating horizontally, radiating overwhelming heat and history.
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of the sword. Re-render the surfaces into Japanese watercolor while preserving the sword's long, straight structure.
+masterpiece, highest quality, the legendary Ame-no-Murakumo (天叢雲剣) — an exceptionally long and narrow Japanese straight sword (Chokuto) floating horizontally, radiating overwhelming heat and history.
 style: traditional Japanese watercolor on Washi paper, extreme contrast between the NEAR-BLACK matte iron of the blade and blinding, raised golden Kintsugi lacquer seams.
-details: The blade is thick, heavy, and dark as charcoal — NOT a katana, but a primitive Bronze-Age style double-edged chopper with a BLUNT, T-SHAPED iron crossguard and a rope-wrapped hilt with crude iron rivets. The blade is built in EXACTLY THREE visible segmented sections, each join forcibly sealed by THICK, RAISED golden Kintsugi lacquer lines that pulse with supernova-level thermal energy. The blade surface is entirely matte and light-absorbing — no polished sheen anywhere — making the Kintsugi veins the ONLY source of light on the weapon. Small splatters of gold lacquer bleed into the surrounding Washi paper, scorching the fibers at the contact point.
+details: The blade is long, narrow, and dark as charcoal — NOT a katana, but a primitive Japanese straight sword. The blade is built in EXACTLY THREE visible segmented sections joined end-to-end, each join sealed by THICK, RAISED golden Kintsugi lacquer lines that pulse with supernova-level thermal energy. NO western crossguard — the hilt is a simple cylinder with a wide DISC POMMEL at the end. The blade surface is entirely matte and light-absorbing — Kintsugi veins are the ONLY source of light. Gold lacquer droplets bleed into the Washi paper.
 background: minimal sumi-e void, faint scorched paper texture radiating outward from the sword.
 
 Negative Prompt:
@@ -435,19 +437,34 @@ Params:
 
 ### 天叢雲剣（Ame-no-Murakumo）
 
+> **【運用注記】テキストプロンプトだけでは形状の再現が困難です。**
+> このセクション冒頭にある天叢雲剣の参考画像を、生成ツールに **image reference（画像プロンプト）として先にアップロード** してから以下のプロンプトを使用してください。
+>
+> - **Midjourney**: 参考画像をDiscordにアップロード → URLをプロンプト冒頭に貼り付け → `--iw 1.5`（image weight）を追加推奨
+> - **Stable Diffusion / ComfyUI**: img2img または IP-Adapter で参考画像を入力、strength 0.6〜0.8 推奨
+> - **Niji / DALL-E**: 画像を添付した上でプロンプトを入力
+>
+> 参考画像が「形状の骨格」、以下のプロンプトが「絵画スタイルと金継ぎ」を担当する役割分担です。
+
 ```markdown
 # PROMPT_SANSHU_AME_NO_MURAKUMO_WASHI
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, painted close-up composition of a single ancient tsurugi — the Ame-no-Murakumo — lying diagonally on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible SCRATCHY DRY-BRUSH strokes throughout.
-style: FRICTION-DRY-BRUSH painting. Zero watercolor bleeding. Heavy mineral pigments on textured Washi paper, paper fibers visible beneath all surfaces.
-details: The blade is massive and DARK NEAR-BLACK iron — matte, light-absorbing, like compressed charcoal and storm cloud. NOT a katana. A primitive, brutal Bronze-Age straight double-edged chopper. The blade consists of EXACTLY THREE distinct assembled sections, each seam forcibly filled with THICK, RAISED golden Kintsugi lacquer that pulses with faint ember heat. The T-shaped crossguard is blunt, wide, and featureless — worn utterly smooth. The hilt is wrapped in dark, frayed hemp rope over crude iron-riveted fittings. The entire surface of the blade is non-reflective — the Kintsugi seams are the SOLE light source on the weapon. Tiny gold lacquer droplets have bled onto the paper edge around the blade, scorching the fibers.
-texture: the rough tooth of the Washi paper shows through every brushstroke, amplifying the sense of ancient, unlubricated friction.
-background: near-void; minimal scorched sumi-e wash radiating from where the blade rests.
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and edit the uploaded reference image of the sword. Use the reference as the structural skeleton while re-rendering every surface using the following painting styles and textures.
+masterpiece, highest quality, painted close-up composition of the legendary Japanese mythological sword Ame-no-Murakumo (天叢雲剣) — an ancient Japanese straight sword (Chokuto / Tsurugi) — lying diagonally on raw fibrous Washi paper. THIS IS A JAPANESE WATERCOLOR PAINTING, NOT A PHOTOGRAPH. Visible SCRATCHY DRY-BRUSH strokes throughout.
+style: FRICTION-DRY-BRUSH painting. Zero watercolor bleeding. Heavy mineral pigments on Washi paper, paper fibers visible beneath all surfaces.
+SHAPE (critical): EXTREMELY LONG and NARROW Japanese straight sword. The blade width is NO MORE THAN ONE-TENTH of the total blade length. Long, straight, PARALLEL-SIDED. Reference silhouette: Kofun-era iron tsurugi / Sogen-to straight sword. The weapon fills the full horizontal span of the image.
+HILT STRUCTURE (critical): This is an ANCIENT JAPANESE STRAIGHT SWORD — reference style: Kofun/Asuka-era sogentou (素環頭大刀) or keitou tachi (圭頭大刀).
+POMMEL (柄頭): At the very END of the handle, the grip terminates in a DISTINCTIVE WIDE FLAT DISC POMMEL that extends slightly beyond the grip width on both sides — like a flattened mushroom cap or a pair of small wings AT THE GRIP END ONLY, NOT at the blade. This pommel shape IS the characteristic identity of this sword.
+BLADE-GRIP JUNCTION: At the base of the blade where it meets the handle, there are EXACTLY TWO OR THREE small flat iron ring-bands (habaki / collar fittings) stacked tightly together — narrow, disc-like rings flush with the blade, barely protruding. NO large protruding crossguard, NO western quillons.
+GRIP BODY: Between the pommel and blade junction, the grip is a short, simple wrapped cylinder of dark frayed hemp cord over the bare tang. Slightly thicker near the pommel, tapering gently toward the blade.
+details: DARK NEAR-BLACK iron blade — matte, completely light-absorbing. The blade consists of EXACTLY THREE distinct sections joined end-to-end, each seam running PERPENDICULAR to the long axis, filled with THICK RAISED golden Kintsugi lacquer glowing with faint ember heat. The entire blade surface is non-reflective — Kintsugi seams are the SOLE light source. Small gold lacquer droplets bleed onto the surrounding Washi paper.
+texture: rough Washi paper tooth shows through every brushstroke.
+background: near-void; scorched sumi-e wash radiating outward from where the blade lies.
 
 Negative Prompt:
-photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, realistic material render, physically based rendering, 3D render, CGI, glossy surface, smooth surface, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, bad anatomy, surreal AI artifacts, katana silhouette, curved blade, shiny polished metal, pristine clean surface, perfect symmetry, western longsword, fantasy glowing runes, human figure, character, cel-shading, oil painting, signature, watermark
+photography, photorealistic, photograph, macro photography, product photography, studio lighting, depth of field, bokeh, realistic render, physically based rendering, 3D render, CGI, glossy surface, crossguard, cross-guard, tsuba, quillons, T-shaped guard, protruding guard, wing guard, european sword, medieval sword, western longsword, arming sword, knightly sword, short blade, wide blade, leaf-shaped blade, broad blade, dagger, gladius, seax, cleaver, falchion, curved blade, katana silhouette, extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, bad anatomy, surreal AI artifacts, shiny polished metal, pristine clean surface, fantasy glowing runes, human figure, character, cel-shading, oil painting, signature, watermark
 Params:
 --ar 3:1 --stylize 300 --quality high --seed 22201
 ```
@@ -562,7 +579,34 @@ Params:
 
 ---
 
-## 7. 生成チェックリスト（実制作時・更新版）
+## 7. 万能スタイル変換プロンプト（Universal Style Transformer）
+
+あらゆる画像（キャラクター、背景、アイテム等）を「LUMINOUS WASHI」の世界観へと描き変えるためのNANOBANANA専用プロンプト。
+
+> **【運用方法】**
+> 1. 生成したい対象の画像（他作のラフ、実写、AIの別モデル生成画など）をNANOBANANAにアップロードする。
+> 2. 以下のプロンプトを入力する。
+> 3. 元画像の構図やキャラクター配置を維持したまま、素材感だけが「和紙・岩絵具・ドライブラシ」へと変身する。
+
+```markdown
+# NANOBANANAPRO_PROMPT_UNIVERSAL_STYLE_TRANSFORMER
+
+# PROMPT
+Prompt:
+OPERATIONAL INSTRUCTION (NANOBANANA): Transform and re-render the uploaded image into the following specific artistic style. Preserve the original composition, subject placement, and character silhouettes exactly, but translate all materials, lighting, and textures into traditional Japanese analog art.
+masterpiece, highest quality, professional painting on highly textured, fibrous Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and sumi-e ink washes.
+style core: FRICTION-DRY-BRUSH (Kasure) strokes throughout. Every surface must show the organic tooth and raw fiber of the Washi paper. No smooth digital gradients or 3D surfaces.
+color & light: powdery mineral granulation, organic analog warmth, and soft ink-bleed at the edges. Highlights are rendered as unpainted paper or pale gofun-white pigment. Darkest tones are scratchy charcoal-grey sumi ink.
+key accent: if any cracks or borders exist in the subject, they are emphasized with thin, raised golden Kintsugi lacquer lines.
+texture focus: visible paper fibers, powdery pigment texture, tactile analog depth.
+
+Negative Prompt:
+photography, photorealistic, photograph, 3D render, CGI, glossy, smooth, plastic, ceramic, porcelain, digital VFX, neon, cyberpunk, modern, sci-fi, oil painting, thick impasto, cel-shading, flat vector, clean gradients, blurry, out of focus, signature, watermark
+```
+
+---
+
+## 8. 生成チェックリスト（実制作時・更新版）
 
 * **大衆性と造形の担保:** キャラクターの顔面や体型は、しっかり「美麗・魅力的（可愛い/かっこいい）」になっているか。ホラーや奇形になっていないか。
   * **構造的破綻の排除（最重要）:** 手足の増減（指の数が多い、腕が3本ある等）、関節の不自然なねじれ、宙に浮く意図しない物体、物理的におかしい武器の持ち方など、AI特有の「もっともらしい嘘（構造的破綻）」が発生していないか必ず確認する。少しでも解剖学的に破綻している画像はリジェクトする。
