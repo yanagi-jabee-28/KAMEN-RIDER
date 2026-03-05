@@ -77,7 +77,10 @@
   - `Amaterasu_Core_OS`: 戦闘対象ではなく、天岩戸の「システムフリーズ状態」を管理する特殊プロセスとして機能する。
   - `Tsukuyomi_AntiVirus`: 過剰な浄化の執行者。プレイヤーの「食事（回復）」等代謝行動＝穢れを検知した際、特殊なエラー状態（行動キャンセル）へ移行するロジックを持つ。加えて、ミコトの身体に「空白の器」特有の異常が刻まれた場合、天の理の例外処理としてヤマト深淵への座標リンクイベントを発生させる仕様もこのデータで管理する。
   - `Kagaseo_Star_God`: 第4幕の試練ボス。静止を強いる天の理の内で砕かれ、地上に散らばった星砂が特定の信仰と熱量により再結晶して形成された『核』であり、熱と摩擦を放つ「原初の反逆者・最初の熱暴走」としての具現体。金継ぎ（星の砂）の本体として、人間側の情念が結晶化した結果である。
-  - `Boss_Orochi_Tsurugizuka` (澱神・八岐の剣塚): 傷跡の海（クリア後）の最深部に潜む究極の裏ボス。ステータス・行動ルーチン・デバフ頻度が、歴代すべての `Global_Daijuku_Log_Data` (代受苦累計) と `Chimera_Craft_Count` (呼び継ぎ回数) に完全比例して凶悪化する動的スケーリング・ボス。
+  - `Boss_Yamata_no_Ubusuna` (澱神・八岐の産土): 傷跡の海（クリア後）の最深部に潜む真エンドボス。ステータス・行動ルーチン・殻の硬度が、歴代すべての `Global_Daijuku_Log_Data` (代受苦累計) と `Chimera_Craft_Count` (呼び継ぎ回数) に影響を受ける動的スケーリング構成。UIジャック状態移行後の苛烈な攻撃に対応するための極限戦闘。
+  - `Boss_AmenoIwatowake` (アメノイワトワケノカミ): 天岩戸の絶対壁システムボス。`Damage_Multiplier = 0.0`固定であり、通常攻撃は無効。神器を用いた狂騒ノイズイベント（`Event_Noise_Overload`）による亀裂進行でのみ撃破扱いとなる。
+  - `Boss_Yakusa_no_Ikazuchi` (八雷神): エンディング後（傷跡の海層）、黄泉の境界の防護ボス。「行者還し（うかみ救出）」の専用3フェーズ進行に従う。自傷系の大威力攻撃を持つが、これを利用して引力を発生させることがクリア条件となる。
+  - `Boss_Susanoo` (スサノオ): 根堅洲国での最終試練ボス。ボスのHPをゼロにするのではなく、特定のダメージ閾値を「最小のタイムラインTick数」で叩き出すスコアアタック制（`Timeline_Compression_Score`）が特徴。
 - **Enemy_Behavior_Tag:**
   - `Predictive_Fixed`（白化神）
   - `Predictive_Broken`（澱神）
@@ -122,7 +125,7 @@
 - **Party_Area_Constraint_Master:** キャラ単位の地域拘束ルールを管理。
   - `TargetCharacter`: `UKAMI_GYOJA`
   - `LockFromFlag`: `UKAMI_RETURNED_YOMOTSU`
-  - `UnlockFlag`: `KOTOAMATSUKAMI_DEFEATED`
+  - `UnlockFlag`: `GYOJAGAESHI_CLEARED`（クリア後の救出儀式完了で制限解除）
   - `LockedAreas`: `TOKOYO`, `YOMI_NO_KUNI`, `YOMOTSU_HIRASAKA`
   - `ConstraintMode`: `CHARACTER_ONLY`（パーティ全体ではなく、うかみ本人のみに適用）
 - **Story_Flag_Master:**
@@ -134,8 +137,11 @@
   - `ACT3_KAGASEO_RESONANCE`  <!-- 元 ACT3_SHADOW_INTERVENTION。カガセオの星の瞬きによる一度きりの加勢 -->
   - `UKAMI_RETURNED_YOMOTSU`
   - `UKAMI_AREA_LOCK_ACTIVE`
+  - `GYOJAGAESHI_CLEARED` <!-- クリア後、八雷神を退け、ウカミを行者還しで地上へ救出したフラグ。これにより完全フリーメンバー化 -->
   - `KAGASEO_TRIAL_CLEARED`
+  - `AMENO_IWATOWAKE_BROKEN` <!-- アメノイワトワケの絶対壁を狂騒で突破しシステムリブートしたフラグ -->
   - `ETERNITY_REJECTED_DEATH_IMPLEMENTED` <!-- 元 KOTOAMATSUKAMI_DEFEATED。別天津神を破り、ただの人間としての死（寿命バグ）を受け入れた証明 -->
+  - `SUSANOO_TRIAL_CLEARED` <!-- 根堅洲国でのスサノオのタイムライン試練を完了 -->
   - `TSUKUYOMI_FAKE_LASBOSS` <!-- ツクヨミ戦が偽ラスボスとして祝祭が発生したフラグ -->
   - `TSUKUYOMI_TOWER_DEPLOYED` <!-- 静謐の塔が建造され浄化プロトコルが起動された -->
   - `TSUKUYOMI_CELEBRATION_CONDUCTED` <!-- 偽終幕の祝祭が行われた -->
@@ -192,3 +198,7 @@
 - **統一画風の厳守:** 全てのアセットは `05_Art_and_Visual_Design.md` に定義された「和紙と岩絵具」の統一画風に従う。特に、神側の「制御された筆致」と人側の「奔放な滲み」のコントラストをデータレベルでも意識する。
 - **Prompt IDの必須化:** 生成物アセットのメタデータには `PromptSetId` を必須付付与し、再生成時の再現性を担保する。
 - **コンセプト制約:** `AncientConstraint=true` のアセットは、レビュー時に西洋甲冑/SF意匠の混入チェックを必須にする。
+
+## 8. 旧構想（不採用要素のアーカイブ）
+
+- **`Boss_Orochi_Tsurugizuka` (澱神・八岐の剣塚):** 過去の構想として、キメラ刀剣群の巨像としてのオロチ。現在は `Boss_Yamata_no_Ubusuna` (八岐の産土) に更新。データ構造的には「代受苦・呼び継ぎ」というプレイヤーのカルマ数値を参照する点において継承されている。

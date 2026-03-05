@@ -399,21 +399,21 @@ Params:
 --ar 2:3 --stylize 300 --quality high --seed 34567
 ```
 
-### Prompt for Boss Orochi Tsurugizuka (Chimera of Discarded Swords)
+### Prompt for Boss Yamata no Ubusuna (True End Boss Chimera)
 
 ```markdown
-# PROMPT_OROCHI_TSURUGIZUKA_LIVING_FRICTION_V8
+# PROMPT_YAMATA_NO_UBUSUNA_TRUE_END_V1
 
 # PROMPT
 Prompt:
-masterpiece, highest quality, a colossal and terrifying **living-chimera entity**, strictly composed of **exactly eight (8) distinct serpentine heads** rising from a central mound of rusted iron.
-**Structural Detail:** This is a grotesque fusion of steel and flesh. The eight heads feature **exposed, raw muscle sinews and decaying organic tissue** that wrap around thousands of rusted swords and broken blades like a parasite. **Ancient bone fragments** serve as jagged structural supports.
-**Biological Features:** Each of the 8 heads now possesses **vengeful, glowing vermilion eyes** buried deep within the metal-and-meat clusters. The "mouths" are a horrific mix of broken katana shards and **stark white, jagged bone fangs**. There is NO smooth animal skin; the surface is a mix of **dried, cracked reptilian scales and rusted iron**.
-**Style Application:** **FRICTION-DRY-BRUSH STYLE**. Minimize soft bleeding. Every stroke emphasizes **"Friction and Agony"**: the dry brush (Kasure) depicts both the grit of rust and the **stringy, fibrous texture of exposed muscle**.
-**Details:** The entity is violently bound together by **jagged golden Kintsugi lacquer lines** that glow like boiling blood. The washi paper fibers are visible throughout, highlighting the **dry, painful rubbing of metal against bone**.
+masterpiece, highest quality, a colossal and terrifying **living-chimera entity**, composed of **exactly eight (8) distinct serpentine heads** erupting violently from a shattered, pure-white porcelain-like sensory deprivation shell (Gofun-painted Washi).
+**Structural Detail:** A grotesque collision of false divine sterility and violent human karma. The lower half and edges of the entity are an expanding blast of absolute visual noise—vivid, chaotic watercolor bleeding (intense vermilion, bruised purple, rust, and neon Iwa-enogu pigments)—shattering outward through the flawlessly smooth, stark-white outer husk. The heads feature exposed, raw organic tissue wrapping around thousands of rusted swords and broken blades. Ancient bone fragments serve as jagged structural supports.
+**Biological Features:** Vengeful, glowing vermilion eyes buried deep within the metal-and-meat clusters. The "mouths" are a horrific mix of broken katana shards and stark white, jagged bone fangs. NO smooth animal skin; the surface is a mix of dried, fractured reptilian scales and scorched iron.
+**Style Application:** The shattered husk uses rigid, perfectly smooth lines with ZERO bleeding, while the erupting heads and inner mass use EXPLOSIVE FRICTION-DRY-BRUSH (Kasure) and uncontrolled chromatic bleeding, emphasizing the agony and heat of a system completely compromised by 'noise'.
+**Details:** The entity is violently bound together by jagged, over-thick golden Kintsugi lacquer lines and jet-black Sumi-e ink streaks that glow like boiling blood. 
 
 Negative Prompt:
-**extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, smooth porcelain skin, healthy animal flesh, cute features, happy expressions, clean shiny scales, mechanical robot, sci-fi technology**, watercolor bleeding, soft blending, liquid flow, smudging, blurry washes, extra heads beyond eight, fewer than eight heads, human faces, 3D render, plastic texture, signature, watermark.
+**extra weapons floating unattached, unrequested items, random clutter, background clutter, extra props, disconnected limbs, floating objects, surreal AI artifacts, smooth porcelain skin on the heads, healthy animal flesh, cute features, happy expressions, clean shiny scales, mechanical robot, sci-fi technology**, extra heads beyond eight, fewer than eight heads, human faces, 3D render, plastic texture, signature, watermark.
 
 Params:
 --ar 16:9 --stylize 450 --quality ultra --seed 88888
