@@ -683,6 +683,43 @@ Params:
 --ar 9:16 --stylize 250 --quality high --seed 12345
 ```
 
+### Prompt for Hakua Corridor (白堊の回廊 - Uzu's Encounter)
+
+```markdown
+# NANOBANANAPRO_PROMPT_HAKUA_CORRIDOR_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, an ancient, oppressive celestial corridor (Hakua no Kairou) made of flawless, chalk-white stone walls, suddenly shattered from the inside out, painted in traditional Japanese watercolor on Washi paper.
+style: the corridor features perfect, sterile geometry with controlled gofun white and pale silver ink. The explosive breach is rendered with chaotic, wild friction-dry-brush strokes and aggressive, vibrant splashes of vermilion and gold mineral pigments bleeding into the white space.
+details: A stark contrast between the claustrophobic, silent perfection of divine architecture and the explosive, muddy heat of human rebellion. The cracked white stone walls crumble outward, revealing a chaotic burst of color and energy that ruins the endless, monotonous corridor.
+atmosphere: the sudden, jarring destruction of absolute silence; a dynamic visual noise.
+
+Negative Prompt:
+modern explosives, fireballs, realistic smoke, sci-fi corridors, cyberpunk, neon lights, glowing lasers, western fantasy dungeon, perfectly clean throughout, characters, human figures, extra weapons, unrequested items, random clutter, bad proportions, 3D render, glossy surface, porcelain, plastic, cel-shading, oil painting, signature, watermark
+Params:
+--ar 16:9 --stylize 300 --quality high --seed 12346
+```
+
+### Prompt for Celestial Watchtower (天望の天守 - Wakahiko's Encounter)
+
+```markdown
+# NANOBANANAPRO_PROMPT_AMAMI_WATCHTOWER_WASHI
+
+# PROMPT
+Prompt:
+masterpiece, highest quality, an ancient, windswept abandoned celestial watchtower (Amami no Tenshu) perched on a terrifyingly high cliff edge, painted in traditional Japanese watercolor on Washi paper.
+style: elegant, cold, and austere brushwork with muted sky-blues and pale grays for the high altitude, contrasting with heavy, dark sumi-e ink washes for the dizzying drop into the muddy earth below. Minimal, scratchy dry-brush for the weathering of the wood.
+details: A dilapidated but formerly majestic Japanese-style wooden watchtower (yagura) balancing precariously on jagged rocks. Fierce winds whip through the open structure. The perspective emphasizes an arrogant, dizzying height looking down upon a scarred, imperfect world far below. Faint traces of kintsugi-like golden lacquer attempt to hold the crumbling foundation together.
+atmosphere: cold, desolate, and observant; the suffocating isolation of the sky.
+
+Negative Prompt:
+modern skyscrapers, futuristic towers, european castle, medieval stone keep, cozy cabin, warm sunlight, gentle breeze, bright pop colors, characters, human figures, extra weapons, unrequested items, random clutter, bad proportions, 3D render, glossy surface, cel-shading, oil painting, signature, watermark
+Params:
+--ar 9:16 --stylize 300 --quality high --seed 12347
+```
+
+
 ---
 
 ## 7. 万能スタイル変換プロンプト（Universal Style Transformer）
