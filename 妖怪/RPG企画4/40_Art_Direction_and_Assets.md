@@ -119,11 +119,11 @@ Params: --ar 3:4 --stylize 250 --quality high --seed 44822
 Prompt:
 masterpiece, highest quality, stunningly beautiful, slender female warrior standing on a rocky shore, exuding luminous and fragile elegance.
 style: melancholic, textured DRY BRUSH strokes of deep ocean blues and sea-greens; delicate ink lines catching on paper grain.
-details: incredibly pure, gentle facial features. Long straight hair clinging to pale skin as if soaked with seawater. Simple flowing white robe, hem stained by dark bleeding earth colors. A subtle accent of blood-red woven into the ties of her robe. She gently holds EXACTLY ONE single primitive spear carved from pale driftwood.
+details: incredibly pure, gentle facial features. Long straight hair clinging to pale skin as if soaked with seawater. Simple flowing white robe, hem stained by dark bleeding earth colors. A subtle accent of blood-red woven into the ties of her robe. (NO WEAPONS).
 texture: translucent watercolor quality skin, paper grain visible, emphasizing mortal fragility.
 
 Negative Prompt:
-two spears, multiple spears, dual wielding, heavy weapons, metallic armor, dry flawless hair, porcelain skin, smooth surface, cheerful anime
+spear, naginata, sword, two weapons, multiple weapons, dual wielding, heavy weapons, metallic armor, dry flawless hair, porcelain skin, smooth surface, cheerful anime
 Params: --ar 2:3 --stylize 250 --quality high --seed 44823
 ```
 
