@@ -8,9 +8,13 @@
 
 ### 武器耐久値減衰モデル
 ```
-D_new = D_old - (k * Friction) - Intentional_Cost
+D_new = D_old - (k * Friction * Stance_Multiplier) - Intentional_Cost
 ```
 - `Friction`: 属性不一致・連続使用で増加する自然摩耗係数。
+- `Stance_Multiplier`: 
+    - 2H（主腕のみ）: **1.0**
+    - 1H + 副腕なし: **1.0**
+    - 1H + 副腕（ノイズ具）: **1.2**（「構えの摩擦（Stance Friction）」による微増）
 - `Intentional_Cost`: プレイヤーが任意に支払う自傷・耐久過剰消費コスト（神の計算ノイズの源泉）。
 - **Yobitsugi_Penalty**: キメラ化武器は `k` が **1.5〜3.0倍** に跳ね上がる（強力だが脆い）。
 
@@ -89,13 +93,14 @@ Damage = Base * (1 + HP_Cost_Mult * (MaxHP - CurrentHP))
 
 ## 2. マスターデータ定義
 
-### Equipment_Slot_Master（4スロット制）
-| Slot_ID | 名称 | 内容 |
-|---|---|---|
-| `SHU_WAN` | 主腕 | メインウェポン。物理破壊・直接攻撃。 |
-| `FUKU_WAN` | 副腕 | ノイズ発生具（日用品・祭具・盾）。 |
-| `SHOZOKU` | 装束 | 防御系を統合した単一衣服スロット。修復履歴が防御力になる。旧「兜・鎧・靴」は撤廃。 |
-| `KATASHIRO` | 形代 | アクセサリ枠。最大2個。情念・未練の結晶を装備する。 |
+### Equipment_Slot_Master（可変スロット制）
+| Slot_ID | 名称 | 内容 | 属性フラグ |
+|---|---|---|---|
+| `MAIN_ARM` | 主腕 | 直接攻撃を担うメインスロット。 | `1H` / `2H` |
+| `SUB_ARM` | 副腕 | ノイズ具スロット。主腕が `2H` の場合は封印される。 | `1H` / `LOCKED_BY_2H` |
+| `SHOZOKU` | 装束 | 防御衣服。傷跡が防御力(PTG)になる。 | `UNIQUE` |
+| `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` |
+| `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。 | `SLOTLESS` |
 
 ### Item_Master（主要フラグ）
 | フィールド | 説明 |
