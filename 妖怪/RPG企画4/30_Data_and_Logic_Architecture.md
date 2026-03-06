@@ -47,13 +47,12 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 
 ※ アマテラスはこの曲線に含まれない。天岩戸フリーズ解除という専用イベントで処理される。
 
-### うかみAIの自動介入制約 (Ukami_AI_Constraint)
-フラグベースのシンプル仕様：
-```
-IF (Player_Action_Is_High_Friction OR Player_Takes_Fatal_Damage)
-  → Ukami_AutoIntercept = TRUE  // 成功率100%・行動順無視・無条件介入
-```
-- 物理帯同不可エリア（地上）では `Remote_Intervention_Flag` を介し、ミコトの「手甲」を媒介として幻影（祈りの力）として発動する。
+### うかみAIの自動介入と独立リソース (Ukami_Autonomous_Logic)
+第4幕（黄泉・常世）で参戦する行者うかみは、プレイヤーの共有リソース（活魂・情念）を使用せず、AI内部で完結した**独立リソース**で駆動する。
+- **Ukami_Internal_Vigor / Ukami_Internal_Heat**: AI内部でのみ管理されるパラメータ。被ダメージや技使用で変動するが、画面上のメインUIゲージには影響しない。
+- **Ukami_AutoIntercept**: `Player_Takes_Fatal_Damage` 等の条件下で発動。成功率100%・行動順無視で割り込む。
+- **肩代わりロジック**: プレイヤーが受ける `Invasion_Value`（侵食）の上昇を、うかみの `Internal_Vigor` を削ることで無効化する処理。
+- **地上での制限**: 地上エリアにおいては物理的に参戦不可であり、遠隔守護フラグも存在しない（完全な断絶）。
 
 ### 神写し理解度
 ```
@@ -64,21 +63,27 @@ IF Understand >= Threshold → ミコトが該当技を習得
 
 ### 黄泉戸喫・侵食ゲージ
 ```
-Invasion_new = Invasion_old + (Food_Value * k) + (SelfHurt_Count * h)
-IF Invasion > YomotsuInvasionThreshold → 毎ターン侵食ダメージ + MaxKakkon減少
+// 毎ターンの蓄積値（Underworldエリア限定）
+Turn_Invasion_Delta = (Damage_Taken_Sum + SelfHurt_Cost_Sum) * YomotsuInvasionThreshold
+Invasion_Value = min(Max_Invasion, Invasion_Value + Turn_Invasion_Delta)
+
+IF Invasion_Value > Warning_Threshold → 毎ターン最大活魂（MaxKakkon）減少開始
 ```
 
 ### 共鳴（ユニゾン）計算
 ```
-ResonanceDamage = BaseDamage * (1 + ResonanceRate)
-// 発動条件A: 同ターンにミコトと仲間が同一特技を使用した場合
-// 発動条件B（第4幕専用）:ミコトが継承済みの「うかみの技」使用 + うかみNPCが同ターンに行動 → 確定発動
+// 神のタイムラインUI展開前に割り込んで発動する先制攻撃
+Resonance_Attack_Damage = Base_Weapon_Damage * ResonanceRate
+// 発動条件A: 同一ターンに同カテゴリ（槍・鉾 / 打撃 等）の技を選択
+// 発動条件B: [第4幕] ミコトの神写し技 ＋ うかみNPCの行動重複 → 確定発動
 ```
 
 ### 代受苦発動・データ遷移
 ```
 // 任意タイミングで発動可（耐久値制限なし）
-Daijuku_Trigger → State_Overheated = TRUE（武器を一時使用不能にする）
+Daijuku_Trigger → State_Overheated = TRUE（武器を一時使用不能にする / 特大ダメージ付与）
+// 非自発的な耐久尽き（代受苦不使用）
+Durability_Zero_Natural → State_Overheated = TRUE (ダメージ特典なし / 完全な損)
 // 極大代受苦（Is_Destiny_Battle フラグが立つボス戦限定）
 Extreme_Daijuku → Item_Instance を完全消去し以下を生成:
   - Route A: SoulIdea（輪廻ルート・次の武器へのデータ継承）
