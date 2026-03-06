@@ -14,7 +14,8 @@ D_new = D_old - (k * Friction * Stance_Multiplier) - Intentional_Cost
 - `Stance_Multiplier`: 
     - 2H（主腕のみ）: **1.0**
     - 1H + 副腕なし: **1.0**
-    - 1H + 副腕（ノイズ具）: **1.2**（「構えの摩擦（Stance Friction）」による微増）
+    - 1H + 副腕（訓練者: うかみ、タチバナ等）: **1.0**
+    - 1H + 副腕（非訓練者: ミコト、スクナ等）: **1.2**（「構えの摩擦（Stance Friction）」による増加）
 - `Intentional_Cost`: プレイヤーが任意に支払う自傷・耐久過剰消費コスト（神の計算ノイズの源泉）。
 - **Yobitsugi_Penalty**: キメラ化武器は `k` が **1.5〜3.0倍** に跳ね上がる（強力だが脆い）。
 
