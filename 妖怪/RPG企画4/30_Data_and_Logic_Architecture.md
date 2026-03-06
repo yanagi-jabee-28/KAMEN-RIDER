@@ -10,11 +10,28 @@
 本作に汎用的な「魔法値（MP）」は存在せず、以下の3リソースで術式・状態を管理する。
 
 1. **活魂（Kakkon_Value）**:
-    - **定義**: 肉体の生命力と持久力の統合値（事象としてのLife/HP）。主腕の振舞いや被ダメージで減算。
-    - **枯渇時**: 0になると `State_Down = TRUE`（戦闘不能）、またはシナリオ上の「泥への還り」となる。0に近いほど `State_Defenseless`（無防備）となり、神の予告行動の回避が物理的に不可能になる。
+    - **定義**: 肉体の生命力と持久力の統合値（事象としての「器」）。主腕の振舞いや被ダメージで減算。
 2. **情念（Jonetsu_Gauge）**:
-    - **定義**: 未練・執着のバグ燃料。0〜100%のゲージ。
+    - **定義**: 未練・執着のバグ燃料（事象としての「中身」）。0〜100%のゲージ。
     - **蓄積**: `Jonetsu_new = Jonetsu_old + (Damage_Taken * Char_Factor) + (Ally_Critical_Crisis * Sync_Factor)`。特定の技を発動するコストとなる。
+
+### 境界状態判定ロジック (Boundary States)
+```
+IF Kakkon_Value <= 0 AND Jonetsu_Gauge > 0 THEN
+  State_Shigurui = TRUE
+  // 物理ダメージ完全無効化・敵AI予測ルート完全遮断
+  // ターン経過ごと、または行動ごとに Jonetsu_Gauge が固定値(大)で減少
+END IF
+
+IF Kakkon_Value > 0 AND Jonetsu_Gauge <= 0 THEN
+  State_Karakara = TRUE
+  // スキル使用不可・回避率=0・被弾時確定クリティカル
+END IF
+
+IF (Kakkon_Value <= 0 AND Jonetsu_Gauge <= 0) OR (Kakkon_Value <= 0 AND Anchor_Equipped_Count == 0) THEN
+  State_Dead = TRUE // 泥への還り（完全死）
+END IF
+```
 3. **摩擦熱（Friction_Heat_Value）**:
     - **定義**: 武器と世界との軋轢（オーバーヒート蓄積）。
     - **蓄積**: 連続使用や強力な特技で上昇。閾値（`Heat_Threshold`）を超えると武器が「過熱・沈黙状態」になる。
