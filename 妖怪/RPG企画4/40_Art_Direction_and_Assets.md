@@ -546,7 +546,7 @@ Params: --ar 2:3 --stylize 350 --quality high --seed 99999
 Prompt:
 masterpiece, highest quality, an ancient, oppressive celestial corridor (Hakua no Kairou) made of flawless, chalk-white stone walls, suddenly shattered from the inside out, painted in traditional Japanese watercolor on Washi paper.
 style: the corridor features perfect, sterile geometry with controlled gofun white and pale silver ink. The explosive breach is rendered with chaotic, wild friction-dry-brush strokes and aggressive, vibrant splashes of vermilion and gold mineral pigments bleeding into the white space.
-details: A stark contrast between the claustrophobic, silent perfection of divine architecture and the explosive, muddy heat of human rebellion. The cracked white stone walls crumble outward, revealing a chaotic burst of color and energy.
+details: A stark contrast between the claustrophobic, silent perfection of divine architecture and the explosive, muddy heat of human rebellion. The corridor acts as an absolute choke-point, its perfect silence ruptured by the physical friction and explosive noise of an escaping dancer. The cracked white stone walls crumble outward, revealing a chaotic burst of color and energy.
 atmosphere: the sudden, jarring destruction of absolute silence; a dynamic visual noise.
 
 Negative Prompt:
@@ -576,7 +576,7 @@ Params: --ar 9:16 --stylize 250 --quality high --seed 12345
 Prompt:
 masterpiece, highest quality, an ancient, windswept abandoned celestial watchtower (Amami no Tenshu) perched on a terrifyingly high cliff edge, painted in traditional Japanese watercolor on Washi paper.
 style: elegant, cold, and austere brushwork with muted sky-blues and pale grays for the high altitude, contrasting with heavy, dark sumi-e ink washes for the dizzying drop into the muddy earth below.
-details: A dilapidated but formerly majestic Japanese-style wooden watchtower balancing precariously on jagged rocks. Fierce winds whip through the open structure. The perspective emphasizes an arrogant, dizzying height looking down upon a scarred, imperfect world far below. Faint traces of kintsugi-like golden lacquer attempt to hold the crumbling foundation together.
+details: A dilapidated but formerly majestic Japanese-style wooden watchtower balancing precariously on jagged rocks. Fierce winds whip through the open structure. The perspective emphasizes an arrogant, dizzying height looking down upon a scarred, imperfect muddy earth far below, contrasting the celestial coldness with the crawling, mud-stained heat of human struggle. Faint traces of kintsugi-like golden lacquer attempt to hold the crumbling foundation together.
 atmosphere: cold, desolate, and observant; the suffocating isolation of the sky.
 
 Negative Prompt:
