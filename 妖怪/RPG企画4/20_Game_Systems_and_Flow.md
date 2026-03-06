@@ -1,4 +1,4 @@
-# 20 Game Systems and Flow (メカニクスとUX)
+# 20 Game Systems and Flow (メカニクスとUX) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本ドキュメントはDesigner/Engineer向けの「プレイヤー体験」定義書である。「なぜこのシステムが存在するか」という設計思想と、プレイヤーが一連の冒険を通じてたどる体験フローを一体で記述する。数値定義は `30_Data_and_Logic_Architecture.md` を参照すること。
 

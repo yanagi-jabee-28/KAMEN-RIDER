@@ -1,4 +1,4 @@
-# 40 Art Direction and Assets (アートと演出)
+# 40 Art Direction and Assets (アートと演出) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本ドキュメントはArtist/AIプロンプター向けの「画風憲法」と「プロンプト集（LUMINOUS WASHI V3）」を一体化した正本である。`30_Data_and_Logic_Architecture.md` の `Visual_Prompt_Master` が参照するすべての美術基準と生成テンプレートがここに集約される。
 

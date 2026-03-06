@@ -1,4 +1,4 @@
-# 30 Data and Logic Architecture (データと論理)
+# 30 Data and Logic Architecture (データと論理) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本ドキュメントはEngineer専用の実装要件・変数定義書（Single Source of Truth）である。物語的・情動的な表現はすべて `10_Narrative_and_Characters.md` と `20_Game_Systems_and_Flow.md` に委ね、ここでは変数・フラグ・計算式のみを純粋な形で定義する。バランス数値の変更は必ず本ファイルを唯一の更新点とすること。
 
