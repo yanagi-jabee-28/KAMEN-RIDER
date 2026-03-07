@@ -29,11 +29,11 @@
 Prompt:
 masterpiece, highly detailed, beautifully expressive.
 traditional Japanese painting entirely on highly textured, fibrous Washi paper using mineral pigments (Iwa-enogu) and soft ink washes.
-The core visual is the breathtaking collision of two distinct brushstrokes: the ultra-refined, perfectly disciplined, and serene lines of the divine, clashing against the rough, scratchy dry-brush strokes, granular textures, and chaotic watercolor bleeding of human passion. Glowing golden Kintsugi lacquer bridges the broken elements.
+The core visual is the breathtaking collision of two distinct brushstrokes: the ultra-refined, perfectly disciplined, and serene lines of the divine, clashing against the rough, scratchy dry-brush strokes, granular textures, and chaotic watercolor bleeding of human passion.
 A world of tragic beauty, sorrow, and muddy warmth.
 
 Negative Prompt:
-3D render, CGI, glossy, plastic, modern, sci-fi, western medieval, thick oil painting, anime cel-shading, signature, watermark
+gold lines, lightning, kintsugi on background, 3D render, CGI, glossy, plastic, modern, sci-fi, western medieval, thick oil painting, anime cel-shading, signature, watermark
 ```
 
 ---
@@ -65,9 +65,9 @@ The weight of legendary inheritance rests on this slender human vessel.
 #### ミコト（三種の神器装備・最終決戦版）
 ```text
 Prompt:
-masterpiece, an exquisitely beautiful, androgynous adventurer standing on a scarred, kintsugi-veined battlefield.
+masterpiece, an exquisitely beautiful, androgynous adventurer standing on a scarred battlefield.
 traditional Japanese watercolor on Washi paper, contrasting divine stillness with muddy human passion.
-Wielding three ancient, repaired relics: a dark iron straight sword mended with glowing golden kintsugi; a solid bronze disc-mirror on the arm; and a heavy necklace of raw jade magatama.
+Wielding three ancient, repaired relics: a dark iron straight sword mended with subtle golden seams; a solid bronze disc-mirror on the arm; and a heavy necklace of raw jade magatama.
 The once-bright red scarf is now a dark, blood-stained muddy red, fluttering in the ash-filled wind. The ultimate mortal who defies the gods.
 ```
 
@@ -232,7 +232,7 @@ Deep green nephrite jade and dark obsidian, shaped into ancient teardrop forms, 
 Prompt:
 masterpiece, a breathtaking still-life composition of three ancient sacred objects on rough, textured Washi paper.
 traditional Japanese watercolor painting.
-A very long, dark iron straight sword mended with glowing golden kintsugi; a beautiful, solid bronze disc-mirror with a warm amber rim; and a heavy loop of raw green jade and obsidian magatama beads. Hairline golden kintsugi cracks run beautifully through the Washi paper itself, connecting the three items in a portrait of divine tragedy and human restoration.
+A very long, dark iron straight sword with subtle golden repair seams; a beautiful, solid bronze disc-mirror with a warm amber rim; and a heavy loop of raw green jade and obsidian magatama beads. The items are connected by the exquisite tragedy of their shared history.
 ```
 
 ### 手甲パーツ（The Beat Gauntlet）
