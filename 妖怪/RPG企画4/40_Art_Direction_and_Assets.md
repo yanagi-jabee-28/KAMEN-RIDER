@@ -33,13 +33,14 @@
 ## 2. スタイルアンカー（All Assetsに適用する共通プロンプト）
 
 ```text
-# 00_STYLE_ANCHOR_LUMINOUS_WASHI_V6
+# 00_STYLE_ANCHOR_LUMINOUS_WASHI_V7
 
 Prompt:
-masterpiece, highest quality, highly detailed, anatomically correct, perfect human proportions, natural and expressive posing, perfectly drawn hands and fingers, exquisitely beautiful character faces, entirely focused composition, STRICTLY NO extra items, NO random props,
-entirely painted on highly textured, fibrous Washi paper using traditional Japanese mineral pigments (Iwa-enogu) and soft ink washes. visible paper fibers, powdery mineral granulation, organic analog warmth.
-The visual core is a breathtaking artistic harmony: ultra-refined, disciplined fine lines for divine elements, intersecting with ROUGH, SCRATCHY dry-brush strokes and mineral granulation for human elements. Absolutely no smooth, synthetic, or 3D surfaces.
-supernatural or magical elements are rendered strictly through traditional analog mediums, sumi-e strokes, kintsugi lacquer, or pigment splashes.
+masterpiece, highest quality, highly detailed, anatomically correct, perfect human proportions, natural and expressive posing, perfectly drawn hands and fingers, exquisitely beautiful character faces, entirely focused composition, STRICTLY NO extra items, NO random props, NO floating elements.
+The background is an intentional, minimal emptiness (Maha-void) consisting of raw, highly textured, off-white fibrous Washi paper. No background clutter, no complex scenery unless specified.
+entirely painted using traditional Japanese mineral pigments (Iwa-enogu) and soft sumi-e wash. visible long paper fibers, powdery mineral granulation, organic analog warmth.
+The visual core is a breathtaking artistic harmony: ultra-refined, disciplined fine lines (Gofun-white and Sumi-black) for divine elements, intersecting with ROUGH, SCRATCHY dry-brush strokes (Kasure) and heavy earthy mineral granulation for human/mortal elements. Absolutely no smooth, synthetic, or 3D surfaces.
+supernatural or magical elements are rendered strictly through traditional analog mediums: sumi-e strokes, kintsugi lacquer veins, or circular pigment splashes.
 
 Negative Prompt:
 extra weapons, multiple weapons, extra swords, dual wielding, unrequested items, random clutter, background clutter, extra props, bad anatomy, bad proportions, gross proportions, deformed, disconnected limbs, extra limbs, missing arms, missing legs, mutated hands, poorly drawn hands, extra fingers, floating objects, disconnected objects, surreal AI artifacts, 3D render, CGI, glossy surface, plastic, ceramic, porcelain, metallic sheen, flat cel-shading, oil painting, thick impasto, modern digital VFX, western fantasy medieval armor, sci-fi, photorealistic, photography, ugly, deformed, noisy, jpeg artifacts, blurry, low resolution, poorly drawn, signature, watermark
@@ -65,11 +66,15 @@ extra weapons, multiple weapons, extra swords, dual wielding, unrequested items,
 ```text
 Prompt:
 masterpiece, highest quality, exquisitely beautiful adventurer with a perfect balance of masculine and feminine Japanese (East Asian) youth features, standing on a windy cliff. The face is a masterwork of neutral Japanese androgyny — a strikingly handsome and beautiful profile; sharp yet balanced bone structure, straight noble nose, resolute gaze with straighter brows.
-style: painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes.
-details: pure white short bob hair painted with soft, translucent watercolor washes. Off-white sleeveless tunic (Kantoui) and baggy pants. SCARF STRICT LOGIC: A SINGLE STRIP OF BOLD RED CLOTH wrapped securely around the neck. The front is tucked; ONLY ONE SINGLE TAIL trails in the wind behind. EXACTLY ONE VISIBLE TRAILING PIECE OF FABRIC. RED IS EXCLUSIVE TO THIS SCARF. NO front drape, NO branching, NO second tail. SYNCHRONIZED WIND LOGIC: The white bob hair and the single red scarf tail MUST flutter in the EXACT SAME DIRECTION. A thick coarse rope (shimenawa) around the waist.
+[STYLE] entirely painted on highly absorbent, fibrous Washi paper, traditional Japanese watercolor (Iwa-enogu), emphasizing beautiful unpredictable chromatic bleeding and natural ink washes. Background is a near-void of raw paper texture.
+[CHARACTER CORE] pure white short bob hair painted with soft, translucent watercolor washes. Off-white sleeveless tunic (Kantoui) and baggy hemp pants. THE BODY IS CLEAN OF EXTRA BELTS, POUCHES, OR STRAPS.
+[SCARF STRICT LOGIC] A SINGLE, SOLID STRIP OF BOLD RED CLOTH wrapped securely around the neck. The front is tucked and hidden; ONLY ONE SINGLE TAIL trails in the wind behind. EXACTLY ONE VISIBLE TRAILING PIECE OF FABRIC. RED IS EXCLUSIVE TO THIS SCARF. NO front drape, NO branching, NO second tail, NO split ends.
+[SYNCHRONIZED WIND LOGIC] The white bob hair and the single red scarf tail MUST flutter in the EXACT SAME DIRECTION behind the character.
+[ACCESSORIES] A thick, coarse undyed rope (shimenawa) around the waist as a belt, tied with a simple knot. Hands are bare and expressive, no weapons.
+The entire composition is focused only on the character and the raw Washi paper texture.
 
 Negative Prompt:
-split scarf, bifurcated fabric, forked ends, multiple tails, divided scarf, overly feminine, girly facial features, long eyelashes, heavy makeup, oil painting, thick impasto, ugly, horror, flat cel-shading, modern clothes, western medieval armor, sci-fi
+split scarf, bifurcated fabric, forked ends, multiple tails, divided scarf, front-hanging cloth, extra belts, pouches, bags, weapons, swords, overly feminine, girly facial features, long eyelashes, heavy makeup, oil painting, thick impasto, ugly, horror, flat cel-shading, modern clothes, western medieval armor, sci-fi, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 250 --quality high --seed 55831
 ```
 
@@ -85,13 +90,14 @@ Params: --ar 2:3 --stylize 250 --quality high --seed 55831
 ```text
 Prompt:
 masterpiece, highest quality, extremely captivating and brightly expressive female ritual dancer leaping in mid-air.
-style: explosive, dynamic splashes of vibrant pigment and sweeping, fast brushstrokes embodying primal kinetic energy.
-details: exceptionally charming facial features with a lively, fierce smile. High twin-tails loosely braided to resemble thick shimenawa ropes. Asymmetrical, multi-layered rough hemp outfit with Jomon-period clay motifs. A giant, translucent ribbon (hagoromo) aggressively swirls around her, colors melting into the air. Chunky bronze magatama bells swing wildly.
-texture: skin rendered with warm natural washes revealing paper grain.
-background: ancient ruins implied by loose, energetic ink washes.
+[STYLE] dynamic splashes of vibrant pigment and sweeping, fast brushstrokes embodying primal kinetic energy on raw, fibrous Washi paper. 
+[CHARACTER] exceptionally charming facial features with a lively, fierce smile. PERFECTLY SYMMETRICAL high twin-tails, both loosely braided to identically resemble thick shimenawa ropes. The twin-tails are positioned at the exact same height on both sides of the head. Asymmetrical, multi-layered hemp outfit with ancient artisan patterns. THE OUTFIT IS TEXTURED AND FUNCTIONAL, NO POUCHES.
+[OBJECTS] A SINGLE giant, translucent ribbon (hagoromo) dynamically swirls around her, colors melting into the air. Chunky bronze magatama bells swing wildly. 
+[TEXTURE/SPACE] skin rendered with warm natural washes revealing paper grain. Background is a near-total minimalist open space of raw Washi paper, with only minimal, loose ink washes suggesting ancient ruins at the very bottom.
+The focus is entirely on her dynamic kinetic form.
 
 Negative Prompt:
-oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, porcelain skin, modern idol outfit, perfectly clean lines
+extra clothes, extra items, bags, belts, modern idol outfit, porcelain skin, smooth digital lines, oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 250 --quality high --seed 44821
 ```
 
@@ -103,12 +109,13 @@ Params: --ar 2:3 --stylize 250 --quality high --seed 44821
 ```text
 Prompt:
 masterpiece, highest quality, strikingly handsome, rugged, and fiercely masculine one-eyed blacksmith.
-style: heavy, somber dark mineral pigments; intense glowing embers SCRATCHED into dark paper like burn marks.
-details: bristly dark hair bound by rough cloth. Heavily scarred single eye. Thick cracked leather apron and baggy pants. Left hand rests on a massive iron anvil; right hand firmly grips a short-handled heavy forging hammer. Muscular physique defined by bold ink washes and rough Washi paper texture.
-environment: dark traditional forge, soot-stained walls, vivid red/orange splashes for forge heat.
+[STYLE] heavy, somber dark mineral pigments; intense glowing embers SCRATCHED into dark-stained Washi paper like burn marks. 
+[CHARACTER] bristly dark hair bound by simple rough cloth. Heavily scarred single eye. Thick cracked leather apron over baggy pants. NO EXTRA TOOLS on the body. 
+[COMPOSITION] THE COMPOSITION IS TIGHT AND FOCUSED. Left hand rests on a massive, singular iron anvil; right hand firmly grips a SINGLE short-handled heavy forging hammer. Muscular physique defined by bold ink washes and rough Washi paper texture.
+[ENVIRONMENT] dark traditional forge represented by deep sumi-e washes, soot-stained textures, and vivid red/orange splashes for forge heat. ZERO background clutter or random furniture.
 
 Negative Prompt:
-extra weapons, unrequested items, skinny anime boy, flawless skin, smooth surface, modern sci-fi forge, oil painting, flat cel-shading
+extra hammers, extra tools, pliers, multiple anvils, background clutter, skinny boy, flawless skin, smooth surface, modern sci-fi forge, oil painting, flat cel-shading, 3D render, signature, watermark
 Params: --ar 3:4 --stylize 250 --quality high --seed 44822
 ```
 
@@ -120,12 +127,13 @@ Params: --ar 3:4 --stylize 250 --quality high --seed 44822
 ```text
 Prompt:
 masterpiece, highest quality, stunningly beautiful, slender female warrior standing on a rocky shore, exuding luminous and fragile elegance.
-style: melancholic, textured DRY BRUSH strokes of deep ocean blues and sea-greens; delicate ink lines catching on paper grain.
-details: incredibly pure, gentle facial features. Long straight hair clinging to pale skin as if soaked with seawater. Simple flowing white robe, hem stained by dark bleeding earth colors. A subtle accent of blood-red woven into the ties of her robe. (NO WEAPONS).
-texture: translucent watercolor quality skin, paper grain visible, emphasizing mortal fragility.
+[STYLE] melancholic, textured DRY BRUSH strokes of deep ocean blues and sea-greens on raw fibrous Washi paper. Delicate ink lines catching on paper grain.
+[CHARACTER] incredibly pure, gentle facial features. Long straight hair clinging to pale skin as if soaked with seawater. Simple flowing white robe, hem stained by dark bleeding earth colors. A subtle accent of blood-red woven into the ties of her robe. 
+[STRICT RULE] SHE CARRIES NOTHING. BOTH HANDS ARE EMPTY and open. NO WEAPONS, NO BAGS, NO BELTS.
+[ENVIRONMENT] minimalistic rocky shore suggested by sharp, cold ink strokes. Background is a vast, empty Washi paper void.
 
 Negative Prompt:
-spear, naginata, sword, two weapons, multiple weapons, dual wielding, heavy weapons, metallic armor, dry flawless hair, porcelain skin, smooth surface, cheerful anime
+spear, naginata, sword, bow, two weapons, multiple weapons, dual wielding, heavy weapons, metallic armor, bags, belts, dry flawless hair, porcelain skin, smooth surface, cheerful anime, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 250 --quality high --seed 44823
 ```
 
@@ -139,11 +147,14 @@ Params: --ar 2:3 --stylize 250 --quality high --seed 44823
 ```text
 Prompt:
 masterpiece, highest quality, strikingly beautiful, ethereal, coldly arrogant youthful male archer standing in profile in a sharp Kyudo side-aiming posture.
-style: absolute brush discipline, ZERO chaotic bleeding. Dry brush calligraphy (Kasure) and visible mineral granulation on textured Washi paper.
-details: perfect left-right symmetric face. Pale gofun-pigment skin, NO human warmth. Short sleek silvered hair. Noble Heian-period Kariginu robes in luminous pearl-white and pale gold. Frozen in perfect full draw (Kai) holding a massive asymmetrical white-lacquered asymmetric longbow (wa-kyu; upper limb significantly longer than lower). A taut straight white silk bowstring. On his back, an elegant quiver with ONLY blood-red fletching visible. A sharp accent of blood-red on arrow fletchings.
+[STYLE] absolute brush discipline, ZERO chaotic bleeding. Dry brush calligraphy (Kasure) and visible mineral granulation on textured, off-white Washi paper. 
+[CHARACTER] perfect left-right symmetric face. Pale gofun-pigment skin, NO human warmth. Short sleek silvered hair. Noble Heian-period Kariginu robes in luminous pearl-white and pale gold. 
+[ARCHERY LOGIC] Frozen in perfect full draw (Kai). He holds EXACTLY ONE massive asymmetrical white-lacquered longbow (wa-kyu). ASYMMETRY RULE: The upper limb is significantly longer than the lower limb. A TAUT STRAIGHT white silk bowstring. 
+[QUIVER] On his back is ONE elegant quiver. ARROW RULE: Only blood-red feathers (fletching) are visible; heads are hidden. 
+[STRICT VOID] No other items, no background objects, no secondary weapons. Background is total empty Washi paper.
 
 Negative Prompt:
-extra weapons, multiple weapons, watercolor bleeding, soft blending, liquid flow, smudging, dirt, mud, messy brushwork, expressive splashes, human warmth, western fantasy, rough hemp, front-facing pose, multiple bows, eboshi
+extra weapons, multiple bows, multiple quivers, sword, watercolor bleeding, soft blending, liquid flow, smudging, dirt, mud, messy brushwork, expressive splashes, human warmth, western fantasy, rough hemp, front-facing pose, eboshi, 3D render, signature, watermark
 Params: --ar 3:4 --stylize 350 --quality high --seed 44824
 ```
 
@@ -155,12 +166,13 @@ Params: --ar 3:4 --stylize 350 --quality high --seed 44824
 ```text
 Prompt:
 masterpiece, highest quality, highly detailed alchemist boy with a sharp, weary, and fiercely intellectual adult aura.
-style: acidic and toxic mineral granulation (bruised purples, sickly acid greens) staining the paper around him.
-facial features: NOT CUTE, NOT CHERUBIC. Sharp narrowing Sanpaku eyes with a cold analytical gaze. Dark circles from sleepless research. A cynical, arrogant sneer.
-details: rough woven cap over extremely short hair. Heavy leather apron scarred by chemical burns. He violently drags a disproportionately MASSIVE ancient stone mortar by a thick rope over his shoulder.
+[STYLE] acidic and toxic mineral granulation (bruised purples, sickly acid greens) staining the Washi paper around him. Scratchy, aggressive brushwork.
+[CHARACTER] NOT CUTE, NOT CHERUBIC. Sharp narrowing Sanpaku eyes with a cold analytical gaze. Dark circles under eyes. A cynical, arrogant sneer. Rough woven cap over extremely short hair. Heavy leather apron scarred by chemical burns. 
+[OBJECT] HE HOLDS ONLY ONE THING: He violently drags ONE disproportionately MASSIVE ancient stone mortar by a SINGLE thick hemp rope over his shoulder. 
+[STRICT VOID] BOTH HANDS ARE OCCUPIED with the rope. No bottles, no jars, no extra alchemy tools visible on his person or on the ground. Background is a void of stained Washi paper.
 
 Negative Prompt:
-innocent, adorable, cute, cherubic, blush, happy smile, soft pastel colors, clean clothes, cheerful, round eyes, childish innocence
+innocent, adorable, cute, cherubic, blush, happy smile, soft pastel colors, extra items, bottles, jars, tools, clean clothes, cheerful, round eyes, childish innocence, 3D render, signature, watermark
 Params: --ar 4:5 --stylize 350 --quality high --seed 44899
 ```
 
@@ -174,12 +186,15 @@ Params: --ar 4:5 --stylize 350 --quality high --seed 44899
 **【斥候バージョン（成熟版）】**
 ```text
 Prompt:
-masterpiece, highest quality, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm.
-style: rough, dry brushstrokes (Kasure) and earthy pigment washes, emphasizing weathered textures.
-details: ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, strong jawline. Wind-tousled dark hair with subtle silver strands. Broad muscular build. High-collared dark hemp undershirt, rugged leather gambeson with integrated iron chest-plates, sturdy pants tucked into thick leather gaiters. Weathered hooded hemp travel cloak stained with mud. RIGHT HAND AND ARM BARE, firmly gripping a SINGLE-HEADED heavy wooden spear with EXACTLY ONE broad stone tip at the top. EXCLUSIVELY ON HIS LEFT ARM, HE WEARS THE SIGNATURE BEAT GAUNTLET: a sleek, ergonomic, asymmetrical gauntlet of refined antique black iron (Kurourushi), subtly hammered texture, central bronze disk with concentric ripple grooves, thick deep-indigo braided cord.
+masterpiece, highest quality, strikingly handsome, dignified middle-aged male warrior (approx 40 years old) with immense rugged charm. 
+[CHARACTER CORE] ruggedly attractive face, short well-groomed beard and mustache, sharp aquiline nose, piercing wise eyes, strong masculine jawline. Dark hair with subtle silver strands. THE FACE MUST LOOK 40 YEARS OLD, NO YOUTHFUL FEATURES.
+[GAUNTLET LOGIC] ON THE LEFT ARM ONLY, HE WEARS THE "BEAT GAUNTLET": asymmetrical gauntlet of refined antique black iron, hammered texture, central bronze disk with ripple grooves. THE RIGHT ARM IS BARE.
+[WEAPON] HE HOLDS ONLY ONE WEAPON: a SINGLE-HEADED heavy wooden spear with EXACTLY ONE broad stone tip. 
+[APPAREL] High-collared dark hemp shirt, leather gambeson with iron plates, weathered hooded hemp travel cloak stained with mud.
+[STYLE] rough, dry brushstrokes (Kasure) and earthy pigment washes on textured Washi paper. Background is a void of paper fibers.
 
 Negative Prompt:
-gauntlet on right arm, two gauntlets, symmetrical armor, young, boyish, feminine, skinny, clean-shaven (for mature version), double-ended weapon, extra weapons, oil painting, flat cel-shading
+young, boyish, teenager, clean-shaven, feminine, skinny, gauntlet on right arm, two gauntlets, symmetrical armor, double-ended weapon, extra weapons, unrequested items, oil painting, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 300 --quality high --seed 44827
 ```
 
@@ -466,25 +481,28 @@ Params: --ar 3:2 --stylize 350 --quality high --seed 44825
 
 ```text
 Prompt:
-Masterpiece, highest quality, a terrifyingly serene yet pulsatingly regal female deity, Amaterasu, locked in self-imposed absolute isolation with an undeniable life-force that radiates through the stillness.
-Style: Traditional Japanese painting on Washi paper. The background features a matte Gofun (seashell white) wash with visible paper fibers and mineral grain. The subject herself is rendered with pristine, flawlessly smooth surfaces and controlled, subtle ink wash elements.
-Details: Enveloped in intricate, sculptural multi-layered white ceremonial robes (Heian Kariginu style). The architectural draping mimics frozen lily petals, maintaining a slender, majestic silhouette. Her glossy, straight black silk hair flows beneath a translucent gossamer white veil. She wears an austere, feminine Amaterasu-style crown/kanzashi: a lacquered tiara shaped like a stylized rising sun braid with a tiny cracked gold ring motif. A subtle golden luminescence emanates from beneath her skin and robes, trapping sunlight within her form. Her expression is flawlessly beautiful yet frozen in fragile, eternal fear, eyes closed or gazing blankly. The composition evokes an annular solar eclipse in a completely luminous palette: a brilliant, muted-gold corona radiates outward, while the cocooned core is obscured not by shadow, but by an intensely bright, pale overexposure (halation).
+Masterpiece, highest quality, a terrifyingly serene yet pulsatingly regal female deity, Amaterasu, locked in self-imposed absolute isolation. 
+[STYLE] Traditional Japanese painting on raw fibrous Washi paper. Background is a matte Gofun (seashell white) wash with visible paper fibers and mineral grain. ZERO chaotic bleeding. 
+[CHARACTER] Enveloped in intricate, sculptural multi-layered white ceremonial robes (Heian Kariginu style). The architectural draping mimics frozen lily petals, maintaining a long, slender, vertical silhouette. Glossy, straight black hair flows beneath a translucent gossamer white veil. SHE WEARS A Sun-motif lacquered tiara. 
+[COMPOSITION] THE COMPOSITION IS RADIALLY SYMMETRIC. A brilliant, muted-gold corona radiates outward. The core is obscured by an intensely bright, pale overexposure (halation). 
+[STRICT VOID] NO background objects, NO other characters, NO weapons. Total white-out void.
 
 Negative Prompt:
-chubby proportions, bulky cocoon mass, bright pop colors, plastic sheen, modern elements, hard 3D render look, cartoon sun icons, heavy blackness, dirty fabric, oil painting, thick impasto, ugly, horror, flat cel-shading, signature, watermark
+chubby proportions, bulky cocoon mass, pop colors, plastic sheen, modern elements, heavy shadows, dirty fabric, oil painting, thick impasto, ugly, horror, flat cel-shading, 3D render, signature, watermark
 ```
 
 #### ツクヨミ（無慈悲な月） — `PROMPT_TSUKUYOMI_PURGE_WASHI`
 
 ```text
 Prompt:
-Masterpiece, highest quality, an exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, embodying extreme purification and absolute, ruthless execution, his very form crackling with contained vitality and sovereign menace.
-Style: Traditional Japanese watercolor on Washi paper, executed with razor-sharp, ultra-controlled fine ink lines. Background retains visible paper fibers and matte mineral texture, with minimal, tightly controlled bleeding. Palette is strictly restricted to freezing Gofun white, intense ultramarine, and muted lunar silver-gray.
-Details: Imposing, towering posture with absolute authority. Adorned in sharp-edged, Origami-like ancient court attire that cascades in architectural, flat planes. He wears a subtle, kabuto-like silver lunar circlet integrated seamlessly into his glossy black hair. Bold streams of deep ultramarine and midnight-blue silk elegantly spill from within the intricate layers of his blinding white robes. His face is terrifyingly symmetrical and expressionless, projecting cold arrogance through downward-gazing Sanpaku eyes. In one hand, he wields a massive, exquisite execution weapon: a breathtaking Naginata featuring an enormous, elegantly curved crescent-like blade. The sweeping lunar arc of the blade perfectly mimics a waning moon. Behind him, a perfectly simple, fine-line silver-platinum full-moon halo frames his figure.
+Masterpiece, highest quality, an exceedingly beautiful and flawlessly symmetrical male deity, Tsukuyomi, embodying absolute, ruthless execution. 
+[STYLE] Traditional Japanese watercolor on Washi paper, razor-sharp fine ink lines. Background retains visible paper fibers. Restricted palette: Gofun white, intense ultramarine, lunar silver-gray. 
+[CHARACTER] Towering, expressionless posture. Sharp-edged Kariginu attire cascading in flat, architectural planes. Silver lunar circlet. Deep ultramarine silk spilling from within blinding white robes. Downward-gazing Sanpaku eyes. 
+[WEAPON] ONE EXQUISITE WEAPON: a Naginata featuring an enormous, moon-like curved crescent blade. 
+[COMPOSITION] A simple silver-platinum full-moon halo frames his figure. Background is total empty Washi paper. 
 
 Negative Prompt:
-bad anatomy, soft pastel tones, weak aura, excessive bleeding, sloppy asymmetry, extra weapons, multiple weapons, eboshi, bulky weapons, oil painting, thick impasto, horror, flat cel-shading, modern elements, synthetic 3D smoothness, signature, watermark
-
+bad anatomy, soft tones, excessive bleeding, extra weapons, multiple weapons, eboshi, bulky weapons, oil painting, thick impasto, horror, flat cel-shading, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 300 --quality high --seed 23456
 ```
 
@@ -493,12 +511,14 @@ Params: --ar 2:3 --stylize 300 --quality high --seed 23456
 ```text
 Prompt:
 masterpiece, highest quality, an overwhelmingly handsome and fiercely masculine ancient storm god, Susanoo, radiating a wild, heroic aura.
-style: traditional Japanese watercolor (Iwa-enogu) on fibrous Washi paper. A breathtaking fusion of immaculate divine line-work and the chaotic, dynamic bleeding of storm-cloud grays, deep ocean blues, and flashes of lightning-gold.
-details: He has a fiercely attractive, battle-hardened face with piercing eyes that burn with untamed, primal passion. His wild, wind-whipped dark hair merges with aggressive ink washes of stormy skies. He wears ancient, asymmetrical divine garments (rough woven hemp mixed with torn celestial silk) whipping violently in a typhoon, adorned with massive, curved teardrop-shaped magatama. His legendary Ame-no-Murakumo sword is held in a powerful grip — a massive, rugged straight blade built from three dark iron segments, bound seamlessly by thick, glowing gold kintsugi, symbolizing the first defiant act of human repair. The edges of his form erupt into expressive, splashing watercolor strokes.
+[STYLE] traditional Japanese watercolor (Iwa-enogu) on fibrous Washi paper. A breathtaking fusion of immaculate divine line-work and the chaotic, dynamic bleeding of storm-cloud grays, deep ocean blues, and flashes of lightning-gold. 
+[CHARACTER] fiercely attractive, battle-hardened face with piercing eyes that burn with untamed, primal passion. Wild, wind-whipped dark hair merging with aggressive ink washes of stormy skies. 
+[APPAREL] ancient, asymmetrical divine garments (rough woven hemp mixed with torn celestial silk) whipping violently in a typhoon, adorned with massive, curved teardrop-shaped magatama. 
+[WEAPON] HE HOLDS ONLY ONE WEAPON: his legendary Ame-no-Murakumo sword. A massive, rugged straight blade built from three dark iron segments, bound by thick, glowing gold kintsugi. 
+[ENVIRONMENT] The edges of his form erupt into expressive, splashing watercolor strokes. Background is a void of storm-textured Washi.
 
 Negative Prompt:
-extra weapons, modern fantasy armor, glossy surface, plastic texture, serene expression, 3D render, excessive literal mud, dirty face, weak, delicate, western mythology, oil painting, ugly, horror, flat cel-shading, signature, watermark
-
+extra weapons, multiple swords, modern fantasy armor, glossy surface, plastic texture, serene expression, 3D render, excessive literal mud, dirty face, weak, delicate, western mythology, oil painting, ugly, horror, flat cel-shading, signature, watermark
 Params: --ar 2:3 --stylize 300 --quality high --seed 77777
 ```
 
@@ -506,13 +526,14 @@ Params: --ar 2:3 --stylize 300 --quality high --seed 77777
 
 ```text
 Prompt:
-masterpiece, highest quality, a tragically beautiful and awe-inspiring human-like male deity, Kagaseo, the primal rebellious star.
-style: high contrast Japanese watercolor on rough Washi paper. A violent collision of precise divine line-work and chaotic, expressive chromatic bleeding of dark earth tones, rust, and burning vermilion.
-details: He has a powerful, god-like presence with a war-scarred, strikingly beautiful face and a veteran warrior's bearing. His entire silhouette suggests a walking constellation. He wears tattered ceremonial silks and battered divine armor pieces inset with meteorite fragments. Pale flesh-and-blood surfaces peek through gaps, marred by deep catastrophic fissures and scars. These scars are forcefully stitched by thick, glowing, raised golden Kintsugi lacquer. Crucially, the kintsugi network must evoke constellation paths and celestial chart geometry, not random cracks, reinforcing his cosmic motif. Intense inner heat radiates from the cracks as supernova-like flicker bursts, scorching the paper. One eye blazes with uncontainable rebellious thermal energy, like a dying star.
+masterpiece, highest quality, a tragically beautiful and awe-inspiring male deity, Kagaseo, the primal rebellious star.
+[STYLE] high contrast Japanese watercolor on rough Washi paper. A violent collision of precise divine line-work and chaotic, expressive chromatic bleeding of dark earth tones and burning vermilion. 
+[CHARACTER] Powerful, god-like presence with a war-scarred, strikingly beautiful face. Tattered ceremonial silks and battered divine armor inset with meteorite fragments. ONE EYE BLAZES with uncontainable rebellious thermal energy. 
+[KINTSUGI LOGIC] Catastrophic fissures and scars are forcefully stitched by THICK, GLOWING, RAISED golden Kintsugi lacquer. THE KINTSUGI NETWORK MUST EVOKE CONSTELLATION PATHS AND CELESTIAL CHART GEOMETRY, not random cracks. 
+[STRICT VOID] HE HOLDS NOTHING. No weapons, no objects. Background is a void of ash-gray paper texture.
 
 Negative Prompt:
-rock golem, full-stone monster, robotic, mechanical, non-human body, smooth lines, perfect symmetry, calm palette, serene expressions, oil painting, flat cel-shading, modern props, signature, watermark
-
+rock golem, stone monster, robotic, mechanical, non-human body, smooth lines, calm palette, weapons, swords, oil painting, flat cel-shading, modern props, 3D render, signature, watermark
 Params: --ar 2:3 --stylize 300 --quality high --seed 34567
 ```
 
@@ -521,12 +542,13 @@ Params: --ar 2:3 --stylize 300 --quality high --seed 34567
 ```text
 Prompt:
 masterpiece, highest quality, a monolithic, terrifyingly perfect divine entity, Izanagi, embodying absolute preservation and infinite sorrow.
-style: traditional Japanese painting on Washi paper. The entity is rendered almost entirely in flawless, unblemished Gofun (seashell white) and translucent pale gold, resembling a perfect, frozen amber or porcelain shell. ZERO bleeding on the pristine surfaces.
-details: The form is a towering, impossibly smooth deity-like sculpture wrapped in tight, frozen layers of celestial silk that look like white ceramic. However, from deep micro-fissures in the immaculate surface, uncontrollable drops of vivid, chaotic watercolor bleeding (intense vermilion, bruised purple, and muddy black) leak out—a visual contradiction representing his suppressed, agonizing grief over his rotting wife. The composition evokes a suffocating, tragically beautiful eternal stasis.
+[STYLE] traditional Japanese painting on Washi paper. The entity is rendered almost entirely in flawless, unblemished Gofun (seashell white) and translucent pale gold, resembling a frozen amber shell. ZERO bleeding on the pristine surfaces. 
+[CHARACTER/FORM] A towering, impossibly smooth deity-sculpture wrapped in tight, frozen layers of white ceramic-like celestial silk. 
+[CONTRADICTION] from deep, hair-line micro-fissures in the immaculate surface, uncontrollable drops of vivid, chaotic watercolor bleeding (intense vermilion and muddy black) leak out. 
+[STRICT VOID] NO background objects, NO other characters, NO weapons. Background is an absolute white paper void.
 
 Negative Prompt:
 cheerful, organic flesh, western fantasy monster, chaotic splashing on the main body, cute, 3D render, glossy plastic, cel-shading, oil painting, signature, watermark
-
 Params: --ar 16:9 --stylize 400 --quality ultra --seed 88887
 ```
 
