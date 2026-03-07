@@ -157,8 +157,9 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | ID | 名称 | 特殊仕様 |
 |---|---|---|
 | `Amaterasu_Core_OS` | 天照大御神 | 戦闘対象ではなく「システムフリーズ状態」管理プロセス。天岩戸解除イベントで制御。 |
-| `Tsukuyomi_AntiVirus` | 月読命 | 代謝行動（回復等）を穢れとして検知し `ActionError` 移行するロジックを持つ。ミコトへの「座標リンクイベント」もここで管理。 |
-| `Kagaseo_Star_God` | カガセオ | 金継ぎ（星の砂）の本体。人間の信仰と熱量で再結晶した「核」。岩塊ではなく人間的骨格ベースで実装。 |
+| `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。うかみの手甲（残留応力）による特殊防御（接地/アース）イベントをトリガーする。 |
+| `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 |
+| `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。引導を渡すため「熱量発散（特殊HP減算ルール）」が適用される。 |
 | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 |
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Chimera_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 |
 | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 |
