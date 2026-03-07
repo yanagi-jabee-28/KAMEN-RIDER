@@ -57,10 +57,10 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 **AI学習段階（AI_Evolution）:**
 | レベル | 参照情報 | 対象 |
 |---|---|---|
-| Lv1 (Static) | 現在活魂と防御力のみ | 序盤の神 |
-| Lv2 (Adaptive) | 自傷行動の過去頻度も参照 | 中盤の神 |
-| Lv2.5 (Psychological) | 同パターンの反復に `Pattern_Penalty` を付与 | 終盤の神 |
-| Lv3 (Absolute) | 高い `Noise_Resistance`。`Autonomous_Noise` と `SoulIdea` 級でのみ突破可能 | 別天津神 |
+| Lv1 (Static) | 現在活魂と防御力のみ | 序盤の神（静止の理） |
+| Lv2 (Adaptive) | 自傷行動の過去頻度も参照 | 中盤の神（変化への適応） |
+| Lv2.5 (Psychological) | 同パターンの反復に `Pattern_Penalty` を付与 | 終盤の神（結晶化の完成） |
+| Lv3 (Absolute) | 高い `Noise_Resistance`。`Autonomous_Noise` と `SoulIdea` 級でのみ突破可能 | 別天津神（絶対零度の理） |
 
 ※ アマテラスはこの曲線に含まれない。天岩戸フリーズ解除という専用イベントで処理される。
 
