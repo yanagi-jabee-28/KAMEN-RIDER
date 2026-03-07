@@ -599,7 +599,23 @@ mood: dread mixed with grim resolve, an act that seals characters to a corrupted
 Negative Prompt:
 bright, cheerful, clean surfaces, modern props, pastel colors, western fantasy, cute, innocent, oil painting, cel-shading, 3D render, signature, watermark
 
-Params: --ar 16:9 --stylize 300 --quality high --seed 123456
+Params: --ar 16:9 --stylize 350 --quality high --seed 11111
+```
+
+#### 星屑の荒野（カガセオ決戦地） — `NANOBANANAPRO_PROMPT_STARDUST_WASTELAND_WASHI`
+
+```text
+Prompt:
+masterpiece, highest quality, a desolate and haunting landscape of the Stardust Wasteland (Hoshikuzu no Arano) at the bottom of the underworld, painted in traditional Japanese watercolor and mineral pigments on rough Washi paper.
+style: high contrast monochrome palette of deep sumi-e blacks, cold ashen grays, and stark bone-whites, pierced by intensely glowing, sharp metallic gold meteor fragments.
+details: A vast, silent plain covered in thick, fine volcanic ash and sharp, glass-like obsidian shards. Countless golden meteorite fragments are embedded in the grey earth like thorns, radiating a cold, flickering celestial light. In the distance, the faint, distorted silhouette of a falling celestial body is visible through a thick, cold mist. The ground is fractured, with the cracks glowing with the residual thermal energy of fallen stars. 
+atmosphere: absolute desolation, coldness, and the weight of thousands of years of accumulated cosmic grief. NO living plants, NO organic life, only the mineral remains of a shattered deity.
+style detail: aggressive usage of dry-brush (Kasure) for the ash textures and delicate, sharp gold-leaf effects for the stardust fragments.
+
+Negative Prompt:
+vibrant colors, lush vegetation, healthy trees, warm sunlight, blue sky, water, ocean, happy mood, 3D render, smooth porcelain texture, sci-fi city, spaceship, signature, watermark
+
+Params: --ar 21:9 --stylize 400 --quality ultra --seed 77777
 ```
 
 #### 万能スタイル変換 — `NANOBANANAPRO_PROMPT_UNIVERSAL_STYLE_TRANSFORMER`

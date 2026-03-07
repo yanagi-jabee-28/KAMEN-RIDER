@@ -222,7 +222,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 TargetCharacter: UKAMI_GYOJA
 LockFromFlag: UKAMI_RETURNED_YOMOTSU
 UnlockFlag: GYOJAGAESHI_CLEARED
-LockedAreas: [TOKOYO, YOMI_NO_KUNI, YOMOTSU_HIRASAKA]
+LockedAreas: [TOKOYO, YOMI_NO_KUNI, YOMOTSU_HIRASAKA, HOSHIKUZU_N_ARANO]
 ConstraintMode: CHARACTER_ONLY  # うかみ本人のみ。パーティ全体には適用しない
 ```
 
