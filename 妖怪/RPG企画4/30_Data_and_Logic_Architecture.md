@@ -210,9 +210,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破・偽終幕祝祭発生 |
 | `TSUKUYOMI_CELEBRATION_CONDUCTED` | 偽終幕後の凍結UIジャック開始 |
 | `UKAMI_RETURNED_YOMOTSU` | 黄泉比良坂でうかみが行者として帰還 |
-| `UKAMI_AREA_LOCK_ACTIVE` | 行者の誓約による地域拘束が有効 |
-| `AMENO_IWATOWAKE_BROKEN` | 狂騒によって天岩戸を強制リブート |
-| `KAGASEO_TRIAL_CLEARED` | カガセオ試練を突破 |
+| `KAGASEO_REBOOT_HEAT_ACQUIRED` | 星屑の荒野（カガセオ戦）でリブート用の熱を獲得 |
+| `AMENO_IWATOWAKE_BROKEN` | 神器とカガセオの熱量により天岩戸を強制リブート |
 | `ETERNITY_REJECTED_DEATH_IMPLEMENTED` | 別天津神を破り、ただの人間としての死を受け入れた（エンディング） |
 | `GYOJAGAESHI_CLEARED` | クリア後「行者還し」完了。うかみを完全フリーメンバー化。 |
 | `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオのタイムライン試練完了 |
