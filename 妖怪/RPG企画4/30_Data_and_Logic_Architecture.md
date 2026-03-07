@@ -200,7 +200,10 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | フラグ名 | 発火タイミング |
 |---|---|
 | `UKAMI_JOINED_EARLY` | うかみがアマでパーティ合流 |
-| `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱が確定 |
+| `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入 |
+| `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱（タチバナ加入後） |
+| `WAKAHIKO_ANTAGONIST_PHASE` | ワカヒコによる執拗な追撃・対立期間 |
+| `WAKAHIKO_JOINED_ACT3` | 天望の天守でのワカヒコ加入 |
 | `ACT3_KAGASEO_RESONANCE` | 第3幕の一度限りのカガセオ意識による加勢イベント |
 | `TSUKUYOMI_TOWER_DEPLOYED` | 静謐の塔建造・浄化プロトコル起動 |
 | `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破・偽終幕祝祭発生 |
