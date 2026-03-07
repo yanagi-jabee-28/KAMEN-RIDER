@@ -20,7 +20,7 @@
 IF Kakkon_Value <= 0 AND Jonetsu_Gauge > 0 THEN
   State_Shigurui = TRUE
   // 物理ダメージ完全無効化・敵AI予測ルート完全遮断
-  // ターン経過ごと、または行動ごとに Jonetsu_Gauge が固定値(大)で減少
+  // 行動順（Tick）が回ってくるごと、または行動ごとに Jonetsu_Gauge が固定値(大)で減少
 END IF
 
 IF Kakkon_Value > 0 AND Jonetsu_Gauge <= 0 THEN
@@ -33,8 +33,8 @@ IF (Kakkon_Value <= 0 AND Jonetsu_Gauge <= 0) OR (Kakkon_Value <= 0 AND Anchor_E
 END IF
 ```
 3. **摩擦熱（Friction_Heat_Value）**:
-    - **定義**: 武器と世界との軋轢（オーバーヒート蓄積）。
-    - **蓄積**: 連続使用や強力な特技で上昇。閾値（`Heat_Threshold`）を超えると武器が「過熱・沈黙状態」になる。
+    - **定義**: 武器と世界との軋轢（オーバーヒート蓄積）。0〜100のゲージ蓄積型。
+    - **蓄積**: 連続使用や強力な特技で上昇。上限（100）に達した瞬間、武器が「過熱・沈黙状態」になる。
 
 ### 武器耐久度（Overheat / Friction）モデル
 ```
@@ -50,7 +50,7 @@ Friction_new = Friction_old + (Base_Weapon_Heat * Stance_Multiplier) + Skill_Hea
 
 ### 神のターゲット計算 (God_AI_Logic)
 ```
-// 各ターン開始時、最適ターゲットを計算しUIに予告する
+// 各行動順（Tick）開始時、最適ターゲットを計算しUIに予告する
 Target = f(Kakkon_current, DEF_current, action_history_weight)
 ```
 
@@ -69,6 +69,7 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 - **Ukami_Internal_Vigor / Ukami_Internal_Heat**: AI内部でのみ管理されるパラメータ。被ダメージや技使用で変動するが、画面上のメインUIゲージには影響しない。
 - **Ukami_AutoIntercept**: `Player_Takes_Fatal_Damage` 等の条件下で発動。成功率100%・行動順無視で割り込む。
 - **肩代わりロジック**: プレイヤーが受ける `Invasion_Value`（侵食）の上昇を、うかみの `Internal_Vigor` を削ることで無効化する処理。
+- **Ukami_Heal_Absolute**: うかみの法力による回復。`Yomotsu_Eat_State` による回復反転の影響を内部的に無効化し、常にプラスの回復値として処理する。
 - **地上での制限**: 地上エリアにおいては物理的に参戦不可であり、遠隔守護フラグも存在しない（完全な断絶）。
 
 ### 神写し理解度
@@ -80,18 +81,18 @@ IF Understand >= Threshold → ミコトが該当技を習得
 
 ### 黄泉戸喫・侵食ゲージ
 ```
-// 毎ターンの蓄積値（Underworldエリア限定）
+// 各行動順（Tick）ごとの蓄積値（Underworldエリア限定）
 Turn_Invasion_Delta = (Damage_Taken_Sum + SelfHurt_Cost_Sum) * YomotsuInvasionThreshold
 Invasion_Value = min(Max_Invasion, Invasion_Value + Turn_Invasion_Delta)
 
-IF Invasion_Value > Warning_Threshold → 毎ターン最大活魂（MaxKakkon）減少開始
+IF Invasion_Value > Warning_Threshold → 自身のTickが回ってくるたびに最大活魂（MaxKakkon）減少開始
 ```
 
 ### 共鳴（ユニゾン）計算
 ```
-// 神のタイムラインUI展開前に割り込んで発動する先制攻撃
+// 行動順（Tick）が回ってくる前に割り込んで発動する先制攻撃
 Resonance_Attack_Damage = Base_Weapon_Damage * ResonanceRate
-// 発動条件A: 同一ターンに同カテゴリ（槍・鉾 / 打撃 等）の技を選択
+// 発動条件A: タイムライン上で行動順（Tick）が連続しており、かつ同カテゴリ（槍・鉾 / 打撃 等）の技を選択
 // 発動条件B: [第4幕] ミコトの神写し技 ＋ うかみNPCの行動重複 → 確定発動
 ```
 
