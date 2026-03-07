@@ -59,7 +59,7 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 |---|---|---|
 | Lv1 (Static) | 現在活魂と防御力のみ | 序盤の神（静止の理） |
 | Lv2 (Adaptive) | 自傷行動の過去頻度も参照 | 中盤の神（変化への適応） |
-| Lv2.5 (Psychological) | 同パターンの反復に `Pattern_Penalty` を付与 | 終盤の神（結晶化の完成） |
+| Lv2.5 (Psychological) | 同パターンの反復に `Pattern_Penalty` を付与 | イザナギなど終盤の神（結晶化の完成／悲哀からの救済） |
 | Lv3 (Absolute) | 高い `Noise_Resistance`。`Autonomous_Noise` と `SoulIdea` 級でのみ突破可能 | 別天津神（絶対零度の理） |
 
 ※ アマテラスはこの曲線に含まれない。天岩戸フリーズ解除という専用イベントで処理される。
@@ -161,6 +161,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 |
 | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。引導を渡すため「熱量発散（特殊HP減算ルール）」が適用される。 |
 | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 |
+| `Izanagi_Crystallizer` | 伊邪那岐命 | 大いなる悲哀と完璧な拒絶の体現。UI予測は完璧であり、情動による「揺らぎ」を最も排除した究極の学習型AI（Lv2.5）。 |
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Chimera_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 |
 | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 |
 | `Boss_Susanoo` | スサノオ | 活魂ゼロではなく `Timeline_Compression_Score` が勝利条件のスコアアタック制。 |

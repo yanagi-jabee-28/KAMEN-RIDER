@@ -211,6 +211,9 @@ Params: --ar 2:3 --stylize 300 --quality high --seed 44828
 ### カガセオ（黄金のバグ／再結晶）
 - 破片化した神の姿が金継ぎで繋ぎ止められた「人間的な悲劇の英雄」。骨格と表情は読み取れるアシンメトリー。境界から盛り上がる金の漆が星図（星座）の軌跡を走る。岩塊主体を避け、人間的骨格を優先すること（`KagaseoHumanityBias=true`）。
 
+### 伊邪那岐命（イザナギ／究極の琥珀）
+- 巨大な白磁（琥珀）の如き完璧な神像。愛する者を失った絶望から世界を静止させようとする悲哀の体現。完璧な胡粉の殻の隙間から、抑えきれない「生々しい極彩色の泥（悲しみ）」が矛盾として僅かに漏れ出している。
+
 ### 澱神・八岐の産土（真エンドボス・キメラ）
 - **前半（白化殻モード）:** 完全に滑らかな胡粉の殻。攻撃を無効化する冷たい白。
 - **後半（UIジャック・狂宴モード）:** 殻が割れると、錆びた刃・折れた柄・極彩色の和紙の滲み・黒墨の泥が暴力的に噴出。黄金の金継ぎと黒墨が辛うじて繋ぎ止める。
@@ -275,6 +278,7 @@ wearing the signature "BEAT GAUNTLET" on the left arm: a sleek, ergonomic, and s
 | `PROMPT_TSUKUYOMI_PURGE_WASHI` | ツクヨミ（無慈悲な月）キャラクタープロンプト |
 | `PROMPT_SUSANOO_STORM_WASHI` | スサノオ（泥の嵐）キャラクタープロンプト |
 | `PROMPT_KAGASEO_KINTSUGI_WASHI` | カガセオ（黄金のバグ）キャラクタープロンプト |
+| `PROMPT_IZANAGI_CRYSTALLIZER_WASHI` | イザナギ（究極の琥珀／ラスボス）のプロンプト |
 | `PROMPT_YAMATA_NO_UBUSUNA_TRUE_END_V1` | 澱神ウブスナ（真エンドボス）のプロンプト |
 | `NANOBANANAPRO_PROMPT_YOMOTSU_SHIKOME_WASHI` | 黄泉醜女（伊邪那美型怨念）のプロンプト |
 | `NANOBANANAPRO_PROMPT_SERENE_TOWER_WASHI_REVISED` | ツクヨミの静謐塔・環境プロンプト |
@@ -510,6 +514,20 @@ Negative Prompt:
 rock golem, full-stone monster, robotic, mechanical, non-human body, smooth lines, perfect symmetry, calm palette, serene expressions, oil painting, flat cel-shading, modern props, signature, watermark
 
 Params: --ar 2:3 --stylize 300 --quality high --seed 34567
+```
+
+#### 伊邪那岐命（イザナギ／究極の琥珀） — `PROMPT_IZANAGI_CRYSTALLIZER_WASHI`
+
+```text
+Prompt:
+masterpiece, highest quality, a monolithic, terrifyingly perfect divine entity, Izanagi, embodying absolute preservation and infinite sorrow.
+style: traditional Japanese painting on Washi paper. The entity is rendered almost entirely in flawless, unblemished Gofun (seashell white) and translucent pale gold, resembling a perfect, frozen amber or porcelain shell. ZERO bleeding on the pristine surfaces.
+details: The form is a towering, impossibly smooth deity-like sculpture wrapped in tight, frozen layers of celestial silk that look like white ceramic. However, from deep micro-fissures in the immaculate surface, uncontrollable drops of vivid, chaotic watercolor bleeding (intense vermilion, bruised purple, and muddy black) leak out—a visual contradiction representing his suppressed, agonizing grief over his rotting wife. The composition evokes a suffocating, tragically beautiful eternal stasis.
+
+Negative Prompt:
+cheerful, organic flesh, western fantasy monster, chaotic splashing on the main body, cute, 3D render, glossy plastic, cel-shading, oil painting, signature, watermark
+
+Params: --ar 16:9 --stylize 400 --quality ultra --seed 88887
 ```
 
 #### 澱神・八岐の産土（真エンドボス） — `PROMPT_YAMATA_NO_UBUSUNA_TRUE_END_V1`
