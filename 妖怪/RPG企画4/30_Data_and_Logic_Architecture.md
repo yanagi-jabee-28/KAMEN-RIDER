@@ -215,7 +215,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `SUB_ARM` | 副腕 | ノイズ具スロット。主腕が `2H` の場合は封印される。 | `1H` / `LOCKED_BY_2H` | 
  | `SHOZOKU` | 装束 | 防御衣服。傷跡が防御力(PTG)になる。 | `UNIQUE` | 
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
- | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。 | `SLOTLESS` | 
+ | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。うかみの継承手甲もこのカテゴリに属し、装備スロット圧縮は発生しない。 | `SLOTLESS` | 
 
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |

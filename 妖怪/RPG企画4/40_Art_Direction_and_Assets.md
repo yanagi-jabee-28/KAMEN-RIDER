@@ -237,6 +237,7 @@ A very long, dark iron straight sword with subtle golden repair seams; a beautif
 ```
 
 ### 手甲パーツ（The Beat Gauntlet）
+> *システム注釈: ゲーム内ではこの手甲は「固定装具」扱いで、装備スロットを圧縮しない特別な存在である。*
 ```text
 Prompt:
 masterpiece, a beautifully crafted antique black-iron asymmetrical left gauntlet worn on a ghostly white arm, resting on Washi paper.
