@@ -66,17 +66,17 @@ IF FreezeVacuum_Turns > 0 THEN
   Tick_Speed_Mult = Tick_Speed_Mult * FreezeVacuum_Tick_Mult
 END IF
 ```
-3. **摩擦熱（Heat）** *（武器耐久度に統合）*:
-    - **定義**: 独立リソースとしての摩擦熱ゲージは廃止され、すべて武器の耐久度 `Weapon_Durability` に任せる。
-      特技・連続攻撃で従来「熱」が増えていた部分は、代わりに**耐久度直接減少**として計算される。UIは耐久度バーのみを表示し、管理負荷を単一化する。
-    - **運用**: 技使用時に発生する「摩擦コスト」が耐久度を削り、耐久度0で『過熱・沈黙』になる。
-      その前に金継ぎで回復するか、代受苦で残値を燃料にして大ダメージを撃つかという選択は従来通り。熱蓄積＝耐久減少と見なせば、表現も泥臭く保たれる。
+3. **武器摩耗（Durability Drain）**:
+    - **定義**: 独立した熱ゲージは存在せず、摩擦・負荷はすべて武器耐久度 `Weapon_Durability` の減衰として扱う。
+      特技・連続攻撃・意図的負荷で発生する消耗は、常に**耐久度直接減少**へ集約される。UIは耐久度バーのみ表示する。
+    - **運用**: 技使用時に発生する「摩耗コスト」が耐久度を削り、耐久度0で『過熱・沈黙』になる。
+      その前に金継ぎで回復するか、代受苦で残値を燃料にして大ダメージを撃つかという選択は従来通り。
 
 ### 武器耐久度（Durability）モデル
 ```
 Durability_new = max(0, Durability_old - (
-    Base_Weapon_Heat * Stance_Multiplier
-  + Skill_Heat_Cost
+    Base_Weapon_DurabilityCost * Stance_Multiplier
+  + Skill_Durability_Cost
   + Intentional_Cost
 ))
 ```
@@ -91,27 +91,28 @@ Durability_new = max(0, Durability_old - (
 ### 共鳴過熱（新ゲージ非採用）
 共鳴過熱は新規リソースを持たず、`Jonetsu_Value` と `Weapon_Durability` を直接操作して表現する。
 ```
-Can_Trigger_OverheatResonance = (Jonetsu_Value >= Overheat_Jonetsu_Min) AND (Weapon_Durability > 0)
+Can_Trigger_ResonanceBurst = (Jonetsu_Value >= ResonanceBurst_Jonetsu_Min) AND (Weapon_Durability > 0)
 
-IF Can_Trigger_OverheatResonance THEN
-  Jonetsu_Value = max(0, Jonetsu_Value - Overheat_Jonetsu_Cost)
-  Damage_Mult = 1.0 + Overheat_Damage_Bonus
+IF Can_Trigger_ResonanceBurst THEN
+  Jonetsu_Value = max(0, Jonetsu_Value - ResonanceBurst_Jonetsu_Cost)
+  Damage_Mult = 1.0 + ResonanceBurst_Damage_Bonus
   Weapon_Durability = 0
-  State_Overheated = TRUE
+  State_SearedSilence = TRUE
 END IF
 ```
 
 ### 剥落の星屑（特殊敵）
 ```
 Hakuraku_Damage = max(1, floor(Input_Damage * Hakuraku_Damage_Reduction))
-Hakuraku_Escape_Check = (Current_Tick >= Hakuraku_Escape_Tick)
+Hakuraku_Escape_Check = (Current_Tick >= Hakuraku_Return_Gravity_Tick)
+Hakuraku_EntropyBurst = Hakuraku_Escape_Check AND Sky_System_Rejects_Impurity
 
 IF Hakuraku_Escape_Check THEN
   Enemy_Despawn = TRUE
 END IF
 ```
 - `Hakuraku_Damage_Reduction`: 高減衰係数（実値はバランス項で管理）
-- `Hakuraku_Escape_Tick`: 帰還判定Tick
+- `Hakuraku_Return_Gravity_Tick`: 玉座への帰還引力が飽和する判定Tick
 
 ### 神のターゲット計算 (God_AI_Logic)
 ```
@@ -131,7 +132,8 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 
 ### うかみAIの自動介入と独立リソース (Ukami_Autonomous_Logic)
 第4幕（黄泉・常世）で参戦する行者うかみは、プレイヤーの共有リソース（活魂・情念）を使用せず、AI内部で完結した**独立リソース**で駆動する。
-- **Ukami_Internal_Vigor / Ukami_Internal_Heat**: AI内部でのみ管理されるパラメータ。被ダメージや技使用で変動するが、画面上のメインUIゲージには影響しない。
+- **Ukami_Internal_Vigor**: AI内部でのみ管理される基幹パラメータ。被ダメージや祈祷実行で変動するが、画面上のメインUIゲージには影響しない。
+- **Ukami_Internal_Durability**: 祈祷の摩耗量を扱う内部補助パラメータ。値が高いほど高強度介入を連打しにくくなる。`Ukami_Internal_Vigor` へ合算して評価してもよい。
 - **Ukami_AutoIntercept**: `Player_Takes_Fatal_Damage` 等の条件下で発動。成功率100%・行動順無視で割り込む。
 - **肩代わりロジック**: プレイヤーが受ける `Invasion_Value`（侵食）の上昇を、うかみの `Internal_Vigor` を削ることで無効化する処理。
 - **Ukami_Heal_Absolute**: うかみの法力による回復。`Yomotsu_Eat_State` による回復反転の影響を内部的に無効化し、常にプラスの回復値として処理する。
@@ -142,6 +144,13 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 Understand(skill, ally) += action_count * context_bonus
 context_bonus: Critical_Kakkon → x2.0 / Disadvantage_Match → x1.5
 IF Understand >= Threshold → ミコトが該当技を習得
+```
+
+### 神写し・形代連結補正
+```
+IF Mikoto_FixedGear_Gauntlet_Equipped AND Katashiro_Equipped_Count > 0 THEN
+  Understand(skill, ally) += floor(Damage_Taken_Sum * Linked_ShinUtsushi_Resonance_Mult)
+END IF
 ```
 
 ### 黄泉戸喫・侵食ゲージ
@@ -178,9 +187,9 @@ Resonance_Attack_Damage = Base_Weapon_Damage * ResonanceRate
 ### 代受苦発動・データ遷移
 ```
 // 任意タイミングで発動可（耐久値制限なし）
-Daijuku_Trigger → State_Overheated = TRUE（武器を一時使用不能にする / 特大ダメージ付与）
+Daijuku_Trigger → State_SearedSilence = TRUE（武器を一時使用不能にする / 特大ダメージ付与）
 // 非自発的な耐久尽き（代受苦不使用）
-Durability_Zero_Natural → State_Overheated = TRUE (ダメージ特典なし / 完全な損)
+Durability_Zero_Natural → State_SearedSilence = TRUE (ダメージ特典なし / 完全な損)
 // 極大代受苦（Is_Destiny_Battle フラグが立つボス戦限定）
 Extreme_Daijuku → Item_Instance を完全消去し以下を生成:
   - Route A: SoulIdea（輪廻ルート・次の武器へのデータ継承）
@@ -215,7 +224,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `SUB_ARM` | 副腕 | ノイズ具スロット。主腕が `2H` の場合は封印される。 | `1H` / `LOCKED_BY_2H` | 
  | `SHOZOKU` | 装束 | 防御衣服。傷跡が防御力(PTG)になる。 | `UNIQUE` | 
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
- | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。うかみの継承手甲もこのカテゴリに属し、装備スロット圧縮は発生しない。 | `SLOTLESS` | 
+ | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。ミコトは初期状態から空の受け皿を保持し、葛城山以降の継承手甲が常駐する。八咫鏡は手甲上に積層される拡張マウントとして扱い、装備スロット圧縮は発生しない。 | `SLOTLESS` | 
 
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |
@@ -239,6 +248,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Is_Chimera` | 呼び継ぎ（キメラ接合）フラグ。`TRUE`の場合再度の極限代受苦は遺骨を生成せず塵となる | 
  | `AbandonFlag` | 遺棄判定。`TRUE`で棄物化進行が開始 | 
 | `HakurakuBonusDrop` | 剥落の星屑撃破時のドロップ倍率補正 | 
+| `Linked_ShinUtsushi_Resonance` | 形代・固定装具・神写し理解度を連結する補助フラグ | 
+| `FixedGearMountTier` | 固定装具の積層段階。`GAUNTLET_BASE` / `GAUNTLET_WITH_YATA` を保持 | 
 
 ### Enemy_Master（主要ボス定義）
  | ID | 名称 | 特殊仕様 | 
@@ -246,7 +257,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Amaterasu_Core_OS` | 天照大御神 | 戦闘対象ではなく「システムフリーズ状態」管理プロセス。天岩戸解除イベントで制御。 | 
  | `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。うかみの手甲（残留応力）による特殊防御（接地/アース）イベントをトリガーする。 | 
  | `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 | 
- | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。引導を渡すため「熱量発散（特殊HP減算ルール）」が適用される。 | 
+| `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。砕かれた玉座への帰還引力と天の拒絶理が衝突し、特殊HP減算（暴走散逸）が発生する。 | 
  | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 | 
  | `Izanagi_Crystallizer` | 伊邪那岐命 | 大いなる悲哀と完璧な拒絶の体現。UI予測は完璧であり、情動による「揺らぎ」を最も排除した究極の学習型AI（Lv2.5）。 | 
  | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Chimera_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
@@ -336,8 +347,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破・偽終幕祝祭発生 | 
  | `TSUKUYOMI_CELEBRATION_CONDUCTED` | 偽終幕後の凍結UIジャック開始 | 
  | `UKAMI_RETURNED_YOMOTSU` | 黄泉比良坂でうかみが行者として帰還 | 
- | `KAGASEO_REBOOT_HEAT_ACQUIRED` | 星屑の荒野（カガセオ戦）でリブート用の熱を獲得 | 
- | `AMENO_IWATOWAKE_BROKEN` | 神器とカガセオの熱量により天岩戸を強制リブート | 
+ | `KAGASEO_REBOOT_DRIVE_ACQUIRED` | 星屑の荒野（カガセオ戦）でリブート駆動片を獲得 | 
+ | `AMENO_IWATOWAKE_FORCED_REBOOT` | 神器とカガセオの駆動片で天岩戸を強制リブート | 
  | `ETERNITY_REJECTED_DEATH_IMPLEMENTED` | 別天津神を破り、ただの人間としての死を受け入れた（エンディング） | 
  | `GYOJAGAESHI_CLEARED` | クリア後「行者還し」完了。うかみを完全フリーメンバー化。 | 
  | `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオのタイムライン試練完了 | 

@@ -321,7 +321,7 @@ Prompt:
 masterpiece, tiny but terrifying stardust entities with mirror-hard skins, about to return to the sky.
 traditional Japanese painting on Washi paper.
 Each fragment is rendered as a compact crystal seed, with almost no pigment bleeding, surrounded by faint golden dust trails.
-They should feel evasive, short-lived, and precious, like falling stars refusing to touch the earth.
+They should feel evasive, short-lived, and tragic: pulled upward by irreversible throne-gravity while being violently rejected by the sterile heaven-system.
 ```
 
 ### 理の反射鏡（八咫鏡拡張演出）
