@@ -183,6 +183,7 @@ traditional Japanese painting on Washi paper. Rendered entirely in flawless, unb
 Crucially, a tiny, uncontrollable tear of vivid, chaotic watercolor (vermilion and bruised purple) leaks from a micro-fissure in his flawless surface, belying his suppressed, agonizing grief. A suffocating vision of eternal stasis.
 ```
 
+> **2026-03-08 企画会議反映:** システム用語の脱SF化に伴い、アートプロンプト内の「UI」「ノイズ」といった現代的メタ表現を和語（神託崩壊、情念の奔流など）へと統合した。
 ### 澱神・八岐の産土（真エンドボス・キメラ）
 ```text
 Prompt:
