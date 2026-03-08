@@ -58,6 +58,13 @@ END IF
 IF (Kakkon_Value <= 0 AND Jonetsu_Gauge <= 0) OR (Kakkon_Value <= 0 AND Anchor_Equipped_Count == 0) THEN
   State_Dead = TRUE // 泥への還り（完全死）
 END IF
+
+IF FreezeVacuum_Turns > 0 THEN
+  State_FreezeVacuum = TRUE
+  // 情念依存技を封印、行動順補正に負値
+  Jonetsu_Skill_Seal = TRUE
+  Tick_Speed_Mult = Tick_Speed_Mult * FreezeVacuum_Tick_Mult
+END IF
 ```
 3. **摩擦熱（Heat）** *（武器耐久度に統合）*:
     - **定義**: 独立リソースとしての摩擦熱ゲージは廃止され、すべて武器の耐久度 `Weapon_Durability` に任せる。
@@ -80,6 +87,31 @@ Durability_new = max(0, Durability_old - (
     - 1H + 副腕（非訓練者: ミコト、スクナ等）: **1.2**（「構えの摩擦（Stance Friction）」による増加）
 - `Intentional_Cost`: プレイヤーが任意に支払う自傷（活魂）・情念放出コスト。神の計算ノイズの源泉。
 - **Yobitsugi_Penalty**: キメラ化武器は耐久減少係数が **1.5〜3.0倍** に跳ね上がる（強力だが即消耗する）。
+
+### 共鳴過熱（新ゲージ非採用）
+共鳴過熱は新規リソースを持たず、`Jonetsu_Value` と `Weapon_Durability` を直接操作して表現する。
+```
+Can_Trigger_OverheatResonance = (Jonetsu_Value >= Overheat_Jonetsu_Min) AND (Weapon_Durability > 0)
+
+IF Can_Trigger_OverheatResonance THEN
+  Jonetsu_Value = max(0, Jonetsu_Value - Overheat_Jonetsu_Cost)
+  Damage_Mult = 1.0 + Overheat_Damage_Bonus
+  Weapon_Durability = 0
+  State_Overheated = TRUE
+END IF
+```
+
+### 剥落の星屑（特殊敵）
+```
+Hakuraku_Damage = max(1, floor(Input_Damage * Hakuraku_Damage_Reduction))
+Hakuraku_Escape_Check = (Current_Tick >= Hakuraku_Escape_Tick)
+
+IF Hakuraku_Escape_Check THEN
+  Enemy_Despawn = TRUE
+END IF
+```
+- `Hakuraku_Damage_Reduction`: 高減衰係数（実値はバランス項で管理）
+- `Hakuraku_Escape_Tick`: 帰還判定Tick
 
 ### 神のターゲット計算 (God_AI_Logic)
 ```
@@ -119,6 +151,20 @@ Turn_Invasion_Delta = (Damage_Taken_Sum + SelfHurt_Cost_Sum) * YomotsuInvasionTh
 Invasion_Value = min(Max_Invasion, Invasion_Value + Turn_Invasion_Delta)
 
 IF Invasion_Value > Warning_Threshold → 自身のTickが回ってくるたびに最大活魂（MaxKakkon）減少開始
+```
+
+### フィールド位相（無菌の帳 / 血の泥沼）
+```
+IF Field_State == STERILE_CURTAIN THEN
+  Heal_Value = floor(Heal_Value * Sterile_Heal_Mult)
+  SelfHurt_Cost = floor(SelfHurt_Cost * Sterile_SelfHurt_Mult)
+END IF
+
+IF Field_State == BLOOD_MUDPIT THEN
+  Heal_Value = floor(Heal_Value * Blood_Heal_Mult)
+  Jonetsu_Gain = floor(Jonetsu_Gain * Blood_Jonetsu_Gain_Mult)
+  Durability_Cost = floor(Durability_Cost * Blood_Durability_Cost_Mult)
+END IF
 ```
 
 ### 共鳴（ユニゾン）計算
@@ -171,12 +217,19 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
  | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。 | `SLOTLESS` | 
 
+### Field_Environment_Master（戦場位相）
+ | Field_State | 名称 | 効果 |
+ | --- | --- | --- |
+ | `STERILE_CURTAIN` | 無菌の帳 | 回復効率低下、自傷コスト上昇、静止系異常の付与率上昇 |
+ | `BLOOD_MUDPIT` | 血の泥沼 | 回復反転圧上昇、情念蓄積増幅、耐久コスト補正 |
+
 ### Item_Master（主要フラグ）
  | フィールド | 説明 | 
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
  | `Remnant_Bone` | 極大代受苦後の遺骨。元の武器IDと特性を保持。キメラ専用素材（星の砂と混同させない） | 
  | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
+| `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 
 ### Item_State_Extension（武器インスタンス付加情報）
  | フィールド | 説明 | 
@@ -185,6 +238,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `TsukumogamiState` | `Dormant` / `Kibutsu`（棄物敵化） / `Musubi`（結和神覚醒） | 
  | `Is_Chimera` | 呼び継ぎ（キメラ接合）フラグ。`TRUE`の場合再度の極限代受苦は遺骨を生成せず塵となる | 
  | `AbandonFlag` | 遺棄判定。`TRUE`で棄物化進行が開始 | 
+| `HakurakuBonusDrop` | 剥落の星屑撃破時のドロップ倍率補正 | 
 
 ### Enemy_Master（主要ボス定義）
  | ID | 名称 | 特殊仕様 | 
@@ -198,6 +252,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Chimera_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
  | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 | 
  | `Boss_Susanoo` | スサノオ | 活魂ゼロではなく `Timeline_Compression_Score` が勝利条件のスコアアタック制。 | 
+| `Hakuraku_Stardust` | 剥落の星屑 | 高減衰・高回避・帰還Tick持ち。短期撃破時に星砂報酬が増える。 |
 
 ### Enemy_Behavior_Tag
  | タグ | 対象 | 
@@ -207,6 +262,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Predictive_Fluctuating` | 荒魂獣 | 
  | `Trauma_Resentment` | 棄物 | 
  | `Pseudo_Perfect_With_Gap` | 擬神兵 | 
+| `SkillLock_Enforcer` | 凍結の真空を扱う白化神上位個体 |
+| `Field_Overwriter` | 無菌の帳 / 血の泥沼を展開する個体 |
 
 ### 神社・祠関連データ
  | マスター | 主要フィールド | 
@@ -214,6 +271,39 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Shrine_Master` | `ShrineID`, `Type` (`JINJA`/`HOKORA`), `Prayer_Points_Base`, `Mitama_Slot` | 
  | `Shrine_Faith_Master` | 御霊ごとの恩恵（バフ・神写しツリー解放） | 
  | `Shrine_Network_Data` | `Total_Prayer_Points`（受容力）, `Connected_Shrines`（開通済みIDリスト）, `Unlocked_Buffs` | 
+
+### Attribute_Master（属性定義）
++
++### Status_Effect_Master（状態異常定義）
++ | Effect_ID | 名称 | 説明 |
++ | --- | --- | --- |
++ | `POISON` | 毒 | 毎Tick活魂を減少させる継続ダメージ |
++ | `BAD_POISON` | 猛毒 | 毒の強化。復帰困難。
++ | `PARALYSIS` | 麻痺 | 一定確率で行動不能 |
++ | `SLEEP` | 睡眠 | 次自身Tickまで行動不能 |
++ | `CONFUSION` | 混乱 | 行動がランダム化 |
++ | `CHARM` | 魅了 | 味方への攻撃を強制 |
++ | `BLIND` | 暗闇 | 命中率低下 |
++ | `DESEASE` | 幻惑 | 属性耐性低下 |
++ | `REST` | 休み | 1ターン確定行動不能 |
++ | `CURSE` | 呪い | 装備効果無効化 |
++ | `INSTANT_KILL` | 即死 | 条件で一撃死亡 |
++ | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） |
++ | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） |
+
+ | Attribute_ID | 名称 | 説明 |
+ | --- | --- | --- |
+ | `FIRE` | 炎 | 焼却・灼熱系の干渉 |
+ | `ICE` | 氷 | 冷却・停滞系の干渉 |
+ | `WIND` | 風 | 断裂・流動系の干渉 |
+ | `THUNDER` | 雷 | 貫通・高電位系の干渉 |
+ | `EARTH` | 土 | 重圧・地脈系の干渉 |
+ | `WATER` | 水 | 浸食・波動系の干渉 |
+ | `LIGHT` | 光 | 浄化・照射系の干渉 |
+ | `DARK` | 闇 | 呪詛・侵食系の干渉 |
+ | `NONE` | 無属性 | 純粋な質量・摩擦・打撃圧。属性相性の影響を受けにくい |
+
+> 属性は相性計算レイヤーであり、術式駆動リソース（三条の熱源）とは分離して扱う。
 
 ### その他マスター
  | マスター | 目的 | 
@@ -225,6 +315,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Yomotsu_Eat_Master` | 侵食ゲージ閾値、食材ID、回復反転係数、キャラ別耐性 | 
  | `FastTravel_Master` | 脈継ぎ演出・移動中掛け合いセリフ管理 | 
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
+| `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |
+| `Mirror_Reflection_Master` | 反射可能干渉の分類、対象、反射率、反射不可例外を管理 |
 
 ---
 
@@ -249,6 +341,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `ETERNITY_REJECTED_DEATH_IMPLEMENTED` | 別天津神を破り、ただの人間としての死を受け入れた（エンディング） | 
  | `GYOJAGAESHI_CLEARED` | クリア後「行者還し」完了。うかみを完全フリーメンバー化。 | 
  | `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオのタイムライン試練完了 | 
+| `STERILE_CURTAIN_UNLOCKED` | 無菌の帳を展開する敵位相が解放 | 
+| `BLOOD_MUDPIT_UNLOCKED` | 血の泥沼位相が解放 | 
 
 ### Party_Area_Constraint_Master（うかみ拘束ルール）
 ```yaml

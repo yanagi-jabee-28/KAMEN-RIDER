@@ -296,6 +296,42 @@ traditional Japanese watercolor on Washi paper.
 A world painted in monochrome sumi-e blacks and ashen grays, violently pierced by countless, fiercely glowing shards of golden stardust and meteorites embedded in the ground like thorns. The landscape tells the epic sorrow of a shattered star.
 ```
 
+### 無菌の帳（白化神位相）
+```text
+Prompt:
+masterpiece, a battle field swallowed by sterile white curtains, where all warmth and breath are denied.
+traditional Japanese painting on Washi paper using restrained gofun-white and pale silver.
+No chaotic splashes. The air itself looks filtered and still, as if life is being archived into perfect crystal layers.
+Fine geometric lines close in from the horizon, pressing the human figures into silence.
+```
+
+### 血の泥沼（澱神位相）
+```text
+Prompt:
+masterpiece, a battlefield transformed into a thick blood-mud swamp of grief and unfinished prayers.
+traditional Japanese watercolor on Washi paper with violent bleeding of deep crimson, umber, and black-green.
+Footprints collapse into viscous mud, and broken reflections ripple like wounded memory.
+Rough dry-brush streaks and mineral granulation should dominate, emphasizing unstable life-force.
+```
+
+### 剥落の星屑（特殊敵）
+```text
+Prompt:
+masterpiece, tiny but terrifying stardust entities with mirror-hard skins, about to return to the sky.
+traditional Japanese painting on Washi paper.
+Each fragment is rendered as a compact crystal seed, with almost no pigment bleeding, surrounded by faint golden dust trails.
+They should feel evasive, short-lived, and precious, like falling stars refusing to touch the earth.
+```
+
+### 理の反射鏡（八咫鏡拡張演出）
+```text
+Prompt:
+masterpiece, a close-up of a bronze sacred mirror reflecting not light alone, but broken divine decree.
+traditional Japanese watercolor on Washi paper with subtle kintsugi seams along the mirror edge.
+Inside the reflection, fine ink prediction lines fracture and reverse direction, while the outer world remains still.
+Keep the scene analog and solemn, avoiding modern interface motifs.
+```
+
 ---
 
 ## 7. UI／万能スタイル変換プロンプト
