@@ -138,6 +138,11 @@ END IF
 ```
 
 ### 剥落の星屑（特殊敵）
+- **出現域:** 黄泉の深層、星屑の荒野、終幕手前の高難度遭遇戦。
+- **特徴:** 物理・属性を極小化し、数Tick以内に「玉座への帰還引力」が飽和して離脱を試みる。帰還衝動と天の拒絶理が衝突した個体は、短時間だけ異常な熱散逸を起こす。
+- **報酬:** 撃破時は星の砂、低確率で高純度星砂をドロップ。
+- **攻略導線:** 命中補助、行動順前倒し、多段Hitを重ねて短時間で削り切る設計。
+
 ```
 Hakuraku_Damage = max(1, floor(Input_Damage * Hakuraku_Damage_Reduction))
 Hakuraku_Escape_Check = (Current_Tick >= Hakuraku_Return_Gravity_Tick)
