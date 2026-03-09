@@ -386,7 +386,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | --- | --- | 
  | `UKAMI_JOINED_EARLY` | うかみがアマでパーティ合流 | 
  | `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（ウカミ離脱前・ワカヒコより先行／野営Lv1/拠点Lv2解禁） |
- | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊で白化神の防壁を突破（レベル2探索トリガー） |
+ | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊で白化神の防壁を突破（意図的な過負荷イベントの克服、レベル2探索トリガー） |
  | `MAHITO_FIELD_LV2_UNLOCKED` | マヒト個別イベント「野鍛冶の誓い」達成（野外Lv2解禁） |
  | `SHRINE_FORGE_LV3_UNLOCKED` | 大型神社の鍛造拡張完了（Lv3解禁） |
  | `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入 | 

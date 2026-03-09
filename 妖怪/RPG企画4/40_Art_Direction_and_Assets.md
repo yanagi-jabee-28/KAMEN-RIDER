@@ -264,11 +264,13 @@ The bow is flawless white wood with subtle gold seams, strung tautly. Beside it,
 ## 6. 環境プロンプト
 
 ### 白堊の回廊（ウズとの出会い）
+
+> *システム注釈: 第2幕中盤に配置される意図的な過負荷イベント。完璧な静寂が狂騒で破壊され、敗北感がマヒトへの鍛造動機として宿題となる場所である。*
 ```text
 Prompt:
-masterpiece, a suffocating, flawlessly chalk-white celestial stone corridor that has been violently shattered from the inside out.
+masterpiece, a suffocating, flawlessly chalk-white celestial stone corridor that has been violently shattered from the inside out by a burst of chaotic energy.
 traditional Japanese watercolor on Washi paper.
-The perfect, sterile geometry of the divine architecture is ruptured by explosive, chaotic brush strokes of vibrant vermilion and gold, representing a sudden, muddy blast of human passion breaking through the silence.
+The perfect, sterile geometry of the divine architecture is ruptured by explosive, chaotic brush strokes of vibrant vermilion and gold, representing a sudden, muddy blast of human passion and noise breaking through calculated silence.
 ```
 
 ### ツクヨミの静謐塔
