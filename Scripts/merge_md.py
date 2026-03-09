@@ -4,7 +4,8 @@ import tkinter as tk
 from tkinter import filedialog
 
 
-def merge_markdown_files(file_paths=None, output_path=None) -> None:
+def merge_markdown_files(file_paths=None, output_path=None, delete_after=False) -> None:
+    # if called with explicit paths via CLI, use them; otherwise open GUI dialogs
     if file_paths is not None and output_path is not None:
         selected_files = list(file_paths)
         save_path = output_path
@@ -36,6 +37,9 @@ def merge_markdown_files(file_paths=None, output_path=None) -> None:
         print("入力ファイルがありません。処理を終了します。")
         return
 
+    # sort files by name (timestamps are embedded) to ensure chronological order
+    selected_files.sort()
+
     missing_files = [
         path for path in selected_files if not os.path.isfile(path)]
     if missing_files:
@@ -57,6 +61,14 @@ def merge_markdown_files(file_paths=None, output_path=None) -> None:
                     outfile.write("\n\n---\n\n")
 
         print(f"成功: {len(selected_files)} 個のファイルを '{save_path}' に統合しました。")
+
+        if delete_after:
+            for file_path in selected_files:
+                try:
+                    os.remove(file_path)
+                except Exception as e:
+                    print(f"警告: {file_path} の削除に失敗しました: {e}")
+            print("元ファイルは削除されました。")
     except Exception as error:
         print(f"エラーが発生しました: {error}")
 
@@ -71,6 +83,12 @@ def parse_args():
         help="出力先Markdownファイルパス（CLIモード時に必須）",
     )
     parser.add_argument(
+        "-d",
+        "--delete",
+        action="store_true",
+        help="統合後に元ファイルを削除する",
+    )
+    parser.add_argument(
         "files",
         nargs="*",
         help="結合するMarkdownファイル（CLIモード）",
@@ -83,6 +101,7 @@ if __name__ == "__main__":
     if args.files:
         if not args.output:
             raise SystemExit("エラー: CLIモードでは -o/--output を指定してください。")
-        merge_markdown_files(file_paths=args.files, output_path=args.output)
+        merge_markdown_files(file_paths=args.files, output_path=args.output, delete_after=args.delete)
     else:
+        # GUI mode cannot use delete
         merge_markdown_files()
