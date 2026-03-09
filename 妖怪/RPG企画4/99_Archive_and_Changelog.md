@@ -30,6 +30,11 @@
 - **変更理由:** 日常的なロスト・プレッシャーが強すぎ、育成への投資を抑制する。
 - **採用版:** 完全ロスト（極大代受苦）は `Is_Destiny_Battle` フラグが立つボス戦のみで解禁。通常は「過熱・沈黙」の循環止まり。また「星の砂」（通常修復用）と「遺骨」（キメラ専用素材）の取得・使用経路を厳格分離して事故を防止した。
 
+### 1.5 「マヒト加入=即どこでも禁忌鍛造」案の撤回
+- **旧案:** マヒト加入直後から、野営地でもLv2（呼び継ぎ・結和神化）を即時解禁する。
+- **変更理由:** 加入報酬が一度に過剰解放され、進行上の学習曲線と探索メリハリが平坦化する。加入後の個別成長イベントの意味も薄れる。
+- **採用版:** 段階解放へ再設計。加入直後は「野営Lv1」「拠点Lv2」まで。野外Lv2は後続イベント（野鍛冶の誓い）達成後に解禁。Lv3は第4幕以降の大型神社でのみ解禁。
+
 ---
 
 ## 2. 初期フェーズの廃棄アーカイブ
@@ -122,3 +127,4 @@
  | 2026-03-08 | 企画会議（Gemini）が提示した「情念潤沢回復手段」「神写しスロット制限」「脱SF化された神託崩壊システム」「第4幕うかみNPC無限HP化」などを正式採用。関連ドキュメントにセクション追加および数式改訂を実施。 | `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md` | 
  | 2026-03-08 | 【DQ翻訳統合】提案5要素（剥落の星屑／凍結の真空／無菌の帳・血の泥沼／共鳴過熱／理の反射鏡）を正式採用。外部要素の直輸入を禁止し、本作語彙へ翻訳して実装。共鳴過熱は新規ゲージを採用せず、既存の情念・武器耐久度へ統合する方針を確定。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
  | 2026-03-08 | 【世界観・システム不整合の修復】5プロトコルを反映。`Heat` 系命名を運用仕様から除去し耐久へ統一、行者うかみ内部変数を再編、剥落の星屑を「帰還引力と天の拒絶理の衝突」として再定義。ミコトの `FIXED_GEAR` 空受け皿と八咫鏡の積層マウントを明文化。神写しを器に刻まれる不可逆傷として形代と峻別し、恣意的便利魔法の否定と神話的特異点の許容を両立させた。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md` |
+| 2026-03-09 | 会議反映。マヒト加入価値を「Lv1携帯化 + Lv2禁忌鍛造解放」に再定義し、加入直後は拠点Lv2のみ、野外Lv2は後続イベント解禁へ変更。Lv3は大型神社・第4幕条件に固定。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |

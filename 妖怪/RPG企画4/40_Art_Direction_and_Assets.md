@@ -91,6 +91,11 @@ traditional Japanese painting on Washi paper, using heavy, somber dark mineral p
 Intense glowing embers and soot smudges evoke the heat of the forge. Bound dark hair, cracked leather apron, gripping a heavy forging hammer. A portrait of masculine resilience and silent warmth.
 ```
 
+> **2026-03-09 演出追記:** マヒトの鍛造段階を視覚的に区別する。
+> - 加入直後: 携行鍛冶具（小型金床、折り畳み火床、煤だらけの布）を背負わせる。
+> - 拠点Lv2解禁後: 大金床、火花量、鉄屑の散乱を増やし「禁忌鍛造」の重量感を出す。
+> - 野外Lv2解禁後: 野営地背景でも鍛造火花を許可し、拠点との差は規模と光量で表現する。
+
 ### タチバナ（反逆の生贄）
 コンセプト: 透き通るような白さと、海に濡れたような悲哀を纏う、美しき戦士。
 
@@ -340,6 +345,12 @@ Keep the scene analog and solemn, avoiding modern interface motifs.
 ### UIとシステムのアート方針
 本作におけるUIも「静止した神の理（神UI）」と「傷ついた人間の痕跡（人UI）」のコントラストで描かれる。
 金継ぎによる補修、和紙のテクスチャ、岩絵具の発色をそのままシステムグラフィックとして適用する。
+
+### 鍛造UI段階表現（Lv0〜Lv3）
+- `Lv0`: 泥色の布と砥石のみ。火花はほぼ出さない。
+- `Lv1`: 細い金継ぎ線と最小限の火花。修復成功時に細い金粉が走る。
+- `Lv2`: 鍛造音・火花・煤の演出を強化。呼び継ぎ時は武器名ノイズ明滅と同期。
+- `Lv3`: 神社背景の祈り粒子と鍛造火花を重ね、神話的錬成の到達点として演出。
 
 ### 万能スタイル変換プロンプト（画像入力用）
 ```text
