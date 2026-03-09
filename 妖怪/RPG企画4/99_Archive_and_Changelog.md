@@ -37,7 +37,12 @@
 
 ### 1.6 用語パージと概念統合
 - **対象:** 「呼び継ぎ（キメラ接合）」、`Is_Chimera` フラグ、`Remnant_Bone` などの名称。
-- **変更:** 全システムを横断して用語を「結和神化」「Is_Ketsuwashin」「情念の核（Core_of_Regret）」へ置換。UI表現はバグ明滅から金継ぎ脈動エフェクトへ。本変更は 2026-03-09 の設計会議にて決定され、全ドキュメントへ反映済み。
+- **変更:** 全システムを横断して用語を「付喪神化」「Is_Tsukumogami」「情念の核（Core_of_Regret）」へ置換。UI表現はバグ明滅から金継ぎ脈動エフェクトへ。本変更は 2026-03-09 の設計会議にて決定され、全ドキュメントへ反映済み。
+
+### 1.7 履歴証跡としての旧語保持ルール
+- **方針:** 本アーカイブは意思決定履歴を保存する目的上、過去の文脈に登場した旧語（例: キメラ、結和神）は履歴行に限って保持する。
+- **運用:** 旧語を含む履歴は「廃棄済み概念の証跡」として扱い、現行仕様として再利用しない。
+- **優先正本:** 実装判断は常に `20_Game_Systems_and_Flow.md` と `30_Data_and_Logic_Architecture.md` の現行語彙（付喪神化）を優先する。
 
 ---
 
@@ -133,3 +138,4 @@
  | 2026-03-08 | 【世界観・システム不整合の修復】5プロトコルを反映。`Heat` 系命名を運用仕様から除去し耐久へ統一、行者うかみ内部変数を再編、剥落の星屑を「帰還引力と天の拒絶理の衝突」として再定義。ミコトの `FIXED_GEAR` 空受け皿と八咫鏡の積層マウントを明文化。神写しを器に刻まれる不可逆傷として形代と峻別し、恣意的便利魔法の否定と神話的特異点の許容を両立させた。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md` |
 | 2026-03-09 | 会議反映。マヒト加入価値を「Lv1携帯化 + Lv2禁忌鍛造解放」に再定義し、加入直後は拠点Lv2のみ、野外Lv2は後続イベント解禁へ変更。第2幕中盤に白堊の回廊で白化神の防壁が立ちはだかる事件を設定し、完璧な見切りを破るための「付喪神の覚醒と継承」システムを導入。この区間は意図的な過負荷イベントであり、一度の突破で敗北感と宿題が残り、マヒトとの出会いをより鮮烈にする。レベル2はキメラではなく美しい呪い・付喪神として再設計。武器に黄金の脈が脈打つ演出ガイド追加。共通ドキュメントに関連する修正を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | 構造矛盾・用語パージ修正。時系列と地理導線の再構築、結和神化概念への統合、八咫鏡スロット問題の解決、境界状態空殻ロジック修正を実施。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-09 | 【改訂指令反映】武器修復サイクルを再構築。通常代受苦（過熱・沈黙循環）と、付喪神化済み武器限定の極大代受苦を分離。極大代受苦の結果を「情念の核」生成と別ベース武器への継承へ一本化。うかみ離脱時の防衛術式「法螺の遺響」強制習得、特技マトリクスの非同期解消（泥繭の眠り・言継ぎ・自傷・土偶・執着の修復）を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
