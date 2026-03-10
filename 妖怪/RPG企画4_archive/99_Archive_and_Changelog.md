@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/01_Worldbuilding/WRD-99_Archive_and_Changelog.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - 99 Archive and Changelog (廃棄案と変更履歴)
 
 本ドキュメントはプロジェクトの「不採用決定の記録集」である。ここに記録された要素はすべて「能動的な設計判断として採用しないことが決まった」ものであり、過去に戻る際の参照点とプロジェクトの意志決定の証として保存する。

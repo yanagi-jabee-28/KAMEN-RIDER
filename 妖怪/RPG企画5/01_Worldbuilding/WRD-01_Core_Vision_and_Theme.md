@@ -1,7 +1,7 @@
 ---
 uid: [WRD-01]
 role: core-vision
-status: migrating
+status: active
 depends_on:
 	- ../00_Governance/ARC-00_Implementation_Charter.md
 	- ../00_Governance/ARC-01_UID_Registry.md

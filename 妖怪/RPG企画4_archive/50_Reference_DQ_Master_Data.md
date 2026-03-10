@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/05_References/REF-50_Reference_DQ_Master_Data.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - ドラゴンクエストシリーズ 呪文・特技・パッシブ・装備品完全大典（統合版）
 
 提供された全てのソースファイルを精査し、呪文・特技に加え、武器・防具・アクセサリー・アイテム等の全情報を100%保持しつつ再構築した「Zero-Loss」の完全版リファレンスです。

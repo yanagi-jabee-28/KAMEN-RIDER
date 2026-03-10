@@ -1,7 +1,7 @@
 ---
 uid: [SYS-30]
 role: data-and-logic
-status: migrating
+status: active
 depends_on:
   - SYS-20_Game_Systems_and_Flow.md
   - ../01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md

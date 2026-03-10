@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/02_Narrative/NAR-10_Narrative_and_Characters.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - 10 Narrative and Characters (物語と人物) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本作の物語は単なる背景ではなく、「敵の完璧な予測アルゴリズムを狂わせるノイズ」としての役割を持つ。すべてのキャラクターのトラウマや欠損、および装備の設定は、ゲームシステムと完全に連動していなければならない。

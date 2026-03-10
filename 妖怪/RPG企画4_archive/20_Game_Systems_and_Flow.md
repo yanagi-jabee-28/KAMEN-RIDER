@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/03_Systems/SYS-20_Game_Systems_and_Flow.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - 20 Game Systems and Flow (メカニクスとUX) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本ドキュメントはDesigner/Engineer向けの「プレイヤー体験」定義書である。「なぜこのシステムが存在するか」という設計思想と、プレイヤーが一連の冒険を通じてたどる体験フローを一体で記述する。数値定義は `30_Data_and_Logic_Architecture.md` を参照すること。

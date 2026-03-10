@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/04_Art/ART-40_Art_Direction_and_Assets.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - 40 Art Direction and Assets (アートと演出) 〜天降（あまくだ）る御子と、星屑の大地〜
 
 本ドキュメントはArtist/AIプロンプター向けの「画風憲法」と「プロンプト集」を一体化した正本である。

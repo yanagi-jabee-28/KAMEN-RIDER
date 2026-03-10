@@ -1,7 +1,7 @@
 ---
 uid: [SYS-20]
 role: systems-and-flow
-status: migrating
+status: active
 depends_on:
   - SYS-30_Data_and_Logic_Architecture.md
   - ../01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md

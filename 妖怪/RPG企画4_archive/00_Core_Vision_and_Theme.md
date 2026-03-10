@@ -1,3 +1,10 @@
+---
+archive: true
+status: frozen
+migrated_to: "../RPG企画5/01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md"
+note: "2026-03-11 時点でRPG企画5へ完全移行済み。以降編集禁止。"
+---
+
 # RPG企画4 - 00 Core Vision and Theme (思想と基盤)
 
 本作の開発におけるすべての仕様、美術、物語、数値調整の善悪を判定するための「不変の憲法（マスターピッチ）」である。開発メンバーは迷いが生じた際、必ず本ドキュメントの原則に立ち返ること。

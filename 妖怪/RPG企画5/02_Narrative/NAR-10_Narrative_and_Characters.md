@@ -1,7 +1,7 @@
 ---
 uid: [NAR-10]
 role: narrative-and-characters
-status: migrating
+status: active
 depends_on:
   - ../01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md
   - ../03_Systems/SYS-20_Game_Systems_and_Flow.md

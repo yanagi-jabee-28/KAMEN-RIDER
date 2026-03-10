@@ -1,7 +1,7 @@
 ---
 uid: [ART-40]
 role: art-direction
-status: migrating
+status: active
 depends_on:
 	- ../01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md
 	- ../02_Narrative/NAR-10_Narrative_and_Characters.md
