@@ -433,9 +433,6 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `STERILE_CURTAIN_UNLOCKED` | 無菌の帳を展開する敵位相が解放 | 
 | `BLOOD_MUDPIT_UNLOCKED` | 血の泥沼位相が解放 | 
 
-> **補足:** キャラクターとスキルのマスター情報はそれぞれ `RPG/data/characters.yaml` および `RPG/data/skills.yaml` に完全にデータ化されており、全名・説明・メタ情報を保持している。編集時はそちらを直接更新すること。
-
-
 ### Forced_Inheritance_Rule_Master（葛城山継承の固定習得）
 ```yaml
 TriggerFlag: UKAMI_LEFT_KATSURAGI
