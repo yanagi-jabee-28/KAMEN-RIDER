@@ -1,0 +1,19 @@
+characters:
+  - id: char_mikoto
+    display_name: ミコト
+    role: 主人公
+    first_act: 1
+    domains: [ground, yomi, tokoyo]
+    fixed_gear: [gear_fixed_gauntlet_socket]
+  - id: char_ukami
+    display_name: うかみ
+    role: 行者
+    first_act: 1
+    domains: [yomi, tokoyo]
+    fixed_gear: [gear_beat_gauntlet]
+  - id: char_mahito
+    display_name: マヒト
+    role: 鍛冶師
+    first_act: 2
+    domains: [ground, yomi, tokoyo]
+    fixed_gear: []

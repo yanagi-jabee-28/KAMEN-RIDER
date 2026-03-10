@@ -1,0 +1,13 @@
+levels:
+  camp:
+    default: 0
+    joined_act2: 1
+    field_lv2_unlocked: 2
+  base:
+    default: 1
+    joined_act2: 2
+    shrine_lv3_unlocked: 3
+constraints:
+  can_use_kintsugi_min_level: 1
+  can_use_tsukumogami_min_level: 2
+  can_use_mythic_forging_min_level: 3

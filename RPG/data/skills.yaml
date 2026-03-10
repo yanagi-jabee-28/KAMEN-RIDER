@@ -1,0 +1,22 @@
+skills:
+  - id: skill_hora_no_iyou
+    display_name: 法螺の遺響
+    owner_id: char_mikoto
+    cost_kakkon: 0
+    cost_jonetsu: 15
+    durability_cost: 5
+    tags: [defense, inheritance]
+  - id: skill_shin_utsushi
+    display_name: 神写し
+    owner_id: char_mikoto
+    cost_kakkon: 0
+    cost_jonetsu: 20
+    durability_cost: 0
+    tags: [core, copy]
+  - id: skill_kaji_no_ikazuchi
+    display_name: 鍛冶の雷槌
+    owner_id: char_mahito
+    cost_kakkon: 0
+    cost_jonetsu: 18
+    durability_cost: 12
+    tags: [attack, forge]

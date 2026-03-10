@@ -1,0 +1,1 @@
+{"title": "アシブネノミコト 〜天降る御子と、星屑の大地〜", "acts": [{"id": "act_1", "label": "胎"}, {"id": "act_2", "label": "融"}, {"id": "act_3", "label": "熾"}, {"id": "act_4", "label": "結"}, {"id": "act_5", "label": "還"}], "resources": {"max_kakkon": 100, "max_jonetsu": 100, "cost_mult_min": 1.5, "cost_mult_max": 2.0}}
