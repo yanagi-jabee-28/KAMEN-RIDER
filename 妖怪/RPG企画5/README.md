@@ -1,0 +1,51 @@
+---
+uid: [ARC-INDEX]
+project_code: RPG企画5
+title: アシブネノミコト 〜天降る御子と、星屑の大地〜
+status: draft
+owner: Architecture Guardian
+depends_on:
+  - 00_Governance/ARC-00_Implementation_Charter.md
+influences:
+  - 01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md
+  - 02_Narrative/NAR-10_Narrative_and_Characters.md
+  - 03_Systems/SYS-20_Game_Systems_and_Flow.md
+  - 03_Systems/SYS-30_Data_and_Logic_Architecture.md
+  - 04_Art/ART-40_Art_Direction_and_Assets.md
+  - 05_References/REF-50_Reference_DQ_Master_Data.md
+---
+
+# RPG企画5
+
+本ディレクトリは、RPG企画4の知見を継承しつつ、以下を初期条件として再構築した新世代プロジェクトである。
+
+> 運用宣言（2026-03-11）: `妖怪/RPG企画5` を唯一の編集先とする。`妖怪/RPG企画4` は参照専用で運用する。
+
+- [ARC-00]: 変更時は必ず影響範囲分析を先に行う。
+- [ARC-01]: すべての正本ドキュメントにUID、depends_on、influencesを必須化する。
+- [WRD-01]: SF語彙を禁止し、神話語彙へ統一する。
+
+## ディレクトリ構造
+
+- `00_Governance/`: 実装思想、UID台帳、運用ルール。
+- `01_Worldbuilding/`: コア思想、世界観、アーカイブ。
+- `02_Narrative/`: 物語設計、人物設計、幕構造。
+- `03_Systems/`: 体験設計、数理設計。
+- `04_Art/`: ビジュアル設計、演出。
+- `05_References/`: 外部参照資料。
+
+## RPG企画4からの移行マップ
+
+- `妖怪/RPG企画4/00_Core_Vision_and_Theme.md` -> `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`
+- `妖怪/RPG企画4/10_Narrative_and_Characters.md` -> `02_Narrative/NAR-10_Narrative_and_Characters.md`
+- `妖怪/RPG企画4/20_Game_Systems_and_Flow.md` -> `03_Systems/SYS-20_Game_Systems_and_Flow.md`
+- `妖怪/RPG企画4/30_Data_and_Logic_Architecture.md` -> `03_Systems/SYS-30_Data_and_Logic_Architecture.md`
+- `妖怪/RPG企画4/40_Art_Direction_and_Assets.md` -> `04_Art/ART-40_Art_Direction_and_Assets.md`
+- `妖怪/RPG企画4/50_Reference_DQ_Master_Data.md` -> `05_References/REF-50_Reference_DQ_Master_Data.md`
+- `妖怪/RPG企画4/99_Archive_and_Changelog.md` -> `01_Worldbuilding/WRD-99_Archive_and_Changelog.md`
+
+## 移行方式
+
+- 方針: 再編集優先（重複削減・語彙統一・依存関係正規化）
+- 優先順: `SYS-30` -> `SYS-20` -> `WRD-01` -> `NAR-10` -> `ART-40` -> `REF-50` -> `WRD-99`
+- 凍結対象: `妖怪/RPG企画4`（参照専用）
