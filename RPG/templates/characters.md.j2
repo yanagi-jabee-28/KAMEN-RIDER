@@ -1,6 +1,0 @@
-# Characters (Generated)
-
-| id | name | role | first_act | domains |
-| --- | --- | --- | --- | --- |
-{% for c in characters %}| {{ c.id }} | {{ c.display_name }} | {{ c.role }} | {{ c.first_act }} | {{ ", ".join(c.domains) }} |
-{% endfor %}

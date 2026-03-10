@@ -1,1 +1,0 @@
-{"rules": {"shigurui": {"expression": "kakkon <= 0 and jonetsu > 0", "notes": "物理無効、行動ごとに情念を消費"}, "karakara": {"expression": "kakkon > 0 and jonetsu <= 0", "notes": "スキル使用不可、回避率0"}, "dead": {"expression": "(kakkon <= 0 and jonetsu <= 0) or (kakkon <= 0 and anchor_count == 0)", "notes": "泥への還り"}}, "legacy_terms": ["キメラ", "結和神"]}
