@@ -34,6 +34,20 @@ influences:
 - `04_Art/`: ビジュアル設計、演出。
 - `05_References/`: 外部参照資料。
 
+## ドキュメント一覧
+
+UID | パス | ステータス | 説明
+---|---|---|---
+ARC-00 | 00_Governance/ARC-00_Implementation_Charter.md | active | Architecture Guardian 実装憲章（運用ルール）
+ARC-01 | 00_Governance/ARC-01_UID_Registry.md | active | UID 台帳（UID と命名規則）
+WRD-01 | 01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md | active | 世界観・コアビジョン
+WRD-99 | 01_Worldbuilding/WRD-99_Archive_and_Changelog.md | active | 廃棄案・変更履歴とアーカイブ
+NAR-10 | 02_Narrative/NAR-10_Narrative_and_Characters.md | active | 物語・登場人物設計
+SYS-20 | 03_Systems/SYS-20_Game_Systems_and_Flow.md | active | ゲームシステムと体験フロー
+SYS-30 | 03_Systems/SYS-30_Data_and_Logic_Architecture.md | active | データ・論理アーキテクチャ（数値定義）
+ART-40 | 04_Art/ART-40_Art_Direction_and_Assets.md | active | アート指針・プロンプト集
+REF-50 | 05_References/REF-50_Reference_DQ_Master_Data.md | reference-only | 外部参照資料（RPG4 ドラクエデータ）
+
 ## RPG企画4からの移行マップ
 
 - `妖怪/RPG企画4/00_Core_Vision_and_Theme.md` -> `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`
