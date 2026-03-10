@@ -44,6 +44,11 @@
 - **運用:** 旧語を含む履歴は「廃棄済み概念の証跡」として扱い、現行仕様として再利用しない。
 - **優先正本:** 実装判断は常に `20_Game_Systems_and_Flow.md` と `30_Data_and_Logic_Architecture.md` の現行語彙（付喪神化）を優先する。
 
+### 1.8 幕タイトル無し→抽象サブタイトル構造採用
+- **旧案:** 章名を付けずに幕番号のみで管理し、プレイヤー体験や開発内部の共通言語に具体性が欠けていた。
+- **変更理由:** 各幕の位相感覚やビジュアル指針が曖昧となり、アート／システム設計の方向性がぶれやすかった。
+- **採用版:** 柳原さん提案の「胎/融/熾/結/還」サブタイトル構成を正式採用し、すべての関連ドキュメントに体験手触りを反映させた。これにより古い「無題」案は正式にアーカイブ扱いとする。
+
 ---
 
 ## 2. 初期フェーズの廃棄アーカイブ
@@ -138,6 +143,7 @@
  | 2026-03-08 | 【世界観・システム不整合の修復】5プロトコルを反映。`Heat` 系命名を運用仕様から除去し耐久へ統一、行者うかみ内部変数を再編、剥落の星屑を「帰還引力と天の拒絶理の衝突」として再定義。ミコトの `FIXED_GEAR` 空受け皿と八咫鏡の積層マウントを明文化。神写しを器に刻まれる不可逆傷として形代と峻別し、恣意的便利魔法の否定と神話的特異点の許容を両立させた。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md` |
 | 2026-03-09 | 会議反映。マヒト加入価値を「Lv1携帯化 + Lv2禁忌鍛造解放」に再定義し、加入直後は拠点Lv2のみ、野外Lv2は後続イベント解禁へ変更。第2幕中盤に白堊の回廊で白化神の防壁が立ちはだかる事件を設定し、完璧な見切りを破るための「付喪神の覚醒と継承」システムを導入。この区間は意図的な過負荷イベントであり、一度の突破で敗北感と宿題が残り、マヒトとの出会いをより鮮烈にする。レベル2はキメラではなく美しい呪い・付喪神として再設計。武器に黄金の脈が脈打つ演出ガイド追加。共通ドキュメントに関連する修正を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | 構造矛盾・用語パージ修正。時系列と地理導線の再構築、結和神化概念への統合、八咫鏡スロット問題の解決、境界状態空殻ロジック修正を実施。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-10 | 幕タイトル案を受け入れ、各文書に「胎/融/熾/結/還」というサブタイトルと設計ポイントを追加。文芸的表現とエンジニアリング位相が統合される。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | セクション「D. 秘奥義」をドキュメントから削除し、アイデア段階の内容をアーカイブへ移動。特殊敵「剥落の星屑」の詳細は実装ドキュメントへ譲り、重複節を削除。 | `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
 
 ### 保留/廃棄: 秘奥義
