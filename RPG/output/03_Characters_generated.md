@@ -1,4 +1,5 @@
 # Characters (Generated)
+
 | id | name | role | first_act | domains |
 | --- | --- | --- | --- | --- |
 | char_mikoto | ミコト | 主人公 | 1 | ground, yomi, tokoyo |
