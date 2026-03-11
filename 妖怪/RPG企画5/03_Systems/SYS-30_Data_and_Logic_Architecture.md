@@ -148,9 +148,10 @@ IF Can_Repair_Weapon THEN
 END IF
 ```
 
-- `MAHITO_JOINED_ACT2` が立った時点で「野営Lv1」「拠点Lv2」を同時解禁。
+- `MAHITO_JOINED_ACT2` が立った時点で「野営Lv1」「拠点Lv2」を同時解禁。これは、同時にカグツチ顕現イベントが終了し`KAGUTSUCHI_QUELLED`（または `KAGUTSUCHI_AWAKENED` を含む）フラグが立った瞬間である。
 - `MAHITO_FIELD_LV2_UNLOCKED` は後続イベント（野鍛冶の誓い）でのみ立てる。
 - `SHRINE_FORGE_LV3_UNLOCKED` は大型神社拡張と第4幕条件の複合解禁。
+- `KAGUTSUCHI_QUELLED` / `KAGUTSUCHI_AWAKENED` は灼熱たたら場における最初の付喪神顕現がカグツチ残滓を呼び覚まし、プレイヤーがこれを鎮魂したことで設定される。このフラグはストーリー進行及びシステム解放（Lv2解放の前提）に利用される。
 
 ### 共鳴過熱（新ゲージ非採用）
 共鳴過熱は新規リソースを持たず、`Jonetsu_Value` と `Weapon_Durability` を直接操作して表現する。
@@ -482,6 +483,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | --- | --- | 
  | `UKAMI_JOINED_EARLY` | うかみがアマでパーティ合流 | 
 | `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（分岐A/Bいずれでも成立。野営Lv1/拠点Lv2解禁） |
+ | `KAGUTSUCHI_QUELLED` | 灼熱たたら場での付喪神顕現がカグツチ残滓を呼び覚まし、プレイヤーがこれを鎮魂した瞬間に立つフラグ。Lv2解放の前提にも連動。 |
  | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊で白化神の防壁を突破（意図的な過負荷イベントの克服、レベル2探索トリガー） |
  | `MAHITO_FIELD_LV2_UNLOCKED` | マヒト個別イベント「野鍛冶の誓い」達成（野外Lv2解禁） |
  | `SHRINE_FORGE_LV3_UNLOCKED` | 大型神社の鍛造拡張完了（Lv3解禁） |
