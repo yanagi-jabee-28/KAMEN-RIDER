@@ -43,6 +43,40 @@ influences:
 シンボリックリンクではなくファイルそのものを複製するのは、
 他者に渡す際や VS Code や検索ツールから直接開きたい状況に対応するためです。
 
+**自動同期が必要な場合**
+
+ALL-files 配下の各ファイルを「個別シンボリックリンク」に差し替えることで、
+元ファイルを編集するとそのリンク先も即時に更新されるようにできます。
+以下はディレクトリごとではなく **ファイル単位で**リンクを張る例です。
+
+```powershell
+# 例: 00_Governance 内の Markdown を個別リンクに置換する
+cd '...\妖怪\RPG企画5\ALL-files'
+
+# 既存コピーを削除
+Get-ChildItem -Filter *.md | Remove-Item
+
+# 元ファイルをループしてリンク作成
+Get-ChildItem ..\00_Governance -Filter *.md | ForEach-Object {
+    $target = $_.FullName
+    $link   = Join-Path (Get-Location) $_.Name
+    New-Item -ItemType SymbolicLink -Path $link -Value $target
+}
+
+# 他のサブフォルダでも同様。
+# たとえば 01_Worldbuilding:
+# Get-ChildItem ..\01_Worldbuilding -Filter *.md | ForEach-Object { ... }
+```
+
+PowerShell の `New-Item -ItemType SymbolicLink` はファイル単位でも機能します。
+ジャンクション (`-ItemType Junction`) はディレクトリ専用のため、個別ファイル
+では上記のように `SymbolicLink` を使ってください。リンクを作成すると、
+直接編集した同じファイルが ALL-files でも反映されます。
+
+リンクは Git 管理下に含めても問題ありませんが、**リンク先が存在しないと
+無効になる**ので、クローン先でも同じディレクトリ構造が必要です。
+
+
 他のマシンへクローンした際にはまずフォルダ自体のジャンクションを再作成します：
 ```powershell
 cd '...\妖怪\RPG企画5'
