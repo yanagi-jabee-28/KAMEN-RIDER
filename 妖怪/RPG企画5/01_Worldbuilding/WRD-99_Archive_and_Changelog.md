@@ -61,6 +61,11 @@ influences:
 - **運用:** 旧語を含む履歴は「廃棄済み概念の証跡」として扱い、現行仕様として再利用しない。
 - **優先正本:** 実装判断は常に `20_Game_Systems_and_Flow.md` と `30_Data_and_Logic_Architecture.md` の現行語彙（付喪神化）を優先する。
 
+### 1.9 用語統治の再確認（2026-03-11）
+- **アーカイブ専用語:** 「キメラ（呼び継ぎ）」「結和神」は、履歴証跡として本ファイル内にのみ保持する。現行仕様書での運用語としては使用しない。
+- **現行採用語:** 「棄物（Kibutsu）」は廃止しない。付喪神が敵対化した悪性神として、世界観・敵分類・データ定義の正式語として維持する。
+- **補足:** 継承術式は技名固定を解除し「継承術式（検討中）」へ移行。スサノオ最終試練はスコアアタック記述を廃止し、活魂削り切り条件へ統一した。
+
 ### 1.8 幕タイトル無し→抽象サブタイトル構造採用
 - **旧案:** 章名を付けずに幕番号のみで管理し、プレイヤー体験や開発内部の共通言語に具体性が欠けていた。
 - **変更理由:** 各幕の位相感覚やビジュアル指針が曖昧となり、アート／システム設計の方向性がぶれやすかった。
@@ -161,6 +166,7 @@ influences:
 | 2026-03-09 | 会議反映。マヒト加入価値を「Lv1携帯化 + Lv2禁忌鍛造解放」に再定義し、加入直後は拠点Lv2のみ、野外Lv2は後続イベント解禁へ変更。第2幕中盤に白堊の回廊で白化神の防壁が立ちはだかる事件を設定し、完璧な見切りを破るための「付喪神の覚醒と継承」システムを導入。この区間は意図的な過負荷イベントであり、一度の突破で敗北感と宿題が残り、マヒトとの出会いをより鮮烈にする。レベル2はキメラではなく美しい呪い・付喪神として再設計。武器に黄金の脈が脈打つ演出ガイド追加。共通ドキュメントに関連する修正を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | 構造矛盾・用語パージ修正。時系列と地理導線の再構築、結和神化概念への統合、八咫鏡スロット問題の解決、境界状態空殻ロジック修正を実施。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-10 | 幕タイトル案を受け入れ、各文書に「胎/融/熾/結/還」というサブタイトルと設計ポイントを追加。文芸的表現とエンジニアリング位相が統合される。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-11 | 【整合性修正】スサノオ最終試練を「活魂削り切り」の正統派裏ボス戦へ統一。活魂0後本番/永続死狂い/タイムライン・スコアアタック表現を撤廃。死狂い遷移を「死狂い系パッシブ必須」に統一し、未保持時は完全なる死へ遷移。葛城山継承術式の技名指定を外し「継承術式（検討中）」へ変更。情念をゲージ制へ統一（絶対値ストック表現を撤廃）。ワカヒコの矢筒を固定装具へ再定義。旧語（キメラ/結和神/呼び継ぎ）はアーカイブ専用を再確認し、棄物を現行正式語として維持。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `00_Core_Vision_and_Theme.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | セクション「D. 秘奥義」をドキュメントから削除し、アイデア段階の内容をアーカイブへ移動。特殊敵「剥落の星屑」の詳細は実装ドキュメントへ譲り、重複節を削除。 | `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
 
 ### 保留/廃棄: 秘奥義

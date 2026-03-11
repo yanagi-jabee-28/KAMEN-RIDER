@@ -29,9 +29,8 @@ influences:
 
 1. **活魂（Kakkon_Value）**:
     - **定義**: 肉体の生命力と持久力の統合値（事象としての「器」）。主腕の振舞いや被ダメージで減算。
-2. **情念（Jonetsu_Stock / Jonetsu_Value）**:
-    - **定義**: 未練・執着のバグ燃料。従来の%ゲージではなく、**絶対値ストック**で管理される。
-      たとえば最大値を `Jonetsu_Max` として 0〜`Jonetsu_Max` の整数または段階（炎3つ等）を用いる。
+2. **情念（Jonetsu_Value）**:
+  - **定義**: 未練・執着のバグ燃料。`Jonetsu_Max` を上限とする**ゲージ値**で管理する。
       UI上はMPと同様に「残り値が減っていく」形で表示される。
     - **蓄積**: 基本ロジックは変わらず、被ダメージや味方ピンチで増加。
       ```
@@ -39,7 +38,7 @@ influences:
                            + floor(Ally_Critical_Crisis * Sync_Factor))
       ```
       消費時は `Jonetsu_new = Jonetsu_old - Cost` のようにMP同様に減算される。
-      ゲームプレイ上は「情念ストック2つだから必殺技が撃てる」と直感的に把握できる。
+      ゲームプレイ上は「必要コストを満たす残量があるか」で直感的に把握できる。
     - **回復手段（ゲーム中アクション）**:
       ```
       Jonetsu_recover_just = floor(Base_Just_Reward * Just_Action_Multiplier)
@@ -62,18 +61,18 @@ influences:
       戦闘中の入れ替えは不可。キャンプやセーブ時のみ編集。
 ### 境界状態判定ロジック (Boundary States)
 ```
-IF Kakkon_Value <= 0 AND Jonetsu_Value > 0 THEN
+IF Kakkon_Value <= 0 AND Jonetsu_Value > 0 AND Has_Shigurui_Passive == TRUE THEN
   State_Shigurui = TRUE
   // 物理ダメージ完全無効化・敵の理による予測ルート完全遮断
   // 行動順（Tick）が回ってくるごと、または行動ごとに Jonetsu_Value が固有コストで減少
 END IF
 
-IF Kakkon_Value > 0 AND Jonetsu_Gauge <= 0 THEN
+IF Kakkon_Value > 0 AND Jonetsu_Value <= 0 THEN
   State_Karakara = TRUE
   // スキル使用不可・回避率=0・被弾時確定クリティカル
 END IF
 
-IF (Kakkon_Value <= 0 AND Jonetsu_Gauge <= 0) OR (Kakkon_Value <= 0 AND Anchor_Equipped_Count == 0) THEN
+IF (Kakkon_Value <= 0 AND (Jonetsu_Value <= 0 OR Has_Shigurui_Passive == FALSE)) OR (Kakkon_Value <= 0 AND Anchor_Equipped_Count == 0) THEN
   State_Dead = TRUE // 泥への還り（完全死）
 END IF
 
@@ -170,7 +169,7 @@ END IF
 | 真実の隠匿 | `State_Truth_Obscure` | 豊玉姫が使用。情念依存技発動時にバフ状態を白初期化する。
 | 無垢なる配給 | `State_Pure_Provision` | 宇迦之御魂神が使用。味方活魂全快・情念0固定。
 | 再生停止の呪い | `State_Regeneration_Block` | 大宜都比売が付与。回復処理が完全に無効化される。
-| 死狂いの祖 | `State_Shigurui_Ancestor` | 素戔嗚尊（クリア後）用。活魂0維持状態での無軌道連撃。
+| 死狂いの祖 | `State_Shigurui_Ancestor` | 素戔嗚尊（クリア後）用。高密度連撃と予測攪乱を持つ裏ボス状態。
 | 歴史の抹消 | `State_History_Erase` | 瀬織津姫が付与。対象武器の金継ぎ履歴を一時消失。
 | 草薙の摩耗 | `State_Kusanagi_Wear` | 日本武尊が使用。攻撃時に味方武器耐久度を吸収して自身回復。
 
@@ -315,7 +314,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `SUB_ARM` | 副腕 | ノイズ具スロット。主腕が `2H` の場合は封印される。 | `1H` / `LOCKED_BY_2H` | 
  | `SHOZOKU` | 装束 | 防御衣服。傷跡が防御力(PTG)になる。 | `UNIQUE` | 
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
- | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。ミコトは初期状態から空の受け皿を保持し、葛城山以降の継承手甲が常駐する。八咫鏡は手甲上に積層される拡張マウントとして扱い、装備スロット圧縮は発生しない。 | `SLOTLESS` | 
+| `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。ミコトは初期状態から空の受け皿を保持し、葛城山以降の継承手甲が常駐する。八咫鏡は手甲上に積層される拡張マウントとして扱い、装備スロット圧縮は発生しない。ワカヒコの矢筒・予備弦束も固定装具として扱う。 | `SLOTLESS` | 
 
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |
@@ -346,14 +345,14 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | ID | 名称 | 特殊仕様 | 
  | --- | --- | --- | 
  | `Amaterasu_Core_OS` | 天照大御神 | 戦闘対象ではなく「システムフリーズ状態」管理プロセス。天岩戸解除イベントで制御。 | 
- | `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。うかみの手甲（残留応力）による特殊防御（接地/アース）イベントをトリガーする。 | 
+| `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。継承手甲に刻まれた継承術式（検討中）による一度きりの防御イベントをトリガーする。 | 
  | `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 | 
 | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。砕かれた玉座への帰還引力と天の拒絶理が衝突し、特殊HP減算（暴走散逸）が発生する。 | 
  | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 | 
  | `Izanagi_Crystallizer` | 伊邪那岐命 | 大いなる悲哀と完璧な拒絶の体現。UI予測は完璧であり、情動による「揺らぎ」を最も排除した究極の学習型AI（Lv2.5）。 | 
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Tsukumogami_Awakening_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
  | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 | 
- | `Boss_Susanoo` | スサノオ | 活魂ゼロではなく `Timeline_Compression_Score` が勝利条件のスコアアタック制。 | 
+| `Boss_Susanoo` | スサノオ | 高耐久・高火力の正統派裏ボス。勝利条件は `Boss_HP <= 0` のみ。 | 
 | `Hakuraku_Stardust` | 剥落の星屑 | 高減衰・高回避・帰還Tick持ち。短期撃破時に星砂報酬が増える。 |
 
 ### Enemy_Behavior_Tag
@@ -462,7 +461,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `AMENO_IWATOWAKE_FORCED_REBOOT` | 神器とカガセオの駆動片で天岩戸を強制リブート | 
  | `ETERNITY_REJECTED_DEATH_IMPLEMENTED` | 別天津神を破り、ただの人間としての死を受け入れた（エンディング） | 
  | `GYOJAGAESHI_CLEARED` | クリア後「行者還し」完了。うかみを完全フリーメンバー化。 | 
- | `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオのタイムライン試練完了 | 
+| `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオ撃破（活魂削り切り）完了 | 
 | `STERILE_CURTAIN_UNLOCKED` | 無菌の帳を展開する敵位相が解放 | 
 | `BLOOD_MUDPIT_UNLOCKED` | 血の泥沼位相が解放 | 
 
@@ -470,8 +469,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 ```yaml
 TriggerFlag: UKAMI_LEFT_KATSURAGI
 TargetCharacter: MIKOTO
-ForcedSkillId: HORA_NO_IKYO
-ForcedSkillName: 法螺の遺響
+ForcedSkillId: INHERITED_ARTS_PENDING
+ForcedSkillName: 継承術式（検討中）
 UnderstandLevel: 100
 PermanentLearned: true
 CanUnequipFromShinUtsushiSlot: false

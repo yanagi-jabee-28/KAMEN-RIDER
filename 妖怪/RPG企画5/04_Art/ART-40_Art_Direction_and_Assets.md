@@ -267,6 +267,7 @@ A sleek, elegant armor piece with articulated iron fingers and a subtly hammered
 ```
 
 ### ワカヒコの天上弓と靭
+> *システム注釈: 靭（矢筒）と予備の弦束は「固定装具」扱いで、副腕スロットを占有しない。*
 ```text
 Prompt:
 masterpiece, a breathtaking still-life of a massive, elegantly curved asymmetrical Japanese longbow (Wa-kyu) and a beautiful quiver.
