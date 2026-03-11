@@ -236,6 +236,7 @@ The blade is broken into three distinct segments, yet powerfully fused back toge
 ```
 
 ### 八咫鏡（Yata no Kagami）
+演出注記: 赤いスカーフは鏡の素材ではなく、完成した青銅鏡を磨くための儀式具として扱う。磨き動作の反復で、スカーフに宿った仲間の想いが鏡面へ移る。
 ```text
 Prompt:
 masterpiece, a single, newly cast solid bronze disc-mirror resting on raw, textured Washi paper.
@@ -310,7 +311,7 @@ Cold, austere brushwork captures the dizzying height and arrogant divine isolati
 ### 黄泉戸喫（ヨモツヘグイ）の儀
 ```text
 Prompt:
-masterpiece, a haunting ritual in an underground, dripping cavern, where weary survivors eat glowing, muddy offerings.
+masterpiece, a haunting ritual in an underground, dripping cavern, where ascetic Ukami alone consumes glowing muddy offerings while the main party watches in restraint.
 traditional Japanese watercolor on Washi paper.
 Uncontrolled bleeding of dark greens and black ink clash with sharp gold kintsugi outlines on cracked earthenware bowls. The faces of the living are lit by a grim, supernatural resilience.
 ```
