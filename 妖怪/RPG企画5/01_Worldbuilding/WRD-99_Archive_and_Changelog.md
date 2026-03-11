@@ -148,6 +148,11 @@ influences:
  | 2026-02-24 | 武器カテゴリ大幅拡張（双鎌・神楽面・漁網・仕込み杖・和傘等を追加） | `20_Game_Systems_and_Flow.md` | 
  | 2026-02-24 | 八咫鏡作成に「金継ぎの修復回数データ」を参照する仕様に変更 | `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md` | 
  | 2026-02-24 | Visual_Prompt_Pack V3（LUMINOUS WASHI）アートアセットの正本化 | `40_Art_Direction_and_Assets.md` | 
+ | 2026-03-12 | ARC-00 に SF/メタ用語の資料内使用例外規定を追加（ゲーム内禁止の境界線を明文化） | `00_Governance/ARC-00_Implementation_Charter.md` | 
+ | 2026-03-12 | ワカヒコスキルを改訂：アクティブ「返し矢の呪い」を追加、パッシブを「生存の足掻き」に改名 | `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md` | 
+ | 2026-03-12 | タチバナスキル「自傷・土偶」を複合型に改修（土属性攻撃+敵UIバグ転嫁） | `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md` | 
+ | 2026-03-12 | 固定装具（Fixed Gear）例を拡充：矢筒・神楽面・呪具・土偶を明記 | `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
+ | 2026-03-12 | スクナの「劇薬：必殺の毒」ペナルティを簡潔化：失敗時は猛毒状態付与のみ（物理的反動） | `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
  | 2026-02-25 | ツクヨミ戦の「偽ラスボス」構造（塔崩落→ヒルコ→凍結）を確定 | `10_Narrative_and_Characters.md`, `30_Data_and_Logic_Architecture.md` | 
  | 2026-03-05 | 赤いスカーフの焼失→退色へ変更（今ファイルに廃棄案記録） | `10_Narrative_and_Characters.md`, `99_Archive_and_Changelog.md` | 
  | 2026-03-05 | RPG企画4へのドキュメント再構築（6ファイル構成に統合） | すべてのドキュメント | 

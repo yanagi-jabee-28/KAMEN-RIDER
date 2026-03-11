@@ -19,6 +19,7 @@ import sys
 # The destination is <root>/ALL-files, because the script lives one level
 # above that directory.
 FILES = [
+    'README.md',
     '00_Governance/ARC-00_Implementation_Charter.md',
     '00_Governance/ARC-01_UID_Registry.md',
     '04_Art/ART-40_Art_Direction_and_Assets.md',
