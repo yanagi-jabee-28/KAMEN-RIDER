@@ -88,8 +88,9 @@ END IF
 3. **武器摩耗（Durability Drain）**:
     - **定義**: 独立した熱ゲージは存在せず、摩擦・負荷はすべて武器耐久度 `Weapon_Durability` の減衰として扱う。
       特技・連続攻撃・意図的負荷で発生する消耗は、常に**耐久度直接減少**へ集約される。UIは耐久度バーのみ表示する。
-    - **運用**: 技使用時に発生する「摩耗コスト」が耐久度を削り、耐久度0で『過熱・沈黙』になる。
-      その前に金継ぎで回復するか、代受苦で残値を燃料にして大ダメージを撃つかという選択は従来通り。
+    - **運用**: 技使用時に発生する「摩耗コスト」が耐久度を削り、耐久度0で武器は**破損・使用不可**になる。
+      再使用には野営地または拠点で `Lv1` 以上（金継ぎ以上）の修復実行が必須。
+      耐久が尽きる前に金継ぎで維持するか、代受苦で残値を燃料にして大ダメージを撃つかという選択は従来通り。
 
 ### 武器耐久度（Durability）モデル
 ```
@@ -133,10 +134,18 @@ Can_Use_Kintsugi = (Current_Location_Level >= 1)
 Can_Use_Tsukumogami_Awakening = (Current_Location_Level >= 2) AND Mahito_InParty
 Can_Use_Mythic_Forging = (Current_Location_Level >= 3) AND Mahito_InParty AND Act_Index >= 4
 
-Can_Use_Daijuku = (Weapon_Durability > 0)
+Can_Use_Daijuku = (Weapon_Durability > 0) AND (Weapon_Usable == TRUE)
 Can_Use_Extreme_Daijuku = Is_Destiny_Battle
   AND Can_Use_Tsukumogami_Awakening
   AND (TsukumogamiState == "Musubi" OR Is_Tsukumogami == TRUE)
+
+Can_Repair_Weapon = (Current_Location_Level >= 1)
+IF Weapon_Durability <= 0 THEN
+  Weapon_Usable = FALSE
+END IF
+IF Can_Repair_Weapon THEN
+  Weapon_Usable = TRUE
+END IF
 ```
 
 - `MAHITO_JOINED_ACT2` が立った時点で「野営Lv1」「拠点Lv2」を同時解禁。
@@ -152,7 +161,7 @@ IF Can_Trigger_ResonanceBurst THEN
   Jonetsu_Value = max(0, Jonetsu_Value - ResonanceBurst_Jonetsu_Cost)
   Damage_Mult = 1.0 + ResonanceBurst_Damage_Bonus
   Weapon_Durability = 0
-  State_SearedSilence = TRUE
+  Weapon_Usable = FALSE
 END IF
 ```
 
@@ -223,6 +232,11 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 Understand(skill, ally) += action_count * context_bonus
 context_bonus: Critical_Kakkon → x2.0 / Disadvantage_Match → x1.5
 IF Understand >= Threshold → ミコトが該当技を習得
+
+// 第4幕以降: うかみが自律NPCの場合も学習対象として扱う
+IF ally == UKAMI_GYOJA AND StoryFlag.UKAMI_RETURNED_YOMOTSU THEN
+  Understand(skill, UKAMI_GYOJA) += action_count * context_bonus
+END IF
 ```
 
 ### 神写し・形代連結補正
@@ -233,19 +247,12 @@ END IF
 ```
 
 ### 黄泉戸喫・侵食ゲージ
+> 現在ステータス: **仕様検討中**。摂取タイミング、入力導線、侵食処理の最終仕様は確定していない。
+
 ```
-// 原則: 黄泉戸喫はうかみ側イベントで処理。プレイヤー摂取は戦闘中の任意イベント時のみ許可
-// 各行動順（Tick）ごとの蓄積値（Underworldエリア限定）
-Turn_Invasion_Delta = (Damage_Taken_Sum + SelfHurt_Cost_Sum) * YomotsuInvasionThreshold
-Invasion_Value = min(Max_Invasion, Invasion_Value + Turn_Invasion_Delta)
-
-IF Invasion_Value > Warning_Threshold → 自身のTickが回ってくるたびに最大活魂（MaxKakkon）減少開始
-
-// リセット条件: プレイヤーの Yomotsu_Eat_State は永続化しない
-IF Battle_End OR Exit_From_Underworld_Area THEN
-  Yomotsu_Eat_State = FALSE
-  Invasion_Value = 0
-END IF
+// TODO(仕様検討中): 黄泉戸喫の摂取タイミングと処理方法を確定後に実装する
+// 暫定方針: 侵食ゲージ計算と解除条件は設計レビューまで確定値を持たない
+// Turn_Invasion_Delta / Yomotsu_Eat_State / Invasion_Value の更新式は保留
 ```
 
 ### フィールド位相（無菌の帳 / 血の泥沼）
@@ -272,17 +279,38 @@ Resonance_Attack_Damage = Base_Weapon_Damage * ResonanceRate
 
 ### 代受苦発動・記録遷移
 ```
-// 任意タイミングで発動可（耐久値制限なし）
-Daijuku_Trigger → State_SearedSilence = TRUE（武器を一時使用不能にする / 特大ダメージ付与）
+// 任意タイミングで発動可（使用可能武器のみ）
+Daijuku_Trigger → Weapon_Durability = 0（特大ダメージ付与 / 発動後は武器破損・使用不可）
+
 // 非自発的な耐久尽き（代受苦不使用）
-Durability_Zero_Natural → State_SearedSilence = TRUE (ダメージ特典なし / 完全な損)
+Durability_Zero_Natural → Weapon_Durability = 0（ダメージ特典なし / 武器破損・使用不可）
+
+// 破損武器の復旧
+IF Weapon_Durability <= 0 THEN
+  Weapon_Usable = FALSE
+END IF
+IF Repair_Level >= 1 THEN
+  Weapon_Usable = TRUE
+END IF
+
 // 極大代受苦（Is_Destiny_Battle かつ付喪神化済み武器限定）
 IF Can_Use_Extreme_Daijuku THEN
   Item_Instance = DELETE_PERMANENTLY
   Generate(Core_of_Regret)
 END IF
 
-// 情念の核は「別ベース武器」への継承素材としてのみ扱う
+// 付喪神化（禁忌鍛造）: 情念の核は必須条件ではない
+Tsukumogami_Awakening_Forge =
+  Can_Use_Tsukumogami_Awakening
+  AND Kintsugi_LogDensity >= TsukumogamiAwakeThreshold
+  AND Kintsugi_Material_StarSand_Count >= Required_StarSand_Count
+
+IF Tsukumogami_Awakening_Forge THEN
+  Target_Weapon.Is_Tsukumogami = TRUE
+  Target_Weapon.TsukumogamiState = "Musubi"
+END IF
+
+// 情念の核は「極大代受苦後の継承素材」として扱う（付喪神化の前提条件にはしない）
 Tsukumogami_Inheritance_Forge =
   Can_Use_Tsukumogami_Awakening
   AND Item(Core_of_Regret).Exists
@@ -335,7 +363,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | フィールド | 説明 | 
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
-| `Core_of_Regret` | 極大代受苦後の情念の核。元の武器IDと特性を保持。付喪神化専用素材（星の砂と混同させない） | 
+| `Core_of_Regret` | 極大代受苦後の情念の核。元の武器IDと特性を保持。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。付喪神武器を破壊することで必ず生成され、それを保存しておけば同じ魂を別武器に移すことが可能なため、愛着のある付喪神を何度でも用いるための鍵ともなる。 | 
  | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 
@@ -395,7 +423,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | --- | --- | --- |
  | `0` | 泥拭い | 微量耐久回復のみ、履歴定着なし |
  | `1` | 金継ぎ | 全回復、履歴定着、成長反映 |
-| `2` | 付喪神化 | 情念の核接合、付喪神覚醒 |
+| `2` | 付喪神化 | 星の砂金継ぎ履歴が閾値を超えた武器へ禁忌鍛造を行い、宿りかけた付喪神を顕現 |
  | `3` | 神話的錬成 | 神器作成、終盤限界突破 |
 
 ### Attribute_Master（属性定義）
@@ -438,7 +466,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Kintsugi_Master` | 修復素材と付与特性（被ダメ履歴参照）定義 | 
  | `Daijuku_Master` | 武器消滅時に生成する「魂のイデア」テーブル。クリア後は `Infinite_Idea_Chain` 解放。 | 
  | `Tsukumogami_Awakening_Master` | `Awaken_Threshold_LogDensity`, `Awaken_Required_Kintsugi_MaterialKinds`, `Musubi_AutoAction_Chance`, `Kibutsu_Spawn_Weight_By_Area` | 
-| `Yomotsu_Eat_Master` | 侵食ゲージ閾値、食材ID、回復反転係数、キャラ別耐性、適用範囲（うかみ既定 / プレイヤー戦闘中のみ）と解除条件 | 
+| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取タイミング、侵食ゲージ閾値、食材ID、回復反転係数、キャラ別耐性、適用範囲、解除条件を管理する。現在は仕様検討中のため確定値を持たない。 | 
  | `FastTravel_Master` | 脈継ぎ演出・移動中掛け合いセリフ管理 | 
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
 | `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |
@@ -453,12 +481,14 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | フラグ名 | 発火タイミング | 
  | --- | --- | 
  | `UKAMI_JOINED_EARLY` | うかみがアマでパーティ合流 | 
- | `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（ウカミ離脱前・ワカヒコより先行／野営Lv1/拠点Lv2解禁） |
+| `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（分岐A/Bいずれでも成立。野営Lv1/拠点Lv2解禁） |
  | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊で白化神の防壁を突破（意図的な過負荷イベントの克服、レベル2探索トリガー） |
  | `MAHITO_FIELD_LV2_UNLOCKED` | マヒト個別イベント「野鍛冶の誓い」達成（野外Lv2解禁） |
  | `SHRINE_FORGE_LV3_UNLOCKED` | 大型神社の鍛造拡張完了（Lv3解禁） |
- | `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入 | 
- | `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱（タチバナ加入後） | 
+| `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入（分岐A/Bいずれでも成立） | 
+| `ROUTE_A_ORDER_RESOLVED` | 分岐A（忘却の海食洞→灼熱たたら場）成立 | 
+| `ROUTE_B_ORDER_RESOLVED` | 分岐B（灼熱たたら場→忘却の海食洞）成立 | 
+| `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱（`MAHITO_JOINED_ACT2` と `TACHIBANA_JOINED_ACT2` の両成立後） | 
  | `WAKAHIKO_ANTAGONIST_PHASE` | ワカヒコによる執拗な追撃・対立期間 | 
  | `WAKAHIKO_JOINED_ACT3` | 天望の天守でのワカヒコ加入 | 
  | `ACT3_KAGASEO_RESONANCE` | 第3幕の一度限りのカガセオ意識による加勢イベント | 
@@ -484,6 +514,8 @@ UnderstandLevel: 100
 PermanentLearned: true
 CanUnequipFromShinUtsushiSlot: false
 ```
+
+> 注記: 「継承術式（検討中）」は開発上のプレースホルダー名称であり、仕様として現在検討中。
 
 ### Party_Area_Constraint_Master（うかみ拘束ルール）
 ```yaml
