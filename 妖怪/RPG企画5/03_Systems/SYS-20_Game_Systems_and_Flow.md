@@ -11,6 +11,8 @@ influences:
   - ../01_Worldbuilding/WRD-99_Archive_and_Changelog.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
 # [SYS-20] Game Systems and Flow
 
 本ドキュメントはRPG企画5における「プレイヤー体験」定義書である。「なぜこの仕様が存在するか」という設計思想と、プレイヤーが冒険でたどる体験フローを一体で記述する。数値定義は `SYS-30_Data_and_Logic_Architecture.md` を参照すること。

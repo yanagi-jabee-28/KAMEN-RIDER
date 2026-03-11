@@ -13,6 +13,9 @@ influences:
 	- ../01_Worldbuilding/WRD-99_Archive_and_Changelog.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
+
 # [WRD-01] Core Vision and Theme
 
 本作の開発におけるすべての仕様、美術、物語、数値調整の善悪を判定するための「不変の憲法（マスターピッチ）」である。開発メンバーは迷いが生じた際、必ず本ドキュメントの原則に立ち返ること。

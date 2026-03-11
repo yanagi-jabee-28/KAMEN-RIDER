@@ -10,6 +10,8 @@ influences:
 	- ../01_Worldbuilding/WRD-99_Archive_and_Changelog.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
 # [ART-40] Art Direction and Assets
 
 本ドキュメントはArtist/Prompt担当向けの「画風憲法」と「プロンプト集」を一体化した正本である。

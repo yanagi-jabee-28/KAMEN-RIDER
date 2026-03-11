@@ -12,6 +12,8 @@ influences:
   - ../01_Worldbuilding/WRD-99_Archive_and_Changelog.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
 # [SYS-30] Data and Logic Architecture
 
 本ドキュメントはRPG企画5における実装要件・変数定義の最上位正本である。物語的・情動的な表現は `../02_Narrative/NAR-10_Narrative_and_Characters.md` と `SYS-20_Game_Systems_and_Flow.md` に委ね、ここでは変数・フラグ・計算式を定義する。バランス数値の変更は本ファイルを唯一の更新点とすること。

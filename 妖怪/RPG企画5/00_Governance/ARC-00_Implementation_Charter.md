@@ -13,6 +13,9 @@ influences:
   - 05_References/REF-50_Reference_DQ_Master_Data.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
+
 # [ARC-00] Architecture Guardian実装憲章
 
 ## 1. 世界観厳守ルール

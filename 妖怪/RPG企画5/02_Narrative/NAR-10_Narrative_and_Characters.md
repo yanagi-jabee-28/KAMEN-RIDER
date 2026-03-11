@@ -11,6 +11,8 @@ influences:
   - ../01_Worldbuilding/WRD-99_Archive_and_Changelog.md
 ---
 
+# アシブネノミコト 〜天降る御子と、星屑の大地〜
+
 # [NAR-10] Narrative and Characters
 
 本作の物語は単なる背景ではなく、「敵の完璧な予測手順を狂わせる情念の奔流」としての役割を持つ。すべてのキャラクターのトラウマや欠損、および装備の設定は、戦闘仕様と完全に連動していなければならない。
