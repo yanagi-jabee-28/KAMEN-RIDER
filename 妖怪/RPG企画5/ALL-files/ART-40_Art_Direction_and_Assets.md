@@ -1,0 +1,1 @@
+C:/Users/kaito/Documents/GitHub/KAMEN-RIDER/妖怪/RPG企画5/04_Art/ART-40_Art_Direction_and_Assets.md

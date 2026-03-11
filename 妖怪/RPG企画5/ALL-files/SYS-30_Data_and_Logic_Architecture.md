@@ -1,0 +1,1 @@
+C:/Users/kaito/Documents/GitHub/KAMEN-RIDER/妖怪/RPG企画5/03_Systems/SYS-30_Data_and_Logic_Architecture.md

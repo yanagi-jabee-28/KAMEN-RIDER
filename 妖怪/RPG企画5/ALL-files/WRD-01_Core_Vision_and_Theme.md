@@ -1,0 +1,1 @@
+C:/Users/kaito/Documents/GitHub/KAMEN-RIDER/妖怪/RPG企画5/01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md

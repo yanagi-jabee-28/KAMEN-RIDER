@@ -1,0 +1,1 @@
+C:/Users/kaito/Documents/GitHub/KAMEN-RIDER/妖怪/RPG企画5/02_Narrative/NAR-10_Narrative_and_Characters.md

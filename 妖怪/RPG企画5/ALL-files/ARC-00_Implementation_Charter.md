@@ -1,0 +1,1 @@
+C:/Users/kaito/Documents/GitHub/KAMEN-RIDER/妖怪/RPG企画5/00_Governance/ARC-00_Implementation_Charter.md
