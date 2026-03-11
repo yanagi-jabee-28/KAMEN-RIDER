@@ -314,6 +314,8 @@ Prompt:
 masterpiece, a haunting ritual in an underground, dripping cavern, where ascetic Ukami alone consumes glowing muddy offerings while the main party watches in restraint.
 traditional Japanese watercolor on Washi paper.
 Uncontrolled bleeding of dark greens and black ink clash with sharp gold kintsugi outlines on cracked earthenware bowls. The faces of the living are lit by a grim, supernatural resilience.
+
+> 動作注記: システムはこの場面を自動介入型黄泉戸喫として扱い、プレイヤーUIに摂取コマンドは表示されない。
 ```
 
 ### 星屑の荒野（カガセオ決戦地）

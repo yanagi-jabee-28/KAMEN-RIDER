@@ -69,6 +69,12 @@ IF Kakkon_Value <= 0 AND Jonetsu_Value > 0 AND Has_Shigurui_Passive == TRUE THEN
   // 行動順（Tick）が回ってくるごと、または行動ごとに Jonetsu_Value が固有コストで減少
 END IF
 
+// 死狂い状態からの回復判定
+IF State_Shigurui == TRUE AND Kakkon_Value >= 1 THEN
+  State_Shigurui = FALSE
+  // 通常状態へ復帰
+END IF
+
 IF Kakkon_Value > 0 AND Jonetsu_Value <= 0 THEN
   State_Karakara = TRUE
   // スキル使用不可・回避率=0・被弾時確定クリティカル
@@ -149,7 +155,7 @@ END IF
 ```
 
 - `MAHITO_JOINED_ACT2` が立った時点で「野営Lv1」「拠点Lv2」を同時解禁。これは、同時にカグツチ顕現イベントが終了し`KAGUTSUCHI_QUELLED`（または `KAGUTSUCHI_AWAKENED` を含む）フラグが立った瞬間である。
-- `MAHITO_FIELD_LV2_UNLOCKED` は後続イベント（野鍛冶の誓い）でのみ立てる。
+- `MAHITO_FIELD_LV2_UNLOCKED` は第3幕タケミカヅチ戦クリア後にのみ立てる。野鍛冶の誓いイベントがこのタイミングに含まれる。
 - `SHRINE_FORGE_LV3_UNLOCKED` は大型神社拡張と第4幕条件の複合解禁。
 - `KAGUTSUCHI_QUELLED` / `KAGUTSUCHI_AWAKENED` は灼熱たたら場における最初の付喪神顕現がカグツチ残滓を呼び覚まし、プレイヤーがこれを鎮魂したことで設定される。このフラグはストーリー進行及びシステム解放（Lv2解放の前提）に利用される。
 
@@ -251,7 +257,23 @@ END IF
 > 現在ステータス: **仕様検討中**。摂取タイミング、入力導線、侵食処理の最終仕様は確定していない。
 
 ```
-// TODO(仕様検討中): 黄泉戸喫の摂取タイミングと処理方法を確定後に実装する
+// 黄泉戸喫はプレイヤー操作による摂取コマンドを持たない。
+// 代わりに Ukami_Autonomous_Eat() が内部タイマー／条件で自動呼び出され、
+// 侵食ゲージの進行を一時停止する。プレイヤーUIにYomotsuコマンドは表示されない。
+
+// サンプルロジック:
+IF CurrentLocation == "YOMOTSU" THEN
+    INVASION_GAUGE = min(Max_Invasion, INVASION_GAUGE + Invasion_Increase_Rate)
+END IF
+
+FUNCTION Ukami_Autonomous_Eat()
+    IF Ukami_Satiation > 0 AND INVASION_GAUGE > 0 THEN
+        Ukami_Satiation -= Ukami_Eat_Cost
+        INVASION_GAUGE = max(0, INVASION_GAUGE - Ukami_Eat_Cooldown)
+        // 画面演出トリガー: うかみが泥の供物を咀嚼するアニメ
+    END IF
+END FUNCTION
+
 // 暫定方針: 侵食ゲージ計算と解除条件は設計レビューまで確定値を持たない
 // Turn_Invasion_Delta / Yomotsu_Eat_State / Invasion_Value の更新式は保留
 ```
@@ -354,6 +376,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
 | `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。ミコトは初期状態から空の受け皿を保持し、葛城山以降の継承手甲が常駐する。八咫鏡は手甲上に積層される拡張マウントとして扱い、装備スロット圧縮は発生しない。ワカヒコの矢筒・予備弦束も固定装具として扱う。 | `SLOTLESS` | 
 
+> **注:** 赤いスカーフは装備スロットとは無関係の永続装飾／イベントキーとして扱う。
+
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |
  | --- | --- | --- |
@@ -383,7 +407,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | ID | 名称 | 特殊仕様 | 
  | --- | --- | --- | 
  | `Amaterasu_Core_OS` | 天照大御神 | 戦闘対象ではなく「システムフリーズ状態」管理プロセス。天岩戸解除イベントで制御。 | 
-| `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。継承手甲に刻まれた継承術式（検討中）による一度きりの防御イベントをトリガーする。 | 
+| `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。継承手甲に刻まれた猿田の破岩撃による一度きりの防御イベントをトリガーする。 | 
  | `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 | 
 | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。砕かれた玉座への帰還引力と天の拒絶理が衝突し、特殊HP減算（暴走散逸）が発生する。 | 
  | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 | 
@@ -510,14 +534,15 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 ```yaml
 TriggerFlag: UKAMI_LEFT_KATSURAGI
 TargetCharacter: MIKOTO
-ForcedSkillId: INHERITED_ARTS_PENDING
-ForcedSkillName: 継承術式（検討中）
+ForcedSkillId: INHERITED_TAKEMIKAZUCHI
+ForcedSkillName: 猿田の破岩撃
 UnderstandLevel: 100
 PermanentLearned: true
 CanUnequipFromShinUtsushiSlot: false
 ```
 
-> 注記: 「継承術式（検討中）」は開発上のプレースホルダー名称であり、仕様として現在検討中。
+> * 猿田の破岩撃は、武器耐久度に依存せず活魂・情念を大量消費して敵単体へ無属性極大物理ダメージを与える高火力ロマン技である。
+> * 追加の継承技（例：泥壁の咆哮によるヘイト固定、獣道の退路による確定逃走）は別途検討/実装予定であり、現仕様では猿田の破岩撃のみが強制習得される。
 
 ### Party_Area_Constraint_Master（うかみ拘束ルール）
 ```yaml
