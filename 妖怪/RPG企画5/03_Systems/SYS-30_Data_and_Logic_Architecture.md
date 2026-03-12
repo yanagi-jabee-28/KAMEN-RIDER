@@ -391,6 +391,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `Core_of_Regret` | 極大代受苦後の情念の核。元の武器IDと特性を保持。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。付喪神武器を破壊することで必ず生成され、それを保存しておけば同じ魂を別武器に移すことが可能なため、愛着のある付喪神を何度でも用いるための鍵ともなる。 | 
  | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
+| `Yomotsu_Mud_Fruit` | 黄泉の泥果実 | 使用効果＝`Full_Recover(Kakkon, Jonetsu)` + `Apply_State(YOMOTSU_CURSE)` |
 
 ### Item_State_Extension（武器インスタンス付加情報）
  | フィールド | 説明 | 
@@ -413,7 +414,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 | 
  | `Izanagi_Crystallizer` | 伊邪那岐命 | 大いなる悲哀と完璧な拒絶の体現。UI予測は完璧であり、情動による「揺らぎ」を最も排除した究極の学習型AI（Lv2.5）。 | 
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Tsukumogami_Awakening_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
- | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 | 
+ | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 <br> **【突入条件式】** <br> `IF (Sum(Party.MaxKakkon) >= Required_Kakkon_Gravity) AND (Sum(Party.MaxJonetsu) >= Required_Jonetsu_Gravity) THEN Allow_Battle = TRUE` | 
 | `Boss_Susanoo` | スサノオ | 高耐久・高火力の正統派裏ボス。勝利条件は `Boss_HP <= 0` のみ。 | 
 | `Hakuraku_Stardust` | 剥落の星屑 | 高減衰・高回避・帰還Tick持ち。短期撃破時に星砂報酬が増える。 |
 
@@ -465,10 +466,11 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 + | `BLIND` | 暗闇 | 命中率低下 |
 + | `DESEASE` | 幻惑 | 属性耐性低下 |
 + | `REST` | 休み | 1ターン確定行動不能 |
-+ | `CURSE` | 呪い | 装備効果無効化 |
-+ | `INSTANT_KILL` | 即死 | 条件で一撃死亡 |
-+ | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） |
-+ | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） |
+ | `CURSE` | 呪い | 装備効果無効化 | 
+ | `INSTANT_KILL` | 即死 | 条件で一撃死亡 | 
+ | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） | 
+ | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） | 
+ | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 |
 
  | Attribute_ID | 名称 | 説明 |
  | --- | --- | --- |
