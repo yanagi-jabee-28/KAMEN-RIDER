@@ -141,8 +141,7 @@ Can_Use_Tsukumogami_Awakening = (Current_Location_Level >= 2) AND Mahito_InParty
 Can_Use_Mythic_Forging = (Current_Location_Level >= 3) AND Mahito_InParty AND Act_Index >= 4
 
 Can_Use_Daijuku = (Weapon_Durability > 0) AND (Weapon_Usable == TRUE)
-Can_Use_Extreme_Daijuku = Is_Destiny_Battle
-  AND Can_Use_Tsukumogami_Awakening
+Can_Use_Extreme_Daijuku = Can_Use_Tsukumogami_Awakening
   AND (TsukumogamiState == "Musubi" OR Is_Tsukumogami == TRUE)
 
 Can_Repair_Weapon = (Current_Location_Level >= 1)
@@ -316,7 +315,7 @@ IF Repair_Level >= 1 THEN
   Weapon_Usable = TRUE
 END IF
 
-// 極大代受苦（Is_Destiny_Battle かつ付喪神化済み武器限定）
+// 極大代受苦（付喪神化済み武器のみ。全戦闘で発動可能）
 IF Can_Use_Extreme_Daijuku THEN
   Item_Instance = DELETE_PERMANENTLY
   Generate(Core_of_Regret)
