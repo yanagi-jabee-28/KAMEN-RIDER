@@ -125,15 +125,19 @@ END IF
 IF MainWeapon.Type == "1H" AND OffhandWeapon == NONE THEN
   Stance_Type = SINGLE_BLADE
   Stance_Multiplier = 1.0
-  Jonetsu_Gain_Mult = 1.2
+  Single_Blade_Grip_Mode = STANDARD_OR_MOROTE
   Mud_Intuition_Success_Mult = SINGLE_BLADE_Mud_Intuition_Success_Mult
 END IF
 
-IF MainWeapon.Type == "1H" AND OffhandWeapon.Type == "1H" THEN
+IF Character == MIKOTO AND MainWeapon.Type == "1H" AND OffhandWeapon.Type == "1H" THEN
   Stance_Type = DUAL_WIELD
   Stance_Multiplier = 1.3
   Prophecy_Scramble_Intensity = DUAL_WIELD_Scramble_Intensity
   Hakuraku_HitCount_Bonus = DUAL_WIELD_Hakuraku_HitCount_Bonus
+END IF
+
+IF Character != MIKOTO AND OffhandWeapon.Type == "1H" THEN
+  Can_Equip_OffhandWeapon = FALSE
 END IF
 
 // ワカヒコ特例: 仕込み短刀時の確定反撃状態
@@ -145,13 +149,9 @@ IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND OffhandWeap
   END IF
 END IF
 
-// スクナ特例: 二刀流時の薬師安定
-IF Character == SUKUNA AND Passive == "APOTHECARY_STABILITY" THEN
-  IF Stance_Type == DUAL_WIELD THEN
-    Stance_Multiplier = 1.25
-  END IF
-END IF
 ```
+
+- **補足:** `1H` 刀は通常一刀流として扱い、必要に応じて両手で握り込む「諸手」は `SINGLE_BLADE` の安定運用に内包する。明示的な二刀流ロジックはミコト専用。
 
 ### ワカヒコ固有パッシブ（返し矢の呪い）
 ```
@@ -466,20 +466,30 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `SUKUNA` | 石乳鉢 | 足元据え置き前提の常時携行物。 |
 | `UZU` | 神楽面 | 舞と攪乱術式の常時携行物。 |
 | `TACHIBANA` | 呪具・土偶 | 自傷転写術式の常時携行物。 |
+| `MAHITO` | 炉滓袋、鍛冶布 | 鍛造・修復演出の補助。主武器には含めない。 |
 | `WAKAHIKO` | 矢筒、予備の弦束 | 弓術補給の常時携行物。 |
 
 ### Weapon_Category_Master（武器カテゴリ統合）
 | Category_ID | 名称 | 代表武器 | 主な使用者 |
 | --- | --- | --- | --- |
-| `BLADE` | 刃 | 直刀、鉄鎌、短刀 | ミコト、マヒト、ワカヒコ |
-| `SPEAR_HALBERD` | 槍・鉾 | 長槍、石鉾、旗槍、海人銛 | ミコト、うかみ、ウズ、タチバナ |
-| `BLUNT` | 打撃 | 大槌、乳棒 | マヒト、スクナ |
-| `CHAIN` | 鎖 | 数珠鎖、鉤鎖 | うかみ、タチバナ |
-| `AXE` | 斧 | 戦鉈 | うかみ |
+| `BLADE` | 刃 | 直刀、斥候刀、舞短刀、仕込み短刀 | ミコト、うかみ、ウズ、ワカヒコ |
+| `SPEAR_HALBERD` | 槍・鉾 | 儀礼の長槍、石鉾、流木槍、海人銛 | ミコト、うかみ、タチバナ |
+| `BLUNT` | 打撃 | 流木の打ち櫂、大槌、乳棒 | タチバナ、マヒト、スクナ |
+| `GOHEI` | 大幣 | 共鳴の御幣、狂騒の荒幣、海淵の忌み幣 | ミコト、ウズ、タチバナ |
 | `STAFF` | 杖 | 錫杖 | うかみ |
 | `FAN` | 扇 | 鉄扇 | ウズ |
 | `BOW_RANGED` | 弓・遠距離 | 天上弓 | ワカヒコ |
-| `TOOL` | 絡手・道具 | 薬筒 | スクナ |
+
+### Party_Role_Definition_Master（役割正本）
+| Character_ID | 中核役割 | 主腕構成 | いると助かる局面 | 欠けると起きる破綻 |
+| --- | --- | --- | --- | --- |
+| `MIKOTO` | 共鳴の核 | 刀 / 槍 / 大幣 / 二刀流は専用特例 | 連携を束ねたい時、詰み盤面を反転したい時 | 神写しと役割間の橋渡しが切れる |
+| `UKAMI` | 野性の楔 | 斥候=刀/槍、行者=錫杖/槍/刀 | 前線維持、境界固定、敵の進軍停止 | 後衛が守られず隊列が崩れる |
+| `SUKUNA` | 劇薬師 | 乳棒のみ、薬は行動として扱う | 状態異常対処、回復、耐性剥がし | 長期戦で回復と補助が足りなくなる |
+| `MAHITO` | 武具の守護者 | 大槌 / 大やっとこ | 武器破損圧が強い戦闘、装甲剥がしが必要な戦闘 | 修復と搦め手が不足し、武具が先に尽きる |
+| `UZU` | 拍子の破壊者 | 鉄扇 / 舞短刀 / 大幣 | 行動順干渉、敵神託の破綻、場の攪乱 | 敵の確定行動を崩せず受け切れない |
+| `TACHIBANA` | 執着の打ち手 | 流木槍 / 流木の打ち櫂 / 大幣 | 自傷貫通、拘束、泥沼化した近距離戦 | 硬い敵を削り切れず押し負ける |
+| `WAKAHIKO` | 境界の狙撃手 | 天上弓 / 仕込み短刀 | 遠距離阻害、部位破壊、危機時の差し込み | ギミック解除と詠唱阻害が不足する |
 
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |
