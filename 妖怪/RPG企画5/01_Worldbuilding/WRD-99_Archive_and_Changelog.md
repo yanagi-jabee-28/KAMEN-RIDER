@@ -71,8 +71,8 @@ influences:
 ### 1.9 用語統治の再確認（2026-03-11）
 - **アーカイブ専用語:** 「キメラ（呼び継ぎ）」「結和神」は、履歴証跡として本ファイル内にのみ保持する。現行仕様書での運用語としては使用しない。
 - **現行採用語:** 「棄物（Kibutsu）」は廃止しない。付喪神が敵対化した悪性神として、世界観・敵分類・データ定義の正式語として維持する。
-- **補足:** 継承術式は技名固定を解除し「継承術式（検討中）」へ移行。スサノオ最終試練はスコアアタック記述を廃止し、活魂削り切り条件へ統一した。
-- **履歴注記:** 「法螺の遺響」は過去の検討名として本アーカイブ履歴行にのみ保持し、現行ドキュメントでは「継承術式（検討中）」へ統一する。
+- **補足（2026-03-12同期改訂）:** 継承術式の保留運用は不採用。現行仕様は **猿田の破岩撃** と **法螺の轟き** の二柱固定（同時強制習得・固定継承枠）へ確定した。
+- **履歴注記:** 「法螺の遺響」は過去の検討名として本アーカイブ履歴行にのみ保持し、現行ドキュメントでは不使用とする。
 
 ### 1.8 幕タイトル無し→抽象サブタイトル構造採用
 - **旧案:** 章名を付けずに幕番号のみで管理し、プレイヤー体験や開発内部の共通言語に具体性が欠けていた。
@@ -133,6 +133,11 @@ influences:
 
 開発の過程で生まれ、高いポテンシャルを秘めているものの、ゲームバランスや実装コストの観点から「本採用を見送って一時保留（ストック）している」アイデア群。
 
+### 3.1 不採用確定（2026-03-12同期改訂）
+- **継承術式（検討中）運用:** 不採用。現行は「猿田の破岩撃 / 法螺の轟き」の二柱固定。
+- **第2幕中盤分岐B（灼熱たたら場先行）:** 不採用。導線は「白堊の回廊 → 忘却の海食洞 → 灼熱たたら場」の単線固定。
+- **黄泉戸喫の戦闘中限定一時変調への緩和:** 不採用。現行は「黄泉の泥果実の任意使用で全回復 + 永続黄泉の呪い、解除は野営地うかみ浄化のみ」。
+
 
 
 ---
@@ -141,6 +146,7 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-12 | 【全仕様同期・正本化】葛城山継承を二柱固定（猿田の破岩撃/法螺の轟き）、第2幕を単線固定、黄泉戸喫を任意使用+永続呪いへ確定、構え三理（剛/静/乱）を確定、情念の核条件を `Is_Tsukumogami == TRUE` 破壊時に簡略化、魂の摩耗を明文化、氷属性を神の静止/人の冷却へ分割。旧案は本アーカイブへ隔離。 | `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` |
  | 2026-03-12 | 黄泉戸喫のフィールドアイテム化（全回復＋黄泉の呪い）および、うかみによる野営地浄化システムの実装。行者還しの儀への突入条件（合計活魂・情念の熱量障壁）の追加。 | `NAR-10`, `SYS-20`, `SYS-30` | 
  | 2026-02-22 | 神写しシステムを複雑な合成から「仲間特技習得」に簡略化 | `20_Game_Systems_and_Flow.md` | 
  | 2026-02-22 | 呼び継ぎ（キメラ）・秘奥義（逆流/剣塚の共鳴）を追加 | `20_Game_Systems_and_Flow.md` | 
@@ -159,7 +165,7 @@ influences:
  | 2026-03-12 | タチバナスキル「自傷・土偶」を複合型に改修（土属性攻撃+敵UIバグ転嫁） | `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md` | 
  | 2026-03-12 | 固定装具（Fixed Gear）例を拡充：矢筒・神楽面・呪具・土偶を明記 | `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
  | 2026-03-12 | スクナの「劇薬：必殺の毒」ペナルティを簡潔化：失敗時は猛毒状態付与のみ（物理的反動） | `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
- | 2026-03-12 | 【神威と情念整合修正】スクナ主武器を乳棒へ変更（重圧の杵を撤廃）、赤いスカーフを八咫鏡の磨き媒介へ再定義、情念を「戦う気力・魂」へ統一、属性相性に人側氷技の許容注記を追加、黄泉戸喫を戦闘中限定一時変調へ緩和、継承術式名称を現行本文で「継承術式（検討中）」へ統一。 | `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `04_Art/ART-40_Art_Direction_and_Assets.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` | 
+ | 2026-03-12 | 【神威と情念整合修正】スクナ主武器を乳棒へ変更（重圧の杵を撤廃）、赤いスカーフを八咫鏡の磨き媒介へ再定義、情念を「戦う気力・魂」へ統一、属性相性に人側氷技の許容注記を追加、黄泉戸喫を戦闘中限定一時変調へ緩和、継承術式名称を現行本文で「継承術式（検討中）」へ統一。※本行のうち「黄泉戸喫の緩和」「継承術式（検討中）統一」は 2026-03-12 同期改訂で不採用に確定。 | `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `04_Art/ART-40_Art_Direction_and_Assets.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` | 
  | 2026-02-25 | ツクヨミ戦の「偽ラスボス」構造（塔崩落→ヒルコ→凍結）を確定 | `10_Narrative_and_Characters.md`, `30_Data_and_Logic_Architecture.md` | 
  | 2026-03-05 | 赤いスカーフの焼失→退色へ変更（今ファイルに廃棄案記録） | `10_Narrative_and_Characters.md`, `99_Archive_and_Changelog.md` | 
  | 2026-03-05 | RPG企画4へのドキュメント再構築（6ファイル構成に統合） | すべてのドキュメント | 
@@ -181,9 +187,9 @@ influences:
 | 2026-03-09 | 会議反映。マヒト加入価値を「Lv1携帯化 + Lv2禁忌鍛造解放」に再定義し、加入直後は拠点Lv2のみ、野外Lv2は後続イベント解禁へ変更。第2幕中盤に白堊の回廊で白化神の防壁が立ちはだかる事件を設定し、完璧な見切りを破るための「付喪神の覚醒と継承」システムを導入。この区間は意図的な過負荷イベントであり、一度の突破で敗北感と宿題が残り、マヒトとの出会いをより鮮烈にする。レベル2はキメラではなく美しい呪い・付喪神として再設計。武器に黄金の脈が脈打つ演出ガイド追加。共通ドキュメントに関連する修正を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | 構造矛盾・用語パージ修正。時系列と地理導線の再構築、結和神化概念への統合、八咫鏡スロット問題の解決、境界状態空殻ロジック修正を実施。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-10 | 幕タイトル案を受け入れ、各文書に「胎/融/熾/結/還」というサブタイトルと設計ポイントを追加。文芸的表現とエンジニアリング位相が統合される。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
-| 2026-03-11 | 【整合性修正】スサノオ最終試練を「活魂削り切り」の正統派裏ボス戦へ統一。活魂0後本番/永続死狂い/タイムライン・スコアアタック表現を撤廃。死狂い遷移を「死狂い系パッシブ必須」に統一し、未保持時は完全なる死へ遷移。葛城山継承術式の技名指定を外し「継承術式（検討中）」へ変更。情念をゲージ制へ統一（絶対値ストック表現を撤廃）。ワカヒコの矢筒を固定装具へ再定義。旧語（キメラ/結和神/呼び継ぎ）はアーカイブ専用を再確認し、棄物を現行正式語として維持。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `00_Core_Vision_and_Theme.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-11 | 【整合性修正】スサノオ最終試練を「活魂削り切り」の正統派裏ボス戦へ統一。活魂0後本番/永続死狂い/タイムライン・スコアアタック表現を撤廃。死狂い遷移を「死狂い系パッシブ必須」に統一し、未保持時は完全なる死へ遷移。葛城山継承術式の技名指定を外し「継承術式（検討中）」へ変更。情念をゲージ制へ統一（絶対値ストック表現を撤廃）。ワカヒコの矢筒を固定装具へ再定義。旧語（キメラ/結和神/呼び継ぎ）はアーカイブ専用を再確認し、棄物を現行正式語として維持。※継承術式の保留運用は 2026-03-12 同期改訂で不採用。 | `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `00_Core_Vision_and_Theme.md`, `99_Archive_and_Changelog.md` |
 | 2026-03-09 | セクション「D. 秘奥義」をドキュメントから削除し、アイデア段階の内容をアーカイブへ移動。特殊敵「剥落の星屑」の詳細は実装ドキュメントへ譲り、重複節を削除。 | `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `99_Archive_and_Changelog.md` |
 
 ### 保留/廃棄: 秘奥義
 本来、「逆流・代受身（最大HPを1に落とし行動順高速化＋確定クリティカル）」や「剣塚の共鳴」「八岐の抱擁」など、極限リスクと交換に得られる超越技を指す概念として検討されていた。2026‑03‑09時点ではシステム化が未成熟であり、戦闘フローの複雑化を招くため暫定的にアイデアプールへ移行。将来的な再検討・実装は別途議論する。
-| 2026-03-09 | 【改訂指令反映】武器修復サイクルを再構築。通常代受苦（過熱・沈黙循環）と、付喪神化済み武器限定の極大代受苦を分離。極大代受苦の結果を「情念の核」生成と別ベース武器への継承へ一本化。うかみ離脱時の防衛術式「法螺の遺響」強制習得、特技マトリクスの非同期解消（泥繭の眠り・言継ぎ・自傷・土偶・執着の修復）を実施。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-09 | 【改訂指令反映】武器修復サイクルを再構築。通常代受苦（過熱・沈黙循環）と、付喪神化済み武器限定の極大代受苦を分離。極大代受苦の結果を「情念の核」生成と別ベース武器への継承へ一本化。うかみ離脱時の防衛術式「法螺の遺響」強制習得、特技マトリクスの非同期解消（泥繭の眠り・言継ぎ・自傷・土偶・執着の修復）を実施。※「法螺の遺響」は後に不採用、現行は「法螺の轟き」。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |

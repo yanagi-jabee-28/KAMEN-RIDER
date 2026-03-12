@@ -107,12 +107,49 @@ Durability_new = max(0, Durability_old - (
 ))
 ```
 - `Stance_Multiplier`: 
-    - 2H（主腕のみ）: **1.0**
-    - 1H + 副腕なし: **1.0**
-    - 1H + 副腕（訓練者: うかみ、タチバナ等）: **1.0**
-    - 1H + 副腕（非訓練者: ミコト、スクナ等）: **1.2**（「構えの摩擦（Stance Friction）」による増加）
+    - **剛の理（2H）**: **1.0**
+    - **静の理（1H + 副腕空き/支援具のみ）**: **1.1**
+    - **乱の理（1H + 1H）**: **1.3〜1.5**（武器種×熟練度で可変）
 - `Intentional_Cost`: プレイヤーが任意に支払う自傷（活魂）・情念放出コスト。神の計算ノイズの源泉。
 - **Tsukumogami_Awakening_Penalty**: 付喪神化武器は耐久減少係数が **1.5〜3.0倍** に跳ね上がる（強力だが即消耗する）。
+
+### 構えの理（Stance Logic）
+```
+IF MainWeapon.Type == "2H" THEN
+  Stance_Type = GO
+  Stance_Multiplier = 1.0
+  PTG_Penetration_Rate = GO_PTG_Penetration_Rate  // 剛: 敵装甲を一定割合無視
+  Counter_Stability_Bonus = GO_Counter_Stability_Bonus
+END IF
+
+IF MainWeapon.Type == "1H" AND (SubArm.Weapon == NONE OR SubArm.Kind == SUPPORT_ONLY) THEN
+  Stance_Type = SEI
+  Stance_Multiplier = 1.1
+  Jonetsu_Gain_Mult = 1.2
+  Mud_Intuition_Success_Mult = SEI_Mud_Intuition_Success_Mult  // ジャスト防御/回避成功率補正
+END IF
+
+IF MainWeapon.Type == "1H" AND SubArm.Weapon.Type == "1H" THEN
+  Stance_Type = RAN
+  Stance_Multiplier = LERP(1.3, 1.5, DualWield_Proficiency)
+  Prophecy_Scramble_Intensity = RAN_Scramble_Intensity  // 神託予測線を乱す強度
+  Hakuraku_HitCount_Bonus = RAN_Hakuraku_HitCount_Bonus
+END IF
+
+// ワカヒコ特例: 仕込み短刀 + 副腕空きで精密機動状態
+IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND SubArm.Weapon == NONE THEN
+  State_Precision_Mobility = TRUE
+  Evasion_Rate += WAKAHIKO_Precision_Evasion_Bonus
+  Counter_Proc_Rate += WAKAHIKO_Survival_Scramble_Counter_Bonus  // 生存の足掻き
+END IF
+
+// スクナ特例: 固定装具「石乳鉢」据え置き時は副腕ペナルティを緩和
+IF Character == SUKUNA AND FixedGear == "STONE_MORTAR" AND Passive == "APOTHECARY_STABILITY" THEN
+  IF Stance_Type == RAN THEN
+    Stance_Multiplier = max(1.05, Stance_Multiplier - 0.25)
+  END IF
+END IF
+```
 
 ### 武器メンテナンス段階ロジック（Maintenance Tier）
 マヒト加入前後で「何がどこで実行できるか」を厳密に制御する。
@@ -252,29 +289,34 @@ IF Mikoto_FixedGear_Gauntlet_Equipped AND Katashiro_Equipped_Count > 0 THEN
 END IF
 ```
 
-### 黄泉戸喫・侵食ゲージ
-> 現在ステータス: **仕様検討中**。摂取タイミング、入力導線、侵食処理の最終仕様は確定していない。
-
+### 黄泉戸喫・黄泉の呪い（確定仕様）
 ```
-// 黄泉戸喫はプレイヤー操作による摂取コマンドを持たない。
-// 代わりに Ukami_Autonomous_Eat() が内部タイマー／条件で自動呼び出され、
-// 侵食ゲージの進行を一時停止する。プレイヤーUIにYomotsuコマンドは表示されない。
-
-// サンプルロジック:
-IF CurrentLocation == "YOMOTSU" THEN
-    INVASION_GAUGE = min(Max_Invasion, INVASION_GAUGE + Invasion_Increase_Rate)
+// 発動導線: フィールドアイテム「黄泉の泥果実」の任意使用
+IF Use_Item == Yomotsu_Mud_Fruit THEN
+  Kakkon_Value = Kakkon_Max
+  Jonetsu_Value = Jonetsu_Max
+  Apply_State(YOMOTSU_CURSE)
 END IF
 
-FUNCTION Ukami_Autonomous_Eat()
-    IF Ukami_Satiation > 0 AND INVASION_GAUGE > 0 THEN
-        Ukami_Satiation -= Ukami_Eat_Cost
-        INVASION_GAUGE = max(0, INVASION_GAUGE - Ukami_Eat_Cooldown)
-        // 画面演出トリガー: うかみが泥の供物を咀嚼するアニメ
-    END IF
-END FUNCTION
+// 黄泉の呪い: 永続デバフ
+IF State_Yomotsu_Curse == TRUE THEN
+  MaxKakkon = max(Min_MaxKakkon_Floor, floor(MaxKakkon * Yomotsu_MaxKakkon_Decay_Mult))
+  Disable_Standard_Recovery = TRUE  // 通常アイテム・通常休息回復を無効化
+END IF
 
-// 暫定方針: 侵食ゲージ計算と解除条件は設計レビューまで確定値を持たない
-// Turn_Invasion_Delta / Yomotsu_Eat_State / Invasion_Value の更新式は保留
+// 解除手段: 野営地の行者うかみのみ
+IF CurrentContext == CAMP AND NPC == UKAMI_GYOJA AND Command == "Ukami_Camp_Purification" THEN
+  Remove_State(YOMOTSU_CURSE)
+  Disable_Standard_Recovery = FALSE
+END IF
+
+// 補足: うかみの自律摂取は侵食ゲージ遅延の内部処理であり、上記呪い仕様とは別系統
+FUNCTION Ukami_Autonomous_Eat()
+  IF Ukami_Satiation > 0 AND INVASION_GAUGE > 0 THEN
+    Ukami_Satiation -= Ukami_Eat_Cost
+    INVASION_GAUGE = max(0, INVASION_GAUGE - Ukami_Eat_Cooldown)
+  END IF
+END FUNCTION
 ```
 
 ### フィールド位相（無菌の帳 / 血の泥沼）
@@ -316,9 +358,11 @@ IF Repair_Level >= 1 THEN
 END IF
 
 // 極大代受苦（付喪神化済み武器のみ。全戦闘で発動可能）
-IF Can_Use_Extreme_Daijuku THEN
+IF Can_Use_Extreme_Daijuku AND Target_Weapon.Is_Tsukumogami == TRUE THEN
   Item_Instance = DELETE_PERMANENTLY
-  Generate(Core_of_Regret)
+  IF Target_Weapon.CoreRegret_Extractable == TRUE THEN
+    Generate(Core_of_Regret)
+  END IF
 END IF
 
 // 付喪神化（禁忌鍛造）: 情念の核は必須条件ではない
@@ -330,6 +374,7 @@ Tsukumogami_Awakening_Forge =
 IF Tsukumogami_Awakening_Forge THEN
   Target_Weapon.Is_Tsukumogami = TRUE
   Target_Weapon.TsukumogamiState = "Musubi"
+  Target_Weapon.CoreRegret_Extractable = TRUE
 END IF
 
 // 情念の核は「極大代受苦後の継承素材」として扱う（付喪神化の前提条件にはしない）
@@ -341,7 +386,15 @@ Tsukumogami_Inheritance_Forge =
 IF Tsukumogami_Inheritance_Forge THEN
   New_Weapon.Inherited_Traits = Core_of_Regret.Stored_Traits
   New_Weapon.Inherited_Memory = Core_of_Regret.Stored_LogDensity
+  New_Weapon.CoreRegret_Extractable = FALSE
   Consume(Core_of_Regret)
+END IF
+
+// 魂の摩耗（Soul Attrition）
+// 核継承直後の新器を即座に破壊しても核は再生成されない。
+// 再抽出するには、新器で金継ぎ履歴を再び閾値まで蓄積し、付喪神化を経由する必要がある。
+IF New_Weapon.CoreRegret_Extractable == FALSE AND New_Weapon.Is_Tsukumogami == FALSE THEN
+  CoreRegret_Regen_Allowed = FALSE
 END IF
 ```
 
@@ -387,7 +440,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | フィールド | 説明 | 
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
-| `Core_of_Regret` | 極大代受苦後の情念の核。元の武器IDと特性を保持。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。付喪神武器を破壊することで必ず生成され、それを保存しておけば同じ魂を別武器に移すことが可能なため、愛着のある付喪神を何度でも用いるための鍵ともなる。 | 
+| `Core_of_Regret` | 極大代受苦で `Is_Tsukumogami == TRUE` の武器を破壊した時のみ生成される情念の核。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。 | 
  | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 | `Yomotsu_Mud_Fruit` | 黄泉の泥果実 | 使用効果＝`Full_Recover(Kakkon, Jonetsu)` + `Apply_State(YOMOTSU_CURSE)` |
@@ -397,7 +450,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | --- | --- | 
 | `TraumaLogDensity` | 履歴密度（付喪神覚醒・付喪神強度に影響） | 
 | `TsukumogamiState` | `Dormant` / `Kibutsu`（棄物敵化） / `Musubi`（付喪神覚醒） | 
-| `Is_Tsukumogami` | 付喪神化フラグ。`TRUE`の場合再度の極限代受苦は情念の核を生成せず粉砕される | 
+| `Is_Tsukumogami` | 付喪神化フラグ。`TRUE`時のみ極大代受苦で情念の核抽出判定を行う | 
+| `CoreRegret_Extractable` | 情念の核抽出可能フラグ。継承直後は `FALSE` 固定。再抽出には新器で履歴を再蓄積し再付喪神化が必要 | 
  | `AbandonFlag` | 遺棄判定。`TRUE`で棄物化進行が開始 | 
 | `HakurakuBonusDrop` | 剥落の星屑撃破時のドロップ倍率補正 | 
 | `Linked_ShinUtsushi_Resonance` | 形代・固定装具・神写し理解度を連結する補助フラグ | 
@@ -452,29 +506,10 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `3` | 神話的錬成 | 神器作成、終盤限界突破 |
 
 ### Attribute_Master（属性定義）
-+
-+### Status_Effect_Master（状態異常定義）
-+ | Effect_ID | 名称 | 説明 |
-+ | --- | --- | --- |
-+ | `POISON` | 毒 | 毎Tick活魂を減少させる継続ダメージ |
-+ | `BAD_POISON` | 猛毒 | 毒の強化。復帰困難。
-+ | `PARALYSIS` | 麻痺 | 一定確率で行動不能 |
-+ | `SLEEP` | 睡眠 | 次自身Tickまで行動不能 |
-+ | `CONFUSION` | 混乱 | 行動がランダム化 |
-+ | `CHARM` | 魅了 | 味方への攻撃を強制 |
-+ | `BLIND` | 暗闇 | 命中率低下 |
-+ | `DESEASE` | 幻惑 | 属性耐性低下 |
-+ | `REST` | 休み | 1ターン確定行動不能 |
- | `CURSE` | 呪い | 装備効果無効化 | 
- | `INSTANT_KILL` | 即死 | 条件で一撃死亡 | 
- | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） | 
- | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） | 
- | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 |
-
  | Attribute_ID | 名称 | 説明 |
  | --- | --- | --- |
  | `FIRE` | 炎 | 焼却・灼熱系の干渉 |
- | `ICE` | 氷 | 冷却・停滞系の干渉 |
+ | `ICE` | 氷 | 静止または冷却の干渉を扱う複合属性 |
  | `WIND` | 風 | 断裂・流動系の干渉 |
  | `THUNDER` | 雷 | 貫通・高電位系の干渉 |
  | `EARTH` | 土 | 重圧・地脈系の干渉 |
@@ -483,7 +518,48 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `DARK` | 闇 | 呪詛・侵食系の干渉 |
  | `NONE` | 無属性 | 純粋な質量・摩擦・打撃圧。属性相性の影響を受けにくい |
 
+#### ICE_Subtype_Master（氷属性の位相分離）
+ | Ice_Subtype | 呼称 | 効果定義 |
+ | --- | --- | --- |
+ | `ICE_STAGNATION` | 神の氷（静止） | 時間・行動を凍結し、琥珀化へ寄せる。天津神の主系統。 |
+ | `ICE_COOLING` | 人の氷（冷却） | 暴走熱を奪って鎮める。過熱抑制と熱散逸誘発に使う。 |
+
+```
+// 氷の戦術効果
+IF Attack.IceSubtype == ICE_COOLING AND Target.Tag == AMATSUKAMI THEN
+  Damage_Mult *= IceCooling_vs_Amatsukami_Mult  // 天津神には耐性
+END IF
+
+IF Attack.IceSubtype == ICE_COOLING AND Target.Tag == WILDLIFE THEN
+  Apply_State(SLOW)
+END IF
+
+IF Attack.IceSubtype == ICE_COOLING AND (Target.Tag == DEIGAMI OR Target.Tag == KIBUTSU) THEN
+  Apply_State(HEAT_DISSIPATION_BREAK)
+  Target.PTG = max(0, Target.PTG - IceCooling_PTG_Reduction)
+  Damage_Mult *= IceCooling_HeatScatter_Damage_Mult
+END IF
+```
+
 > 属性は相性計算レイヤーであり、術式駆動リソース（三条の熱源）とは分離して扱う。
+
+### Status_Effect_Master（状態異常定義）
+ | Effect_ID | 名称 | 説明 |
+ | --- | --- | --- |
+ | `POISON` | 毒 | 毎Tick活魂を減少させる継続ダメージ |
+ | `BAD_POISON` | 猛毒 | 毒の強化。復帰困難 |
+ | `PARALYSIS` | 麻痺 | 一定確率で行動不能 |
+ | `SLEEP` | 睡眠 | 次自身Tickまで行動不能 |
+ | `CONFUSION` | 混乱 | 行動がランダム化 |
+ | `CHARM` | 魅了 | 味方への攻撃を強制 |
+ | `BLIND` | 暗闇 | 命中率低下 |
+ | `DESEASE` | 幻惑 | 属性耐性低下 |
+ | `REST` | 休み | 1ターン確定行動不能 |
+ | `CURSE` | 呪い | 装備効果無効化 | 
+ | `INSTANT_KILL` | 即死 | 条件で一撃死亡 | 
+ | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） | 
+ | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） | 
+ | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 |
 
 ### その他マスター
  | マスター | 目的 | 
@@ -492,7 +568,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Kintsugi_Master` | 修復素材と付与特性（被ダメ履歴参照）定義 | 
  | `Daijuku_Master` | 武器消滅時に生成する「魂のイデア」テーブル。クリア後は `Infinite_Idea_Chain` 解放。 | 
  | `Tsukumogami_Awakening_Master` | `Awaken_Threshold_LogDensity`, `Awaken_Required_Kintsugi_MaterialKinds`, `Musubi_AutoAction_Chance`, `Kibutsu_Spawn_Weight_By_Area` | 
-| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取タイミング、侵食ゲージ閾値、食材ID、回復反転係数、キャラ別耐性、適用範囲、解除条件を管理する。現在は仕様検討中のため確定値を持たない。 | 
+| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取導線、食材ID、全回復値、`YOMOTSU_CURSE` 付与条件、最大活魂減衰係数、通常回復無効化、`Ukami_Camp_Purification` の解除条件を管理する。 | 
  | `FastTravel_Master` | 脈継ぎ演出・移動中掛け合いセリフ管理 | 
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
 | `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |
@@ -507,14 +583,13 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | フラグ名 | 発火タイミング | 
  | --- | --- | 
  | `UKAMI_JOINED_EARLY` | うかみがアマでパーティ合流 | 
-| `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（分岐A/Bいずれでも成立。野営Lv1/拠点Lv2解禁） |
+| `MAHITO_JOINED_ACT2` | 第2幕・灼熱たたら場でマヒト加入（白堊の回廊→忘却の海食洞→灼熱たたら場の固定進行後。野営Lv1/拠点Lv2解禁） |
  | `KAGUTSUCHI_QUELLED` | 灼熱たたら場での付喪神顕現がカグツチ残滓を呼び覚まし、プレイヤーがこれを鎮魂した瞬間に立つフラグ。Lv2解放の前提にも連動。 |
  | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊で白化神の防壁を突破（意図的な過負荷イベントの克服、レベル2探索トリガー） |
  | `MAHITO_FIELD_LV2_UNLOCKED` | マヒト個別イベント「野鍛冶の誓い」達成（野外Lv2解禁） |
  | `SHRINE_FORGE_LV3_UNLOCKED` | 大型神社の鍛造拡張完了（Lv3解禁） |
-| `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入（分岐A/Bいずれでも成立） | 
-| `ROUTE_A_ORDER_RESOLVED` | 分岐A（忘却の海食洞→灼熱たたら場）成立 | 
-| `ROUTE_B_ORDER_RESOLVED` | 分岐B（灼熱たたら場→忘却の海食洞）成立 | 
+| `TACHIBANA_JOINED_ACT2` | 忘却の海食洞でタチバナが加入（第2幕固定進行） | 
+| `ACT2_FIXED_ROUTE_CONFIRMED` | 第2幕固定導線（白堊の回廊→忘却の海食洞→灼熱たたら場）が確定した状態 | 
 | `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱（`MAHITO_JOINED_ACT2` と `TACHIBANA_JOINED_ACT2` の両成立後） | 
  | `WAKAHIKO_ANTAGONIST_PHASE` | ワカヒコによる執拗な追撃・対立期間 | 
  | `WAKAHIKO_JOINED_ACT3` | 天望の天守でのワカヒコ加入 | 
@@ -535,15 +610,25 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 ```yaml
 TriggerFlag: UKAMI_LEFT_KATSURAGI
 TargetCharacter: MIKOTO
-ForcedSkillId: INHERITED_TAKEMIKAZUCHI
-ForcedSkillName: 猿田の破岩撃
+LearnMode: FORCE_AND_SIMULTANEOUS
 UnderstandLevel: 100
 PermanentLearned: true
-CanUnequipFromShinUtsushiSlot: false
+UseDedicatedInheritedSlot: true
+DoesNotConsumeShinUtsushiSlots: true
+ForcedSkills:
+  - SkillId: INHERITED_SARUTA_BREAK
+    SkillName: 猿田の破岩撃
+    Role: 攻撃/剛
+    DurabilityCost: 0
+    ResourceCost: KAKKON_AND_JONETSU
+  - SkillId: INHERITED_HORAGAI_ROAR
+    SkillName: 法螺の轟き
+    Role: 補助/導
+    Effect: PARTY_JONETSU_GAIN_UP
 ```
 
-> * 猿田の破岩撃は、武器耐久度に依存せず活魂・情念を大量消費して敵単体へ無属性極大物理ダメージを与える高火力ロマン技である。
-> * 追加の継承技（例：泥壁の咆哮によるヘイト固定、獣道の退路による確定逃走）は別途検討/実装予定であり、現仕様では猿田の破岩撃のみが強制習得される。
+> * 猿田の破岩撃は、武器耐久度を消費せず活魂・情念を代償に敵単体へ無属性極大物理ダメージを与える。
+> * 法螺の轟きは、うかみの遺志を継いで味方全体の情念上昇率を大幅に引き上げる。
 
 ### Party_Area_Constraint_Master（うかみ拘束ルール）
 ```yaml
