@@ -107,47 +107,66 @@ Durability_new = max(0, Durability_old - (
 ))
 ```
 - `Stance_Multiplier`: 
-    - **剛の理（2H）**: **1.0**
-    - **静の理（1H + 副腕空き/支援具のみ）**: **1.1**
-    - **乱の理（1H + 1H）**: **1.3〜1.5**（武器種×熟練度で可変）
+  - **両手持ち（2H）**: **1.5**（重量武器の質量衝突で摩耗が最も激しい）
+  - **一刀流（1H）**: **1.0**（標準運用。攻撃力と摩耗の基準）
+  - **二刀流（1H + 1H）**: **1.3**（手数で押す代わりに摩耗ペースが上がる）
 - `Intentional_Cost`: プレイヤーが任意に支払う自傷（活魂）・情念放出コスト。神の計算ノイズの源泉。
 - **Tsukumogami_Awakening_Penalty**: 付喪神化武器は耐久減少係数が **1.5〜3.0倍** に跳ね上がる（強力だが即消耗する）。
 
-### 構えの理（Stance Logic）
+### 構え（Stance Logic）
 ```
 IF MainWeapon.Type == "2H" THEN
-  Stance_Type = GO
+  Stance_Type = TWO_HANDED
+  Stance_Multiplier = 1.5
+  PTG_Penetration_Rate = TWO_HANDED_PTG_Penetration_Rate
+  Counter_Stability_Bonus = TWO_HANDED_Counter_Stability_Bonus
+END IF
+
+IF MainWeapon.Type == "1H" AND OffhandWeapon == NONE THEN
+  Stance_Type = SINGLE_BLADE
   Stance_Multiplier = 1.0
-  PTG_Penetration_Rate = GO_PTG_Penetration_Rate  // 剛: 敵装甲を一定割合無視
-  Counter_Stability_Bonus = GO_Counter_Stability_Bonus
-END IF
-
-IF MainWeapon.Type == "1H" AND (SubArm.Weapon == NONE OR SubArm.Kind == SUPPORT_ONLY) THEN
-  Stance_Type = SEI
-  Stance_Multiplier = 1.1
   Jonetsu_Gain_Mult = 1.2
-  Mud_Intuition_Success_Mult = SEI_Mud_Intuition_Success_Mult  // ジャスト防御/回避成功率補正
+  Mud_Intuition_Success_Mult = SINGLE_BLADE_Mud_Intuition_Success_Mult
 END IF
 
-IF MainWeapon.Type == "1H" AND SubArm.Weapon.Type == "1H" THEN
-  Stance_Type = RAN
-  Stance_Multiplier = LERP(1.3, 1.5, DualWield_Proficiency)
-  Prophecy_Scramble_Intensity = RAN_Scramble_Intensity  // 神託予測線を乱す強度
-  Hakuraku_HitCount_Bonus = RAN_Hakuraku_HitCount_Bonus
+IF MainWeapon.Type == "1H" AND OffhandWeapon.Type == "1H" THEN
+  Stance_Type = DUAL_WIELD
+  Stance_Multiplier = 1.3
+  Prophecy_Scramble_Intensity = DUAL_WIELD_Scramble_Intensity
+  Hakuraku_HitCount_Bonus = DUAL_WIELD_Hakuraku_HitCount_Bonus
 END IF
 
-// ワカヒコ特例: 仕込み短刀 + 副腕空きで精密機動状態
-IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND SubArm.Weapon == NONE THEN
-  State_Precision_Mobility = TRUE
+// ワカヒコ特例: 仕込み短刀時の確定反撃状態
+IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND OffhandWeapon == NONE THEN
+  State_Wakahiko_Focused_Retaliation = TRUE
   Evasion_Rate += WAKAHIKO_Precision_Evasion_Bonus
-  Counter_Proc_Rate += WAKAHIKO_Survival_Scramble_Counter_Bonus  // 生存の足掻き
+  IF Evasion_Success == TRUE THEN
+    Counter_Proc_Rate = 1.0  // 生存の足掻きは条件成立時100%確定
+  END IF
 END IF
 
-// スクナ特例: 固定装具「石乳鉢」据え置き時は副腕ペナルティを緩和
-IF Character == SUKUNA AND FixedGear == "STONE_MORTAR" AND Passive == "APOTHECARY_STABILITY" THEN
-  IF Stance_Type == RAN THEN
-    Stance_Multiplier = max(1.05, Stance_Multiplier - 0.25)
+// スクナ特例: 二刀流時の薬師安定
+IF Character == SUKUNA AND Passive == "APOTHECARY_STABILITY" THEN
+  IF Stance_Type == DUAL_WIELD THEN
+    Stance_Multiplier = 1.25
   END IF
+END IF
+```
+
+### ワカヒコ固有パッシブ（返し矢の呪い）
+```
+// 弓攻撃時に常時適用
+IF Character == WAKAHIKO AND MainWeapon.Category == "BOW_RANGED" THEN
+  Jonetsu_Ratio = clamp(Jonetsu_Value / Jonetsu_Max, 0.0, 1.0)
+  Bow_Damage_Mult = 1.0 + (Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
+  Self_Recoil_Damage = floor(Bow_Base_Damage * Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Recoil_Mult)
+  Apply_Damage(Target, floor(Bow_Base_Damage * Bow_Damage_Mult))
+  Kakkon_Value = max(0, Kakkon_Value - Self_Recoil_Damage)
+END IF
+
+// 生存の足掻きは条件成立時100%反撃
+IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND Evasion_Success == TRUE THEN
+  Survival_Scramble_Guaranteed = TRUE
 END IF
 ```
 
@@ -237,13 +256,23 @@ END IF
 Hakuraku_Damage = max(1, floor(Input_Damage * Hakuraku_Damage_Reduction))
 Hakuraku_Escape_Check = (Current_Tick >= Hakuraku_Return_Gravity_Tick)
 Hakuraku_EntropyBurst = Hakuraku_Escape_Check AND Sky_System_Rejects_Impurity
+Hakuraku_Despawn_Window = 3
 
-IF Hakuraku_Escape_Check THEN
+IF Hakuraku_EntropyBurst THEN
+  Apply_Area_HeatScatter(Hakuraku_HeatScatter_Burst_Damage)
+END IF
+
+IF Hakuraku_Escape_Check AND Hakuraku_Despawn_Window > 0 THEN
+  Hakuraku_Despawn_Window -= 1
+END IF
+
+IF Hakuraku_Escape_Check AND Hakuraku_Despawn_Window <= 0 THEN
   Enemy_Despawn = TRUE
 END IF
 ```
 - `Hakuraku_Damage_Reduction`: 高減衰係数（実値はバランス項で管理）
 - `Hakuraku_Return_Gravity_Tick`: 玉座への帰還引力が飽和する判定Tick
+- `Hakuraku_Despawn_Window`: 熱散逸発生後に与える攻撃猶予Tick
 
 ### 神のターゲット計算 (God_Ri_Logic)
 ```
@@ -284,7 +313,7 @@ END IF
 
 ### 神写し・形代連結補正
 ```
-IF Mikoto_FixedGear_Gauntlet_Equipped AND Katashiro_Equipped_Count > 0 THEN
+IF Mikoto_CarriedItem_Gauntlet_Active AND Katashiro_Equipped_Count > 0 THEN
   Understand(skill, ally) += floor(Damage_Taken_Sum * Linked_ShinUtsushi_Resonance_Mult)
 END IF
 ```
@@ -315,6 +344,7 @@ FUNCTION Ukami_Autonomous_Eat()
   IF Ukami_Satiation > 0 AND INVASION_GAUGE > 0 THEN
     Ukami_Satiation -= Ukami_Eat_Cost
     INVASION_GAUGE = max(0, INVASION_GAUGE - Ukami_Eat_Cooldown)
+    // 在庫の黄泉の泥果実は消費しない。行者の法力による内部処理。
   END IF
 END FUNCTION
 ```
@@ -423,12 +453,33 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | Slot_ID | 名称 | 内容 | 属性フラグ | 
  | --- | --- | --- | --- | 
  | `MAIN_ARM` | 主腕 | 直接攻撃を担うメインスロット。 | `1H` / `2H` | 
- | `SUB_ARM` | 副腕 | ノイズ具スロット。主腕が `2H` の場合は封印される。 | `1H` / `LOCKED_BY_2H` | 
  | `SHOZOKU` | 装束 | 防御衣服。傷跡が防御力(PTG)になる。 | `UNIQUE` | 
  | `KATASHIRO` | 形代 | 遺品・未練。最大2個。 | `STACKABLE_2` | 
-| `FIXED_GEAR` | 固定装具 | スロットを消費しない特殊枠。ミコトは初期状態から空の受け皿を保持し、葛城山以降の継承手甲が常駐する。八咫鏡は手甲上に積層される拡張マウントとして扱い、装備スロット圧縮は発生しない。ワカヒコの矢筒・予備弦束も固定装具として扱う。 | `SLOTLESS` | 
 
 > **注:** 赤いスカーフは装備スロットとは無関係の永続装飾／イベントキーとして扱う。
+
+### Character_Carried_Items（常時携行物）
+| Character_ID | 常時携行物 | 仕様上の扱い |
+| --- | --- | --- |
+| `MIKOTO` | 継承手甲、八咫鏡（終盤） | 人物設定に紐づく常時携行物。装備枠計算の対象外。 |
+| `UKAMI` | 法螺貝 | 常時携行物として術式演出に使用。 |
+| `SUKUNA` | 石乳鉢 | 足元据え置き前提の常時携行物。 |
+| `UZU` | 神楽面 | 舞と攪乱術式の常時携行物。 |
+| `TACHIBANA` | 呪具・土偶 | 自傷転写術式の常時携行物。 |
+| `WAKAHIKO` | 矢筒、予備の弦束 | 弓術補給の常時携行物。 |
+
+### Weapon_Category_Master（武器カテゴリ統合）
+| Category_ID | 名称 | 代表武器 | 主な使用者 |
+| --- | --- | --- | --- |
+| `BLADE` | 刃 | 直刀、鉄鎌、短刀 | ミコト、マヒト、ワカヒコ |
+| `SPEAR_HALBERD` | 槍・鉾 | 長槍、石鉾、旗槍、海人銛 | ミコト、うかみ、ウズ、タチバナ |
+| `BLUNT` | 打撃 | 大槌、乳棒 | マヒト、スクナ |
+| `CHAIN` | 鎖 | 数珠鎖、鉤鎖 | うかみ、タチバナ |
+| `AXE` | 斧 | 戦鉈 | うかみ |
+| `STAFF` | 杖 | 錫杖 | うかみ |
+| `FAN` | 扇 | 鉄扇 | ウズ |
+| `BOW_RANGED` | 弓・遠距離 | 天上弓 | ワカヒコ |
+| `TOOL` | 絡手・道具 | 薬筒 | スクナ |
 
 ### Field_Environment_Master（戦場位相）
  | Field_State | 名称 | 効果 |
@@ -454,8 +505,8 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `CoreRegret_Extractable` | 情念の核抽出可能フラグ。継承直後は `FALSE` 固定。再抽出には新器で履歴を再蓄積し再付喪神化が必要 | 
  | `AbandonFlag` | 遺棄判定。`TRUE`で棄物化進行が開始 | 
 | `HakurakuBonusDrop` | 剥落の星屑撃破時のドロップ倍率補正 | 
-| `Linked_ShinUtsushi_Resonance` | 形代・固定装具・神写し理解度を連結する補助フラグ | 
-| `FixedGearMountTier` | 固定装具の積層段階。`GAUNTLET_BASE` / `GAUNTLET_WITH_YATA` を保持 | 
+| `Linked_ShinUtsushi_Resonance` | 形代・常時携行物・神写し理解度を連結する補助フラグ | 
+| `Mikoto_Carried_Item_State` | ミコト常時携行物の段階。`GAUNTLET_BASE` / `GAUNTLET_WITH_YATA` を保持 | 
 
 ### Enemy_Master（主要ボス定義）
  | ID | 名称 | 特殊仕様 | 
@@ -560,6 +611,7 @@ END IF
  | `SKILL_SEAL` | 封印 | 特技使用不可（凍結の真空含む） | 
  | `CRYSTALLIZE` | 琥珀化 | 完全停止状態（消滅扱い） | 
  | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 |
+| `WAKAHIKO_KAESHIYA_PASSIVE` | 返し矢の呪い | ワカヒコが弓攻撃するたび、情念蓄積比率に応じて威力上昇と自傷反動を同時に発生させる恒常パッシブ。 |
 
 ### その他マスター
  | マスター | 目的 | 
@@ -568,7 +620,7 @@ END IF
  | `Kintsugi_Master` | 修復素材と付与特性（被ダメ履歴参照）定義 | 
  | `Daijuku_Master` | 武器消滅時に生成する「魂のイデア」テーブル。クリア後は `Infinite_Idea_Chain` 解放。 | 
  | `Tsukumogami_Awakening_Master` | `Awaken_Threshold_LogDensity`, `Awaken_Required_Kintsugi_MaterialKinds`, `Musubi_AutoAction_Chance`, `Kibutsu_Spawn_Weight_By_Area` | 
-| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取導線、食材ID、全回復値、`YOMOTSU_CURSE` 付与条件、最大活魂減衰係数、通常回復無効化、`Ukami_Camp_Purification` の解除条件を管理する。 | 
+| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取導線、食材ID、全回復値、`YOMOTSU_CURSE` 付与条件、最大活魂減衰係数、通常回復無効化、`Ukami_Camp_Purification` の解除条件を管理する。行者うかみの自律摂取は内部法力のみで処理し、プレイヤー在庫を消費しない。 | 
  | `FastTravel_Master` | 脈継ぎ演出・移動中掛け合いセリフ管理 | 
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
 | `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |

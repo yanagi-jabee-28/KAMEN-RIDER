@@ -261,7 +261,7 @@ A very long, dark iron straight sword with subtle golden repair seams; a beautif
 ```
 
 ### 手甲パーツ（The Beat Gauntlet）
-> *システム注釈: ゲーム内ではこの手甲は「固定装具」扱いで、装備スロットを圧縮しない特別な存在である。*
+> *システム注釈: この手甲はミコトの継承された常時携行物として扱い、術式演出の核になる。*
 ```text
 Prompt:
 masterpiece, a beautifully crafted antique black-iron asymmetrical left gauntlet worn on a ghostly white arm, resting on Washi paper.
@@ -270,7 +270,7 @@ A sleek, elegant armor piece with articulated iron fingers and a subtly hammered
 ```
 
 ### ワカヒコの天上弓と靭
-> *システム注釈: 靭（矢筒）と予備の弦束は「固定装具」扱いで、副腕スロットを占有しない。*
+> *システム注釈: 靭（矢筒）と予備の弦束はワカヒコが常に携行する補給具として扱う。*
 ```text
 Prompt:
 masterpiece, a breathtaking still-life of a massive, elegantly curved asymmetrical Japanese longbow (Wa-kyu) and a beautiful quiver.
