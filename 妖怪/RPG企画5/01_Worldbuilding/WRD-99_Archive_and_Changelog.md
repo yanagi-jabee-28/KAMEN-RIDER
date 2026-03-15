@@ -178,6 +178,7 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-16 | 【語彙運用の明確化】「説明用途の技術語は許容」「ゲーム内転用され得る叙述ではSF語彙を極力排除」を明文化。スクナの医学・薬学語彙を例外許容として定義し、NAR-10内の転用リスクが高い語彙を和語中心へ置換。 | `00_Governance/ARC-00_Implementation_Charter.md`, `README.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【雑魚敵拡充】Enemy_Tier_Template_Master の T1/T2 を具体名で増補。状態異常散布型（毒/麻痺/幻惑/睡眠/封印/混乱）と、非状態異常ギミック型（耐久摩耗/自爆予告/高回避/突進/狙撃）を対で追加し、序中盤の編成バリエーションを強化。SYS-20へ雑魚敵サンプル導線を追記。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-15 | 【敵系統整理と半実装】敵分類を四大系統（天津神/国津神/非神/棄物）+補助系統（荒魂獣/擬神兵/狂信者/剥落の星屑）として再整理。SYS-30にTier別敵テンプレートを追加し、新規状態異常7種（白の宣託ほか）をStatus_Effect_Masterへ接続。SYS-20には雑魚からボスまでの状態異常導線と、状態異常なし敵の運用指針を同期。NAR-10には擬神兵と狂信者の境界定義を追記。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-15 | 【SSOT論理純化】NAR-10からシステム数値を排除しナラティブへ純化。二刀流をミコト固有の「仮想的双腕状態（DualStanceActive）」として定義統一。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
