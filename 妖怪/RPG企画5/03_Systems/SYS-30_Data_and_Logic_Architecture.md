@@ -279,26 +279,26 @@ END IF
 ```
 
 ### 剥落の星屑（特殊敵）
-- **出現域:** 黄泉の深層、星屑の荒野、終幕手前の高難度遭遇戦。
-- **特徴:** 物理・属性を極小化し、数Tick以内に「玉座への帰還引力」が飽和して離脱を試みる。帰還衝動と天の拒絶理が衝突した個体は、短時間だけ異常な熱散逸を起こす。
+- **出現域:** 黄泉の深層、星屑の荒野、終幕手前の通常戦エンカウントへ低確率混入。
+- **特徴:** ボスではなく「遭遇できると嬉しい報酬型レア雑魚」。物理・属性を極小化し、数Tick以内に「玉座への帰還引力」が飽和して離脱を試みる。帰還衝動と天の拒絶理が衝突した個体は、短時間だけ異常な熱散逸を起こす。
 
 ---
 
-## 12. 新規状態異常とギミック（プレースホルダ）
-以下は2026-03-11の議論により追加が提案されたシステム干渉名である。具体的な数値・フラグは `SYS-20` の該当箇所を参照しつつ設計チームで決定する。
+## 12. 新規状態異常とギミック（半実装）
+以下は2026-03-11の議論により追加が提案されたシステム干渉名を、実装接続のために半実装化した定義である。最終の倍率・付与率は未固定とし、`SYS-20` の体験設計とプレイテストで確定させる。
 
-| 名称 | 変数/フラグ | 説明 |
+| 名称 | 変数/フラグ | 説明 | 連携先マスター |
 | --- | --- | --- |
-| 白の宣託 | `State_White_Oath` | 探女が使用。プレイヤーUIの予測線を曲げ、表示と実際の行動を乖離させる。
-| 真実の隠匿 | `State_Truth_Obscure` | 豊玉姫が使用。情念依存技発動時にバフ状態を白初期化する。
-| 無垢なる配給 | `State_Pure_Provision` | 宇迦之御魂神が使用。味方活魂全快・情念0固定。
-| 再生停止の呪い | `State_Regeneration_Block` | 大宜都比売が付与。回復処理が完全に無効化される。
-| 死狂いの祖 | `State_Shigurui_Ancestor` | 素戔嗚尊（クリア後）用。高密度連撃と予測攪乱を持つ裏ボス状態。
-| 歴史の抹消 | `State_History_Erase` | 瀬織津姫が付与。対象武器の金継ぎ履歴を一時消失。
-| 草薙の摩耗 | `State_Kusanagi_Wear` | 日本武尊が使用。攻撃時に味方武器耐久度を吸収して自身回復。
+| 白の宣託 | `State_White_Oath` | 探女が使用。プレイヤーUIの予測線を曲げ、表示と実際の行動を乖離させる。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 真実の隠匿 | `State_Truth_Obscure` | 豊玉姫が使用。情念依存技発動時にバフ状態を白初期化する。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 無垢なる配給 | `State_Pure_Provision` | 宇迦之御魂神が使用。味方活魂全快・情念0固定。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 再生停止の呪い | `State_Regeneration_Block` | 大宜都比売が付与。回復処理が完全に無効化される。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 死狂いの祖 | `State_Shigurui_Ancestor` | 素戔嗚尊（クリア後）用。高密度連撃と予測攪乱を持つ裏ボス状態。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 歴史の抹消 | `State_History_Erase` | 瀬織津姫が付与。対象武器の金継ぎ履歴を一時消失。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
+| 草薙の摩耗 | `State_Kusanagi_Wear` | 日本武尊が使用。攻撃時に味方武器耐久度を吸収して自身回復。 | `Status_Effect_Master`, `Enemy_Tier_Template_Master` |
 
 # Note
-上記変数の型は `bool` または `int` で構わない。必要に応じて `Duration` / `Cooldown` / `Intensity` を追加する。
+上記変数の型は `bool` または `int` を基本とし、半実装フェーズでは `Duration` / `Cooldown` / `Intensity` を暫定運用列として扱う。
 
 - **報酬:** 撃破時は星の砂、低確率で高純度星砂をドロップ。
 - **攻略導線:** 命中補助、行動順前倒し、多段Hitを重ねて短時間で削り切る設計。
@@ -626,7 +626,11 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Tsukumogami_Awakening_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
  | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 <br> **【突入条件式】** <br> `IF (Sum(Party.MaxKakkon) >= Required_Kakkon_Gravity) AND (Sum(Party.MaxJonetsu) >= Required_Jonetsu_Gravity) THEN Allow_Battle = TRUE` | 
 | `Boss_Susanoo` | スサノオ | 高耐久・高火力の正統派裏ボス。勝利条件は `Boss_HP <= 0` のみ。 | 
-| `Hakuraku_Stardust` | 剥落の星屑 | 高減衰・高回避・帰還Tick持ち。短期撃破時に星砂報酬が増える。 |
+
+### Rare_Encounter_Master（レア遭遇雑魚定義）
+ | ID | 名称 | 特殊仕様 | 
+ | --- | --- | --- |
+ | `Hakuraku_Stardust` | 剥落の星屑 | ボス枠ではない。通常戦に低確率で混入する報酬型レア雑魚。高減衰・高回避・帰還Tick持ち。短期撃破時に星砂報酬が増える。 |
 
 ### Enemy_Behavior_Tag
  | タグ | 対象 | 
@@ -638,6 +642,39 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `Pseudo_Perfect_With_Gap` | 擬神兵 | 
 | `SkillLock_Enforcer` | 凍結の真空を扱う白化神上位個体 |
 | `Field_Overwriter` | 無菌の帳 / 血の泥沼を展開する個体 |
+
+### Enemy_Tier_Template_Master（敵テンプレート半実装）
+| Tier | Template_ID | 名称 | 系統 | 主属性 / 副属性 | 耐性傾向 | 弱点傾向 | 主干渉 | 状態異常依存 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| T1 | `MIRE_BUBBLE_SLIME` | 泥泡の這い | 荒魂獣 | 水 / 闇 | 斬撃軽減 | 風、雷 | 群体で押し切る連撃圧 | なし |
+| T1 | `NUMBING_JELLY` | 痺れ海月 | 荒魂獣 | 水 / 氷 | 水軽減 | 雷、炎 | 触手で行動阻害 | あり（`PARALYSIS`） |
+| T1 | `TAR_CROW` | 黒泥鴉 | 荒魂獣 | 風 / 闇 | 風軽減 | 雷、光 | 高回避で後衛へ刺突 | なし |
+| T1 | `MUD_VIPER` | 泥縞の蛇 | 荒魂獣 | 土 / 闇 | 土軽減 | 炎、光 | 毒牙で継続削り | あり（`POISON`） |
+| T1 | `WILD_MIRE_TOAD` | 泥塗れの蝦蟇 | 荒魂獣 | 水 / 土 | 打撃軽減 | 雷、風 | 毒噴霧による継続圧 | あり（`POISON`） |
+| T1 | `ASHEN_STRAY_DOG` | 灰野犬 | 荒魂獣 | 土 / 風 | 土軽減 | 氷、水 | 先制噛み付きでTick撹乱 | なし |
+| T1 | `STATIC_DUST` | 静止の塵 | 擬神兵 | 氷 / 光 | 斬撃軽減 | 炎 | 接触麻痺で行動阻害 | あり（`PARALYSIS`） |
+| T1 | `PRAYER_SCRAP_DOLL` | 祈布の切れ端人形 | 棄物 | 光 / 闇 | 光軽減 | 炎、雷 | 低威力連打で耐久摩耗を蓄積 | なし |
+| T1 | `WHITE_MOTH` | 白の迷い蛾 | 白化神末端 | 光 / 風 | 光軽減 | 闇、炎 | 鱗粉で命中計算を撹乱 | あり（`BLIND`） |
+| T1 | `RUSTED_BLADE_RELIC` | 錆びた刃具 | 棄物 | 土 / 闇 | 物理軽減 | 炎、雷 | 痛恨寄り単発重撃 | なし |
+| T1 | `HOLLOW_SHELL_CRAB` | 虚殻蟹 | 棄物 | 水 / 土 | 打撃強耐性 | 雷、風 | 殻閉じ防御で時間稼ぎ | なし |
+| T1 | `WHITE_INITIATE` | 白の初誓徒 | 狂信者 | 光 / 土 | 光軽減 | 闇、打撃 | 低位浄化で味方補助 | あり（`SKILL_SEAL`） |
+| T2 | `CHALK_SENTINEL` | 白堊の防人 | 擬神兵 | 光 / 氷 | 物理強耐性 | 打撃、雷 | 見切りで耐久だけを削る | なし |
+| T2 | `SANCTIFIED_BOWMAN` | 白戒の弓徒 | 狂信者 | 光 / 風 | 光軽減 | 闇、雷 | 後衛狙撃と封印支援 | あり（`SKILL_SEAL`） |
+| T2 | `MOURNING_WAIL` | 未練の泣き女 | 澱神 | 闇 / 水 | 闇軽減 | 光 | 広域の睡眠誘発 | あり（`SLEEP`） |
+| T2 | `GRUDGE_SWARM` | 怨群の羽虫 | 澱神 | 闇 / 風 | 闇軽減 | 光、炎 | 群れで混乱率を増幅 | あり（`CONFUSION`） |
+| T2 | `WHITE_CHAPLAIN` | 白の教誨師 | 狂信者 | 光 / 土 | 光軽減 | 闇、打撃 | 味方回復と封印支援 | あり（`SKILL_SEAL`） |
+| T2 | `FORGE_CINDER` | 過熱する鉄滓 | 擬神兵 | 炎 / 土 | 炎吸収 | 氷 | 自爆予告で防御択を強要 | なし |
+| T2 | `ABANDONED_GUNNERY` | 遺棄火筒 | 棄物 | 炎 / 土 | 炎軽減 | 水、雷 | 充填後の直線砲撃 | なし |
+| T2 | `SALT_MIRE_BANDIT` | 塩泥の賊徒 | 非神 | 水 / 闇 | 水軽減 | 雷、光 | 耐久摩耗付き多段攻撃 | なし |
+| T2 | `CAVE_ECHO_STALKER` | 洞哭の追い手 | 非神 | 闇 / 風 | 闇軽減 | 光、土 | 影縫いで行動遅延 | あり（`BLIND`） |
+| T2 | `RITUAL_BELL_WISP` | 祭鈴の残響 | 棄物 | 光 / 氷 | 光軽減 | 炎、闇 | 鈴音で短期封印を散布 | あり（`SKILL_SEAL`） |
+| T2 | `FIELD_SCOURER_BOAR` | 荒野牙猪 | 荒魂獣 | 土 / 雷 | 土軽減 | 氷、水 | 直進突撃で前衛崩し | なし |
+| T3 | `MIRROR_GUARDIAN` | 鏡面の守護像 | 白化神上位 | 光 / 氷 | 全属性半減傾向 | 無属性、極大代受苦 | 2回行動と限定反射 | なし |
+| T3 | `HISTORY_DROWNER` | 記録喰らいの禊神 | 非神 | 水 / 光 | 水軽減 | 雷、闇 | 武器履歴の一時消去 | あり（`HISTORY_ERASE`） |
+| T3 | `KUSANAGI_WRAITH` | 草薙の亡霊 | 非神 | 風 / 炎 | 風軽減 | 水、土 | 耐久吸収で自己再生 | あり（`KUSANAGI_WEAR`） |
+| T4 | `SAGUME_EXECUTOR` | 探女の執行体 | 天津神 | 光 / 水 | 光軽減 | 闇 | 予測線の乖離誘発 | あり（`WHITE_OATH`） |
+| T4 | `TOYOTAMA_SURGE` | 豊玉姫の潮影 | 澱神上位 | 水 / 闇 | 水軽減 | 雷、光 | 情念依存技への逆算妨害 | あり（`TRUTH_OBSCURE`） |
+| T4 | `UKA_SUPPLY_CORE` | 宇迦之御魂の配給核 | 天津神支援 | 土 / 光 | 土軽減 | 闇、炎 | 回復と情念枯渇の二択圧 | あり（`PURE_PROVISION`） |
 
 ### 神社・祠関連記録
  | マスター | 主要フィールド | 
@@ -723,6 +760,13 @@ END IF
  | `INSTANT_KILL` | 即死 | 条件で一撃死亡 | スクナ、ワカヒコ |
  | `SKILL_SEAL` | 封印 | 特定技（情念依存等）の使用不可。リソースへのアクセス権をシステム管理者にロックされた状態 | (敵系統: 白化神など) |
  | `CRYSTALLIZE` | 琥珀化（結晶化） | ダメージも受けず行動も不能になる「永遠の保管状態」 | (敵系統: 天津神など) |
+| `WHITE_OATH` | 白の宣託 | 予測UIの表示線と実行結果を乖離させる。プレイヤーの確率判断を崩す攪乱干渉 | 探女、白化神上位 |
+| `TRUTH_OBSCURE` | 真実の隠匿 | 情念依存技の発動契機で、対象のバフや付喪神化段階を初期化側へ巻き戻す | 豊玉姫、澱神上位 |
+| `PURE_PROVISION` | 無垢なる配給 | 活魂回復と引き換えに情念を枯渇側へ固定し、連撃熱伝導を分断する | 宇迦之御魂神、白化神支援 |
+| `REGEN_BLOCK` | 再生停止の呪い | 回復系処理を無効化し、再生前提の持久戦を破綻させる | 大宜都比売、国津神上位 |
+| `SHIGURUI_ANCESTOR` | 死狂いの祖 | 高密度連撃と予測攪乱を同時に付与する裏ボス専用の危険状態 | 素戔嗚尊（試練） |
+| `HISTORY_ERASE` | 歴史の抹消 | 武器の金継ぎ履歴を一時消失させ、履歴依存の火力・防御補正を遮断する | 瀬織津姫、非神上位 |
+| `KUSANAGI_WEAR` | 草薙の摩耗 | 攻撃時に対象の武器耐久を吸収して敵自身の耐久と防御へ再配分する | 日本武尊、非神上位 |
  | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 | (共有システム制限) |
  | `WAKAHIKO_KAESHIYA_PASSIVE` | 返し矢の呪い | ワカヒコが弓攻撃するたび、消費した情念（活魂）量に応じて威力上昇と自傷反動を同時に発生させる恒常パッシブ。 | ワカヒコ固有 |
  | `INGA_NO_KAESHIYA` | 因果の返し矢 | 「返し矢の呪い」の反動の半分を自身で引き受け、残りを敵へ予測線ノイズとして転写する状態異常（デバフ）。 | ワカヒコ固有 |
