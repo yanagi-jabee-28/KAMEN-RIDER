@@ -278,6 +278,24 @@ traditional Japanese watercolor on Washi paper.
 The bow is flawless white wood with subtle gold seams, strung tautly. Beside it, the quiver displays only the striking, blood-red fletchings of the arrows hidden within. Cold, divine perfection.
 ```
 
+### 天之沼矛（Ame no Nuboko）
+> *システム注釈: ミコトの鉾の最終形態。泥をかき混ぜる「反逆の鉾」。*
+```text
+Prompt:
+masterpiece, a towering, terrifyingly beautiful ancient god-spear embedded deeply into swirling, chaotic mud.
+traditional Japanese watercolor on Washi paper.
+The heavy pole and ornate, broken halberd blade are violently bound together by thick, glowing, and pulsing golden Kintsugi seams. It exudes an overwhelming aura of primordial heat and creation, forcefully churning and rejecting the sterile void around it. 
+```
+
+### 海神の沈底櫂（Wadatsumi no Chinteigai）
+> *システム注釈: タチバナの鈍器の最終形態。深い水圧と悲哀を背負う。*
+```text
+Prompt:
+masterpiece, a massive, ancient, waterlogged wooden rowing oar resting on dark, damp Washi paper.
+traditional Japanese watercolor with deep, bruised oceanic blues, blacks, and moldy greens.
+The heavy wood is scarred, encrusted with barnacles, and marked by desperate claw-scratches. Golden Kintsugi flows through the cracks like glowing tears, radiating a profound, suffocating sorrow and crushing ocean depth.
+```
+
 ---
 
 ## 6. 環境プロンプト
