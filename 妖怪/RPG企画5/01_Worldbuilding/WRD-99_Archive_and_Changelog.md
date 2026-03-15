@@ -28,6 +28,8 @@ influences:
 
 ## 1. QOL向上・ナラティブ昇華による仕様変更（直近フェーズ）
 
+- 2026-03-16: **【超常説明許容の明文化】** 時代考証運用ルールを拡張し、神術・魔術・呪法・怪異譚などオカルト文脈で一貫説明できる要素を許容対象に追加。未来文明直結要素の非許容方針は維持。
+- 2026-03-16: **【時代考証運用ルール追加】** 神話作品としての時代揺らぎ許容を明文化。常世由来・祭具由来・神意由来で説明可能な異時代要素は採用可としつつ、未来文明を直接想起させる要素（電子計算機器、近未来兵器、現代工業機械、ネットワーク依存描写）は不採用に固定。判定基準を `ARC-00 §1.3` へ追加し、`WRD-01` と `README` に同期。
 - 2026-03-16: **【敵分類是正】** `Hakuraku_Stardust（剥落の星屑）` を「主要ボス定義」から除外し、「通常戦に低確率で混入する報酬型レア雑魚」として再定義。`SYS-30` を正本更新し、`SYS-20` / `NAR-10` / `WRD-01` の記述を同期。
 - 2026-03-16: **【ワカヒコ加入導線統合】** 第3幕天望の天守にナキメ加入戦を導入。ナキメ戦中は返し矢反動を無効化し、戦闘後の「タカミムスビ裁定→返し矢降臨」で `返し矢の呪い` を恒常有効化。あわせて、ワカヒコ加入後の神由来シナリオ能力（神託傍受・神域偽装通行・天側記録解読・黄泉座標補助）を正本へ追加。ウズは天由来設定を維持しつつ神血統断定を回避。対象: `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`。
 - 2026-03-12: **【統合是正指令反映】** 原則として副腕スロットを廃止し、可変装備枠を「主腕・装束・形代（最大2）」へ統一。ただしミコトのみ例外的に「副武器（Offhand Weapon）」スロットを持ち、両手装備（Dual Wield）の表現を可能とする。法螺貝・石乳鉢・神楽面・呪具土偶・矢筒弦束は「常時携行物」として再定義し、固定枠・圧縮・積層マウント等のメタ説明を撤去。
@@ -178,6 +180,8 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-16 | 【超常説明の許容追記】神術・魔術・呪法・怪異譚など、オカルト文脈で整合する要素を時代考証許容ルールへ追加。未来文明直結要素の非許容は維持。 | `00_Governance/ARC-00_Implementation_Charter.md`, `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `README.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
+ | 2026-03-16 | 【時代考証ガイドライン整備】神話作品として時代揺らぎを限定許容し、未来文明直結要素を非許容とする境界を追加。判断基準（3条件）をガバナンスへ明記。 | `00_Governance/ARC-00_Implementation_Charter.md`, `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `README.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【語彙運用の明確化】「説明用途の技術語は許容」「ゲーム内転用され得る叙述ではSF語彙を極力排除」を明文化。スクナの医学・薬学語彙を例外許容として定義し、NAR-10内の転用リスクが高い語彙を和語中心へ置換。 | `00_Governance/ARC-00_Implementation_Charter.md`, `README.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【雑魚敵拡充】Enemy_Tier_Template_Master の T1/T2 を具体名で増補。状態異常散布型（毒/麻痺/幻惑/睡眠/封印/混乱）と、非状態異常ギミック型（耐久摩耗/自爆予告/高回避/突進/狙撃）を対で追加し、序中盤の編成バリエーションを強化。SYS-20へ雑魚敵サンプル導線を追記。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-15 | 【敵系統整理と半実装】敵分類を四大系統（天津神/国津神/非神/棄物）+補助系統（荒魂獣/擬神兵/狂信者/剥落の星屑）として再整理。SYS-30にTier別敵テンプレートを追加し、新規状態異常7種（白の宣託ほか）をStatus_Effect_Masterへ接続。SYS-20には雑魚からボスまでの状態異常導線と、状態異常なし敵の運用指針を同期。NAR-10には擬神兵と狂信者の境界定義を追記。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
