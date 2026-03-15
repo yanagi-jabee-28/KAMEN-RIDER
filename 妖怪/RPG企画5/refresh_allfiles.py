@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """Utility script for updating the copies stored under `ALL-files`.
 
-Run this from inside the `妖怪/RPG企画5/ALL-files` directory:
-
-    python refresh_allfiles.py
+Run this from anywhere; it copies canonical documents from `妖怪/RPG企画5`
+into `妖怪/ALL-files`.
 
 The script will copy the latest version of each core markdown document
-from the canonical location in the tree and overwrite the file in this
-folder.  It is intentionally simple so that it works on any system with
-Python installed.
+from the canonical location in the tree and overwrite the file in the
+`ALL-files` folder. It is intentionally simple so that it works on any
+system with Python installed.
 """
 
 import shutil
@@ -16,8 +15,7 @@ from pathlib import Path
 import sys
 
 # List of source paths, relative to the root of "妖怪/RPG企画5".
-# The destination is <root>/ALL-files, because the script lives one level
-# above that directory.
+# The destination is 妖怪/ALL-files, which is one directory above this script.
 FILES = [
     'README.md',
     '00_Governance/ARC-00_Implementation_Charter.md',
@@ -34,8 +32,9 @@ FILES = [
 
 def main():
     here = Path(__file__).resolve().parent
-    root = here  # script now lives at the project root
-    allfiles_dir = root / 'ALL-files'
+    root = here  # script is located in 妖怪/RPG企画5
+    allfiles_dir = root.parent / 'ALL-files'  # 妖怪/ALL-files
+    allfiles_dir.mkdir(parents=True, exist_ok=True)
 
     print('Refreshing ALL-files copies...')
     for rel in FILES:

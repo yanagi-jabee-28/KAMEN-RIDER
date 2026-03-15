@@ -97,21 +97,21 @@ ALL-files 配下の各ファイルを「個別シンボリックリンク」に�
 
 ```powershell
 # 例: 00_Governance 内の Markdown を個別リンクに置換する
-cd '...\妖怪\RPG企画5\ALL-files'
+cd '...\妖怪\RPG企画5'
 
 # 既存コピーを削除
-Get-ChildItem -Filter *.md | Remove-Item
+Get-ChildItem -Path '..\ALL-files' -Filter *.md | Remove-Item
 
 # 元ファイルをループしてリンク作成
-Get-ChildItem ..\00_Governance -Filter *.md | ForEach-Object {
+Get-ChildItem .\00_Governance -Filter *.md | ForEach-Object {
     $target = $_.FullName
-    $link   = Join-Path (Get-Location) $_.Name
+    $link   = Join-Path '..\ALL-files' $_.Name
     New-Item -ItemType SymbolicLink -Path $link -Value $target
 }
 
 # 他のサブフォルダでも同様。
 # たとえば 01_Worldbuilding:
-# Get-ChildItem ..\01_Worldbuilding -Filter *.md | ForEach-Object { ... }
+# Get-ChildItem .\01_Worldbuilding -Filter *.md | ForEach-Object { ... }
 ```
 
 PowerShell の `New-Item -ItemType SymbolicLink` はファイル単位でも機能します。
@@ -123,26 +123,26 @@ PowerShell の `New-Item -ItemType SymbolicLink` はファイル単位でも機�
 無効になる**ので、クローン先でも同じディレクトリ構造が必要です。
 
 
-他のマシンへクローンした際にはまずフォルダ自体のジャンクションを再作成します：
+他のマシンへクローンした際には、ALL-files フォルダを作成して最新のコピーを取得します：
 ```powershell
 cd '...\妖怪\RPG企画5'
-New-Item -Path .\ALL-files -ItemType Junction -Value .\
+mkdir '..\ALL-files' -Force
+python refresh_allfiles.py
 ```
 ```
 コピーを作成する手順（PowerShell）:
 
 ```powershell
 # 例: ARC-00 をコピーする
-cd '...\妖怪\RPG企画5\ALL-files'
-Copy-Item -Path '..\00_Governance\ARC-00_Implementation_Charter.md' -Destination .
+cd '...\妖怪\RPG企画5'
+Copy-Item -Path '.\00_Governance\ARC-00_Implementation_Charter.md' -Destination '..\ALL-files'
 ```
 
 新しいドキュメントを追加したら、同じように `Copy-Item` を実行して
 `ALL-files` へファイルをコピーしてください。複数ファイルをまとめて
 コピーするワンライナーやスクリプトを `Scripts/` に置いておくと便利です。
 
-フォルダ単位のジャンクション（`ALL-files` 自身）はすでに設定されて
-いるため、ディレクトリ構造を変更してもこのコピー作業には影響しません。
+現在は `妖怪/ALL-files` を通常のフォルダとして運用しています。ジャンクション運用に戻す場合は、`妖怪/ALL-files` を削除して `New-Item -Path .\ALL-files -ItemType Junction -Value .\RPG企画5` を実行してください。
 
 なお、コピーされたファイルは元と内容が同じですが、以降の編集は元
 ファイルで行い、必要に応じて同期を手動で行ってください。Gitには
