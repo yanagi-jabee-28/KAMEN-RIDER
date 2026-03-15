@@ -192,6 +192,13 @@ END IF
 ```
 // 弓攻撃時に常時適用（発動で消費したリソース量に依存して威力がハネ上がり、同時に自傷反動を受ける）
 IF Character == WAKAHIKO AND MainWeapon.Category == "BOW_RANGED" THEN
+  // 天望の天守・ナキメ戦中は返し矢の反動を無効化する。
+  IF StoryFlag.NAKIME_BATTLE_ACTIVE == TRUE AND StoryFlag.WAKAHIKO_KAESHIYA_AWAKENED == FALSE THEN
+    Jonetsu_Consumption_Ratio = clamp(Consumed_Jonetsu_For_Attack / Jonetsu_Max, 0.0, 1.0)
+    Bow_Damage_Mult = 1.0 + (Jonetsu_Consumption_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
+    Self_Recoil_Damage = 0
+    Apply_Damage(Target, floor(Bow_Base_Damage * Bow_Damage_Mult))
+  ELSE
   // Consumed_Jonetsu_For_Attack はこの矢を放つために消費した情念（活魂代替コスト含む）の総量
   Jonetsu_Consumption_Ratio = clamp(Consumed_Jonetsu_For_Attack / Jonetsu_Max, 0.0, 1.0)
   Bow_Damage_Mult = 1.0 + (Jonetsu_Consumption_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
@@ -212,6 +219,7 @@ IF Character == WAKAHIKO AND MainWeapon.Category == "BOW_RANGED" THEN
   // 未練の熱伝導パッシブ：反動自傷を受けた直後、次アクションの威力を増幅
   IF Self_Recoil_Damage > 0 AND Has_Miren_Passive == TRUE THEN
     Apply_State(MIREN_HEAT_BUFF, Next_Action_Only)
+  END IF
   END IF
 END IF
 
@@ -618,6 +626,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | ID | 名称 | 特殊仕様 | 
  | --- | --- | --- | 
  | `Amaterasu_Core_OS` | 天照大御神 | 戦闘対象ではなく「システムフリーズ状態」管理プロセス。天岩戸解除イベントで制御。 | 
+| `Nakime_DeathMessenger` | 鳴女（ナキメ） | 天望の天守における加入戦ボス。高空配置・全体結晶化神託を持つ。撃破で `NAKIME_DEFEATED_ACT3` を立て、戦後イベントで返し矢裁定へ遷移。 |
 | `Takemikazuchi_Enforcer` | タケミカヅチ | 予告UI「裁きの神雷」。継承手甲に刻まれた猿田の破岩撃による一度きりの防御イベントをトリガーする。 | 
  | `Tsukuyomi_AntiVirus` | 月読命 | 代謝（回復）行動で `ActionError` 移行。確定全滅技「永遠の月食」時に、カガセオ乱入イベントで無敵状態を物理剥離する。 | 
 | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。砕かれた玉座への帰還引力と天の拒絶理が衝突し、特殊HP減算（暴走散逸）が発生する。 | 
@@ -776,6 +785,7 @@ END IF
  | マスター | 目的 | 
  | --- | --- | 
  | `Skill_Master` | 固有スキル・神写し可否・理解度閾値・共鳴タグ | 
+ | `Scenario_Capability_Master` | シナリオ解放能力（神託傍受・神域偽装通行・天側記録解読・黄泉座標補助）を管理。神写し枠とは分離。 |
  | `Kintsugi_Master` | 修復素材と付与特性（被ダメ履歴参照）定義 | 
  | `Daijuku_Master` | 武器消滅時に生成されうる情念の核（Core_of_Regret）と連動するマスターテーブル。クリア後は `Infinite_Idea_Chain` 解放。 | 
  | `Tsukumogami_Awakening_Master` | `Awaken_Threshold_LogDensity`, `Awaken_Required_Kintsugi_MaterialKinds`, `Musubi_AutoAction_Chance`, `Kibutsu_Spawn_Weight_By_Area` | 
@@ -784,6 +794,25 @@ END IF
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
 | `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |
 | `Mirror_Reflection_Master` | 反射可能干渉の分類、対象、反射率、反射不可例外を管理 |
+
+### Scenario_Capability_Master（加入時シナリオ能力）
+```yaml
+Character: WAKAHIKO
+UnlockFlag: WAKAHIKO_JOINED_ACT3
+Capabilities:
+  - CapabilityId: DIVINE_PROPHECY_SNIFF
+    Name: 神託傍受
+    Effect: 敵増援と浄化処理の予兆を追加表示
+  - CapabilityId: CELESTIAL_GATE_SPOOF
+    Name: 神域偽装通行
+    Effect: 神域検査を短時間だけ迂回
+  - CapabilityId: HEAVEN_LOG_DECODER
+    Name: 天側記録解読
+    Effect: 天津神の行動規範と弱点条件の補助表示
+  - CapabilityId: YOMI_COORDINATE_GUIDE
+    Name: 黄泉座標補助
+    Effect: 星屑の荒野への探索補正
+```
 
 ---
 
@@ -803,7 +832,11 @@ END IF
 | `ACT2_FIXED_ROUTE_CONFIRMED` | 第2幕固定導線（白堊の回廊→忘却の海食洞→灼熱たたら場）が確定した状態 | 
 | `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱（`MAHITO_JOINED_ACT2` と `TACHIBANA_JOINED_ACT2` の両成立後） | 
  | `WAKAHIKO_ANTAGONIST_PHASE` | ワカヒコによる執拗な追撃・対立期間 | 
- | `WAKAHIKO_JOINED_ACT3` | 天望の天守でのワカヒコ加入 | 
+ | `NAKIME_BATTLE_ACTIVE` | 天望の天守でナキメ加入戦が開始した状態。返し矢反動を無効化。 |
+ | `NAKIME_DEFEATED_ACT3` | ナキメ撃破。戦闘フェーズ終了。 |
+ | `TAKAMIMUSUBI_VERDICT_CONFIRMED` | 戦闘後、天側で遺骸確認が行われ返し矢裁定が確定。 |
+ | `WAKAHIKO_KAESHIYA_AWAKENED` | 返し矢降臨イベント後に返し矢の呪いを恒常有効化。 |
+ | `WAKAHIKO_JOINED_ACT3` | 天望の天守でのワカヒコ加入（返し矢降臨イベント後）。 | 
  | `ACT3_KAGASEO_RESONANCE` | 第3幕の一度限りのカガセオ意識による加勢イベント | 
  | `TSUKUYOMI_TOWER_DEPLOYED` | 静謐の塔建造・浄化プロトコル起動 | 
  | `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破・偽終幕祝祭発生 | 
