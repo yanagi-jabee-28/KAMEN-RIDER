@@ -526,14 +526,18 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | `STERILE_CURTAIN` | 無菌の帳 | 回復効率低下、自傷コスト上昇、静止系異常の付与率上昇 |
  | `BLOOD_MUDPIT` | 血の泥沼 | 回復反転圧上昇、情念蓄積増幅、耐久コスト補正 |
 
-### Item_Master（主要フラグ）
- | フィールド | 説明 | 
+### Item_Master（主要フラグ・アイテム定義）
+ | フィールド / ID | 説明 | 
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
 | `Core_of_Regret` | 極大代受苦で `Is_Tsukumogami == TRUE` の武器を破壊した時のみ生成される情念の核。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。 | 
  | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 | `Yomotsu_Mud_Fruit` | 黄泉の泥果実 | 使用効果＝`Full_Recover(Kakkon, Jonetsu)` + `Apply_State(YOMOTSU_CURSE)` |
+| `Raw_Mud_Poultice` | 生泥の湿布 | 第1幕序盤の泥臭い回復アイテム。活魂(HP)を少量回復。岩絵具の厚塗りによる炎症抑制。 |
+| `Star_Sand_Vial` | 星砂の小瓶 | 情念(MP)を少量回復。カガセオの破片による気力維持。 |
+| `Sharpening_Mud_Lump` | 砥ぎ泥の塊 | 武器耐久度を少量回復。刃こぼれをその場で研ぐ応急処置。 |
+| `Dried_Abalone_Scrap` | 干し鮑の端切れ | 活魂と情念を微回復。漁村アマの保存食。 |
 
 ### Item_State_Extension（武器インスタンス付加情報）
  | フィールド | 説明 | 
