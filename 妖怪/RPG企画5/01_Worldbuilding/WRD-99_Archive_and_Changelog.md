@@ -176,6 +176,8 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-15 | ワカヒコの「返し矢の呪い」の反動源を情念蓄積量から消費量（自傷活魂コスト含む）に改訂し、新術式「因果の返し矢」「未練の熱伝導」を追加。ナラティブイベント「星落としの日」を明文化（天のプライドと後ろめたさの克服を中核に据えた）。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` | 
+ | 2026-03-15 | ワカヒコの「返し矢の呪い」の反動源を情念蓄積量から消費量（自傷活魂代替コスト含む）に改訂し、新術式「因果の返し矢」「未練の熱伝導」を追加。ナラティブイベント「星落としの日」を明文化（天のプライドと後ろめたさの克服を中核に据えた）。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` | 
  | 2026-03-12 | 【重要修正指令】SYS-30を正本として装備・構え・武器カテゴリを再統合。副腕スロット廃止、常時携行物への再定義、構え係数を2H=1.5/1H=1.0/二刀流=1.3へ固定、武器カテゴリ9種を導入。ワカヒコ返し矢を恒常パッシブ化し、生存の足掻きを100%確定発動へ変更。剥落の星屑に熱散逸後の攻撃猶予Tickを追加。黄泉戸喫はうかみ自律摂取を在庫非消費として確定。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-12 | 【全仕様同期・正本化】葛城山継承を二柱固定（猿田の破岩撃/法螺の轟き）、第2幕を単線固定、黄泉戸喫を任意使用+永続呪いへ確定、構え三理（剛/静/乱）を確定、情念の核条件を `Is_Tsukumogami == TRUE` 破壊時に簡略化、魂の摩耗を明文化、氷属性を神の静止/人の冷却へ分割。旧案は本アーカイブへ隔離。 | `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` |
  | 2026-03-12 | 黄泉戸喫のフィールドアイテム化（全回復＋黄泉の呪い）および、うかみによる野営地浄化システムの実装。行者還しの儀への突入条件（合計活魂・情念の熱量障壁）の追加。 | `NAR-10`, `SYS-20`, `SYS-30` | 

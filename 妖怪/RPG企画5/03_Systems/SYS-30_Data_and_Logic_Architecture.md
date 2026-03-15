@@ -175,13 +175,29 @@ END IF
 
 ### ワカヒコ固有パッシブ（返し矢の呪い）
 ```
-// 弓攻撃時に常時適用
+// 弓攻撃時に常時適用（発動で消費したリソース量に依存して威力がハネ上がり、同時に自傷反動を受ける）
 IF Character == WAKAHIKO AND MainWeapon.Category == "BOW_RANGED" THEN
-  Jonetsu_Ratio = clamp(Jonetsu_Value / Jonetsu_Max, 0.0, 1.0)
-  Bow_Damage_Mult = 1.0 + (Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
-  Self_Recoil_Damage = floor(Bow_Base_Damage * Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Recoil_Mult)
+  // Consumed_Jonetsu_For_Attack はこの矢を放つために消費した情念（活魂代替コスト含む）の総量
+  Jonetsu_Consumption_Ratio = clamp(Consumed_Jonetsu_For_Attack / Jonetsu_Max, 0.0, 1.0)
+  Bow_Damage_Mult = 1.0 + (Jonetsu_Consumption_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
+  
+  // 反動ダメージも消費量に比例
+  Self_Recoil_Damage = floor(Bow_Base_Damage * Jonetsu_Consumption_Ratio * WAKAHIKO_KAESHIYA_Recoil_Mult)
+
+  // 因果の返し矢パッシブ（または状態）が有効な場合、反動を敵へノイズ転写する
+  IF State_Inga_No_Kaeshiya == TRUE THEN
+    Transfer_Damage = floor(Self_Recoil_Damage * 0.5)
+    Self_Recoil_Damage = Self_Recoil_Damage - Transfer_Damage
+    Apply_Noise_Damage(Target, Transfer_Damage) // 予測線UIへのノイズ・ダメージ転写
+  END IF
+
   Apply_Damage(Target, floor(Bow_Base_Damage * Bow_Damage_Mult))
   Kakkon_Value = max(0, Kakkon_Value - Self_Recoil_Damage)
+
+  // 未練の熱伝導パッシブ：反動自傷を受けた直後、次アクションの威力を増幅
+  IF Self_Recoil_Damage > 0 AND Has_Miren_Passive == TRUE THEN
+    Apply_State(MIREN_HEAT_BUFF, Next_Action_Only)
+  END IF
 END IF
 
 // 生存の足掻きは条件成立時100%反撃
@@ -690,7 +706,9 @@ END IF
  | `SKILL_SEAL` | 封印 | 特定技（情念依存等）の使用不可。リソースへのアクセス権をシステム管理者にロックされた状態 | (敵系統: 白化神など) |
  | `CRYSTALLIZE` | 琥珀化（結晶化） | ダメージも受けず行動も不能になる「永遠の保管状態」 | (敵系統: 天津神など) |
  | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 | (共有システム制限) |
- | `WAKAHIKO_KAESHIYA_PASSIVE` | 返し矢の呪い | ワカヒコが弓攻撃するたび、情念蓄積比率に応じて威力上昇と自傷反動を同時に発生させる恒常パッシブ。 | ワカヒコ固有 |
+ | `WAKAHIKO_KAESHIYA_PASSIVE` | 返し矢の呪い | ワカヒコが弓攻撃するたび、消費した情念（活魂）量に応じて威力上昇と自傷反動を同時に発生させる恒常パッシブ。 | ワカヒコ固有 |
+ | `INGA_NO_KAESHIYA` | 因果の返し矢 | 「返し矢の呪い」の反動の半分を自身で引き受け、残りを敵へ予測線ノイズとして転写する状態異常（デバフ）。 | ワカヒコ固有 |
+ | `MIREN_HEAT_BUFF` | 未練の熱伝導 | 反動自傷を受けた直後、次の一撃の威力や共鳴バースト倍率を一時的に引き上げる熱バフ状態。 | ワカヒコ固有 |
 
 ### その他マスター
  | マスター | 目的 | 
