@@ -36,6 +36,9 @@ influences:
 `Mikoto_Gauntlet_Permanent` : BOOLEAN
   // 継承手甲がミコトに恒久的に接続されたことを示す。
   // 一度真になればそれ以降変更されない。装備欄とは無関係。
+`Red_Scarf_Event_Key` : BOOLEAN
+  // 赤いスカーフ。インベントリを占有しない永続的なイベントキー／フラグ。
+  // ミコトの「初期熱量」を象徴し、八咫鏡の錬成条件（金継ぎ回数参照）のアンカーとなる。
 
 
 
@@ -94,11 +97,11 @@ IF (Kakkon_Value <= 0 AND (Jonetsu_Value <= 0 OR Has_Shigurui_Passive == FALSE))
   State_Dead = TRUE // 泥への還り（完全死）
 END IF
 
-IF FreezeVacuum_Turns > 0 THEN
-  State_FreezeVacuum = TRUE
+IF Seal_Turns > 0 THEN
+  State_Seal = TRUE
   // 情念依存技を封印、行動順補正に負値
   Jonetsu_Skill_Seal = TRUE
-  Tick_Speed_Mult = Tick_Speed_Mult * FreezeVacuum_Tick_Mult
+  Tick_Speed_Mult = Tick_Speed_Mult * Seal_Tick_Mult
 END IF
 ```
 3. **武器摩耗（Durability Drain）**:
@@ -333,9 +336,11 @@ Target = f(Kakkon_current, DEF_current, action_history_weight)
 - **Ukami_AutoIntercept**: `Player_Takes_Fatal_Damage` 等の条件下で発動。成功率100%・行動順無視で割り込む。
 - **肩代わりロジック**: プレイヤーが受ける `Invasion_Value`（侵食）の上昇を、うかみの `Internal_Vigor` を削ることで無効化する処理。
 - **Ukami_Heal_Absolute**: うかみの法力による回復。`Yomotsu_Eat_State` による回復反転の影響を内部的に無効化し、常にプラスの回復値として処理する。
-  // 優位性: `Field_State == BLOOD_MUDPIT` による Heal_Value 乗算は
-  // 反転適用前に評価されるため、Ukami_Heal_Absolute は最終値へ
-  // 直接加算され、回復反転効果を貫通する。
+  // 優位性: `Field_State == BLOOD_MUDPIT` による Heal_Value 乗算（回復反転）は
+  // 適用前に除外されるか、判定をバイパスする。
+  // Ukami_Heal_Absolute は最終値へ直接加算され、回復反転効果を貫通して
+  // 対象の活魂を正常に回復させる（絶対的救済）。
+  Apply_Heal(Target, Value, Bypass_Status_Reversal=TRUE)
 
 - **地上での制限**: 地上エリアにおいては物理的に参戦不可であり、遠隔守護フラグも存在しない（完全な断絶）。
 
@@ -432,7 +437,8 @@ END IF
 IF Can_Use_Extreme_Daijuku AND Target_Weapon.Is_Tsukumogami == TRUE THEN
   Item_Instance = DELETE_PERMANENTLY
   IF Target_Weapon.CoreRegret_Extractable == TRUE THEN
-    Generate(Core_of_Regret)
+    // 付喪神化された武器を極大代受苦で破壊した場合、情念の核は100%確定で生成される。
+    Generate(Core_of_Regret, Rate=1.0)
   END IF
 END IF
 

@@ -176,6 +176,9 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-15 | 【SSOT論理純化】NAR-10からシステム数値を排除しナラティブへ純化。二刀流をミコト固有の「仮想的双腕状態（DualStanceActive）」として定義統一。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md` | 
+ | 2026-03-15 | 【論理整合】黄泉戸喫の回復処理が行者うかみの法力で回復反転をバイパスするようSYS-30を修正。付喪神崩壊時の「情念の核」生成率を100%固定化。赤いスカーフを永続イベントキーとして定義。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md` |
+ | 2026-03-15 | ワカヒコの「返し矢の呪い」の反動源を心理的プライド/罪悪感へ再定義し、新スキル「因果の返し矢」を追加。 | `02_Narrative/NAR-10_Narrative_and_Characters.md` |
  | 2026-03-15 | ワカヒコの「返し矢の呪い」の反動源を情念蓄積量から消費量（自傷活魂コスト含む）に改訂し、新術式「因果の返し矢」「未練の熱伝導」を追加。ナラティブイベント「星落としの日」を明文化（天のプライドと後ろめたさの克服を中核に据えた）。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` | 
  | 2026-03-15 | ワカヒコの「返し矢の呪い」の反動源を情念蓄積量から消費量（自傷活魂代替コスト含む）に改訂し、新術式「因果の返し矢」「未練の熱伝導」を追加。ナラティブイベント「星落としの日」を明文化（天のプライドと後ろめたさの克服を中核に据えた）。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md` | 
  | 2026-03-12 | 【重要修正指令】SYS-30を正本として装備・構え・武器カテゴリを再統合。副腕スロット廃止、常時携行物への再定義、構え係数を2H=1.5/1H=1.0/二刀流=1.3へ固定、武器カテゴリ9種を導入。ワカヒコ返し矢を恒常パッシブ化し、生存の足掻きを100%確定発動へ変更。剥落の星屑に熱散逸後の攻撃猶予Tickを追加。黄泉戸喫はうかみ自律摂取を在庫非消費として確定。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
