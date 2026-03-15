@@ -224,3 +224,4 @@ influences:
 ### 保留/廃棄: 秘奥義
 本来、「逆流・代受身（最大HPを1に落とし行動順高速化＋確定クリティカル）」や「剣塚の共鳴」「八岐の抱擁」など、極限リスクと交換に得られる超越技を指す概念として検討されていた。2026‑03‑09時点ではシステム化が未成熟であり、戦闘フローの複雑化を招くため暫定的にアイデアプールへ移行。将来的な再検討・実装は別途議論する。
 | 2026-03-09 | 【改訂指令反映】武器修復サイクルを再構築。通常代受苦（過熱・沈黙循環）と、付喪神化済み武器限定の極大代受苦を分離。極大代受苦の結果を「情念の核」生成と別ベース武器への継承へ一本化。うかみ離脱時の防衛術式「法螺の遺響」強制習得、特技マトリクスの非同期解消（泥繭の眠り・言継ぎ・自傷・土偶・執着の修復）を実施。※「法螺の遺響」は後に不採用、現行は「法螺の轟き」。 | `00_Core_Vision_and_Theme.md`, `10_Narrative_and_Characters.md`, `20_Game_Systems_and_Flow.md`, `30_Data_and_Logic_Architecture.md`, `40_Art_Direction_and_Assets.md`, `50_Reference_DQ_Master_Data.md`, `99_Archive_and_Changelog.md` |
+| 2026-03-15 | 【全仕様反映・戦術定義】各キャラクターへの主/副属性（神の静止vs人の冷却・摩耗概念に基づく）および、状態異常（理の崩し方）の役割マトリクスを追加。加入・離脱タイミングにおける戦術的不在ペナルティ（いるとできること/いないと困ること）を明文化。 | `02_Narrative/NAR-10_Narrative_and_Characters.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
