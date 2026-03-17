@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Merge Markdown Files",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/Scripts/merge_md.py"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Export Yokai Markdown PDF",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/Scripts/export_md_pdf.py",
+        "--keep-temp"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

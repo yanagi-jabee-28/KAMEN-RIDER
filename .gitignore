@@ -9,8 +9,8 @@
 .venv/
 .venv-1/
 
-# VS Code workspace settings
-.vscode/
+# # VS Code workspace settings
+# .vscode/
 
 # Project-specific copies directory (excluded because contents are regenerated)
 妖怪/ALL-files/

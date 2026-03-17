@@ -1,0 +1,105 @@
+html {
+  font-family: "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 24px 32px 48px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #102a43;
+  line-height: 1.25;
+}
+
+h1 {
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 0.35em;
+  margin-top: 1.8em;
+}
+
+h2 {
+  border-left: 6px solid #64748b;
+  padding-left: 0.6em;
+  margin-top: 1.6em;
+}
+
+p,
+li,
+blockquote,
+td,
+th {
+  overflow-wrap: anywhere;
+}
+
+blockquote {
+  margin-left: 0;
+  padding: 0.6em 1em;
+  border-left: 4px solid #94a3b8;
+  background: #f8fafc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.4rem;
+  font-size: 0.94em;
+}
+
+thead {
+  background: #e2e8f0;
+}
+
+th,
+td {
+  border: 1px solid #cbd5e1;
+  padding: 0.5em 0.65em;
+  vertical-align: top;
+  text-align: left;
+}
+
+code,
+pre {
+  font-family: "Consolas", "Cascadia Mono", monospace;
+}
+
+pre {
+  padding: 0.9em;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.page-break-after,
+h1 {
+  page-break-after: avoid;
+}
+
+img {
+  max-width: 100%;
+}
+
+@page {
+  size: A4;
+  margin: 16mm 14mm 18mm;
+}
+
+@media print {
+  body {
+    padding: 0;
+  }
+
+  table,
+  pre,
+  blockquote {
+    break-inside: avoid;
+  }
+}

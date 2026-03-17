@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": false,
+    "[markdown]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+    },
+    "markdown.extension.tableFormatter.enabled": false,
+    "markdown.extension.toc.autofill": false
+}
