@@ -23,7 +23,7 @@ DEFAULT_FILES = [
     "妖怪/RPG企画5/README.md",
 ]
 
-DEFAULT_OUTPUT = "妖怪/RPG企画5/yo-kai-project.pdf"
+DEFAULT_OUTPUT = "妖怪/RPG企画5/RPG企画資料統合.pdf"
 DOCUMENT_ORDER = {path: index for index, path in enumerate(DEFAULT_FILES)}
 
 DEFAULT_TITLE = "妖怪企画資料統合版"

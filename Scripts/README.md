@@ -18,7 +18,7 @@ A tool to merge multiple Markdown files into a single document.
 ### [export_md_pdf.py](./export_md_pdf.py)
 Markdownファイル群を1本のPDFに書き出します。
 - **Function:** YAML front matterを除去しつつMarkdownを結合し、PandocでHTML化したあと、EdgeまたはChromeのheadless印刷でPDF化します。
-- **Default target:** `妖怪/RPG企画5` の正本10ファイルを、設計順そのままで統合して `妖怪/RPG企画5/yo-kai-project.pdf` を出力します。
+- **Default target:** `妖怪/RPG企画5` の正本10ファイルを、設計順そのままで統合して `妖怪/RPG企画5/RPG企画資料統合.pdf` を出力します。
 - **Order rule:** 引数でファイルやディレクトリを混在させても、指定順を優先しつつ、重複ファイルは先に現れたものを採用します。
 - **Usage (default set):**
   ```powershell
