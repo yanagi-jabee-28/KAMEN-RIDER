@@ -207,7 +207,7 @@ Crucially, a tiny, uncontrollable tear of vivid, chaotic watercolor (vermilion a
 ```
 
 > **2026-03-08 企画会議反映:** システム用語の脱SF化に伴い、アートプロンプト内の「UI」「ノイズ」といった現代的メタ表現を和語（神託崩壊、情念の奔流など）へと統合した。
-### 澱神・八岐の産土（真エンドボス・怨念融合体）
+### 澱神・八岐の産土（真裏ボス・怨念融合体）
 ```text
 Prompt:
 masterpiece, a colossal, terrifying chimera entity of eight serpentine heads violently erupting from a shattered, pure-white porcelain shell.
@@ -233,6 +233,16 @@ Prompt:
 masterpiece, an incredibly long and narrow ancient Japanese straight sword (Chokuto) floating in a void.
 traditional Japanese watercolor on Washi paper. The dark, near-black iron is matte and light-absorbing.
 The blade is broken into three distinct segments, yet powerfully fused back together by thick, raised lines of glowing, brilliant golden Kintsugi lacquer that pulse with intense heat. The golden light bleeds softly into the textured paper surface.
+```
+
+### 天叢雲剣覚醒カット（オロチ尾の露出）
+演出注記: 神話連動として「尾から剣が出る」を必ず可視化する。ただし、拾って持ち替える演出は不可。露出した剣核をミコトの現行武器へ金継ぎ接合し、傷の履歴が一本の刃へ統合される瞬間を主軸にする。
+```text
+Prompt:
+masterpiece, a climactic mythic scene on torn Washi paper where the shattered tail of a colossal eight-headed yokai erupts and reveals a buried ancient sword core.
+traditional Japanese watercolor with violent mineral pigment bleeding, jagged dry-brush textures, and molten kintsugi gold veins.
+Mikoto does not simply pick up the relic; instead, the exposed sword core is fused into Mikoto's worn black blade through blazing golden kintsugi seams.
+Eight branching gold lines pulse across the newly unified blade like living scars, while ash, blood-mud, and star-dust swirl into a single radiant current.
 ```
 
 ### 八咫鏡（Yata no Kagami）

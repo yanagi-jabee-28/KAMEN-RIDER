@@ -270,6 +270,8 @@ END IF
 
 - `MAHITO_JOINED_ACT2` が立った時点で「野営Lv1」「拠点Lv2」を同時解禁。これは、同時にカグツチ顕現イベントが終了し`KAGUTSUCHI_QUELLED`（または `KAGUTSUCHI_AWAKENED` を含む）フラグが立った瞬間である。
 - `MAHITO_FIELD_LV2_UNLOCKED` は第3幕タケミカヅチ戦クリア後にのみ立てる。野鍛冶の誓いイベントがこのタイミングに含まれる。
+- クリア後の導線は `SUSANOO_TRIAL_UNLOCKED` → `SUSANOO_TRIAL_CLEARED` → `OROCHI_TAIL_BREACHED` の順で処理する。真裏ボス「澱神・八岐の産土」は `SUSANOO_TRIAL_CLEARED` 後にのみ挑戦可能。
+- `OROCHI_TAIL_BREACHED` が成立した瞬間、神話連動イベントとして「オロチ尾から天叢雲剣の核が露出」し、ミコト現行武器へ金継ぎ接合して `AMENO_MURAKUMO_AWAKENED` を立てる。
 - `SHRINE_FORGE_LV3_UNLOCKED` は大型神社拡張と第4幕条件の複合解禁。
 - `KAGUTSUCHI_QUELLED` / `KAGUTSUCHI_AWAKENED` は灼熱たたら場における最初の付喪神顕現がカグツチ残滓を呼び覚まし、プレイヤーがこれを鎮魂したことで設定される。このフラグはストーリー進行及びシステム解放（Lv2解放の前提）に利用される。
 
@@ -568,7 +570,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 
 | キャラクター | カテゴリ | 序盤（泥臭い生存道具） | 中盤（修復・過熱の器） | 終盤・最終（神話的・反逆的到達点） | 備考 |
 | --- | --- | --- | --- | --- | --- |
-| `MIKOTO` | 刃 (直刀系) | **海揚がりの古錆刀**<br>漁村漂着物の直刀。攻撃力は低いが生存本能の出発点。 | **星喰みの黒太刀**<br>星の砂を金継ぎし、神の理を斬り裂く摩擦熱を帯びた刀。 | **天叢雲剣**<br>スサノオの遺産。極大代受苦（情念の核）を継承し絶大な熱量を放つ。 | スサノオの系譜 |
+| `MIKOTO` | 刃 (直刀系) | **海揚がりの古錆刀**<br>漁村漂着物の直刀。攻撃力は低いが生存本能の出発点。 | **星喰みの黒太刀**<br>星の砂を金継ぎし、神の理を斬り裂く摩擦熱を帯びた刀。 | **天叢雲剣**<br>澱神・八岐の産土の尾から露出した核を、現行武器へ金継ぎ接合して覚醒する終局剣。 | オロチ尾神話と金継ぎ継承 |
 | `MIKOTO` | 槍・鉾 (儀礼槍系) | **欠けた祭祀槍**<br>穂先が折れた神事用の槍。 | **隕鉄の剛鉾**<br>星の破片を穂先に据えた重槍。突進の摩擦が極大。 | **天之沼矛**<br>永遠の静止を嫌って泥の世界をかき混ぜる究極の「反逆の鉾」。敵の展開する「無菌の帳」などの領域（環境圧）を物理的にかき混ぜ、強制初期化する。 | イザナギの系譜（反逆） |
 | `UKAMI` | 槍・鉾 (石鉾系) | **獣骨の石鉾**<br>骨と石の無骨な槍。活魂を削るほどの荒々しい摩擦。 | **大蛇狩りの剛槍**<br>荒魂の牙の転用。物理装甲(PTG)を泥ごと抉る。 | **国津神の荒鉾**<br>大地の怒りの重槍。敵の予測UIを構築前に粉砕スタンさせる。 | - |
 | `UKAMI` | 杖 (錫杖系) | **苦行の錫杖**<br>(行者覚醒後)黄泉の冷気に耐える祈りの起点。 | - | **修羅の六環杖**<br>血と祈りを吸い、天津神の停滞の理を法力で強引に中和する。 | 第4幕解禁 |
@@ -602,7 +604,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
 | `Core_of_Regret` | 極大代受苦で `Is_Tsukumogami == TRUE` の武器を破壊した時のみ生成される情念の核。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。 | 
- | `Ame_no_Murakumo` | スサノオの遺産。`Global_Daijuku_Log_Data` を参照して威力変動。裏ボス撃破後に `Rinne_no_Kintsugi=true` フラグが解放され、致命傷時に自動過熱して持ち主を庇う機能が有効化される | 
+| `Ame_no_Murakumo` | オロチ尾から露出した剣核とミコト現行武器の金継ぎ接合体。`Global_Daijuku_Log_Data` を参照して威力変動。`AMENO_MURAKUMO_AWAKENED=true` 後に、致命傷時の自動過熱庇護が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 | `Yomotsu_Mud_Fruit` | 黄泉の泥果実 | 使用効果＝`Full_Recover(Kakkon, Jonetsu)` + `Apply_State(YOMOTSU_CURSE)` |
 | `Raw_Mud_Poultice` | 生泥の湿布 | 第1幕序盤の泥臭い回復アイテム。活魂(HP)を少量回復。岩絵具の厚塗りによる炎症抑制。 |
@@ -632,9 +634,9 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `Kagaseo_Star_God` | カガセオ | 物理装甲ではなく高圧の情念でダメージ計算。砕かれた玉座への帰還引力と天の拒絶理が衝突し、特殊HP減算（暴走散逸）が発生する。 | 
  | `Boss_AmenoIwatowake` | アメノイワトワケ | `Damage_Multiplier = 0.0` 固定。`Event_Noise_Overload` でのみ撃破扱い。 | 
  | `Izanagi_Crystallizer` | 伊邪那岐命 | 大いなる悲哀と完璧な拒絶の体現。UI予測は完璧であり、情動による「揺らぎ」を最も排除した究極の学習型AI（Lv2.5）。 | 
-| `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | ステータスが `Global_Daijuku_Log_Data` と `Tsukumogami_Awakening_Craft_Count` で動的スケーリング。殻破壊後にUIジャック状態へ移行。 | 
+| `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | 真裏ボス。`SUSANOO_TRIAL_CLEARED` 後に解禁。ステータスが `Global_Daijuku_Log_Data` と `Tsukumogami_Awakening_Craft_Count` で動的スケーリング。尾破断時に `OROCHI_TAIL_BREACHED` を立てる。 | 
  | `Boss_Yakusa_no_Ikazuchi` | 八雷神 | クリア後限定。行者還しの専用3フェーズ進行に従う。 <br> **【突入条件式】** <br> `IF (Sum(Party.MaxKakkon) >= Required_Kakkon_Gravity) AND (Sum(Party.MaxJonetsu) >= Required_Jonetsu_Gravity) THEN Allow_Battle = TRUE` | 
-| `Boss_Susanoo` | スサノオ | 高耐久・高火力の正統派裏ボス。勝利条件は `Boss_HP <= 0` のみ。 | 
+| `Boss_Susanoo` | スサノオ | クリア後試練ボス。高耐久・高火力の正統派裏ボス。勝利条件は `Boss_HP <= 0` のみ。撃破で `SUSANOO_TRIAL_CLEARED` を立て、真裏ボス導線を開く。 | 
 
 ### Rare_Encounter_Master（レア遭遇雑魚定義）
  | ID | 名称 | 特殊仕様 | 
@@ -846,7 +848,10 @@ Capabilities:
  | `AMENO_IWATOWAKE_FORCED_REBOOT` | 神器とカガセオの駆動片で天岩戸を強制リブート | 
  | `ETERNITY_REJECTED_DEATH_IMPLEMENTED` | 別天津神を破り、ただの人間としての死を受け入れた（エンディング） | 
  | `GYOJAGAESHI_CLEARED` | クリア後「行者還し」完了。うかみを完全フリーメンバー化。 | 
+| `SUSANOO_TRIAL_UNLOCKED` | 行者還し完了後、根堅洲国のスサノオ試練への挑戦権を解放 | 
 | `SUSANOO_TRIAL_CLEARED` | 根堅洲国スサノオ撃破（活魂削り切り）完了 | 
+| `OROCHI_TAIL_BREACHED` | 真裏ボス「澱神・八岐の産土」で尾部を破断し、剣核が露出 | 
+| `AMENO_MURAKUMO_AWAKENED` | オロチ尾の剣核をミコト現行武器へ金継ぎ接合し、天叢雲剣が覚醒 | 
 | `STERILE_CURTAIN_UNLOCKED` | 無菌の帳を展開する敵位相が解放 | 
 | `BLOOD_MUDPIT_UNLOCKED` | 血の泥沼位相が解放 | 
 
