@@ -5,6 +5,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -59,24 +60,42 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="中間生成したmerged.mdとmerged.htmlをPDF横に残します。",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="実行ログを詳細に出力します。",
+    )
     return parser.parse_args()
 
 
-def strip_front_matter(text: str) -> str:
-    if not text.startswith("---\n"):
-        return text.lstrip("\ufeff")
+def extract_front_matter(text: str) -> tuple[dict[str, str], str]:
+    """Return (metadata dict, body text) from YAML front matter.
 
-    parts = text.split("\n")
+    If no front matter exists, returns ({}, text).
+    """
+
+    if not text.startswith("---\n"):
+        return {}, text.lstrip("\ufeff")
+
+    lines = text.split("\n")
+    metadata: dict[str, str] = {}
     end_index = None
-    for index in range(1, len(parts)):
-        if parts[index].strip() == "---":
+    for index in range(1, len(lines)):
+        if lines[index].strip() == "---":
             end_index = index
             break
 
     if end_index is None:
-        return text.lstrip("\ufeff")
+        return {}, text.lstrip("\ufeff")
 
-    return "\n".join(parts[end_index + 1 :]).lstrip()
+    for line in lines[1:end_index]:
+        if ":" not in line:
+            continue
+        key, _, value = line.partition(":")
+        metadata[key.strip()] = value.strip().strip("\"\'")
+
+    body = "\n".join(lines[end_index + 1 :]).lstrip()
+    return metadata, body
 
 
 def first_heading(markdown_text: str, fallback: str) -> str:
@@ -94,21 +113,30 @@ def normalize_heading_levels(markdown_text: str) -> str:
 def build_merged_markdown(paths: list[Path], title: str) -> str:
     sections: list[str] = [f"# {title}", "", "## 目次", ""]
 
-    cleaned_sections: list[tuple[str, str]] = []
+    cleaned_sections: list[tuple[str, str, Path]] = []
+    seen_titles: dict[str, int] = {}
+
     for path in paths:
         raw_text = path.read_text(encoding="utf-8")
-        cleaned = strip_front_matter(raw_text)
-        heading = first_heading(cleaned, path.stem)
-        cleaned_sections.append((heading, normalize_heading_levels(cleaned).strip()))
+        meta, body = extract_front_matter(raw_text)
+        body = body.strip()
 
-    for index, (heading, _) in enumerate(cleaned_sections, start=1):
+        heading = meta.get("title") or first_heading(body, path.stem)
+        count = seen_titles.get(heading, 0) + 1
+        seen_titles[heading] = count
+        if count > 1:
+            heading = f"{heading} ({path.stem})"
+
+        cleaned_sections.append((heading, normalize_heading_levels(body), path))
+
+    for index, (heading, _, _) in enumerate(cleaned_sections, start=1):
         sections.append(f"{index}. {heading}")
 
-    for path, (heading, body) in zip(paths, cleaned_sections):
+    for heading, body, path in cleaned_sections:
         sections.extend(
             [
                 "",
-                "\\newpage",
+                "<div style=\"page-break-after: always;\"></div>",
                 "",
                 f"# {heading}",
                 "",
@@ -171,19 +199,43 @@ def find_browser() -> Path:
     )
 
 
-def run_command(command: list[str], cwd: Path) -> None:
-    completed = subprocess.run(command, cwd=cwd, text=True, capture_output=True)
+def run_command(command: list[str], cwd: Path, verbose: bool = False) -> None:
+    # Avoid unicode decode errors on Windows terminals by forcing utf-8 and replacing invalid bytes.
+    start = time.perf_counter()
+    if verbose:
+        print(f"[run] {command}")
+
+    completed = subprocess.run(
+        command,
+        cwd=cwd,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+    )
+
+    elapsed = time.perf_counter() - start
+    print(f"[done] {command[0]} (elapsed: {elapsed:.2f}s)")
+
     if completed.returncode != 0:
         details = completed.stderr.strip() or completed.stdout.strip() or "詳細不明"
         raise SystemExit(details)
 
 
-def run_browser_print(command: list[str], cwd: Path, output_pdf: Path) -> None:
+def run_browser_print(command: list[str], cwd: Path, output_pdf: Path, verbose: bool = False) -> None:
+    # Chromium-based headless print can emit bytes that don't decode under cp932.
+    # Using utf-8 + replace prevents crashes while keeping output useful.
+    start = time.perf_counter()
+    if verbose:
+        print(f"[run] {command}")
+
     try:
         completed = subprocess.run(
             command,
             cwd=cwd,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             capture_output=True,
             timeout=45,
         )
@@ -192,12 +244,15 @@ def run_browser_print(command: list[str], cwd: Path, output_pdf: Path) -> None:
             return
         raise SystemExit("ブラウザ印刷がタイムアウトし、PDFも生成されませんでした。")
 
+    elapsed = time.perf_counter() - start
+    print(f"[done] {command[0]} (elapsed: {elapsed:.2f}s)")
+
     if completed.returncode != 0:
         details = completed.stderr.strip() or completed.stdout.strip() or "詳細不明"
         raise SystemExit(details)
 
 
-def export_pdf(paths: list[Path], output_pdf: Path, title: str, keep_temp: bool) -> None:
+def export_pdf(paths: list[Path], output_pdf: Path, title: str, keep_temp: bool, verbose: bool = False) -> None:
     repo_root = Path(__file__).resolve().parent.parent
     css_path = repo_root / "Scripts" / "pdf_style.css"
 
@@ -215,6 +270,8 @@ def export_pdf(paths: list[Path], output_pdf: Path, title: str, keep_temp: bool)
         merged_md_path = temp_dir / "merged.md"
         merged_html_path = temp_dir / "merged.html"
 
+        if verbose:
+            print(f"[step] write merged markdown to {merged_md_path}")
         merged_md_path.write_text(merged_markdown, encoding="utf-8")
 
         pandoc_command = [
@@ -234,7 +291,7 @@ def export_pdf(paths: list[Path], output_pdf: Path, title: str, keep_temp: bool)
             "--output",
             str(merged_html_path),
         ]
-        run_command(pandoc_command, cwd=repo_root)
+        run_command(pandoc_command, cwd=repo_root, verbose=verbose)
 
         html_uri = merged_html_path.resolve().as_uri()
         browser_command = [
@@ -246,7 +303,11 @@ def export_pdf(paths: list[Path], output_pdf: Path, title: str, keep_temp: bool)
             "--print-to-pdf-no-header",
             html_uri,
         ]
-        run_browser_print(browser_command, cwd=repo_root, output_pdf=output_pdf)
+        if verbose:
+            print(f"[step] run browser print (html_uri={html_uri})")
+        run_browser_print(browser_command, cwd=repo_root, output_pdf=output_pdf, verbose=verbose)
+        if verbose:
+            print("[step] browser print finished")
 
         if keep_temp:
             output_pdf.with_suffix(".md").write_text(merged_markdown, encoding="utf-8")
@@ -261,8 +322,16 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parent.parent
     input_paths = resolve_files(args.files, repo_root)
     output_pdf = (repo_root / args.output).resolve()
-    export_pdf(input_paths, output_pdf, args.title, args.keep_temp)
-    print(f"PDFを出力しました: {output_pdf}")
+
+    if args.verbose:
+        print(f"[info] output: {output_pdf}")
+        print(f"[info] input files: {len(input_paths)}")
+
+    start_all = time.perf_counter()
+    export_pdf(input_paths, output_pdf, args.title, args.keep_temp, verbose=args.verbose)
+    elapsed_all = time.perf_counter() - start_all
+
+    print(f"PDFを出力しました: {output_pdf} (total: {elapsed_all:.2f}s)")
 
 
 if __name__ == "__main__":
