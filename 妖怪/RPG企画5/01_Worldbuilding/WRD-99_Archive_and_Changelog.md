@@ -77,7 +77,7 @@ influences:
 ### 1.3 「赤いスカーフの完全焼失」→「退色」へ
 - **旧案:** 八咫鏡を磨く儀式でスカーフが燃え尽き物理的に消失する。
 - **変更理由:** キャラクターのシンボル的パーツの喪失は、ビジュアル的魅力の損失に直結する。
-- **採用版:** スカーフは八咫鏡の材料ではなく、完成した鏡を磨くための儀式具として扱う。布地は残り、磨きの履歴を重ねた「使い込まれた深い赤」への変化で表現する。
+- **採用版（2026-03-17更新）:** スカーフは八咫鏡の材料ではなく、完成した鏡を磨くための儀式具として扱う。`Red_Scarf_Event_Key` として旅の始まりの真紅を永続保持し、退色表現は採用しない。
 
 ### 1.4 「通常戦闘での武具完全ロスト・偶発的キメラ」→「ボス戦限定解禁」へ
 - **旧案:** 通常戦闘でも武器が完全ロストし遺骨化する選択肢が常時解放されていた。
@@ -183,7 +183,7 @@ influences:
 ### 3.1 不採用確定（2026-03-12同期改訂）
 - **継承術式（検討中）運用:** 不採用。現行は「猿田の破岩撃 / 法螺の轟き」の二柱固定。
 - **第2幕中盤分岐B（灼熱たたら場先行）:** 不採用。導線は「白堊の回廊 → 忘却の海食洞 → 灼熱たたら場」の単線固定。
-- **黄泉戸喫の戦闘中限定一時変調への緩和:** 不採用。現行は「黄泉の泥果実の任意使用で全回復 + 永続黄泉の呪い、解除は野営地うかみ浄化のみ」。
+- **黄泉戸喫の戦闘中限定一時変調への緩和:** 不採用。現行は「黄泉の泥果実の任意使用で全回復 + 永続黄泉の呪い、解除はキャンプメニュー『行者の祈祷（泥祓い）』（うかみ同行条件）のみ」。
 
 
 
@@ -193,6 +193,7 @@ influences:
 
  | 日付 | 変更内容 | 対象ドキュメント | 
  | --- | --- | --- | 
+ | 2026-03-17 | 【構造矛盾6件のSSOT完全解決】①黄泉の呪い浄化をNPC対話依存からキャンプメニュー（うかみ同行条件）へ変更。②灼熱たたら場の誤記を「カガセオの残滓」から「カグツチの残滓」へ修正。③動的オートスイッチ機構を追加し、ワカヒコ「生存の足掻き」を短刀条件の独立絶対処理へ更新。④情念の核継承から物理履歴転送を削除し、`Has_Tsukumogami_Persona` を追加。⑤`STATIC_DUST` / `FORGE_CINDER` を擬神兵から棄物へ再分類。⑥赤いスカーフ退色演出を全廃し永続真紅へ統一。 | `03_Systems/SYS-30_Data_and_Logic_Architecture.md`, `03_Systems/SYS-20_Game_Systems_and_Flow.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `04_Art/ART-40_Art_Direction_and_Assets.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【超常説明の許容追記】神術・魔術・呪法・怪異譚など、オカルト文脈で整合する要素を時代考証許容ルールへ追加。未来文明直結要素の非許容は維持。 | `00_Governance/ARC-00_Implementation_Charter.md`, `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `README.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【時代考証ガイドライン整備】神話作品として時代揺らぎを限定許容し、未来文明直結要素を非許容とする境界を追加。判断基準（3条件）をガバナンスへ明記。 | `00_Governance/ARC-00_Implementation_Charter.md`, `01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md`, `README.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |
  | 2026-03-16 | 【語彙運用の明確化】「説明用途の技術語は許容」「ゲーム内転用され得る叙述ではSF語彙を極力排除」を明文化。スクナの医学・薬学語彙を例外許容として定義し、NAR-10内の転用リスクが高い語彙を和語中心へ置換。 | `00_Governance/ARC-00_Implementation_Charter.md`, `README.md`, `02_Narrative/NAR-10_Narrative_and_Characters.md`, `01_Worldbuilding/WRD-99_Archive_and_Changelog.md` |

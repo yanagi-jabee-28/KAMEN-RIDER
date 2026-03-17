@@ -165,6 +165,22 @@ Durability_new = max(0, Durability_old - (
 
 ### 構え（Stance Logic）
 ```
+// 動的オートスイッチ: 技選択時に要求武器カテゴリへ一時切替
+IF Skill_Selected.Required_Weapon_Category != NONE
+  AND MainWeapon.Category != Skill_Selected.Required_Weapon_Category THEN
+  Auto_Swap_Candidate = Character.Inventory.Find(Skill_Selected.Required_Weapon_Category)
+  IF Auto_Swap_Candidate.Found == TRUE THEN
+    MainWeapon = Auto_Swap_Candidate
+    DynamicStanceOverride = TRUE
+    DynamicStance_Until_Tick = Current_Tick + 1
+  END IF
+END IF
+
+IF DynamicStanceOverride == TRUE AND Current_Tick > DynamicStance_Until_Tick THEN
+  RestoreWeapon_To_PreSwap()
+  DynamicStanceOverride = FALSE
+END IF
+
 IF MainWeapon.Type == "2H" THEN
   Stance_Type = TWO_HANDED
   Stance_Multiplier = 1.5
@@ -190,12 +206,21 @@ END IF
 
 // すべての非ミコトは副武器スロットを持たず、二刀流運用を行えない。
 
-// ワカヒコ特例: 仕込み短刀時の確定反撃状態
-IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" THEN
-  State_Wakahiko_Focused_Retaliation = TRUE
-  Evasion_Rate += WAKAHIKO_Precision_Evasion_Bonus
-  IF Evasion_Success == TRUE THEN
-    Counter_Proc_Rate = 1.0  // 生存の足掻きは条件成立時100%確定
+// ワカヒコ特例: 生存の足掻き（独立絶対処理）
+IF Character == WAKAHIKO AND (Evasion_Success == TRUE OR Close_Range_Triggered == TRUE) THEN
+  IF MainWeapon.Category != "BLADE" THEN
+    Auto_Swap_Candidate = Character.Inventory.Find(Category="BLADE", SubType="CONCEALED")
+    IF Auto_Swap_Candidate.Found == TRUE THEN
+      MainWeapon = Auto_Swap_Candidate
+      DynamicStanceOverride = TRUE
+      DynamicStance_Until_Tick = Current_Tick + 1
+    END IF
+  END IF
+  IF MainWeapon.Category == "BLADE" THEN
+    State_Wakahiko_Focused_Retaliation = TRUE
+    Evasion_Rate += WAKAHIKO_Precision_Evasion_Bonus
+    Apply_Counter(Target = Last_Attacker, Guaranteed = TRUE, Independent_Process = TRUE)
+    State_Wakahiko_Survival_Scramble = TRUE
   END IF
 END IF
 
@@ -239,7 +264,7 @@ IF Character == WAKAHIKO AND MainWeapon.Category == "BOW_RANGED" THEN
 END IF
 
 // 生存の足掻きは条件成立時100%反撃
-IF Character == WAKAHIKO AND MainWeapon.ID == "CONCEALED_DAGGER" AND Evasion_Success == TRUE THEN
+IF Character == WAKAHIKO AND MainWeapon.Category == "BLADE" AND Evasion_Success == TRUE THEN
   Survival_Scramble_Guaranteed = TRUE
 END IF
 ```
@@ -416,8 +441,10 @@ IF State_Yomotsu_Curse == TRUE THEN
   Disable_Standard_Recovery = TRUE  // 通常アイテム・通常休息回復を無効化
 END IF
 
-// 解除手段: 野営地の行者うかみのみ
-IF CurrentContext == CAMP AND NPC == UKAMI_GYOJA AND Command == "Ukami_Camp_Purification" THEN
+// 解除手段: キャンプメニュー「行者の祈祷（泥祓い）」
+IF CurrentContext == CAMP_MENU
+  AND Command == "Gyoja_Kito_Dobarai"
+  AND (Ukami_In_Party == TRUE OR Ukami_In_Camp == TRUE) THEN
   Remove_State(YOMOTSU_CURSE)
   Disable_Standard_Recovery = FALSE
 END IF
@@ -503,9 +530,18 @@ Tsukumogami_Inheritance_Forge =
 
 IF Tsukumogami_Inheritance_Forge THEN
   New_Weapon.Inherited_Traits = Core_of_Regret.Stored_Traits
-  New_Weapon.Inherited_Memory = Core_of_Regret.Stored_LogDensity
+  New_Weapon.TraumaLogDensity = 0
   New_Weapon.CoreRegret_Extractable = FALSE
   Consume(Core_of_Regret)
+END IF
+
+// 付喪神キャラクター顕現判定
+IF Tsukumogami_Awakening_Forge THEN
+  IF Weapon.Narrative_Weapon_Class == "INITIAL" OR Weapon.Narrative_Weapon_Class == "MYTHIC" THEN
+    Target_Weapon.Has_Tsukumogami_Persona = TRUE
+  ELSE
+    Target_Weapon.Has_Tsukumogami_Persona = FALSE
+  END IF
 END IF
 
 // 魂の摩耗（Soul Attrition）
@@ -583,19 +619,19 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 
 各キャラクターの主腕（武器）が、初期の「ありあわせの道具」から修復と強化を経て「神の理を砕く器」へ至る軌跡を定義する。
 
-| キャラクター | カテゴリ | 序盤（泥臭い生存道具） | 中盤（修復・過熱の器） | 終盤・最終（神話的・反逆的到達点） | 備考 |
-| --- | --- | --- | --- | --- | --- |
-| `MIKOTO` | 刃 (直刀系) | **海揚がりの古錆刀**<br>漁村漂着物の直刀。攻撃力は低いが生存本能の出発点。 | **星喰みの黒太刀**<br>星の砂を金継ぎし、神の理を斬り裂く摩擦熱を帯びた刀。 | **天叢雲剣**<br>澱神・八岐の産土の尾から露出した核を、現行武器へ金継ぎ接合して覚醒する終局剣。 | オロチ尾神話と金継ぎ継承 |
-| `MIKOTO` | 槍・鉾 (儀礼槍系) | **欠けた祭祀槍**<br>穂先が折れた神事用の槍。 | **隕鉄の剛鉾**<br>星の破片を穂先に据えた重槍。突進の摩擦が極大。 | **天之沼矛**<br>永遠の静止を嫌って泥の世界をかき混ぜる究極の「反逆の鉾」。敵の展開する「無菌の帳」などの領域（環境圧）を物理的にかき混ぜ、強制初期化する。 | イザナギの系譜（反逆） |
-| `UKAMI` | 槍・鉾 (石鉾系) | **獣骨の石鉾**<br>骨と石の無骨な槍。活魂を削るほどの荒々しい摩擦。 | **大蛇狩りの剛槍**<br>荒魂の牙の転用。物理装甲(PTG)を泥ごと抉る。 | **国津神の荒鉾**<br>大地の怒りの重槍。敵の予測UIを構築前に粉砕スタンさせる。 | - |
-| `UKAMI` | 杖 (錫杖系) | **苦行の錫杖**<br>(行者覚醒後)黄泉の冷気に耐える祈りの起点。 | - | **修羅の六環杖**<br>血と祈りを吸い、天津神の停滞の理を法力で強引に中和する。 | 第4幕解禁 |
-| `SUKUNA` | 打撃 (乳棒系) | **欠けた石杵**<br>微かな毒気を帯びた薬研の杵。 | **毒喰みの乳棒**<br>致死毒を帯び、敵の防御力を割合で溶かす異形の杵。 | **少名の神杵**<br>神の無菌バフすら不純物としてすり潰す、概念破砕の乳棒。 | - |
-| `MAHITO` | 打撃 (大槌系) | **煤まみれの大槌**<br>金継ぎ素材を受け入れやすい重い鉄塊。 | **刃折りの業槌**<br>敵武器耐久度を強制レッドゾーンへ引き上げる特効槌。 | **天目の神火槌**<br>カグツチ残滓を叩き直した槌。神の結晶化を物理的に融解させる。 | - |
-| `UZU` | 扇 (鉄扇系) | **破れた舞扇**<br>白堊の回廊から持ち出した美しくも脆い扇。 | **緋色の鉄扇**<br>血泥を吸い、敵の予測座標をズラし幻惑する鈍器。 | **天鈿女の狂扇**<br>耐久度極大焼却で敵行動順を完全シャッフルする。 | - |
-| `TACHIBANA` | 槍・鉾 (海人銛系) | **怨念の流木**<br>生きるためにしがみついた木。異常に耐久度が高い。 | **血塗られた銛**<br>傷を負うほど鋭さを増し不浄な理を抉る。 | **弟橘の海人銛**<br>活魂消費を極大熱量へ変換。低活魂時、予測裏切りの確定クリティカル。 | - |
-| `TACHIBANA` | 打撃 (打ち櫂系) | - | - | **海神の沈底櫂**<br>海の底の重圧。敵の突進を呪詛的カウンターで必ず返す。 | - |
-| `WAKAHIKO` | 遠距離 (天上弓系) | **白木の上弓**<br>天の無機質な和弓。反動・恩恵ともに薄い。 | **泥塗れの猟弓**<br>獣を狩り、反動「返し矢の呪い」に目覚め始めた弓。 | **天若の返し弓**<br>極大の自傷と引き換えに、神の無敵や絶対回避を無視して射抜く絶望の弓。 | - |
-| `WAKAHIKO` | 刃 (仕込み短刀) | - | - | **星巡りの逆手刃**<br>生き残るための隠し刃。回避成功時100%の確率で反撃。 | - |
+| キャラクター | カテゴリ | 序盤（泥臭い生存道具） | 中盤（修復・過熱の器） | 終盤・最終（神話的・反逆的到達点） | Narrative_Weapon_Class | 備考 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `MIKOTO` | 刃 (直刀系) | **海揚がりの古錆刀**<br>漁村漂着物の直刀。攻撃力は低いが生存本能の出発点。 | **星喰みの黒太刀**<br>星の砂を金継ぎし、神の理を斬り裂く摩擦熱を帯びた刀。 | **天叢雲剣**<br>澱神・八岐の産土の尾から露出した核を、現行武器へ金継ぎ接合して覚醒する終局剣。 | `INITIAL / MYTHIC` | オロチ尾神話と金継ぎ継承 |
+| `MIKOTO` | 槍・鉾 (儀礼槍系) | **欠けた祭祀槍**<br>穂先が折れた神事用の槍。 | **隕鉄の剛鉾**<br>星の破片を穂先に据えた重槍。突進の摩擦が極大。 | **天之沼矛**<br>永遠の静止を嫌って泥の世界をかき混ぜる究極の「反逆の鉾」。敵の展開する「無菌の帳」などの領域（環境圧）を物理的にかき混ぜ、強制初期化する。 | `INITIAL / MYTHIC` | イザナギの系譜（反逆） |
+| `UKAMI` | 槍・鉾 (石鉾系) | **獣骨の石鉾**<br>骨と石の無骨な槍。活魂を削るほどの荒々しい摩擦。 | **大蛇狩りの剛槍**<br>荒魂の牙の転用。物理装甲(PTG)を泥ごと抉る。 | **国津神の荒鉾**<br>大地の怒りの重槍。敵の予測UIを構築前に粉砕スタンさせる。 | `INITIAL / MYTHIC` | - |
+| `UKAMI` | 杖 (錫杖系) | **苦行の錫杖**<br>(行者覚醒後)黄泉の冷気に耐える祈りの起点。 | - | **修羅の六環杖**<br>血と祈りを吸い、天津神の停滞の理を法力で強引に中和する。 | `INITIAL / MYTHIC` | 第4幕解禁 |
+| `SUKUNA` | 打撃 (乳棒系) | **欠けた石杵**<br>微かな毒気を帯びた薬研の杵。 | **毒喰みの乳棒**<br>致死毒を帯び、敵の防御力を割合で溶かす異形の杵。 | **少名の神杵**<br>神の無菌バフすら不純物としてすり潰す、概念破砕の乳棒。 | `INITIAL / MYTHIC` | - |
+| `MAHITO` | 打撃 (大槌系) | **煤まみれの大槌**<br>金継ぎ素材を受け入れやすい重い鉄塊。 | **刃折りの業槌**<br>敵武器耐久度を強制レッドゾーンへ引き上げる特効槌。 | **天目の神火槌**<br>カグツチ残滓を叩き直した槌。神の結晶化を物理的に融解させる。 | `INITIAL / MYTHIC` | - |
+| `UZU` | 扇 (鉄扇系) | **破れた舞扇**<br>白堊の回廊から持ち出した美しくも脆い扇。 | **緋色の鉄扇**<br>血泥を吸い、敵の予測座標をズラし幻惑する鈍器。 | **天鈿女の狂扇**<br>耐久度極大焼却で敵行動順を完全シャッフルする。 | `INITIAL / MYTHIC` | - |
+| `TACHIBANA` | 槍・鉾 (海人銛系) | **怨念の流木**<br>生きるためにしがみついた木。異常に耐久度が高い。 | **血塗られた銛**<br>傷を負うほど鋭さを増し不浄な理を抉る。 | **弟橘の海人銛**<br>活魂消費を極大熱量へ変換。低活魂時、予測裏切りの確定クリティカル。 | `INITIAL / MYTHIC` | - |
+| `TACHIBANA` | 打撃 (打ち櫂系) | - | - | **海神の沈底櫂**<br>海の底の重圧。敵の突進を呪詛的カウンターで必ず返す。 | `INITIAL / MYTHIC` | - |
+| `WAKAHIKO` | 遠距離 (天上弓系) | **白木の上弓**<br>天の無機質な和弓。反動・恩恵ともに薄い。 | **泥塗れの猟弓**<br>獣を狩り、反動「返し矢の呪い」に目覚め始めた弓。 | **天若の返し弓**<br>極大の自傷と引き換えに、神の無敵や絶対回避を無視して射抜く絶望の弓。 | `INITIAL / MYTHIC` | - |
+| `WAKAHIKO` | 刃 (仕込み短刀) | - | - | **星巡りの逆手刃**<br>生き残るための隠し刃。回避成功時100%の確率で反撃。 | `INITIAL / MYTHIC` | - |
 
 ### Party_Role_Definition_Master（役割正本）
 | Character_ID | 中核役割 | 主属性 / 副属性 | 役割の核心（ナラティブ的意義） | 得意な干渉（理の崩し方） | 欠けると起きる破綻（不在時ペナルティ） |
@@ -618,7 +654,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
  | フィールド / ID | 説明 | 
  | --- | --- | 
  | `Slot_Type` | どのスロットに帰属するかを指定 | 
-| `Core_of_Regret` | 極大代受苦で `Is_Tsukumogami == TRUE` の武器を破壊した時のみ生成される情念の核。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。 | 
+| `Core_of_Regret` | 極大代受苦で `Is_Tsukumogami == TRUE` の武器を破壊した時のみ生成される情念の核。付喪神化の必須条件ではなく、継承鍛造時の追加素材として扱う（星の砂と混同させない）。保存されるのは `Stored_Traits` のみで、物理履歴（`TraumaLogDensity`）は継承しない。 | 
 | `Ame_no_Murakumo` | オロチ尾から露出した剣核とミコト現行武器の金継ぎ接合体。`Global_Daijuku_Log_Data` を参照して威力変動。`AMENO_MURAKUMO_AWAKENED=true` 後に、致命傷時の自動過熱庇護が有効化される | 
 | `Mirror_Reflect_Class` | 鏡系装備の反射クラス。`ATTACK_ONLY` / `LIMITED_LOGIC` / `OFF` を持つ |
 | `Yomotsu_Mud_Fruit` | 黄泉の泥果実 | 使用効果＝`Full_Recover(Kakkon, Jonetsu)` + `Apply_State(YOMOTSU_CURSE)` |
@@ -633,6 +669,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | `TraumaLogDensity` | 履歴密度（付喪神覚醒・付喪神強度に影響） | 
 | `TsukumogamiState` | `Dormant` / `Kibutsu`（棄物敵化） / `Musubi`（付喪神覚醒） | 
 | `Is_Tsukumogami` | 付喪神化フラグ。`TRUE`時のみ極大代受苦で情念の核抽出判定を行う | 
+| `Has_Tsukumogami_Persona` | 物語上の人格顕現フラグ。`Narrative_Weapon_Class` が `INITIAL` または `MYTHIC` の武器のみ `TRUE` になる | 
 | `CoreRegret_Extractable` | 情念の核抽出可能フラグ。継承直後は `FALSE` 固定。再抽出には新器で履歴を再蓄積し再付喪神化が必要 | 
  | `AbandonFlag` | 遺棄判定。`TRUE`で棄物化進行が開始 | 
 | `HakurakuBonusDrop` | 剥落の星屑撃破時のドロップ倍率補正 | 
@@ -678,7 +715,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | T1 | `MUD_VIPER` | 泥縞の蛇 | 荒魂獣 | 土 / 闇 | 土軽減 | 炎、光 | 毒牙で継続削り | あり（`POISON`） |
 | T1 | `WILD_MIRE_TOAD` | 泥塗れの蝦蟇 | 荒魂獣 | 水 / 土 | 打撃軽減 | 雷、風 | 毒噴霧による継続圧 | あり（`POISON`） |
 | T1 | `ASHEN_STRAY_DOG` | 灰野犬 | 荒魂獣 | 土 / 風 | 土軽減 | 氷、水 | 先制噛み付きでTick撹乱 | なし |
-| T1 | `STATIC_DUST` | 静止の塵 | 擬神兵 | 氷 / 光 | 斬撃軽減 | 炎 | 接触麻痺で行動阻害 | あり（`PARALYSIS`） |
+| T1 | `STATIC_DUST` | 静止の塵 | 棄物 | 氷 / 光 | 斬撃軽減 | 炎 | 接触麻痺で行動阻害（`Trauma_Resentment`） | あり（`PARALYSIS`） |
 | T1 | `PRAYER_SCRAP_DOLL` | 祈布の切れ端人形 | 棄物 | 光 / 闇 | 光軽減 | 炎、雷 | 低威力連打で耐久摩耗を蓄積 | なし |
 | T1 | `WHITE_MOTH` | 白の迷い蛾 | 白化神末端 | 光 / 風 | 光軽減 | 闇、炎 | 鱗粉で命中計算を撹乱 | あり（`BLIND`） |
 | T1 | `RUSTED_BLADE_RELIC` | 錆びた刃具 | 棄物 | 土 / 闇 | 物理軽減 | 炎、雷 | 痛恨寄り単発重撃 | なし |
@@ -689,7 +726,7 @@ Damage = Base * (1 + Resource_Cost_Mult * (MaxKakkon - CurrentKakkon + ConsumedJ
 | T2 | `MOURNING_WAIL` | 未練の泣き女 | 澱神 | 闇 / 水 | 闇軽減 | 光 | 広域の睡眠誘発 | あり（`SLEEP`） |
 | T2 | `GRUDGE_SWARM` | 怨群の羽虫 | 澱神 | 闇 / 風 | 闇軽減 | 光、炎 | 群れで混乱率を増幅 | あり（`CONFUSION`） |
 | T2 | `WHITE_CHAPLAIN` | 白の教誨師 | 狂信者 | 光 / 土 | 光軽減 | 闇、打撃 | 味方回復と封印支援 | あり（`SKILL_SEAL`） |
-| T2 | `FORGE_CINDER` | 過熱する鉄滓 | 擬神兵 | 炎 / 土 | 炎吸収 | 氷 | 自爆予告で防御択を強要 | なし |
+| T2 | `FORGE_CINDER` | 過熱する鉄滓 | 棄物 | 炎 / 土 | 炎吸収 | 氷 | 自爆予告で防御択を強要（`Trauma_Resentment`） | なし |
 | T2 | `ABANDONED_GUNNERY` | 遺棄火筒 | 棄物 | 炎 / 土 | 炎軽減 | 水、雷 | 充填後の直線砲撃 | なし |
 | T2 | `SALT_MIRE_BANDIT` | 塩泥の賊徒 | 非神 | 水 / 闇 | 水軽減 | 雷、光 | 耐久摩耗付き多段攻撃 | なし |
 | T2 | `CAVE_ECHO_STALKER` | 洞哭の追い手 | 非神 | 闇 / 風 | 闇軽減 | 光、土 | 影縫いで行動遅延 | あり（`BLIND`） |
@@ -793,7 +830,7 @@ END IF
 | `SHIGURUI_ANCESTOR` | 死狂いの祖 | 高密度連撃と予測攪乱を同時に付与する裏ボス専用の危険状態 | 素戔嗚尊（試練） |
 | `HISTORY_ERASE` | 歴史の抹消 | 武器の金継ぎ履歴を一時消失させ、履歴依存の火力・防御補正を遮断する | 瀬織津姫、非神上位 |
 | `KUSANAGI_WEAR` | 草薙の摩耗 | 攻撃時に対象の武器耐久を吸収して敵自身の耐久と防御へ再配分する | 日本武尊、非神上位 |
- | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段は `Ukami_Camp_Purification` のみ。 | (共有システム制限) |
+ | `YOMOTSU_CURSE` | 黄泉の呪い | フィールドで黄泉アイテムを使用した際に付与される永続状態異常。解除手段はキャンプメニュー `Gyoja_Kito_Dobarai`（うかみ同行時）のみ。 | (共有システム制限) |
  | `WAKAHIKO_KAESHIYA_PASSIVE` | 返し矢の呪い | ワカヒコが弓攻撃するたび、消費した情念（活魂）量に応じて威力上昇と自傷反動を同時に発生させる恒常パッシブ。 | ワカヒコ固有 |
  | `INGA_NO_KAESHIYA` | 因果の返し矢 | 「返し矢の呪い」の反動の半分を自身で引き受け、残りを敵へ予測線ノイズとして転写する状態異常（デバフ）。 | ワカヒコ固有 |
  | `MIREN_HEAT_BUFF` | 未練の熱伝導 | 反動自傷を受けた直後、次の一撃の威力や共鳴バースト倍率を一時的に引き上げる熱バフ状態。 | ワカヒコ固有 |
@@ -806,7 +843,7 @@ END IF
  | `Kintsugi_Master` | 修復素材と付与特性（被ダメ履歴参照）定義 | 
  | `Daijuku_Master` | 武器消滅時に生成されうる情念の核（Core_of_Regret）と連動するマスターテーブル。クリア後は `Infinite_Idea_Chain` 解放。 | 
  | `Tsukumogami_Awakening_Master` | `Awaken_Threshold_LogDensity`, `Awaken_Required_Kintsugi_MaterialKinds`, `Musubi_AutoAction_Chance`, `Kibutsu_Spawn_Weight_By_Area` | 
-| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取導線、食材ID、全回復値、`YOMOTSU_CURSE` 付与条件、最大活魂減衰係数、通常回復無効化、`Ukami_Camp_Purification` の解除条件を管理する。行者うかみの自律摂取は内部法力のみで処理し、プレイヤー在庫を消費しない。 | 
+| `Yomotsu_Eat_Master` | 黄泉戸喫の摂取導線、食材ID、全回復値、`YOMOTSU_CURSE` 付与条件、最大活魂減衰係数、通常回復無効化、`Gyoja_Kito_Dobarai`（うかみ同行条件）の解除条件を管理する。行者うかみの自律摂取は内部法力のみで処理し、プレイヤー在庫を消費しない。 | 
  | `FastTravel_Master` | 脈継ぎ演出・移動中掛け合いセリフ管理 | 
  | `Sea_Exploration_Master` | クリア後専用。海ノード生成ルール・サルベージテーブル・幻曜の代受苦コスト定義 | 
 | `Field_Environment_Master` | 戦場位相（無菌の帳 / 血の泥沼）の効果定義 |

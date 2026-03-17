@@ -107,7 +107,7 @@ Prompt:
 masterpiece, an exquisitely beautiful, androgynous adventurer standing on a scarred battlefield.
 traditional Japanese watercolor on Washi paper, contrasting divine stillness with muddy human passion.
 Wielding three ancient, repaired relics: a dark iron straight sword mended with subtle golden seams; a solid bronze disc-mirror on the arm; and a heavy necklace of raw jade magatama.
-The once-bright red scarf is now a dark, blood-stained muddy red, fluttering in the ash-filled wind. The ultimate mortal who defies the gods.
+A vivid, unwavering red scarf flutters eternally in the ash-filled wind, its pure crimson undimmed despite every ordeal. The ultimate mortal who defies the gods.
 ```
 
 ### ウズ（狂騒の踊り子）
