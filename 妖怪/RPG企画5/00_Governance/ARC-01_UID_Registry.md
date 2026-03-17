@@ -21,7 +21,7 @@ influences:
 ## ドキュメントUID
 
 - `[ARC-INDEX]` README
-- `[ARC-00]` 実装憲章
+- `[ARC-00]` 実装ルールブック
 - `[ARC-01]` UID台帳
 - `[WRD-01]` コア思想と世界観
 - `[WRD-99]` 廃棄案と変更履歴
