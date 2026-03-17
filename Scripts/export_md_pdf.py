@@ -27,6 +27,22 @@ DEFAULT_OUTPUT = "妖怪/RPG企画5/yo-kai-project.pdf"
 DOCUMENT_ORDER = {path: index for index, path in enumerate(DEFAULT_FILES)}
 
 DEFAULT_TITLE = "妖怪企画資料統合版"
+
+# Markdownファイルを自動で目次表示するときに用いる日本語名称マップ
+# (ファイル名ではなく役割を明示したい場合に使用)
+ROLE_NAMES: dict[str, str] = {
+    "妖怪/RPG企画5/00_Governance/ARC-00_Implementation_Charter.md": "実装憲章",
+    "妖怪/RPG企画5/00_Governance/ARC-01_UID_Registry.md": "UID台帳",
+    "妖怪/RPG企画5/01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md": "世界観・コアビジョン",
+    "妖怪/RPG企画5/01_Worldbuilding/WRD-99_Archive_and_Changelog.md": "廃棄案と変更履歴",
+    "妖怪/RPG企画5/02_Narrative/NAR-10_Narrative_and_Characters.md": "物語・登場人物設計",
+    "妖怪/RPG企画5/03_Systems/SYS-20_Game_Systems_and_Flow.md": "ゲームシステムと体験フロー",
+    "妖怪/RPG企画5/03_Systems/SYS-30_Data_and_Logic_Architecture.md": "データ・論理アーキテクチャ",
+    "妖怪/RPG企画5/04_Art/ART-40_Art_Direction_and_Assets.md": "アート指針・資産",
+    "妖怪/RPG企画5/05_References/REF-50_Reference_DQ_Master_Data.md": "外部参照資料（DQデータ）",
+    "妖怪/RPG企画5/README.md": "プロジェクト概要",
+}
+
 BROWSER_CANDIDATES = [
     Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
     Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
@@ -121,7 +137,10 @@ def build_merged_markdown(paths: list[Path], title: str) -> str:
         meta, body = extract_front_matter(raw_text)
         body = body.strip()
 
-        heading = meta.get("title") or first_heading(body, path.stem)
+        # 優先順位: YAML title > 役割マップ > 見出し > ファイル名
+        relative = path.resolve().relative_to(Path(__file__).resolve().parent.parent).as_posix()
+        heading = meta.get("title") or ROLE_NAMES.get(relative) or first_heading(body, path.stem)
+
         count = seen_titles.get(heading, 0) + 1
         seen_titles[heading] = count
         if count > 1:
