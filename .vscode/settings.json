@@ -8,6 +8,7 @@
     "markdown.extension.toc.autofill": false,
 
     // Hide Windows folder system files that can appear in repo folders
+    // See ../DESKTOP_INI_IGNORE.md for context and how to undo this if needed
     "files.exclude": {
         "**/desktop.ini": true
     }

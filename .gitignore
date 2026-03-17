@@ -16,5 +16,6 @@
 妖怪/ALL-files/
 
 # Windows system file created by Explorer (folder customizations)
+# See DESKTOP_INI_IGNORE.md for details / undo instructions
 desktop.ini
 **/desktop.ini
