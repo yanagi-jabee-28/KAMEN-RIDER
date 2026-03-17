@@ -27,6 +27,8 @@ FILES = [
     '03_Systems/SYS-30_Data_and_Logic_Architecture.md',
     '01_Worldbuilding/WRD-01_Core_Vision_and_Theme.md',
     '01_Worldbuilding/WRD-99_Archive_and_Changelog.md',
+    # PDF that consolidates RPG企画資料
+    'RPG企画資料統合.pdf',
 ]
 
 
