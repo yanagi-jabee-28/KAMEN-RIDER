@@ -14,3 +14,7 @@
 
 # Project-specific copies directory (excluded because contents are regenerated)
 妖怪/ALL-files/
+
+# Windows system file created by Explorer (folder customizations)
+desktop.ini
+**/desktop.ini

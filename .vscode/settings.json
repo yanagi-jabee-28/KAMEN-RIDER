@@ -5,5 +5,10 @@
         "editor.defaultFormatter": null
     },
     "markdown.extension.tableFormatter.enabled": false,
-    "markdown.extension.toc.autofill": false
+    "markdown.extension.toc.autofill": false,
+
+    // Hide Windows folder system files that can appear in repo folders
+    "files.exclude": {
+        "**/desktop.ini": true
+    }
 }
