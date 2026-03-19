@@ -5,6 +5,7 @@ status: active
 depends_on:
   - ARC-01_UID_Registry.md
 influences:
+  - ARC-02_Migration_Gap_Registry.md
   - ../00_Welcome_and_Introduction/WRD-01_Core_Vision_and_Theme.md
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../01_Story_and_Characters/NAR-11_Act_Detail_Guide.md

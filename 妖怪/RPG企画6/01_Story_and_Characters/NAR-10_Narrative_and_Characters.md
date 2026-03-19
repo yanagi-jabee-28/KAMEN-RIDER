@@ -23,6 +23,12 @@ influences:
 - 戦闘ルールを先に知りたい場合: [../02_How_to_Play_and_Mechanics/SYS-20_Game_Systems_and_Flow.md](../02_How_to_Play_and_Mechanics/SYS-20_Game_Systems_and_Flow.md)
 - 計算式や実装値を見たい場合: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)
 
+## 文書責務の境界
+
+- NAR-10は「幕構造・人物選択・感情転換点」の正本。
+- NAR-11は「イベント実装メモ・演出運用・回帰テスト観点」の正本。
+- 同一の幕説明を二重管理しない。詳細実装はNAR-11へ、物語骨格はNAR-10へ集約する。
+
 ## キャラクター役割（初心者向け比喩）
 
 - ミコト: 技を写し取る万能役。チームの穴を埋める「可変ハブ」

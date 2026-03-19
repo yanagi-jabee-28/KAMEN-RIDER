@@ -236,3 +236,84 @@ END IF
 - `Story_Flag_Master`
 
 注: スキル説明文側で数値を持たず、必ず本ファイルで一元管理する。
+
+## スキル実装マスター（RPG5移植・Wave2）
+
+初心者向けの簡潔な導線は `SYS-22` を正とし、ここでは実装側で保持すべき具体技を列挙する。
+
+### ミコト（可変ハブ）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_MIKOTO_KOTOTSUGI` | 言継ぎ | 神写し理解度上昇。次の神写し行動へボーナス付与。 |
+| `SKL_MIKOTO_MIKENURI` | 泥繭の眠り | Tick継続回復。被弾で中断。 |
+| `SKL_MIKOTO_KANRYU` | 命の還流 | 活魂コストで空殻復帰。 |
+| `SKL_MIKOTO_DAIJUKEI` | 代受の誓い | 味方被ダメ肩代わり+情念変換。 |
+| `SKL_MIKOTO_HAGAN` | 猿田の破岩撃 | 固定継承枠。活魂/情念消費の高火力。 |
+| `SKL_MIKOTO_EIEN_KYOHI` | 永遠の拒絶 | 停止系状態異常の無効化。 |
+
+### うかみ（壁・受け）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_UKAMI_HORA` | 法螺の轟き | 味方全体の情念上昇率バフ。 |
+| `SKL_UKAMI_KINGA` | 牙城割り | 敵装甲(PTG)を継続低下。 |
+| `SKL_UKAMI_HOERU` | 獣の咆哮 | 危険行動の中断用スタン。 |
+| `SKL_UKAMI_DOROWADACHI` | 導きの泥轍 | 味方1人の行動順前倒し。 |
+| `SKL_UKAMI_DAIJUKU` | 野性の代受苦 | 耐久全消費の単発高火力。 |
+
+### スクナ（剥離・制御）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_SUKUNA_KYOUSAN` | 強酸の霧散 | PTG無視ダメージ。 |
+| `SKL_SUKUNA_FORGET` | 忘却の霧 | 予告行動封印。 |
+| `SKL_SUKUNA_COOL_DOSE` | 冷却の服用 | 回復+過熱段階を1戻す。 |
+| `SKL_SUKUNA_COOL_THROW` | 冷却の投擲 | `ICE_COOLING` 付与。澱神/棄物へ追加脆化。 |
+| `SKL_SUKUNA_STAR_EAT` | 理の簒奪（星喰い） | 敵情念の吸収変換。 |
+
+### ウズ（攪乱）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_UZU_RANCHO` | 乱調の裏拍 | 敵全体Tickを後退。 |
+| `SKL_UZU_KYORAN` | 狂乱の裏拍 | Tick順ランダムシャッフル。 |
+| `SKL_UZU_GENWAKU` | 幻惑の舞 | 着弾予測ズレ+命中低下。 |
+| `SKL_UZU_KYOSOU_GRAV` | 狂騒の引力 | 敵リソース吸収→味方情念化。 |
+| `SKL_UZU_FINALE` | 狂信のフィナーレ | 武器過熱(耐久0)と引き換えに行動強制不発。 |
+
+### タチバナ（自傷デバフ）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_TACHIBANA_HIAI` | 悲哀の波紋 | 全体ステータス低下。 |
+| `SKL_TACHIBANA_DOGU` | 自傷・土偶 | 活魂消費の全体土属性+継続ダメージ+予測攪乱。 |
+| `SKL_TACHIBANA_CHISHIO` | 執着の血潮 | 味方活魂共有による被害分散。 |
+| `SKL_TACHIBANA_IKENIE` | 生贄の祈り | 活魂コストの確実蘇生。 |
+| `SKL_TACHIBANA_SHUSHU` | 執着の修復 | 活魂コストの自己回復。 |
+
+### マヒト（鍛造・粉砕）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_MAHITO_BUKI_BREAK` | 武具叩き折り | 敵武器耐久をレッドゾーンへ。 |
+| `SKL_MAHITO_HAMMER_ROAR` | 槌の轟き | 敵バフ強制リセット。 |
+| `SKL_MAHITO_KINTSUGI_LIFE` | 命の金継ぎ | 活魂コストで単体大回復。 |
+| `SKL_MAHITO_FOOTH_BLOW` | 鞴の大風 | 味方全体の属性被ダメ軽減。 |
+| `SKL_MAHITO_ICE_SLAG` | 炉滓の氷噴 | `ICE_COOLING` 付与と追加脆化。 |
+
+### ワカヒコ（停止・狙撃）
+
+| スキルID候補 | 技名 | 実装メモ |
+|---|---|---|
+| `SKL_WAKAHIKO_SENKAKE` | 先駆けの矢 | 予告前先制。 |
+| `SKL_WAKAHIKO_SHADOW_BIND` | 影縫いの刃 | 行動足止め。 |
+| `SKL_WAKAHIKO_KAESHIYA` | 返し矢の呪い | 消費リソース比例の威力増+反動。 |
+| `SKL_WAKAHIKO_INGA` | 因果の返し矢 | 反動の一部を敵側ノイズへ転写。 |
+| `SKL_WAKAHIKO_SURVIVE` | 生存の足掻き | 条件成立時100%反撃。 |
+
+### 運用ルール
+
+- `SYS-22` に載せるのは各キャラ3-5技まで。ここにない値を `SYS-22` へ再記載しない。
+- 物語イベントで強制解禁される技は `Story_Flag_Master` と同時に更新する。
+- 返し矢系、土偶系、過熱系は必ず「コスト」「反動」「解除条件」を同一行で管理する。

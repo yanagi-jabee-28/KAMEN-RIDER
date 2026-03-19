@@ -7,6 +7,7 @@ depends_on:
 influences:
   - ../00_Welcome_and_Introduction/WRD-01_Core_Vision_and_Theme.md
   - ../99_Archive_and_References/WRD-99_Archive_and_Changelog.md
+  - ARC-02_Migration_Gap_Registry.md
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../01_Story_and_Characters/NAR-11_Act_Detail_Guide.md
   - ../02_How_to_Play_and_Mechanics/00_Beginner_Guide.md
@@ -29,6 +30,7 @@ influences:
 - `[ARC-INDEX]` : 00_Welcome_and_Introduction/README.md
 - `[ARC-00]` : 90_For_Developers/ARC-00_Implementation_Charter.md
 - `[ARC-01]` : 90_For_Developers/ARC-01_UID_Registry.md
+- `[ARC-02]` : 90_For_Developers/ARC-02_Migration_Gap_Registry.md
 - `[WRD-01]` : 00_Welcome_and_Introduction/WRD-01_Core_Vision_and_Theme.md
 - `[NAR-10]` : 01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
 - `[NAR-11]` : 01_Story_and_Characters/NAR-11_Act_Detail_Guide.md
