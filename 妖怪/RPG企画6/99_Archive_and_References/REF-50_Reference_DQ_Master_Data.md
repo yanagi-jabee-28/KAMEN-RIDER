@@ -7,6 +7,7 @@ depends_on:
   - ../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md
 influences:
   - WRD-99_Archive_and_Changelog.md
+  - REF-51_Translation_Map.md
 ---
 
 # [REF-50] External RPG Reference
@@ -31,3 +32,5 @@ influences:
 1. 名称だけでなく効果・条件・コスト・対象をセットで翻訳する
 2. 神話語彙へ置換できない要素は採用しない
 3. 採用判断は WRD-99 に記録する
+
+変換対応表は [REF-51_Translation_Map.md](REF-51_Translation_Map.md) を参照。
