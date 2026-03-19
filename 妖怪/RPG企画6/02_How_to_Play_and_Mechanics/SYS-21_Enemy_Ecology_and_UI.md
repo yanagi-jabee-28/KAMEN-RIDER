@@ -61,6 +61,17 @@ influences:
 - 荒魂獣: 予測不能な揺らぎで事故を起こす。
 - 剥落の星屑: 報酬型レア雑魚。短時間で帰還しようとする。
 
+## 1.5 敵系統別の脅威可視化
+
+| 系統 | 画面で見える兆候 | 何が危険か | 先に打つ対処 |
+|---|---|---|---|
+| 天津神・白化神 | 予測線が端正で乱れない | 最適行動の押し付けで手順が固定化される | 停止か攪乱で計算線を崩す |
+| 国津神・澱神 | 地形エフェクトが濁り、場色が変わる | 戦場そのものが敵化し、回復と維持が噛み合わなくなる | 場対応を先に選び、短期火力は後回し |
+| 非神・棄物 | 武器演出に摩耗ノイズが増える | 履歴破壊と耐久吸収で長期戦が破綻する | 履歴依存技を急がず、先に剥離を入れる |
+| 擬神兵 | 端正だが同じ癖を繰り返す | 予測通りに見えて罠がある | 1回目は検証、2回目で対策確定 |
+| 狂信者 | 支援線が濃く、敵同士が保護し合う | 単体撃破が通らず、時間を稼がれる | 支援役から切る |
+| 荒魂獣 | 線が短く頻繁に更新される | 事故的な急加速で崩される | 行動順管理を最優先 |
+
 ## 2. Tier進行（学習順）
 
 | Tier | 主目的 | 典型ギミック | プレイヤーへの学習 |
@@ -69,6 +80,22 @@ influences:
 | T2 | 運用圧 | 封印・睡眠・耐久摩耗 | リソース管理の優先順位を学ぶ |
 | T3 | 破綻圧 | 履歴破壊・耐久吸収・2回行動 | 固定戦法が通じない感覚を学ぶ |
 | T4 | 位相戦 | 予測線乖離・情念枯渇・場上書き | 神の理を壊す戦い方へ移行する |
+
+### Tierと正本タグの対応
+
+この節は学習順の読み替えを示す。数値・発生率・内部フラグは `SYS-30` を参照する。
+
+| Tier | 主に参照する行動タグ（SYS-30） | 主に参照する状態ID（SYS-30） |
+|---|---|---|
+| T1 | `CHAIN_BREAK`, `EXECUTION_RUSH` | `POISON`, `PARALYSIS`, `BLIND` |
+| T2 | `JONETSU_DRAIN`, `DURABILITY_LEECH` | `SLEEP`, `SKILL_SEAL` |
+| T3 | `HISTORY_CUT`, `LOCKDOWN_FIELD` | `HISTORY_ERASE`, `KUSANAGI_WEAR` |
+| T4 | `PREDICTION_SKEW`, `REPAIR_PUNISH` | `WHITE_OATH`, `TRUTH_OBSCURE`, `PURE_PROVISION` |
+
+参照先:
+- 行動タグ: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) の「Enemy_Behavior_Tag」
+- 状態ID: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) の「Status_Effect_Master（追補）」
+- 敵テンプレート: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) の「Enemy_Tier_Template_Master（追補）」
 
 ## 3. 代表個体メモ
 
@@ -108,6 +135,10 @@ influences:
 
 - 上記2つが交互または重畳で侵食。
 - 同じ手順を繰り返すと破綻するため、毎戦の再計画が必須。
+
+補足（実装参照）:
+- 領域解放のフラグIDは `STERILE_CURTAIN_UNLOCKED` / `BLOOD_MUDPIT_UNLOCKED` を使用する。
+- 実際の補正式と係数は [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) を正本とする。
 
 ## 5. 予測UIの読み解き方
 
@@ -157,6 +188,19 @@ influences:
 - 野生敵には行動鈍化を作りやすい。
 - 澱神/棄物には防御低下と熱散逸の起点になる。
 
+実装参照:
+- 氷属性サブタイプIDは `ICE_STAGNATION` / `ICE_COOLING`。
+- 条件分岐の式は [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) の「氷属性サブタイプ定義（静止/冷却）」を参照。
+
+### 氷属性の系統別対応（実戦版）
+
+| 対象系統 | 優先する氷運用 | 期待する効果 | 注意点 |
+|---|---|---|---|
+| 天津神・白化神 | 冷却を補助用途で使う | 過熱事故を減らし、維持行動を作る | 主火力としては通りにくい |
+| 国津神・澱神 | 冷却を起点に脆化を重ねる | 防御低下と熱散逸で押し返す | 位相混在時は効果時間が短い |
+| 非神・棄物 | 冷却を先当てしてから集中 | 摩耗吸収を抑えやすい | 削り急ぐと耐久差で負ける |
+| 荒魂獣 | 速度低下目的で使う | 事故的な先制を減らす | 単体へ当てる優先度が高い |
+
 ## 10. 高難度でのUI判断手順
 
 1. 予測線の本数が増えたら、先に停止/攪乱を当てる。
@@ -167,3 +211,4 @@ influences:
 
 - ここで扱うのは「読み方」と「判断基準」。
 - 付与率、倍率、閾値、フラグ条件は [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) のみを正本とする。
+- このファイルで新規に式や数値を定義しない。必要な拡張は `SYS-30` に追加してから参照リンクを貼る。
