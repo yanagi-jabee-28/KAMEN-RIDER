@@ -3,84 +3,72 @@ uid: [ART-40]
 role: art-direction
 status: active
 depends_on:
-  - ../00_Welcome_and_Introduction/WRD-01_Core_Vision_and_Theme.md
+  - ../00_Welcome_and_Introduction/README.md
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
-  - ../02_How_to_Play_and_Mechanics/SYS-20_Game_Systems_and_Flow.md
+  - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
 influences:
-  - ART-41_Prompt_Library.md
-  - ../99_Archive_and_References/WRD-99_Archive_and_Changelog.md
+  - ../99_Archive_and_References/REF-00_References_and_Archive.md
 ---
 
 # [ART-40] Art Direction and Assets
 
-このファイルは「視覚演出ディレクターの視点」から書かれています。世界観を崩さず、誰が制作しても同じ画面に着地するための実務基準を定義します。
+このファイルは「視覚演出ディレクター」および「アセット制作担当」のための正本です。世界観を損なわず、誰が制作しても一貫した画面に着地するための基準を定義します。
 
-## 同一キャンバス原則
+## 1. デザインの根幹：同一キャンバス原則
 
-- 神も人も同じ和紙・同じ岩絵具で描く
-- 差は素材ではなく筆致で出す
-- 神: 制御された細線、低ノイズ、冷白と群青
-- 人: 滲み、掠れ、粒状感、泥と錆の温度
+- **神も人も同じ和紙・同じ岩絵具で描く**: 素材の差ではなく、「筆致」の差で対立を表現します。
+- **神の筆致**: 制御された細線、低ノイズ、冷たい白（冷白）と深い群青。
+- **人の筆致**: 滲み、掠れ、泥と錆の温度、粗い粒状感。
 
-この原則を破ると、思想の対立が素材差に見えてしまうため禁止する。
+## 2. 幕別カラー設計
 
-## 幕タイトルと色設計
+- **第1幕【胎】**: 白と硬い輪郭、静止した緊張感。
+- **第2幕【融】**: 滲む境界、異なる色が混ざり合う流動感。
+- **第3幕【熾】**: 赤のフレア、飛散する粒子、過熱する臨界点。
+- **第4幕【結】**: 金継ぎ線の脈動、闇の中に走る再結晶の光。
+- **終幕【還】**: 熱の減衰、土へと還る穏やかな温度。
 
-- 第1幕【胎】: 白と硬い輪郭、静止の緊張
-- 第2幕【融】: 滲み境界、混色と流動
-- 第3幕【熾】: 赤のフレア、粒子飛散、臨界
-- 第4幕【結】: 金継ぎ線の脈動、再構成の光
-- 終幕【還】: 熱の減衰、土へ還る色温
+## 3. キャラクター・ビジュアル要件
 
-## 付喪神化の演出規則
+| 対象 | キーワード | ビジュアルの要点 |
+|---|---|---|
+| **ミコト** | 余白、器 | 白髪ボブ、赤いスカーフ。感情を書き込む前の「無」の状態。 |
+| **うかみ** | 重量感、土 | 土色主体、使い込まれた鉄。仲間を守る壁としての説得力。 |
+| **スクナ** | 毒性、知性 | 酸性の色調、細身のシルエット。危険な薬理の気配。 |
+| **ウズ** | 攪乱、残像 | 曲線、捉えどころのないシルエット。動きのリズム破壊。 |
+| **タチバナ** | 透明感、損耗 | 損耗（キズ）と美しさが同居。脆さと強さ。 |
+| **マヒト** | 破壊、修復 | 煤、火花。鍛冶師としての無骨さと、武器を壊す暴力性。 |
+| **ワカヒコ** | 対称性、停止 | 冷白、凛とした姿勢。天津神の理を体現する線。 |
 
-- 金継ぎ線は静止光ではなく脈動光で描く
-- 覚醒時は赤寄りの熱を短時間だけ重ねる
-- 背景全体に金線を撒かない。介入は武器境界だけに限定する
+## 4. プロンプト・ライブラリ（実務用）
 
-## キャラクタービジュアル運用
-
-- ミコト: 白髪ボブと赤いスカーフ。器としての余白
-- うかみ: 土色と鉄。壁役の重量感
-- スクナ: 酸性の色調。薬理と危険性
-- ウズ: リズム破壊を示す曲線と残像
-- タチバナ: 透明感と損耗を同居させる
-- マヒト: 煤と火花。修復と破壊の二面性
-- ワカヒコ: 対称性、冷白、停止の線
-
-## スタイルアンカー（短縮版）
-
+### 基本スタイルアンカー
 ```text
-masterpiece, traditional Japanese painting on highly textured Washi paper,
-mineral pigments, divine disciplined lines vs human chaotic bleeding,
-tragic beauty, muddy warmth, no 3D render, no glossy CGI.
+masterpiece, traditional Japanese painting on highly textured Washi paper, mineral pigments, 
+divine disciplined lines vs human chaotic bleeding, tragic beauty, muddy warmth, 
+no 3D render, no glossy CGI.
 ```
 
-### ネガティブ指定（必須）
-
+### キャラクター生成用（例：ミコト）
 ```text
-no sci-fi UI, no cyber gadget, no plastic texture, no cel-shading,
-no glossy metal world, no western medieval costume mismatch.
+mikoto: mid-shot, white bob hair, distinct red scarf, porcelain skin like a vessel, 
+void expression, Japanese myth attire, red-line cracked weapon "Kintsugi" style.
 ```
 
-## キャラクター制作チェック
+### 背景・領域生成用（例：黄泉）
+```text
+yomi: dark violet landscape, stagnation particles, bleeding borders, decaying minerals, 
+cold static air, mineral blue highlights on deep black shadows.
+```
 
-| 項目 | チェック内容 |
-|---|---|
-| ミコト | 白髪ボブ、赤いスカーフ、器の余白がある |
-| うかみ | 土色主体、重量感、防壁の説得力がある |
-| スクナ | 毒性の色調、知性と危険性が同居している |
-| ウズ | 動きの軌跡が読めない、攪乱性がある |
-| タチバナ | 透明感と痛みが同時に見える |
-| マヒト | 鍛造段階が見分けられる（加入直後/拠点Lv2/野外Lv2） |
-| ワカヒコ | 対称性、冷白、停止の気配がある |
+### ネガティブプロンプト（厳禁要素）
+```text
+no sci-fi UI, no cyber gadgets, no plastic textures, no cel-shading, 
+no glossy metal, no western medieval mismatch, no modern typography.
+```
 
-## 実務フロー
-
-1. WRD-01で対立軸を固定する
-2. NAR-10で幕ごとの感情温度を確認する
-3. SYS-20で体験テンポと演出密度を合わせる
-4. キャラクター制作チェックで破綻を潰す
-5. 最終出力を本ファイル基準でレビューする
-
-Promptの詳細資産は [ART-41_Prompt_Library.md](ART-41_Prompt_Library.md) を参照。
+---
+**参照先**
+- **物語・感情曲線**: [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
+- **体験・テンポ**: [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)
+- **世界観の根幹**: [../00_Welcome_and_Introduction/README.md](../00_Welcome_and_Introduction/README.md)

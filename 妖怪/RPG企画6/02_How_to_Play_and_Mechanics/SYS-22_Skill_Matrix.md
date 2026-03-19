@@ -3,11 +3,11 @@ uid: [SYS-22]
 role: skill-matrix-player-facing
 status: active
 depends_on:
-  - SYS-20_Game_Systems_and_Flow.md
+  - SYS-20_Player_Manual.md
   - SYS-30_Data_and_Logic_Architecture.md
-  - ../01_Story_and_Characters/NAR-11_Act_Detail_Guide.md
+  - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
 influences:
-  - ../99_Archive_and_References/WRD-99_Archive_and_Changelog.md
+  - ../99_Archive_and_References/REF-00_References_and_Archive.md
 ---
 
 # [SYS-22] Skill Matrix (Player Facing)
@@ -33,7 +33,7 @@ influences:
 
 ## 詳細仕様の参照
 
-- 体験説明: [SYS-20_Game_Systems_and_Flow.md](SYS-20_Game_Systems_and_Flow.md)
+- 体験説明: [SYS-20_Player_Manual.md](SYS-20_Player_Manual.md)
 - 実装値: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md)
 
 ### 参照マップ（迷った時の優先順）
@@ -45,7 +45,7 @@ influences:
 | 敵の行動パターン | SYS-30「Enemy_Behavior_Tag」 |
 | 敵Tierと危険要因 | SYS-30「Enemy_Tier_Template_Master（追補）」 |
 | 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ定義（静止/冷却）」 |
-| 幕の物語背景 | NAR-11「Act Detail Guide」 |
+| 幕の物語背景 | NAR-10「Narrative, Characters, and Act Guide」 |
 
 ## 1. キャラ別「優先10技」
 
@@ -164,7 +164,7 @@ influences:
 | 第4幕 | 位相対応 |
 | 終幕 | 神託破壊 |
 
-詳細な幕背景とイベント意図は [../01_Story_and_Characters/NAR-11_Act_Detail_Guide.md](../01_Story_and_Characters/NAR-11_Act_Detail_Guide.md) を参照。
+詳細な幕背景とイベント意図は [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md) を参照。
 
 ## 3. パーティ雛形（初心者向け）
 

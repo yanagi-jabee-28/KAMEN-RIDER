@@ -3,18 +3,18 @@ uid: [SYS-30]
 role: data-and-logic
 status: active
 depends_on:
-  - SYS-20_Game_Systems_and_Flow.md
-  - ../00_Welcome_and_Introduction/WRD-01_Core_Vision_and_Theme.md
-  - ../90_For_Developers/ARC-00_Implementation_Charter.md
+  - SYS-20_Player_Manual.md
+  - ../00_Welcome_and_Introduction/README.md
+  - ../90_For_Developers/ARC-00_Architecture_and_Governance.md
 influences:
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
-  - ../99_Archive_and_References/WRD-99_Archive_and_Changelog.md
+  - ../99_Archive_and_References/REF-00_References_and_Archive.md
 ---
 
 # [SYS-30] Data and Logic Architecture
 
-> ※このファイルはゲーム内部の計算式・フラグ・マスターデータを記載する開発者向け正本です。遊び方を知りたい読者は [SYS-20_Game_Systems_and_Flow.md](SYS-20_Game_Systems_and_Flow.md) を参照してください。
+> ※このファイルはゲーム内部の計算式・フラグ・マスターデータを記載する開発者向け正本です。遊び方を知りたい読者は [SYS-20_Player_Manual.md](SYS-20_Player_Manual.md) を参照してください。
 
 ## 三条の熱源（実装定義）
 
@@ -79,7 +79,7 @@ IF StoryFlag.SHRINE_FORGE_LV3_UNLOCKED THEN Base_Maintenance_Level = 3
 ## SSOTテーブル運用
 
 - 物語整合は [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
-- プレイヤー体験は [SYS-20_Game_Systems_and_Flow.md](SYS-20_Game_Systems_and_Flow.md)
+- プレイヤー体験は [SYS-20_Player_Manual.md](SYS-20_Player_Manual.md)
 - 実装値変更は本ファイルを正本として扱う
 
 ## 情念回復ロジック（詳細）
