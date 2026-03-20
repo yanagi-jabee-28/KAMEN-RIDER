@@ -8,8 +8,13 @@ PDF_NAME = "RPG企画6_統合資料.pdf"
 
 
 def run(cmd: list[str], cwd: Path) -> int:
-    completed = subprocess.run(cmd, cwd=cwd)
-    return completed.returncode
+    try:
+        completed = subprocess.run(cmd, cwd=cwd)
+        return completed.returncode
+    except KeyboardInterrupt:
+        # ユーザーや環境から割り込みが来ても、そのまま継続判断
+        print("[warn] KeyboardInterrupt received in subprocess")
+        raise
 
 
 def main(argv: list[str]) -> int:
@@ -21,7 +26,16 @@ def main(argv: list[str]) -> int:
     output_pdf = project_root / PDF_NAME
 
     print("[1/2] Exporting PDF...")
-    export_rc = run([sys.executable, str(export_script)], cwd=project_root)
+    try:
+        export_rc = run([sys.executable, str(export_script)], cwd=project_root)
+    except KeyboardInterrupt:
+        if output_pdf.is_file() and output_pdf.stat().st_size > 0:
+            print("KeyboardInterrupt occurred, but PDF exists. Continue with copy.")
+            export_rc = 0
+        else:
+            print("KeyboardInterrupt occurred before PDF existed. Stop processing.")
+            return 1
+
     if export_rc != 0 and not (output_pdf.is_file() and output_pdf.stat().st_size > 0):
         print("PDF export failed. Stop processing.")
         return 1
@@ -29,7 +43,12 @@ def main(argv: list[str]) -> int:
         print("PDF export returned non-zero, but PDF exists. Continue.")
 
     print("[2/2] Refreshing ALL-files-RPG_6...")
-    refresh_rc = run([sys.executable, str(refresh_script), *argv], cwd=project_root)
+    try:
+        refresh_rc = run([sys.executable, str(refresh_script), *argv], cwd=project_root)
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt occurred during refresh. Exiting.")
+        return 1
+
     if refresh_rc != 0:
         print("Refresh failed.")
         return refresh_rc
