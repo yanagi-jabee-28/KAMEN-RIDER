@@ -1,63 +1,103 @@
 ---
 uid: [ARC-00]
-role: governance
+project_code: RPG企画6
+title: Architecture and Governance (Implementation Charter)
+role: implementation-charter
 status: active
+owner: Architecture Guardian
 depends_on:
+  - ARC-01_UID_Registry.md
+influences:
   - ../00_Welcome_and_Introduction/README.md
+  - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
+  - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
   - ../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md
+  - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
+  - ../99_Archive_and_References/REF-00_References_and_Archive.md
 ---
 
 # [ARC-00] Architecture and Governance
 
-このファイルは「開発・実装担当」のためのガイドラインおよび管理台帳です。一貫した品質と SSOT（Single Source of Truth）を維持するための規約を定義します。
+このドキュメントは、プロジェクトの整合性を維持するための「実装ルールブック」です。
+全制作メンバー（物語・仕様・美術・開発）が遵守すべき共通作法を定義します。
 
-## 1. 実装規約 (Charter)
+## 0. Zero-Loss翻訳規約（全ドキュメント共通）
 
-### Zero-Loss 編集ポリシー
-- **固有語彙・数値・条件式を削除しない**: 平易化は要約ではなく、補助説明の追加で行います。
-- **仕様矛盾時の優先順**: `SYS-30 (数理)` > `SYS-20 (体験)` > `WRD-01 (世界観)`。
+この章は、仕様を落とさずに読みやすくするための共通ルールです。
 
-### 語彙運用ルール
-- **神話語彙の優先**: ゲーム内テキスト（台詞・説明文）では、Ref-00 の翻訳表に基づき、SF/メカ語彙を徹底排除します。
-- **禁止語の置換例**:
-  - `AI / システム` → `神託 / 神意`
-  - `データ` → `神話記録 / 神の理 / 履歴`
-  - `クラッシュ` → `破綻 / 崩落 / 断絶`
+- 固有語彙・システム語彙・数値・条件式・フラグ名は改変しない。
+- 平易化は「置換」ではなく「補助説明の追記」で行う。
+- 学術借用語は、必要に応じて和語の補助表現を併記する。
+- 解釈が衝突したら `SYS-30` → `SYS-20` → `WRD-01 (README)` の順で確認する。
+
+### 0.1 保護語彙（変更禁止）
+
+以下は世界観と仕様を兼ねるため、要約・省略・別語への置換を禁止する。
+
+- 情念
+- 活魂
+- 武器耐久度
+- 付喪神化
+- 代受苦
+- 極大代受苦
+- 神の理
+- 金継ぎ
+- 剥落の星屑
+- 神託崩壊
+- 無菌の帳
+- 血の泥沼
+
+### 0.2 メタファー翻訳の実務ルール
+
+難解語を消すのではなく、「本文の意味を保ったまま補助線を引く」運用を標準化する。
+
+- **固相 / 液相 / プラズマ相 / 再結晶 / 相転移**
+  - 停滞の始まり / 交じり合う摩擦 / 臨界を超える熱量の爆発 / 砕けた破片の再構成 / 永遠の拒絶と命の循環への回帰
+- **ルードナラティブ**
+  - 遊びの体験を通じた物語表現
+- **SSOT**
+  - 唯一の正本となるマスターデータ
+
+## 1. 世界観を守るルール
+
+- ゲーム内テキストと正本仕様に、SF系の言葉を混入させない。
+- 禁止語の例: AI, ナノマシン, データ, アルゴリズム, システムクラッシュ。
+- 置換先の例: 神託, 呪い, 神の理, 祟り, 還流, 付喪神化。
+
+### 1.1 語彙変換辞書（実装審査基準）
+
+| 禁止語彙 | 推奨語彙 | 備考 |
+| --- | --- | --- |
+| AI | 神託 / 神意 | 自律判断は「神意の執行」として記述 |
+| ナノマシン | 呪い / 祟りの粒 | 微細干渉は呪術作用で表現 |
+| データ | 神話記録 / 祭具記録 / 神の理 | 数理情報は「記録」「理」へ置換 |
+| ノイズ（機械文脈） | 情念の奔流 / 乱れ | 文脈に応じて使い分け |
+| メタル系（直輸入） | 剥落の星屑 | 外部参照語彙は翻訳して導入 |
+
+## 2. 時代考証の運用原則
+
+本作は厳密な史実再現ではなく、神話的世界の一貫性を優先する。
+
+- **許容方針**: 神話語彙で意味づけ可能であり、世界観の対立軸を強化するなら、異時代的要素を限定的に採用してよい。
+- **非許容領域**: 未来文明を直接想起させる描写（近未来兵器、現代工業機械、電子計算機器等）は、ゲーム内表現に採用しない。
+
+## 3. 文書設計とSSOT（Single Source of Truth）
+
+本作は以下の階層構造に基づき、情報の重複を避けて管理します。
+
+1.  **[SYS-30] 数理・論理層**: すべての数値、変数、フラグ、計算式の正本。
+2.  **[SYS-20] 体験・設計層**: 遊びの哲学、テンション曲線、戦術設計の正本。
+3.  **[NAR-10] 物語・人物層**: キャラクター背景、感情、台詞回しの正本。
+4.  **[ART-40] 視覚・演出層**: 画風、プロンプト、エフェクト指針の正本。
+
+## 4. 変更提案の標準手順
+
+1. 変更対象のUIDを明示する。
+2. 影響範囲（depends_on / influences）を特定する。
+3. `SYS-30` への影響がある場合は、数理的な整合性を優先して検証する。
+4. プロジェクト全体への波及を考慮し、ドキュメントを相互更新する。
 
 ---
-
-## 2. UID 台帳 (Registry)
-
-すべてのドキュメントは以下の UID で管理されます。廃棄された UID も欠番扱いにし、再利用は禁止します。
-
-| UID | カテゴリ | ファイルパス | 役割 |
-|---|---|---|---|
-| `[WRD-01]` | Welcome | 00_Welcome_and_Introduction/README.md | 世界観・デザイン原則 |
-| `[NAR-10]` | Story | 01_Story_and_Characters/NAR-10_Narrative_and_Characters.md | 物語・人物・幕 |
-| `[SYS-20]` | System | 02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md | 遊び方・体験・生態系 |
-| `[SYS-22]` | Skill | 02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md | 術式・ロール索引 |
-| `[SYS-30]` | Logic | 02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md | 数理・フラグ・SSOT |
-| `[ART-40]` | Art | 03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md | 美術・プロンプト |
-| `[ARC-00]` | Dev | 90_For_Developers/ARC-00_Architecture_and_Governance.md | 規約・管理（本書） |
-| `[REF-00]` | Ref | 99_Archive_and_References/REF-00_References_and_Archive.md | 外部参照・翻訳表 |
-
----
-
-## 3. 移植・ギャップ管理 (Migration)
-
-RPG企画5から6への移行において、特に以下の重複対策を徹底します。
-
-- **重複正本の禁止**: 同一の情報（例：武器のダメージ倍率）が複数のファイルに記述されている場合、SYS-30 のみを正本とし、他は参照リンクのみを置きます。
-- **責務の分離**:
-  - 体験・意図（「なぜそうするか」）は **SYS-20**
-  - 実装・値（「どう動くか」）は **SYS-30**
-  - 演出・背景（「どんな雰囲気か」）は **ART-40 / NAR-10**
-
-### 時代考証チェックリスト
-1. 神話語彙に無理なく翻訳できるか。
-2. 常世・祭具・神意のいずれかで説明可能か。
-3. 近現代の固有技術知識を前提としていないか。
-4. 説明の主軸が神術・魔術・儀礼に置かれているか。
-
----
-**変更履歴・差し戻し案の保管は [../99_Archive_and_References/REF-00_References_and_Archive.md](../99_Archive_and_References/REF-00_References_and_Archive.md) を参照してください。**
+**参照先**
+- **UID台帳**: [ARC-01_UID_Registry.md](ARC-01_UID_Registry.md)
+- **世界観・デザイン原則**: [../00_Welcome_and_Introduction/README.md](../00_Welcome_and_Introduction/README.md)
