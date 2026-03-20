@@ -99,12 +99,16 @@ def collect_markdown_files(project_root: Path, output_stem: str) -> list[Path]:
         f"{output_stem}.merged.md",
         f"{output_stem}.merged.html",
     }
+    excluded_paths = {
+        "99_Archive_and_References/REF-00_merged_gemini.md",
+    }
 
     all_md = []
     for path in project_root.rglob("*.md"):
         if not path.is_file():
             continue
-        if path.name in excluded_names:
+        relpath = path.relative_to(project_root).as_posix()
+        if path.name in excluded_names or relpath in excluded_paths:
             continue
         all_md.append(path.resolve())
 
