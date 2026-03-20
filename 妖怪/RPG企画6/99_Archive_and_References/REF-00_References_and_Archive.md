@@ -45,6 +45,10 @@ depends_on:
 
 ## 3. 変更履歴 (Changelog)
 
+### 2026-03-20
+- **REF-50詳細移植**: `RPG企画5/05_References/REF-50_Reference_DQ_Master_Data.md` の詳細データを `REF-50_External_RPG_Reference_Dictionary.md` へ統合。
+- **参照整合**: 依存先を `SYS-20_Player_Manual` / `SYS-30_Data_and_Logic_Architecture` に統一し、RPG企画6の運用前提へ更新。
+
 ### 2026-03-19
 - **ドキュメントの大幅統合**: 18ファイルを8ファイルへ再編（可読性向上と過剰分割の解消）。
 - **構造の整理**: 00〜03番をプレイヤー・世界観向け、90〜99番を開発者・管理向けに分離。
