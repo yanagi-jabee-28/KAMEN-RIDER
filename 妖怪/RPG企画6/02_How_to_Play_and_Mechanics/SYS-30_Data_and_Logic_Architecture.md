@@ -108,6 +108,10 @@ IF Character == WAKAHIKO AND MainWeapon_Category == BOW_RANGED THEN
   Jonetsu_Ratio = clamp(Consumed_Jonetsu_For_Attack / Jonetsu_Max, 0.0, 1.0)
   Damage_Mult = 1.0 + (Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Damage_Mult)
   Recoil_Damage = floor(Bow_Base_Damage * Jonetsu_Ratio * WAKAHIKO_KAESHIYA_Recoil_Mult)
+  IF StoryFlag.NAKIME_BATTLE_ACTIVE == TRUE THEN
+    // 天望の天守・ナキメ加入戦のみ、返し矢反動は無効化
+    Recoil_Damage = 0
+  END IF
   IF State_Inga_No_Kaeshiya == TRUE THEN
     Transfer_Damage = floor(Recoil_Damage * 0.5)
     Recoil_Damage = Recoil_Damage - Transfer_Damage
@@ -350,6 +354,7 @@ END IF
 | `MAHITO_FIELD_LV2_UNLOCKED` | マヒト「野鍛冶の誓い」達成 |
 | `SHRINE_FORGE_LV3_UNLOCKED` | 神社鍛造拡張 |
 | `UKAMI_LEFT_KATSURAGI` | 葛城山での一次離脱、ミコトへのスキル継承 |
+| `NAKIME_BATTLE_ACTIVE` | 天望の天守でナキメ加入戦が開始した状態（返し矢反動無効） |
 | `WAKAHIKO_JOINED_ACT3` | 返し矢降臨イベント後加入 |
 | `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破・偽終幕 |
 | `TSUKUYOMI_CELEBRATION_CONDUCTED` | 偽終幕後の凍結UIジャック開始 |
@@ -361,6 +366,25 @@ END IF
 | `OROCHI_TAIL_BREACHED` | 真裏ボスで尾部破断、剣核露出 |
 | `ETERNITY_REJECTED` | エンディング |
 | `AMENO_MURAKUMO_AWAKENED` | 天叢雲剣覚醒 |
+
+#### Camp_Maintenance_Logic（拠点/野営の段階解禁）
+```text
+Can_Use_Daijuku = (
+  StoryFlag.MAHITO_JOINED_ACT2 == TRUE
+)
+
+Can_Use_Tsukumogami_Awakening = (
+  StoryFlag.MAHITO_JOINED_ACT2 == TRUE
+  AND StoryFlag.KAGUTSUCHI_QUELLED == TRUE
+  AND (CurrentContext == BASE_CAMP OR StoryFlag.MAHITO_FIELD_LV2_UNLOCKED == TRUE)
+)
+
+Can_Use_Extreme_Daijuku = (
+  Can_Use_Tsukumogami_Awakening == TRUE
+  AND Is_Tsukumogami == TRUE
+)
+```
+- 運用注記: `MAHITO_FIELD_LV2_UNLOCKED == FALSE` の間は、付喪神化は拠点限定とし、野外鍛造を禁止する。
 
 ### 3.2 継承の固定習得（Forced Inheritance）
 ```yaml
