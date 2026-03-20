@@ -18,6 +18,7 @@ import shutil
 # The destination is 妖怪/ALL-files-RPG_6, which is one directory above this script.
 FILES = [
     "README.md",
+    "RPG企画6_統合資料.pdf",
     "00_Welcome_and_Introduction/README.md",
     "01_Story_and_Characters/NAR-10_Narrative_and_Characters.md",
     "02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md",
