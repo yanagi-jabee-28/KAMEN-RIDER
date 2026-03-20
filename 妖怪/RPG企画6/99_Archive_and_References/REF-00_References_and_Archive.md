@@ -45,6 +45,11 @@ depends_on:
 
 ## 3. 変更履歴 (Changelog)
 
+### 2026-03-21
+- **鍛造Lv2解放条件の固定**: 拠点鍛造は `MAHITO_JOINED_ACT2`（マヒト加入直後）、野外Lv2はタケミカヅチ雪辱後（`TAKEMIKAZUCHI_REVENGE_CLEARED`）へ統一。
+- **黄泉戸喫仕様の統一**: 「プレイヤー任意使用」と「行者うかみ自律摂取（在庫非消費）」の併用仕様を DEV-10 / DEV-11 / SYS-20 / WRD-02 で同期。
+- **差分監査**: 仕様削除は行わず、条件明文化と追跡導線の補強のみを実施。
+
 ### 2026-03-20
 - **REF-50詳細移植**: `RPG企画5/05_References/REF-50_Reference_DQ_Master_Data.md` の詳細データを `REF-50_External_RPG_Reference_Dictionary.md` へ統合。
 - **参照整合**: 依存先を `SYS-20_Player_Manual` / `SYS-30_Data_and_Logic_Architecture` に統一し、RPG企画6の運用前提へ更新。

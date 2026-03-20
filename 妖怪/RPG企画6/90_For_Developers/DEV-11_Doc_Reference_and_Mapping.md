@@ -16,8 +16,10 @@
 | SYS-20: 1.2 修復と継承の感情曲線 | `Core_of_Regret.Created` | 1.4 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 2 三条の熱源 | `Kakkon_Value`, `Jonetsu_Value`, `Durability_new` | 1.1 / 1.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3 境界状態 | `State_Shigurui`, `State_Karakara` | 1.1 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.8 黄泉戸喫のリスク運用 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.7 行者還し | `GYOJAGAESHI_CLEARED`, `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | NAR-10: 第2幕（葛城山） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第3幕後半（タケミカヅチ雪辱戦） | `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第3幕（逆転する勝利） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
@@ -38,16 +40,16 @@
 | 死狂い | `State_Shigurui`, `Has_Shigurui_Passive` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |
 | 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
-| 黄泉戸喫 | `Item_Used==Yomotsu_Mud_Fruit`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 
-## 1.6 整合性優先の保留課題
+## 1.6 整合性課題の解消状況
 
-次の2点は語彙改稿より前に統一定義を確定する。
+次の2点は仕様確定と同期反映が完了した。
 
-| 論点 | 現状 | 先に確定すべき内容 | 関連文書 |
+| 論点 | 状態 | 確定内容 | 関連文書 |
 |---|---|---|---|
-| マヒト鍛造Lv2解放条件 | 記述の粒度が文書間で不揃い | トリガーイベントと条件式の一致 | SYS-20 / NAR-10 / DEV-10 / DEV-11 |
-| 黄泉戸喫の説明密度 | 体験説明と実装説明の対応が弱い | 回復・呪い・例外処理の対応固定 | SYS-20 / WRD-02 / DEV-10 / DEV-11 |
+| マヒト鍛造Lv2解放条件 | 解消済み | 拠点は加入直後、野外Lv2は雪辱戦突破後に固定 | SYS-20 / NAR-10 / DEV-10 / DEV-11 |
+| 黄泉戸喫の説明密度 | 解消済み | 任意使用と、うかみ自律摂取の併用仕様に固定 | SYS-20 / WRD-02 / DEV-10 / DEV-11 |
 
 ## 2. イベント起点の逆引き（フラグ優先）
 

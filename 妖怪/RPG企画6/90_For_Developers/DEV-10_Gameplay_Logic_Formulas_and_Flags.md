@@ -122,20 +122,27 @@ IF Field_State == BLOOD_MUDPIT THEN
   Jonetsu_Gain_Mult = 1.2
 END IF
 
-IF Item_Used == Yomotsu_Mud_Fruit AND User != UKAMI_GYOJA THEN
+IF Use_Item == Yomotsu_Mud_Fruit THEN
+  Kakkon_Value = Kakkon_Max
+  Jonetsu_Value = Jonetsu_Max
+END IF
+
+IF Use_Item == Yomotsu_Mud_Fruit AND User != UKAMI_GYOJA THEN
   Inventory -= 1
   Apply_State(YOMOTSU_CURSE)
 END IF
 
-IF Item_Used == Yomotsu_Mud_Fruit AND User == UKAMI_GYOJA THEN
+IF Use_Item == Yomotsu_Mud_Fruit AND User == UKAMI_GYOJA THEN
   Inventory = Inventory
   Skip_State_Inflict(YOMOTSU_CURSE)
 END IF
 
-IF Use_Item == Yomotsu_Mud_Fruit THEN
-  Kakkon_Value = Kakkon_Max
-  Jonetsu_Value = Jonetsu_Max
-  Apply_State(YOMOTSU_CURSE)
+IF StoryFlag.UKAMI_RETURNED_YOMOTSU == TRUE
+ AND Ukami_Autonomy == TRUE
+ AND Yomotsu_Curse_Pressure >= Ukami_AutoYomotsu_Threshold THEN
+  Auto_Consume_Yomotsu_By_Ukami = TRUE
+  Inventory = Inventory
+  Pause_Yomotsu_Decay_Tick = TRUE
 END IF
 
 IF State_Yomotsu_Curse == TRUE THEN
@@ -169,6 +176,7 @@ Ri_Level_3_Absolute = Uses(Noise_Resistance_High)
 - MAHITO_JOINED_ACT2
 - KAGUTSUCHI_QUELLED
 - WHITE_CORRIDOR_CLEARED
+- TAKEMIKAZUCHI_REVENGE_CLEARED
 - MAHITO_FIELD_LV2_UNLOCKED
 - SHRINE_FORGE_LV3_UNLOCKED
 - UKAMI_LEFT_KATSURAGI
@@ -191,8 +199,21 @@ Can_Use_Daijuku = (
   StoryFlag.MAHITO_JOINED_ACT2 == TRUE
 )
 
-Can_Use_Tsukumogami_Awakening = (
+Can_Use_Mahito_Base_Forge = (
   StoryFlag.MAHITO_JOINED_ACT2 == TRUE
+)
+
+Can_Use_Mahito_Field_Lv2 = (
+  Can_Use_Mahito_Base_Forge == TRUE
+  AND StoryFlag.TAKEMIKAZUCHI_REVENGE_CLEARED == TRUE
+)
+
+IF Can_Use_Mahito_Field_Lv2 == TRUE THEN
+  StoryFlag.MAHITO_FIELD_LV2_UNLOCKED = TRUE
+END IF
+
+Can_Use_Tsukumogami_Awakening = (
+  Can_Use_Mahito_Base_Forge == TRUE
   AND StoryFlag.KAGUTSUCHI_QUELLED == TRUE
   AND (CurrentContext == BASE_CAMP OR StoryFlag.MAHITO_FIELD_LV2_UNLOCKED == TRUE)
 )
@@ -242,7 +263,8 @@ END IF
 | `MAHITO_JOINED_ACT2` | 第2幕でマヒト加入 | 代受苦/鍛造系導線の基点解放 | NAR-10 / SYS-20 |
 | `KAGUTSUCHI_QUELLED` | 第3幕系節目を突破 | 付喪神化前提の解放条件を満たす | NAR-10 |
 | `WHITE_CORRIDOR_CLEARED` | 白堊の回廊を突破 | 第2幕中盤以降の導線を開く | NAR-10 |
-| `MAHITO_FIELD_LV2_UNLOCKED` | 野営鍛造Lv2の条件成立 | 野外での鍛造運用を許可 | SYS-20 / DEV-12 |
+| `TAKEMIKAZUCHI_REVENGE_CLEARED` | 第3幕の雪辱戦を突破 | 野外鍛造Lv2解放条件を満たす | NAR-10 / SYS-20 |
+| `MAHITO_FIELD_LV2_UNLOCKED` | `TAKEMIKAZUCHI_REVENGE_CLEARED` が成立 | 野外での鍛造運用を許可 | SYS-20 / DEV-12 |
 | `SHRINE_FORGE_LV3_UNLOCKED` | 拠点鍛造Lv3の条件成立 | 神器級鍛造導線を開放 | SYS-20 / DEV-12 |
 | `UKAMI_LEFT_KATSURAGI` | 葛城山離脱イベント発生 | 継承手甲・強制継承スキル発火 | NAR-10 |
 | `NAKIME_BATTLE_ACTIVE` | ワカヒコ加入戦の特殊戦闘中 | 返し矢反動ルールを一時変更 | SYS-20 |
