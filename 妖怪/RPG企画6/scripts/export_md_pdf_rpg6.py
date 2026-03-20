@@ -91,6 +91,53 @@ def normalize_heading_levels(markdown_text: str) -> str:
     return re.sub(r"^(#{1,5})\s", r"#\1 ", markdown_text, flags=re.MULTILINE)
 
 
+def _anchor_for_relpath(rel_path: str) -> str:
+    base = rel_path.replace(".md", "").replace("/", "-").replace("_", "-").lower()
+    base = re.sub(r"[^a-z0-9\-]", "-", base)
+    base = re.sub(r"-+", "-", base).strip("-")
+    return f"doc-{base}"
+
+
+def _rewrite_links_to_internal_anchors(markdown_text: str, current_rel: str, anchor_map: dict[str, str]) -> str:
+    current_parts = current_rel.split("/")
+    current_dir = "/".join(current_parts[:-1])
+
+    def _replace(match: re.Match[str]) -> str:
+        label = match.group(1)
+        raw_target = match.group(2).strip()
+
+        if raw_target.startswith(("http://", "https://", "mailto:", "#")):
+            return match.group(0)
+
+        path_only, sep, fragment = raw_target.partition("#")
+        if not path_only.lower().endswith(".md"):
+            return match.group(0)
+
+        # Resolve relative .md links against current file directory.
+        if path_only.startswith("/"):
+            normalized = path_only.lstrip("/")
+        else:
+            joined = f"{current_dir}/{path_only}" if current_dir else path_only
+            parts: list[str] = []
+            for token in joined.split("/"):
+                if token in ("", "."):
+                    continue
+                if token == "..":
+                    if parts:
+                        parts.pop()
+                    continue
+                parts.append(token)
+            normalized = "/".join(parts)
+
+        anchor = anchor_map.get(normalized)
+        if not anchor:
+            return match.group(0)
+
+        return f"[{label}](#{anchor})"
+
+    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _replace, markdown_text)
+
+
 def collect_markdown_files(project_root: Path, output_stem: str) -> list[Path]:
     readme = project_root / "README.md"
     excluded_names = {
@@ -145,13 +192,19 @@ def _toc_label_for_path(rel_path: str) -> str:
 
 def build_merged_markdown(paths: list[Path], title: str, project_root: Path) -> str:
     sections: list[str] = [f"# {title}", "", '<div style="page-break-after: always;"></div>', "", "## 目次", ""]
-    cleaned_sections: list[tuple[str, str, Path]] = []
+    cleaned_sections: list[tuple[str, str, Path, str]] = []
     seen_titles: dict[str, int] = {}
+    anchor_map: dict[str, str] = {}
 
     for path in paths:
+        rel = path.relative_to(project_root).as_posix()
+        anchor_map[rel] = _anchor_for_relpath(rel)
+
+    for path in paths:
+        rel = path.relative_to(project_root).as_posix()
         raw_text = path.read_text(encoding="utf-8")
         meta, body = extract_front_matter(raw_text)
-        body = body.strip()
+        body = _rewrite_links_to_internal_anchors(body.strip(), rel, anchor_map)
 
         heading = meta.get("title") or first_heading(body, path.stem)
         count = seen_titles.get(heading, 0) + 1
@@ -159,18 +212,19 @@ def build_merged_markdown(paths: list[Path], title: str, project_root: Path) -> 
         if count > 1:
             heading = f"{heading} ({path.stem})"
 
-        cleaned_sections.append((heading, normalize_heading_levels(body), path))
+        cleaned_sections.append((heading, normalize_heading_levels(body), path, rel))
 
-    for index, (heading, _, path) in enumerate(cleaned_sections, start=1):
-        rel = path.relative_to(project_root).as_posix()
+    for index, (_, _, _, rel) in enumerate(cleaned_sections, start=1):
         sections.append(f"{index}. {_toc_label_for_path(rel)}")
 
-    for heading, body, path in cleaned_sections:
-        rel = path.relative_to(project_root).as_posix()
+    for heading, body, _, rel in cleaned_sections:
+        anchor = anchor_map[rel]
         sections.extend(
             [
                 "",
                 '<div style="page-break-after: always;"></div>',
+                "",
+                f"<a id=\"{anchor}\"></a>",
                 "",
                 f"# {heading}",
                 "",
