@@ -117,8 +117,30 @@ def collect_markdown_files(project_root: Path, output_stem: str) -> list[Path]:
     return all_md
 
 
+def _toc_label_for_path(rel_path: str) -> str:
+    labels = {
+        "README.md": "RPG企画6 ドキュメント入口",
+        "00_Welcome_and_Introduction/README.md": "アシブネノミコト 〜天降る御子と、星屑の大地〜",
+        "01_Story_and_Characters/NAR-10_Narrative_and_Characters.md": "アシブネノミコト 〜天降る御子と、星屑の大地〜 (NAR-10_Narrative_and_Characters)",
+        "02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md": "Player Manual: Systems, World, and Flow",
+        "02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md": "[SYS-22] Skill Matrix (Player Facing)",
+        "02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md": "Data and Logic Architecture",
+        "03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md": "Art Direction and Assets",
+        "90_For_Developers/ARC-00_Architecture_and_Governance.md": "Architecture and Governance (Implementation Charter)",
+        "90_For_Developers/ARC-01_UID_Registry.md": "UID Registry",
+        "90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md": "DEV-10 Gameplay Logic Formulas and Flags",
+        "90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md": "DEV-11 Doc Reference and Mapping",
+        "90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md": "Art Production and Prompt Protocol",
+        "90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md": "DEV-13 Document Metadata and Reading Order",
+        "99_Archive_and_References/REF-00_merged_gemini.md": "gemini-conversation",
+        "99_Archive_and_References/REF-00_References_and_Archive.md": "[REF-00] References and Archive",
+        "99_Archive_and_References/REF-50_External_RPG_Reference_Dictionary.md": "External RPG Reference Dictionary (DQ Series)",
+    }
+    return labels.get(rel_path, rel_path)
+
+
 def build_merged_markdown(paths: list[Path], title: str, project_root: Path) -> str:
-    sections: list[str] = [f"# {title}", "", "## 目次", ""]
+    sections: list[str] = [f"# {title}", "", '<div style="page-break-after: always;"></div>', "", "## 目次", ""]
     cleaned_sections: list[tuple[str, str, Path]] = []
     seen_titles: dict[str, int] = {}
 
@@ -135,8 +157,9 @@ def build_merged_markdown(paths: list[Path], title: str, project_root: Path) -> 
 
         cleaned_sections.append((heading, normalize_heading_levels(body), path))
 
-    for index, (heading, _, _) in enumerate(cleaned_sections, start=1):
-        sections.append(f"{index}. {heading}")
+    for index, (heading, _, path) in enumerate(cleaned_sections, start=1):
+        rel = path.relative_to(project_root).as_posix()
+        sections.append(f"{index}. {_toc_label_for_path(rel)}")
 
     for heading, body, path in cleaned_sections:
         rel = path.relative_to(project_root).as_posix()
