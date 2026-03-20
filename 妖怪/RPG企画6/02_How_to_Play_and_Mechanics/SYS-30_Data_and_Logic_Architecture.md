@@ -1,4 +1,4 @@
----
+<!--
 uid: [SYS-30]
 project_code: RPG企画6
 title: Data and Logic Architecture
@@ -13,7 +13,7 @@ influences:
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
----
+-->
 
 # [SYS-30] Data and Logic Architecture
 
@@ -25,6 +25,13 @@ influences:
 2. 次に `2.4 Weapon_Evolution_Master` と `2.5 Character_Equipment_Master` で育成の方向性を決める。
 3. 敵で詰まったら `2.6 Enemy_Master` と `2.7 Enemy_Tier_Template_Master` を見る。
 4. うかみの時代差分データ（斥候/行者）は開発者向けの [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md) を参照する。
+
+## 目的別クイックリファレンス
+
+- **キャラの役割を最短で知りたい**: `2.1 Character_Base_Master`
+- **武器進化と装備方針を知りたい**: `2.4 Weapon_Evolution_Master` と `2.5 Character_Equipment_Master`
+- **詰まり敵の傾向を把握したい**: `2.6 Enemy_Master` と `2.7 Enemy_Tier_Template_Master`
+- **状態異常の意味だけ確認したい**: `2.2 Status_Effect_Master`
 
 ## 1. コア要素（概要）
 

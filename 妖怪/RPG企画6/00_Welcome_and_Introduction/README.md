@@ -1,4 +1,4 @@
----
+<!--
 uid: [WRD-01]
 project_code: RPG企画6
 title: アシブネノミコト 〜天降る御子と、星屑の大地〜
@@ -6,20 +6,29 @@ role: core-vision-and-theme
 status: active
 owner: Architecture Guardian
 depends_on:
-  - ../90_For_Developers/ARC-00_Architecture_and_Governance.md
+	- ../90_For_Developers/ARC-00_Architecture_and_Governance.md
 influences:
-  - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
-  - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
-  - ../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md
-  - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
-  - ../99_Archive_and_References/REF-00_References_and_Archive.md
----
+	- ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
+	- ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
+	- ../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md
+	- ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
+	- ../99_Archive_and_References/REF-00_References_and_Archive.md
+-->
 
 # アシブネノミコト 〜天降る御子と、星屑の大地〜
 
 # [WRD-01] Core Vision and Theme
 
 本作の世界観・遊び方・物語の入口となる案内文書です。
+
+## 最初に押さえる3つのキーワード
+
+1. **停滞の琥珀（イザナギの理）**
+	喪失を恐れるあまり、世界を不変のまま凍らせようとする神々の意志。
+2. **還流と金継ぎ（人の営み）**
+	傷を受け入れ、壊れたものを修復しながら命をつないでいく地上の作法。
+3. **要石（ミコトの宿命）**
+	感情を持たない器として設計され、世界を静止させるために造られた役割。
 
 ## 1. プロジェクト基本情報 (基礎情報)
 
@@ -71,12 +80,12 @@ influences:
 
 ## 3. ゲームデザイン原則 (深い洞察)
 
-すべてのゲームメカニクス、UI、レベルデザインは次の原則で設計します。
+すべての遊びの体験、戦いの見せ方、舞台構成は次の原則で設計します。
 **「このゲームの仕様は、効率消費ではなく、泥臭い修復と継承を体感させるためにある。」**
 
 ### 3.1 神の振る舞い（敵・システム側の作法）
 - **静謐とエントロピーの凍結:** 神々は自己の傷を極端に恐れ、世界を完全に予測・管理しようとする。
-- **最適解の押し付け:** 戦闘時、神は「完璧に計算された予告UI」を出し、プレイヤーを理の中へ閉じ込めようとする。行動に無駄はなく、徹底して理にかなっている。
+- **最適解の押し付け:** 戦闘時、神は「完璧に計算された兆候」を示し、プレイヤーを理の中へ閉じ込めようとする。行動に無駄はなく、徹底して理にかなっている。
 
 ### 3.2 人の振る舞い（味方・プレイヤー側の作法）
 - **ノイズと摩擦による反逆:** プレイヤーは神の計算を上回るのではなく、神が理解できない「非合理な熱量（自傷、過熱、代受苦など）」を用いることで予測計算に強烈なノイズ（エラー）を発生させる。
@@ -133,7 +142,7 @@ influences:
 - **遊び方・生態系（詳細）**: [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)
 - **スキル・術式一覧**: [../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)
 - **ビジュアル指針**: [../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md)
-- **数理仕様・実装SSOT**: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)
+- **数理仕様・実装の正本**: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)
 - **うかみ行者の詳細データ（技・成長・自律介入）**: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
 
 ---

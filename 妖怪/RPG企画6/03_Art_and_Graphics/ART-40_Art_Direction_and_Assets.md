@@ -1,4 +1,4 @@
----
+<!--
 uid: [ART-40]
 project_code: RPG企画6
 title: Art Direction and Assets
@@ -11,7 +11,7 @@ depends_on:
   - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
 influences:
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
----
+-->
 
 # アシブネノミコト 〜天降る御子と、星屑の大地〜
 
@@ -68,8 +68,9 @@ influences:
 - 星屑の荒野: 灰と金の断層で、破断した神話を見せる。
 - 無菌の帳 / 血の泥沼: 静止位相と混濁位相の差を明確化。
 
-## 4. 開発者向け移管資料
+## 4. さらに詳しく知りたい方へ
 
-プロンプト本文、制作導線、UI演出段階、生成プロトコルは以下へ移管しています。
+制作プロトコルや実装寄りの制作導線は、次の文書に集約しています。
 
 - [../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md](../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md)
+
