@@ -41,10 +41,12 @@ influences:
 | 知りたい内容 | 参照先 |
 |---|---|
 | ダメージ式、倍率、閾値 | SYS-30「Data and Logic Architecture」 |
-| 状態異常IDと効果定義 | SYS-30「Status_Effect_Master（追補）」 |
-| 敵の行動パターン | SYS-30「Enemy_Behavior_Tag」 |
-| 敵Tierと危険要因 | SYS-30「Enemy_Tier_Template_Master（追補）」 |
-| 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ定義（静止/冷却）」 |
+| 状態異常IDと効果定義 | SYS-30「Status_Effect_Master（状態異常定義）」 |
+| 敵の行動パターン | SYS-30「Enemy_Master」 |
+| 敵Tierと危険要因 | SYS-30「Enemy_Tier_Template_Master（完全版）」 |
+| 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ（静止/冷却）」 |
+| 黄泉戸喫のリスクと解除 | SYS-30「黄泉戸喫・黄泉の呪い（確定仕様）」 |
+| 行者還しの条件式 | SYS-30「行者還し（Gyoja Gaeshi）条件式」 |
 | 幕の物語背景 | NAR-10「Narrative, Characters, and Act Guide」 |
 
 ## 1. キャラ別「優先10技」
