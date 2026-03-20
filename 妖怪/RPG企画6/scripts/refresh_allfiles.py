@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
-"""Utility script for updating the copies stored under `ALL-files-RPG_6`.
+"""Refresh canonical copies under `ALL-files-RPG_6`.
 
-Run this from anywhere; it copies canonical documents from `妖怪/RPG企画6`
-into `妖怪/ALL-files-RPG_6`.
+Run this from anywhere; it copies selected files from:
+- 妖怪/RPG企画6
 
-The script will copy the latest version of each selected markdown document
-from the canonical location in the tree and overwrite the file in the
-`ALL-files-RPG_6` folder. It is intentionally simple so that it works on any
-system with Python installed.
+into:
+- 妖怪/ALL-files-RPG_6
+
+This script is copy-only. PDF generation is handled separately by:
+- scripts/export_md_pdf_rpg6.py
 """
 
-from pathlib import Path
+from __future__ import annotations
+
 import shutil
+from pathlib import Path
+
+PDF_NAME = "RPG企画6_統合資料.pdf"
 
 
 # List of source paths, relative to the root of "妖怪/RPG企画6".
 # The destination is 妖怪/ALL-files-RPG_6, which is one directory above this script.
 FILES = [
     "README.md",
-    "RPG企画6_統合資料.pdf",
+    PDF_NAME,
     "00_Welcome_and_Introduction/README.md",
     "01_Story_and_Characters/NAR-10_Narrative_and_Characters.md",
     "02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md",
@@ -37,10 +42,8 @@ FILES = [
 ]
 
 
-def main() -> None:
-    here = Path(__file__).resolve().parent
-    root = here  # script is located in 妖怪/RPG企画6
-    allfiles_dir = root.parent / "ALL-files-RPG_6"  # 妖怪/ALL-files-RPG_6
+def copy_to_allfiles(root: Path) -> None:
+    allfiles_dir = root.parent / "ALL-files-RPG_6"
     allfiles_dir.mkdir(parents=True, exist_ok=True)
 
     print("Refreshing ALL-files-RPG_6 copies...")
@@ -56,6 +59,12 @@ def main() -> None:
         except Exception as err:
             print(f"  error copying {rel}: {err}")
     print("Done.")
+
+
+def main() -> None:
+    scripts_dir = Path(__file__).resolve().parent
+    root = scripts_dir.parent
+    copy_to_allfiles(root)
 
 
 if __name__ == "__main__":

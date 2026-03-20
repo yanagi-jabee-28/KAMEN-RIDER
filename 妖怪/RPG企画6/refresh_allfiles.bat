@@ -5,7 +5,7 @@ REM then run it from anywhere or double-click it.
 
 REM if the user has a venv activated, use its python; otherwise rely on PATH
 if exist "%~dp0..\..\.venv\Scripts\python.exe" (
-    "%~dp0..\..\.venv\Scripts\python.exe" "%~dp0refresh_allfiles.py"
+    "%~dp0..\..\.venv\Scripts\python.exe" "%~dp0scripts\refresh_allfiles.py" %*
 ) else (
-    python "%~dp0refresh_allfiles.py"
+    python "%~dp0scripts\refresh_allfiles.py" %*
 )

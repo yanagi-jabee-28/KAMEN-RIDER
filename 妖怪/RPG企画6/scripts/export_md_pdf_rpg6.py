@@ -274,7 +274,8 @@ def export_pdf(project_root: Path, output_pdf: Path, title: str, keep_temp: bool
 
 def main() -> None:
     args = parse_args()
-    project_root = Path(__file__).resolve().parent
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
     output_pdf = project_root / args.output_name
 
     start = time.perf_counter()
