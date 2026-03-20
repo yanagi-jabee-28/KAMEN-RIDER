@@ -182,6 +182,16 @@ influences:
 
 ## 3. 各幕の詳細とキャラクター・ロジック
 
+### 3.0 システム的必然（Zero-Loss接続）
+
+本書の人物感情は、戦術ロールと分離しません。読解時は次の順で接続します。
+
+1. 語彙の意味を [../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md) で確認する。
+2. 体験上の挙動を [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md) で確認する。
+3. 実装根拠が必要な場合のみ、[../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md) から追跡する。
+
+この順序により、物語本文に内部IDを露出させず、追跡可能性を維持します。
+
 ### キャラクター別：属性と状態異常・デバフの役割分担
 本作の属性は「神の停滞（静止）」に対する「人の摩擦（熱量・冷却）」という対立構造。具体的な数値マスタは `../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md` 参照。
 

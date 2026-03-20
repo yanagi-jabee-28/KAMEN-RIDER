@@ -42,12 +42,16 @@ influences:
 - 代受苦: 武器が致命傷を肩代わりする緊急防御。
 - 空殻: 情念切れによる行動不能に近い危険状態。
 
+詳細の語彙定義は [../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md) を参照してください。
+
 ### 0.4 この世界の語彙を体験で読む
 
 - **活魂**: 数値としてのHPではなく、「まだ立ち続けられるか」という生の感触。
 - **情念**: MPではなく、仲間や状況に押し上げられる「戦う意志の熱」。
 - **武器耐久度**: 単なる消耗値ではなく、武器が抱えた傷と修復の履歴。
 - **金継ぎ**: 強化手段ではなく、壊れたものを再接続して前に進むための作法。
+
+各語彙の【概念】【体験】【機能】の三段定義は [../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md) に集約しています。
 
 ## 1. プレイヤー・エクスペリエンス（遊びの感触）
 
@@ -106,6 +110,8 @@ influences:
 - **代受苦**: 攻撃を避けるのではなく、武器が「身代わり」となって全てのダメージを吸収・消滅します。
 - **極大代受苦**: 付喪神化した武器を完全に消滅（ロスト）させることで、戦場の因果を書き換える必殺技。
 - **情念の核**: 武器がロストした際、その「履歴と意志」は核となり、別の武器へ金継ぎすることで能力が継承されます。
+
+ここで使う語彙の正本は [../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](../00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md)、実装追跡は [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md) を参照してください。
 
 ### 4.3 固有戦術の体感差
 - **ミコト（DualStanceActive）**: 仮想二刀流は「手数と摩耗の交換」。連撃で圧を出すほど、次の破損が早まる。

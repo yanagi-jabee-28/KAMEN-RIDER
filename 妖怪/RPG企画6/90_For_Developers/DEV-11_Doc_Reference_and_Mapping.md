@@ -25,6 +25,30 @@
 | SYS-30: 2.4 Weapon_Evolution_Master | `OROCHI_TAIL_BREACHED` | 2.5 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
 | ART-40: 付喪神化の視覚定義 | `Is_Tsukumogami`, `Generate_Core_of_Regret` | 1.3 / 1.4 | DEV-12 | DEV-11 → DEV-10 → DEV-12 |
 
+## 1.5 保護語彙の三点対応（WRD-02基準）
+
+| 保護語彙（公開側） | 実装ID / 判定軸 | DEV-10参照節 | 更新責任文書 | 更新順 |
+|---|---|---|---|---|
+| 活魂 | `Kakkon_Value`, `State_Dead` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 情念 | `Jonetsu_Value`, `State_Karakara` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 武器耐久度 | `Durability_new`, `Weapon_Durability` | 1.2 / 1.3 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 代受苦 | `Can_Use_Daijuku`, `Incoming_Damage=0` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 極大代受苦 | `Use_Extreme_Daijuku`, `Weapon_Destroyed` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 空殻 | `State_Karakara` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 死狂い | `State_Shigurui`, `Has_Shigurui_Passive` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |
+| 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 黄泉戸喫 | `Item_Used==Yomotsu_Mud_Fruit`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+
+## 1.6 整合性優先の保留課題
+
+次の2点は語彙改稿より前に統一定義を確定する。
+
+| 論点 | 現状 | 先に確定すべき内容 | 関連文書 |
+|---|---|---|---|
+| マヒト鍛造Lv2解放条件 | 記述の粒度が文書間で不揃い | トリガーイベントと条件式の一致 | SYS-20 / NAR-10 / DEV-10 / DEV-11 |
+| 黄泉戸喫の説明密度 | 体験説明と実装説明の対応が弱い | 回復・呪い・例外処理の対応固定 | SYS-20 / WRD-02 / DEV-10 / DEV-11 |
+
 ## 2. イベント起点の逆引き（フラグ優先）
 
 | 物語イベント | 対応フラグ | DEV-10参照節 | 公開側の主参照 |

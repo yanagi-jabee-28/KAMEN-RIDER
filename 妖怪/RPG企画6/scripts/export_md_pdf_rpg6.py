@@ -172,6 +172,7 @@ def _toc_label_for_path(rel_path: str) -> str:
     labels = {
         "README.md": "RPG企画6 ドキュメント入口",
         "00_Welcome_and_Introduction/README.md": "アシブネノミコト 〜天降る御子と、星屑の大地〜",
+        "00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md": "Protected Vocabulary Hub (Zero-Loss)",
         "01_Story_and_Characters/NAR-10_Narrative_and_Characters.md": "アシブネノミコト 〜天降る御子と、星屑の大地〜 (NAR-10_Narrative_and_Characters)",
         "02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md": "Player Manual: Systems, World, and Flow",
         "02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md": "[SYS-22] Skill Matrix (Player Facing)",

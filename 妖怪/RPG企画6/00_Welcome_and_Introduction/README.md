@@ -30,6 +30,16 @@ influences:
 3. **要石（ミコトの宿命）**
 	感情を持たない器として設計され、世界を静止させるために造られた役割。
 
+## 読み分けポータル（三層）
+
+情報を削らずに読み解くため、次の3層で潜る深さを選びます。
+
+1. 概念と情景（Vision and Narrative）
+2. 体験の力学（Experience and Mechanics）
+3. 論理と数理（Data and Logic）
+
+共通語彙の基準は、[WRD-02_Protected_Vocabulary.md](WRD-02_Protected_Vocabulary.md) を参照してください。
+
 ## 1. プロジェクト基本情報 (基礎情報)
 
 > **注記:** 第1幕「胎／白の輪郭」は「停滞の可視化」をテーマとし、チュートリアル段階で大宜都比売と探女を配置することが提案されている。教育的コストはかかるが、世界観の理解深化という点で極めて高い波及効果が見込まれる。
@@ -138,6 +148,7 @@ influences:
 
 ## 読者ガイド（次の行き先）
 
+- **保護語彙の共通ハブ**: [WRD-02_Protected_Vocabulary.md](WRD-02_Protected_Vocabulary.md)
 - **物語と人物の詳細**: [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
 - **遊び方・生態系（詳細）**: [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)
 - **スキル・術式一覧**: [../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)

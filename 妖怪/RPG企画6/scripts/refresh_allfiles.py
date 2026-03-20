@@ -25,6 +25,7 @@ FILES = [
     "README.md",
     PDF_NAME,
     "00_Welcome_and_Introduction/README.md",
+    "00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md",
     "01_Story_and_Characters/NAR-10_Narrative_and_Characters.md",
     "02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md",
     "02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md",

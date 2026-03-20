@@ -9,17 +9,19 @@
 読了後に、キャラクターの感情線とアート方向性を同じ言葉で共有できます。
 
 1. **[00_Welcome_and_Introduction/README.md](00_Welcome_and_Introduction/README.md)**: 企画の根幹テーマと世界観
-2. **[01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)**: 人物・5幕構成・演出意図
-3. **[03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md)**: 美術方針・キャラクター/環境指針
+2. **[00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md)**: 保護語彙の共通ハブ（概念/体験/機能）
+3. **[01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)**: 人物・5幕構成・演出意図
+4. **[03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md)**: 美術方針・キャラクター/環境指針
 
 ## 遊びの仕組みを設計する方へ（ゲームデザイン・レベル設計）
 
 プレイヤーがどう戦い、どう成長し、どう詰まりを突破するかを把握する導線です。
 読了後に、体験設計とデータ設計を往復しながら調整できます。
 
-1. **[02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)**: 遊び方・体験設計・戦闘の流れ
-2. **[02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)**: 術式・ロール索引
-3. **[02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)**: データカタログ（一般向け）
+1. **[00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md](00_Welcome_and_Introduction/WRD-02_Protected_Vocabulary.md)**: 語彙の基準合わせ
+2. **[02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)**: 遊び方・体験設計・戦闘の流れ
+3. **[02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)**: 術式・ロール索引
+4. **[02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)**: データカタログ（一般向け）
 
 ## 実装と運用を担当する方へ（プログラミング・データ設計）
 
