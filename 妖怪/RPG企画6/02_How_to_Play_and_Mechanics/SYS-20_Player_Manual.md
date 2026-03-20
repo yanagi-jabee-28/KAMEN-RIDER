@@ -117,18 +117,11 @@ influences:
 - 呪い解除は、うかみが同行しているキャンプメニューの行者の祈祷（泥祓い）だけです。
 - うかみの自律摂取は別処理で、プレイヤー在庫を消費しません。
 
-### 4.9 実装式との対応（体験逆引き）
-| プレイヤー体験 | SYS-30対応箇所 |
-|---|---|
-| 「守るために壊す」代受苦の決断 | 1.4 修復と鍛造の循環（Kintsugi Cycle） |
-| ロスト武器が次世代へ継承される感覚 | 1.5 付喪神化と情念の核継承 |
-| ミコト/ワカヒコ/うかみで戦い方が変わる感覚 | 1.6 固有戦術ロジック（ミコト/ワカヒコ/うかみ） |
-| 位相ごとにセオリーが反転する緊張 | 1.7 位相ギミック（無菌の帳 / 血の泥沼 / 黄泉戸喫） |
-| 定石が読まれる終盤の圧迫感 | 1.8 特殊敵と神AI学習段階 |
-| 祈りと泥の履歴で神器が成立する手触り | 2.9 星土の脈継ぎ（神社連動） |
-| クリア後儀式が旅の総量で解放される納得感 | 3.3 行者還し（Gyoja Gaeshi）条件式 |
-| ワカヒコ加入戦だけ反動ルールが切り替わる納得感 | 1.6 固有戦術ロジック（ミコト/ワカヒコ/うかみ） |
-| 鍛造が段階解禁で広がる手応え | 3.1 Story_Flag_Master / Camp_Maintenance_Logic（拠点/野営の段階解禁） |
+### 4.9 実装詳細の参照先
+実装式・フラグ対応・内部マッピングは開発者向け資料へ移管しました。
+
+- ゲームロジック式とフラグ: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
+- 体験と実装の対応表: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
 
 ## 5. 世界の生態系（敵対勢力のデザイン）
 
@@ -148,13 +141,8 @@ influences:
 
 ---
 
-## 7. 文書設計上の注意（開発者向け）
+## 7. 参考リンク
 
-本作は DQ 的な記号を「神話語彙」へ翻訳して運用します。
-
-- 「HP/MP」 → **活魂 / 情念**
-- 「装備の損壊」 → **過熱と摩擦**
-- 「状態異常防御」 → **理（ことわり）の厚み**
-- 「属性相性」 → **引力と斥力の相和**
-
-内部の実装数値およびフラグ管理は [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) が唯一の正本（SSOT）となります。
+- 物語背景: [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
+- データ一覧: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md)
+- 開発者向け移管資料: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)

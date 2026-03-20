@@ -19,21 +19,7 @@ influences:
 
 # [WRD-01] Core Vision and Theme
 
-本作の仕様・美術・物語・数値調整を判断するときの基準となる「正本」です。迷ったときは、必ずこのファイルの原則に立ち返ってください。
-
-## 読み方ガイド（仕様を落とさず理解するために）
-
-- まず「2. コア・テーマ」を読み、判断軸を固定する。
-- 次に「3. ゲームデザイン原則」を読み、仕様判断に落とし込む。
-- 最後に各専門文書（NAR-10 / SYS-20 / SYS-30 / ART-40）へ展開する。
-
-### メタファー補助線
-
-本ファイルには位相・物理・情報工学由来の語が含まれるが、運用時は次の和語補助を使う。
-
-- エントロピーの凍結: 一切の変化と崩壊を許さない完全な静止
-- 引力: 抗いがたい熱のうねり
-- SSOT: 唯一の正本となるマスターデータ
+本作の世界観・遊び方・物語の入口となる案内文書です。
 
 ## 1. プロジェクト基本情報 (基礎情報)
 
@@ -74,7 +60,7 @@ influences:
 
 転機はカガセオ決戦。瀕死のカガセオから逆流した情念が器を内側から焼き、全記録を焼失させる。ミコトの記憶喪失はこの時点で発生した。機能不全となったミコトは葦舟（アシブネ）で黄泉と常世の狭間へ流棄される。だが狭間から現世へは本来出られない。そこで、天の理に反逆したスサノオがただ一度だけ暴風を差し込み、葦舟を現世の潮へ押し出した。これが「アシブネノミコト」の由来であり、ヒルコ神話への反復でもある。
 
-記憶喪失のまま漁村アマへ漂着したミコトは、人間の熱 and カガセオ破片に触れることで、天の計算を狂わせる最大のノイズへ変容する。
+記憶喪失のまま漁村アマへ漂着したミコトは、人間の熱とカガセオ破片に触れることで、天の計算を狂わせる存在へ変容する。
 
 クリア後導線は「スサノオ試練」から真裏ボス「澱神・八岐の産土」へ続く。天叢雲剣は授与品ではなく、八岐の尾から露出した剣核を現行武器へ金継ぎ接合して覚醒させる。本作の勝利は「強武器の取得」ではなく、「痛みの履歴の受容と再接合」にある。
 
@@ -122,7 +108,7 @@ influences:
 - **地の泥（人）:** 和紙の線を引っ掻くような掠れ（Kasure）と、岩絵具の奔放で不規則な滲み（ノイズ）。
 
 詳細は [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md) / [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md) / [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md) / [../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md) を参照。
-��損履歴を価値へ変える。
+��損履歴を価値へ変える。
 - **ワカヒコ**: 危険行動を止める狙撃手。神側の理を知る反逆者。
 
 ## 5幕のあらすじ
@@ -151,18 +137,11 @@ influences:
 
 ---
 
-## メタファー・位相語（開発・世界観補足）
+## 開発者向け資料
 
-制作時は次の「位相遷移」を基準にします。
+実装式・フラグ・制作プロトコルなどの内部資料は次へ移管しています。
 
-- **固相**: 停滞の始まり（第1幕）
-- **液相**: 交じり合う摩擦（第2幕）
-- **プラズマ相**: 臨界を超える熱の爆発（第3幕）
-- **再結晶**: 砕けた破片の再構成（第4幕）
-- **相転移**: 永遠への拒絶と還流への回帰（終幕）
-
-## 運用ルール
-
-- **Zero-Loss原則**: 固有語彙、数値、条件式を削らない。
-- **保護語彙**: 情念 / 活魂 / 武器耐久度 / 付喪神化 / 代受苦 / 極大代受苦 / 神の理 / 金継ぎ / 剥落の星屑 / 神託崩壊 / 無菌の帳 / 血の泥沼
-- **正本優先順**: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md) (数理) → [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md) (体験) → 本書 (世界観)
+- [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
+- [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
+- [../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md](../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md)
+- [../90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md](../90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md)

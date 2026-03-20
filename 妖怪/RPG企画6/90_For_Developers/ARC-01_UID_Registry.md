@@ -38,6 +38,10 @@ influences:
 | `[ART-40]` | Art Direction and Assets | `03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md` |
 | `[ARC-00]` | Architecture and Governance | `90_For_Developers/ARC-00_Architecture_and_Governance.md` |
 | `[ARC-01]` | UID Registry | `90_For_Developers/ARC-01_UID_Registry.md` |
+| `[DEV-10]` | Gameplay Logic Formulas and Flags | `90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md` |
+| `[DEV-11]` | Doc Reference and Mapping | `90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md` |
+| `[DEV-12]` | Art Production and Prompt Protocol | `90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md` |
+| `[DEV-13]` | Document Metadata and Reading Order | `90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md` |
 | `[REF-00]` | References and Archive | `99_Archive_and_References/REF-00_References_and_Archive.md` |
 
 ## 採番規則 (Naming Convention)
@@ -47,6 +51,7 @@ influences:
 - **Systems**: `SYS-xx`
 - **Art**: `ART-xx`
 - **Governance**: `ARC-xx`
+- **Developer Guide**: `DEV-xx`
 - **Reference**: `REF-xx`
 - **Archive**: 末尾 `99` (または `REF-xx` 内の履歴セクション)
 
@@ -55,3 +60,4 @@ influences:
 - 新規人物資料: `NAR-12` 以降
 - 新規美術資料: `ART-41` 以降
 - 新規世界設定: `WRD-02` 以降
+- 新規開発者資料: `DEV-14` 以降

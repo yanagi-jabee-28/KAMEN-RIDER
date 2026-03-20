@@ -33,21 +33,9 @@ influences:
 
 ## 詳細仕様の参照
 
-- 体験説明: [SYS-20_Player_Manual.md](SYS-20_Player_Manual.md)
-- 実装値: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md)
-
-### 参照マップ（迷った時の優先順）
-
-| 知りたい内容 | 参照先 |
-|---|---|
-| ダメージ式、倍率、閾値 | SYS-30「Data and Logic Architecture」 |
-| 状態異常IDと効果定義 | SYS-30「Status_Effect_Master（状態異常定義）」 |
-| 敵の行動パターン | SYS-30「Enemy_Master」 |
-| 敵Tierと危険要因 | SYS-30「Enemy_Tier_Template_Master（完全版）」 |
-| 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ（静止/冷却）」 |
-| 黄泉戸喫のリスクと解除 | SYS-30「黄泉戸喫・黄泉の呪い（確定仕様）」 |
-| 行者還しの条件式 | SYS-30「行者還し（Gyoja Gaeshi）条件式」 |
-| 幕の物語背景 | NAR-10「Narrative, Characters, and Act Guide」 |
+- 遊び方と体験説明: [SYS-20_Player_Manual.md](SYS-20_Player_Manual.md)
+- 物語背景: [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
+- 開発者向け内部参照: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
 
 ## 1. キャラ別「優先10技」
 
@@ -227,26 +215,7 @@ influences:
 | 立て直しが遅い | 過剰なデバフ枠 | ミコト補助技 + 回復導線 |
 | 予測線を読んでも負ける | 同系統技の連投 | 停止→剥離→収束の順番運用 |
 
-## 詳細技の参照先（中級者向け）
-
-このファイルでは「優先10技」を示す。実装ID・反動タグ・フラグは `SYS-30` 側を参照する。
-
-| キャラクター | 参照節 |
-|---|---|
-| ミコト | SYS-30「ミコト（可変ハブ）」 |
-| うかみ | SYS-30「うかみ（壁・受け）」 |
-| スクナ | SYS-30「スクナ（剥離・制御）」 |
-| ウズ | SYS-30「ウズ（攪乱）」 |
-| タチバナ | SYS-30「タチバナ（自傷デバフ）」 |
-| マヒト | SYS-30「マヒト（鍛造・粉砕）」 |
-| ワカヒコ | SYS-30「ワカヒコ（停止・狙撃）」 |
-
-補足:
-- 幕進行で強制解禁される技は、NARのイベント節でタイミングを確認する。
-- 数値、ID、効果時間、反動量は `SYS-30` だけを正本とする。
-
 ## 9. このファイルの責務
 
 - ここで扱うのは「判断順序」と「編成の再設計」。
-- ダメージ式、倍率、閾値は [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md) を参照する。
-- 状態異常ID、敵行動タグ、ストーリーフラグを新規定義しない。
+- 数値計算や内部フラグは開発者向け資料へ分離している。

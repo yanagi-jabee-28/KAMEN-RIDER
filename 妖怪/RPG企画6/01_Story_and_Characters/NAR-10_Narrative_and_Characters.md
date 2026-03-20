@@ -130,16 +130,10 @@ influences:
 - **試練の順序**: 行者還し完了後にスサノオ試練が解禁。突破後に真裏ボス「澱神・八岐の産土」へ到達。
 - **尾破断と覚醒**: 真裏ボス戦でオロチ尾が破断すると剣核が露出し、ミコト現行武器との金継ぎ接合で天叢雲剣が覚醒する。
 
-#### 実装フラグとの順序対応
-| 物語イベント | 対応フラグ |
-| --- | --- |
-| ツクヨミ撃破・偽終幕 | `TSUKUYOMI_FAKE_LASBOSS` |
-| 行者うかみ帰還成立 | `UKAMI_RETURNED_YOMOTSU` |
-| 行者還し完了 | `GYOJAGAESHI_CLEARED` |
-| スサノオ試練解禁 | `SUSANOO_TRIAL_UNLOCKED` |
-| スサノオ試練突破 | `SUSANOO_TRIAL_CLEARED` |
-| オロチ尾破断 | `OROCHI_TAIL_BREACHED` |
-| 天叢雲剣覚醒 | `AMENO_MURAKUMO_AWAKENED` |
+#### 内部実装資料への案内
+物語イベントと内部フラグの対応表は、開発者向け資料へ移管しました。
+
+- [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
 
 #### 行者還し三相（物語側の要約）
 1. **星土の短絡**: 神社網へ蓄積された祈りと澱みを黄泉比良坂へ集中させ、儀式回路を開く。
