@@ -1,4 +1,4 @@
-<!--
+---
 uid: [SYS-20]
 project_code: RPG企画6
 title: Player Manual: Systems, World, and Flow
@@ -13,7 +13,7 @@ influences:
   - SYS-22_Skill_Matrix.md
   - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
--->
+---
 
 # [SYS-20] Player Manual: Systems, World, and Flow
 
@@ -184,3 +184,5 @@ influences:
 - 物語背景: [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)
 - データ一覧: [SYS-30_Data_and_Logic_Architecture.md](SYS-30_Data_and_Logic_Architecture.md)
 - 開発者向け移管資料: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
+
+

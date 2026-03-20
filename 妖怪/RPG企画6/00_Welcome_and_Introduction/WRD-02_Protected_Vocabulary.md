@@ -1,4 +1,4 @@
-<!--
+---
 uid: [WRD-02]
 project_code: RPG企画6
 title: Protected Vocabulary Hub (Zero-Loss)
@@ -13,7 +13,7 @@ influences:
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
   - ../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md
--->
+---
 
 # [WRD-02] Protected Vocabulary Hub (Zero-Loss)
 
@@ -113,3 +113,5 @@ influences:
 - 体験設計への入口: ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
 - 物語因果への入口: ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
 - 実装追跡の入口: ../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md
+
+

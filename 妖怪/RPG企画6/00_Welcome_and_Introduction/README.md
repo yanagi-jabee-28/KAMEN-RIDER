@@ -1,4 +1,4 @@
-<!--
+---
 uid: [WRD-01]
 project_code: RPG企画6
 title: アシブネノミコト 〜天降る御子と、星屑の大地〜
@@ -13,7 +13,7 @@ influences:
 	- ../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md
 	- ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
 	- ../99_Archive_and_References/REF-00_References_and_Archive.md
--->
+---
 
 # アシブネノミコト 〜天降る御子と、星屑の大地〜
 
@@ -127,7 +127,7 @@ influences:
 - **地の泥（人）:** 和紙の線を引っ掻くような掠れ（Kasure）と、岩絵具の奔放で不規則な滲み（ノイズ）。
 
 詳細は [../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md) / [../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md) / [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md) / [../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md) を参照。
-��損履歴を価値へ変える。
+破損履歴を価値へ変える。
 - **ワカヒコ**: 危険行動を止める狙撃手。神側の理を知る反逆者。
 
 ## 5幕のあらすじ
@@ -166,3 +166,5 @@ influences:
 - [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
 - [../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md](../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md)
 - [../90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md](../90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md)
+
+

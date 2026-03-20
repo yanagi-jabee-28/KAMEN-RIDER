@@ -1,4 +1,4 @@
-<!--
+---
 uid: [SYS-30]
 project_code: RPG企画6
 title: Data and Logic Architecture
@@ -13,7 +13,7 @@ influences:
   - ../01_Story_and_Characters/NAR-10_Narrative_and_Characters.md
   - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
--->
+---
 
 # [SYS-30] Data and Logic Architecture
 
@@ -212,3 +212,5 @@ influences:
 - 数式・疑似コード・フラグ: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
 - 参照マッピング: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
 - うかみ行者の分岐条件の正本: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
+
+

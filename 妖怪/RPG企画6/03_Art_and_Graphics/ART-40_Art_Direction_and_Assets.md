@@ -1,4 +1,4 @@
-<!--
+---
 uid: [ART-40]
 project_code: RPG企画6
 title: Art Direction and Assets
@@ -11,7 +11,7 @@ depends_on:
   - ../02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md
 influences:
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
--->
+---
 
 # アシブネノミコト 〜天降る御子と、星屑の大地〜
 
@@ -73,4 +73,6 @@ influences:
 制作プロトコルや実装寄りの制作導線は、次の文書に集約しています。
 
 - [../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md](../90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md)
+
+
 

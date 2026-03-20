@@ -1,4 +1,4 @@
-<!--
+---
 uid: [NAR-10]
 role: narrative-and-characters
 status: active
@@ -9,7 +9,7 @@ depends_on:
 influences:
   - ../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md
   - ../99_Archive_and_References/REF-00_References_and_Archive.md
--->
+---
 
 # アシブネノミコト 〜天降る御子と、星屑の大地〜
 
@@ -301,3 +301,5 @@ influences:
 - **数理仕様・マスタ**: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)
 - **ビジュアル指針**: [../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md)
 - **コア・ビジョン**: [../00_Welcome_and_Introduction/README.md](../00_Welcome_and_Introduction/README.md)
+
+
