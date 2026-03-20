@@ -12,6 +12,16 @@ from tempfile import TemporaryDirectory
 
 DEFAULT_OUTPUT_NAME = "RPG企画6_統合資料.pdf"
 DEFAULT_TITLE = "RPG企画6 統合資料"
+
+# Minimal built-in CSS for PDF export to avoid external dependency.
+DEFAULT_EMBEDDED_CSS = """
+body { font-family: 'Noto Sans JP', 'Arial', sans-serif; line-height: 1.5; }
+pre, code { font-family: 'Consolas', 'Courier New', monospace; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+table { border-collapse: collapse; }
+td, th { border: 1px solid #888; padding: 4px; }
+"""
+
 BROWSER_CANDIDATES = [
     shutil.which("msedge"),
     shutil.which("chrome"),
@@ -35,11 +45,6 @@ def parse_args() -> argparse.Namespace:
         "--title",
         default=DEFAULT_TITLE,
         help="PDFタイトル",
-    )
-    parser.add_argument(
-        "--keep-temp",
-        action="store_true",
-        help="中間生成物（.merged.md/.merged.html）をRPG企画6フォルダに残します。",
     )
     parser.add_argument(
         "--verbose",
@@ -208,7 +213,7 @@ def run_browser_print(command: list[str], cwd: Path, output_pdf: Path, verbose: 
         raise SystemExit(details)
 
 
-def export_pdf(project_root: Path, output_pdf: Path, title: str, keep_temp: bool, verbose: bool = False) -> None:
+def export_pdf(project_root: Path, output_pdf: Path, title: str, verbose: bool = False) -> None:
     output_stem = output_pdf.stem
     input_paths = collect_markdown_files(project_root, output_stem)
 
@@ -219,7 +224,7 @@ def export_pdf(project_root: Path, output_pdf: Path, title: str, keep_temp: bool
     browser_path = find_browser()
     css_path = project_root.parent.parent / "Scripts" / "pdf_style.css"
     if not css_path.is_file():
-        raise SystemExit(f"CSSが見つかりません: {css_path}")
+        css_path = None
 
     merged_markdown = build_merged_markdown(input_paths, title, project_root)
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
@@ -234,6 +239,10 @@ def export_pdf(project_root: Path, output_pdf: Path, title: str, keep_temp: bool
         merged_html_path = temp_dir / "merged.html"
 
         merged_md_path.write_text(merged_markdown, encoding="utf-8")
+
+        if css_path is None:
+            css_path = temp_dir / "pdf_style.css"
+            css_path.write_text(DEFAULT_EMBEDDED_CSS, encoding="utf-8")
 
         pandoc_command = [
             pandoc_path,
@@ -265,13 +274,6 @@ def export_pdf(project_root: Path, output_pdf: Path, title: str, keep_temp: bool
         ]
         run_browser_print(browser_command, cwd=project_root.parent.parent, output_pdf=output_pdf, verbose=verbose)
 
-        if keep_temp:
-            keep_md = project_root / f"{output_stem}.merged.md"
-            keep_html = project_root / f"{output_stem}.merged.html"
-            keep_md.write_text(merged_markdown, encoding="utf-8")
-            keep_html.write_text(merged_html_path.read_text(encoding="utf-8"), encoding="utf-8")
-
-
 def main() -> None:
     args = parse_args()
     script_dir = Path(__file__).resolve().parent
@@ -279,7 +281,7 @@ def main() -> None:
     output_pdf = project_root / args.output_name
 
     start = time.perf_counter()
-    export_pdf(project_root, output_pdf, args.title, args.keep_temp, verbose=args.verbose)
+    export_pdf(project_root, output_pdf, args.title, verbose=args.verbose)
     elapsed = time.perf_counter() - start
     print(f"PDFを出力しました: {output_pdf} (total: {elapsed:.2f}s)")
 
