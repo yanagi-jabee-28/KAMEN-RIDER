@@ -19,6 +19,13 @@ influences:
 
 > ※このファイルは一般読者向けのデータカタログ版です。式・疑似コード・フラグ対応は [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md) を参照してください。
 
+## このファイルの読み方（非開発者向け）
+
+1. 先に `2.1 Character_Base_Master` でキャラの役割を確認する。
+2. 次に `2.4 Weapon_Evolution_Master` と `2.5 Character_Equipment_Master` で育成の方向性を決める。
+3. 敵で詰まったら `2.6 Enemy_Master` と `2.7 Enemy_Tier_Template_Master` を見る。
+4. うかみの時代差分データ（斥候/行者）は開発者向けの [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md) を参照する。
+
 ## 1. コア要素（概要）
 
 ### 1.1 三条の熱源
@@ -33,11 +40,16 @@ influences:
 
 ## 2. 実装マスターデータ（Master Tables）
 
+この章は「細かな式」ではなく「何が存在するか」を確認するためのデータ辞典です。
+
 ### 2.1 Character_Base_Master
+キャラの基本ロールと初期資源を一覧化した表です。編成の土台確認に使います。
+
 | Char_ID | 名称 | ロール | 基礎活魂 | 基礎情念 | 武器適正 |
 |---|---|---|---|---|---|
 | `MIKOTO` | ミコト | 万能/写し | 100 | 120 | 斬・刺・打 |
-| `UKAMI` | うかみ | 壁/剛 | 200 | 80 | 打・突 |
+| `UKAMI_SCOUT` | うかみ（斥候） | 壁/剛 | 200 | 80 | 打・突 |
+| `UKAMI_GYOJA` | 行者うかみ | 自律介入/護り | 230 | 120 | 杖・打 |
 | `SUKUNA` | スクナ | 毒/剥離 | 80 | 150 | 投・打 |
 | `UZU` | ウズ | 攪乱/舞 | 90 | 110 | 扇・短 |
 | `TACHIBANA` | タチバナ | 呪/自傷 | 110 | 100 | 杖・櫂 |
@@ -45,6 +57,8 @@ influences:
 | `WAKAHIKO` | ワカヒコ | 弓/停 | 95 | 130 | 弓・短 |
 
 ### 2.2 Status_Effect_Master（状態異常定義）
+状態異常の意味と主な発生源をまとめた表です。敵対策の優先順位を決める時に参照します。
+
 | Effect_ID | 名称 | 説明 | 関連 |
 |---|---|---|---|
 | `POISON` | 毒 | 毎Tick活魂減少 | スクナ、タチバナ |
@@ -72,11 +86,14 @@ influences:
 実際の相性計算式は開発者向け資料（DEV-10）を参照。
 
 ### 2.4 Weapon_Evolution_Master
+キャラごとの武器進化段階と、解禁の目安を示す表です。
+
 | Character_ID | Weapon_Category | Stage_1_初期 | Stage_2_中盤 | Stage_3_終盤 | Narrative_Class | 解禁条件 | 備考 |
 |---|---|---|---|---|---|---|---|
 | `MIKOTO` | 刃 | 海揚がりの古錆刀 | 星喰みの黒太刀 | 天叢雲剣 | `INITIAL/MYTHIC` | `OROCHI_TAIL_BREACHED` 後に金継ぎ接合 | 尾破断の剣核を現行武器へ接合して覚醒 |
 | `MIKOTO` | 槍・鉾 | 欠けた祭祀槍 | 隕鉄の剛鉾 | 天之沼矛 | `INITIAL/MYTHIC` | 第4幕後半の神器鍛造段階 | 領域圧を物理的にかき混ぜる反逆系統 |
-| `UKAMI` | 槍・鉾 | 獣骨の石鉾 | 大蛇狩りの剛槍 | 国津神の荒鉾 | `INITIAL/MYTHIC` | `UKAMI_RETURNED_YOMOTSU` | 黄泉・常世限定の自律介入と連動 |
+| `UKAMI_SCOUT` | 槍・鉾 | 獣骨の石鉾 | 大蛇狩りの剛槍 | 国津神の荒鉾 | `INITIAL/MYTHIC` | `UKAMI_JOINED_EARLY` | 地上行動の壁役基盤 |
+| `UKAMI_GYOJA` | 杖・法具 | 行脚の錫杖 | 黄泉返しの法杖 | 根堅洲の導杖 | `RITUAL/MYTHIC` | `UKAMI_RETURNED_YOMOTSU` | 黄泉・常世限定の自律介入と連動 |
 | `SUKUNA` | 打撃 | 欠けた石杵 | 毒喰みの乳棒 | 少名の神杵 | `INITIAL/MYTHIC` | 第2幕中盤以降 | 状態異常と化学干渉を主軸化 |
 | `MAHITO` | 打撃 | 煤まみれの大槌 | 刃折りの業槌 | 天目の神火槌 | `INITIAL/MYTHIC` | `MAHITO_JOINED_ACT2` 以降の段階鍛造 | 武器摩耗制御と禁忌鍛造の中核 |
 | `UZU` | 扇 | 破れた舞扇 | 緋色の鉄扇 | 天鈿女の狂扇 | `INITIAL/MYTHIC` | 第2幕前半加入後 | Tick攪乱と狂騒ノイズを拡張 |
@@ -84,10 +101,13 @@ influences:
 | `WAKAHIKO` | 遠距離 | 白木の上弓 | 泥塗れの猟弓 | 天若の返し弓 | `INITIAL/MYTHIC` | `WAKAHIKO_JOINED_ACT3` | 返し矢と因果転写を主導 |
 
 ### 2.5 Character_Equipment_Master
+各キャラが得意とする装備カテゴリと、運用上の制約を確認するための表です。
+
 | Character_ID | 主腕（利用可カテゴリ） | 固有武器 | 装束 | 形代 | 制約/備考 |
 |---|---|---|---|---|---|
 | `MIKOTO` | 刀・槍 | 大幣（仮想双腕特例） | 星祝の防具 | 泥濘の勾玉 | `DualStanceActive` は継承手甲恒久化後に有効 |
-| `UKAMI` | 刀・槍・杖 | 錫杖 | 行者の法衣 | 風雷の獣牙 | 地上では参戦不可。黄泉・常世でのみ自律介入 |
+| `UKAMI_SCOUT` | 刀・槍 | 狩猟槍 | 風晒しの狩衣 | 獣骨の牙飾り | 第1-3幕の前衛支援 |
+| `UKAMI_GYOJA` | 杖・法具 | 錫杖 | 行者の法衣 | 風雷の獣牙 | 地上では参戦不可。黄泉・常世でのみ自律介入 |
 | `SUKUNA` | 打撃 | 乳棒 | 薬草師の衣 | 忘却の香炉 | 劇薬系の状態異常運用を優先 |
 | `UZU` | 扇・刃・大幣 | 鉄扇・隠し短刀 | 狂乱の舞衣 | トランスの神楽鈴 | 攪乱役。命中撹乱/行動順破壊に特化 |
 | `TACHIBANA` | 槍・打撃・大幣 | 流木槍・打ち櫂 | 濡れ羽の衣 | 泥水の呪符 | 活魂消費とデバフ拡散の両立 |
@@ -95,6 +115,8 @@ influences:
 | `WAKAHIKO` | 弓・短刀 | 天上弓・仕込み短刀 | 境界の隠秘服 | 影縫いの鏑矢 | 返し矢運用時は反動管理が必須 |
 
 ### 2.6 Enemy_Master
+主要ボスと進行上の意味を確認するための表です。詰まり箇所の特定に使います。
+
 | Enemy_ID | 名称 | タイプ | 特殊仕様 | 撃破/進行フラグ |
 |---|---|---|---|---|
 | `Amaterasu_Core_OS` | 天照大御神 | システム体 | 戦闘対象ではなく凍結管理 | `AMENO_IWATOWAKE_REBOOT` |
@@ -105,6 +127,8 @@ influences:
 | `Boss_Yamata_no_Ubusuna` | 澱神・八岐の産土 | 真裏ボス | 尾破断で剣核露出 | `OROCHI_TAIL_BREACHED` |
 
 ### 2.7 Enemy_Tier_Template_Master（完全版）
+敵の傾向をTier別に確認する表です。弱点属性と干渉タイプを見ると対策が立てやすくなります。
+
 | Tier | Template_ID | 名称 | 系統 | 主属性/副属性 | 耐性傾向 | 弱点傾向 | 主干渉 | 状態異常依存 |
 |---|---|---|---|---|---|---|---|---|
 | `T1` | `MIRE_BUBBLE_SLIME` | 泥泡の這い | 荒魂獣 | 水/闇 | 斬撃軽減 | 風、雷 | 群体で押し切る連撃圧 | なし |
@@ -138,6 +162,8 @@ influences:
 | `T4` | `UKA_SUPPLY_CORE` | 宇迦之御魂の配給核 | 天津神支援 | 土/光 | 土軽減 | 闇、炎 | 回復と情念枯渇の二択圧 | あり（`PURE_PROVISION`） |
 
 ### 2.8 Attribute_Master（戦術的意味）
+属性の戦術的な意味を短く整理した表です。編成と行動順の判断に使います。
+
 | Attribute_ID | 名称 | 戦術的意味 |
 |---|---|---|
 | `FIRE` | 炎 | 過熱を加速し、停滞に穴を開ける |
@@ -151,6 +177,12 @@ influences:
 
 ### 2.9 星土の脈継ぎ（神社連動）
 祈りだけでも泥だけでも足りず、両方の履歴が神器を成立させる設計。
+
+### 2.10 UKAMI時代差分データ（移管）
+うかみの時代差分データ（斥候/行者）は開発者向けファイルへ移管しました。
+
+- 移管先: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
+- 対象: Character_Skill_Base_Master / Character_Stat_Curve_Master / Character_Interaction_Master / AI_Behavior_Master
 
 ## 3. 進行イベント（概要）
 
@@ -172,3 +204,4 @@ influences:
 
 - 数式・疑似コード・フラグ: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
 - 参照マッピング: [../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md](../90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md)
+- うかみ行者の分岐条件の正本: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)

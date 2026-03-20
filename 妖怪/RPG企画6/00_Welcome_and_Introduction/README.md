@@ -134,6 +134,7 @@ influences:
 - **スキル・術式一覧**: [../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](../02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)
 - **ビジュアル指針**: [../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md](../03_Art_and_Graphics/ART-40_Art_Direction_and_Assets.md)
 - **数理仕様・実装SSOT**: [../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](../02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)
+- **うかみ行者の詳細データ（技・成長・自律介入）**: [../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](../90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)
 
 ---
 
