@@ -2,6 +2,18 @@
 
 この文書は一般向け文書から分離した、実装向けロジック正本です。
 
+## 0. 作業目的別インデックス
+
+開発作業の起点として、最短で参照先へ移動するための導線です。
+
+| 作業目的 | まず見る節 | 次に見る節 |
+|---|---|---|
+| 状態遷移の挙動を確認したい | 1.1 State Transition | 1.6 Field and Curse Logic |
+| 耐久・金継ぎの計算を確認したい | 1.2 Durability Model | 1.3 Kintsugi Cycle / 1.4 Core Inheritance |
+| キャラ固有ロジックを確認したい | 1.5 Character-Specific Logic | 3.1 / 3.4（うかみ時代差分） |
+| クリア後導線や儀式条件を確認したい | 2.4 Gyoja Gaeshi Condition | 2.5 Story_Flag_Definition_Master |
+| フラグの副作用・参照元を確認したい | 2.5 Story_Flag_Definition_Master | DEV-11 三点対応表 |
+
 ## Source Scope
 - Moved from: `02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md`
 - Moved from: `01_Story_and_Characters/NAR-10_Narrative_and_Characters.md` (実装フラグ対応表)
@@ -219,6 +231,32 @@ IF Allow_Gyojagaeshi_Ritual == TRUE
   StoryFlag.SUSANOO_TRIAL_UNLOCKED = TRUE
 END IF
 ```
+
+### 2.5 Story_Flag_Definition_Master
+
+命名規約・発火条件・副作用・参照元文書を同一フォーマットで管理します。
+
+| Flag_ID | 発火条件（要約） | 主な副作用 | 参照元文書 |
+|---|---|---|---|
+| `UKAMI_JOINED_EARLY` | 第1幕でうかみ初期加入が成立 | うかみ斥候ロジック有効化 | NAR-10 / SYS-20 |
+| `MAHITO_JOINED_ACT2` | 第2幕でマヒト加入 | 代受苦/鍛造系導線の基点解放 | NAR-10 / SYS-20 |
+| `KAGUTSUCHI_QUELLED` | 第3幕系節目を突破 | 付喪神化前提の解放条件を満たす | NAR-10 |
+| `WHITE_CORRIDOR_CLEARED` | 白堊の回廊を突破 | 第2幕中盤以降の導線を開く | NAR-10 |
+| `MAHITO_FIELD_LV2_UNLOCKED` | 野営鍛造Lv2の条件成立 | 野外での鍛造運用を許可 | SYS-20 / DEV-12 |
+| `SHRINE_FORGE_LV3_UNLOCKED` | 拠点鍛造Lv3の条件成立 | 神器級鍛造導線を開放 | SYS-20 / DEV-12 |
+| `UKAMI_LEFT_KATSURAGI` | 葛城山離脱イベント発生 | 継承手甲・強制継承スキル発火 | NAR-10 |
+| `NAKIME_BATTLE_ACTIVE` | ワカヒコ加入戦の特殊戦闘中 | 返し矢反動ルールを一時変更 | SYS-20 |
+| `WAKAHIKO_JOINED_ACT3` | 第3幕でワカヒコ加入 | 弓系高精度妨害ロジック有効化 | NAR-10 / SYS-20 |
+| `TSUKUYOMI_FAKE_LASBOSS` | ツクヨミ撃破の節目到達 | 偽終幕後の暗黒導線へ遷移 | NAR-10 |
+| `TSUKUYOMI_CELEBRATION_CONDUCTED` | 偽終幕演出を完了 | 祝祭後イベント分岐を確定 | NAR-10 |
+| `UKAMI_RETURNED_YOMOTSU` | 行者うかみ帰還成立 | 黄泉・常世で自律介入を有効化 | NAR-10 / SYS-20 |
+| `GYOJAGAESHI_CLEARED` | 行者還し三相を完了 | スサノオ試練導線を解放 | NAR-10 / SYS-20 |
+| `SUSANOO_TRIAL_UNLOCKED` | 行者還し完了時に付与 | 試練コンテンツ開放 | NAR-10 |
+| `AMENO_IWATOWAKE_REBOOT` | 天岩戸再起動の成立 | 天球再駆動系の遷移を確定 | NAR-10 |
+| `SUSANOO_TRIAL_CLEARED` | スサノオ試練突破 | 真裏ボス導線を前提化 | NAR-10 |
+| `OROCHI_TAIL_BREACHED` | 真裏ボス戦で尾破断発生 | 剣核露出イベント発火 | NAR-10 |
+| `ETERNITY_REJECTED` | 終幕で永遠拒絶を選択 | 終幕分岐と後日譚条件を固定 | NAR-10 |
+| `AMENO_MURAKUMO_AWAKENED` | 剣核接合イベント完了 | 最終武器覚醒状態へ遷移 | NAR-10 / SYS-30 |
 
 ## 3. Ukami Era Data Tables (Moved from SYS-30)
 

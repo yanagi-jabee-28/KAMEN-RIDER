@@ -8,43 +8,40 @@
 - 退避したID・内部名・順序依存は本ファイルで管理し、追跡可能性を維持する。
 - 体験記述を変更した際は、本ファイルの対応行を先に更新してからDEV-10へ反映する。
 
-## 1. Moved from SYS-20 (4.9)
+## 1. 三点対応表（公開節 ↔ 実装ID/フラグ ↔ DEV-10節）
 
-| プレイヤー体験 | SYS-30対応箇所 |
-|---|---|
-| 「守るために壊す」代受苦の決断 | 1.4 修復と鍛造の循環（Kintsugi Cycle） |
-| ロスト武器が次世代へ継承される感覚 | 1.5 付喪神化と情念の核継承 |
-| ミコト/ワカヒコ/うかみで戦い方が変わる感覚 | 1.6 固有戦術ロジック（ミコト/ワカヒコ/うかみ） |
-| 位相ごとにセオリーが反転する緊張 | 1.7 位相ギミック（無菌の帳 / 血の泥沼 / 黄泉戸喫） |
-| 定石が読まれる終盤の圧迫感 | 1.8 特殊敵と神AI学習段階 |
-| 祈りと泥の履歴で神器が成立する手触り | 2.9 星土の脈継ぎ（神社連動） |
-| クリア後儀式が旅の総量で解放される納得感 | 3.3 行者還し（Gyoja Gaeshi）条件式 |
-| ワカヒコ加入戦だけ反動ルールが切り替わる納得感 | 1.6 固有戦術ロジック（ミコト/ワカヒコ/うかみ） |
-| 鍛造が段階解禁で広がる手応え | 3.1 Story_Flag_Master / Camp_Maintenance_Logic（拠点/野営の段階解禁） |
-| うかみ離脱後に防衛線を再編する納得感 | 3.1 Story_Flag_Master（`UKAMI_LEFT_KATSURAGI`）/ 1.4 修復と鍛造の循環 |
+| 公開文書の節 | 実装ID / フラグ | DEV-10参照節 | 更新責任文書 | 更新順 |
+|---|---|---|---|---|
+| SYS-20: 1.1 核心的なテンション・ループ | `Can_Use_Daijuku`, `Use_Extreme_Daijuku` | 1.3 / 2.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 1.2 修復と継承の感情曲線 | `Core_of_Regret.Created` | 1.4 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 2 三条の熱源 | `Kakkon_Value`, `Jonetsu_Value`, `Durability_new` | 1.1 / 1.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 3 境界状態 | `State_Shigurui`, `State_Karakara` | 1.1 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.7 行者還し | `GYOJAGAESHI_CLEARED`, `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| NAR-10: 第2幕（葛城山） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第3幕（逆転する勝利） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 真裏ボス導線 | `OROCHI_TAIL_BREACHED`, `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| SYS-30: 2.4 Weapon_Evolution_Master | `OROCHI_TAIL_BREACHED` | 2.5 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
+| ART-40: 付喪神化の視覚定義 | `Is_Tsukumogami`, `Generate_Core_of_Regret` | 1.3 / 1.4 | DEV-12 | DEV-11 → DEV-10 → DEV-12 |
 
-## 2. Moved from SYS-22 (参照マップ)
+## 2. イベント起点の逆引き（フラグ優先）
 
-| 知りたい内容 | 参照先 |
-|---|---|
-| ダメージ式、倍率、閾値 | SYS-30「Data and Logic Architecture」 |
-| 状態異常IDと効果定義 | SYS-30「Status_Effect_Master（状態異常定義）」 |
-| 敵の行動パターン | SYS-30「Enemy_Master」 |
-| 敵Tierと危険要因 | SYS-30「Enemy_Tier_Template_Master（完全版）」 |
-| 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ（静止/冷却）」 |
-| 黄泉戸喫のリスクと解除 | SYS-30「黄泉戸喫・黄泉の呪い（確定仕様）」 |
-| 行者還しの条件式 | SYS-30「行者還し（Gyoja Gaeshi）条件式」 |
-| うかみ主壁とマヒト重壁の役割分離 | SYS-30「Character_Base_Master / Weapon_Evolution_Master / Character_Equipment_Master」 |
-| 幕の物語背景 | NAR-10「Narrative, Characters, and Act Guide」 |
+| 物語イベント | 対応フラグ | DEV-10参照節 | 公開側の主参照 |
+| --- | --- | --- | --- |
+| ツクヨミ撃破・偽終幕 | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 |
+| 行者うかみ帰還成立 | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 / SYS-20 |
+| 行者還し完了 | `GYOJAGAESHI_CLEARED` | 2.4 / 2.5 | NAR-10 / SYS-20 |
+| スサノオ試練解禁 | `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | NAR-10 |
+| スサノオ試練突破 | `SUSANOO_TRIAL_CLEARED` | 2.5 | NAR-10 |
+| オロチ尾破断 | `OROCHI_TAIL_BREACHED` | 2.5 | NAR-10 / SYS-30 |
+| 天叢雲剣覚醒 | `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 / SYS-30 |
 
-## 3. Moved from NAR-10 (実装フラグ順序対応)
+## 3. 参照運用ルール（短縮版）
 
-| 物語イベント | 対応フラグ |
-| --- | --- |
-| ツクヨミ撃破・偽終幕 | TSUKUYOMI_FAKE_LASBOSS |
-| 行者うかみ帰還成立 | UKAMI_RETURNED_YOMOTSU |
-| 行者還し完了 | GYOJAGAESHI_CLEARED |
-| スサノオ試練解禁 | SUSANOO_TRIAL_UNLOCKED |
-| スサノオ試練突破 | SUSANOO_TRIAL_CLEARED |
-| オロチ尾破断 | OROCHI_TAIL_BREACHED |
-| 天叢雲剣覚醒 | AMENO_MURAKUMO_AWAKENED |
+| 変更対象 | 最初に更新 | 次に更新 | 最後に更新 |
+|---|---|---|---|
+| 体験記述の変更（公開文書） | DEV-11 | DEV-10 | 該当公開文書 |
+| 計算式/条件変更（実装正本） | DEV-11 | DEV-10 | 公開文書（必要時） |
+| フラグ増減 | DEV-11 | DEV-10 2.5 | NAR-10 / SYS-20 / SYS-30 |
+| アート実務変更 | DEV-11 | DEV-12 | ART-40 |

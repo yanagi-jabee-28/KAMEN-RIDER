@@ -6,6 +6,7 @@
 ## 物語とビジュアルをつくる方へ（シナリオ・アート・全体把握）
 
 最初に世界観へ没入し、次に物語と見た目の設計へ進む導線です。
+読了後に、キャラクターの感情線とアート方向性を同じ言葉で共有できます。
 
 1. **[00_Welcome_and_Introduction/README.md](00_Welcome_and_Introduction/README.md)**: 企画の根幹テーマと世界観
 2. **[01_Story_and_Characters/NAR-10_Narrative_and_Characters.md](01_Story_and_Characters/NAR-10_Narrative_and_Characters.md)**: 人物・5幕構成・演出意図
@@ -14,6 +15,7 @@
 ## 遊びの仕組みを設計する方へ（ゲームデザイン・レベル設計）
 
 プレイヤーがどう戦い、どう成長し、どう詰まりを突破するかを把握する導線です。
+読了後に、体験設計とデータ設計を往復しながら調整できます。
 
 1. **[02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md](02_How_to_Play_and_Mechanics/SYS-20_Player_Manual.md)**: 遊び方・体験設計・戦闘の流れ
 2. **[02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)**: 術式・ロール索引
@@ -22,6 +24,7 @@
 ## 実装と運用を担当する方へ（プログラミング・データ設計）
 
 内部仕様、参照マッピング、制作プロトコルを扱う導線です。
+読了後に、公開文書の記述から実装IDと条件式を逆引きできます。
 
 1. **[90_For_Developers/ARC-00_Architecture_and_Governance.md](90_For_Developers/ARC-00_Architecture_and_Governance.md)**: 規約・文書管理
 2. **[90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md](90_For_Developers/DEV-10_Gameplay_Logic_Formulas_and_Flags.md)**: 数式・フラグ・実装仕様
@@ -32,6 +35,7 @@
 ## 参考資料と履歴を確認したい方へ
 
 外部参照、統合履歴、辞書情報を確認する導線です。
+読了後に、過去案との差分と現在方針の根拠を追跡できます。
 
 - **[99_Archive_and_References/REF-00_References_and_Archive.md](99_Archive_and_References/REF-00_References_and_Archive.md)**
 - **[99_Archive_and_References/REF-50_External_RPG_Reference_Dictionary.md](99_Archive_and_References/REF-50_External_RPG_Reference_Dictionary.md)**
