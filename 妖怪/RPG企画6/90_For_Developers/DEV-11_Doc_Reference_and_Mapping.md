@@ -15,6 +15,7 @@
 | クリア後儀式が旅の総量で解放される納得感 | 3.3 行者還し（Gyoja Gaeshi）条件式 |
 | ワカヒコ加入戦だけ反動ルールが切り替わる納得感 | 1.6 固有戦術ロジック（ミコト/ワカヒコ/うかみ） |
 | 鍛造が段階解禁で広がる手応え | 3.1 Story_Flag_Master / Camp_Maintenance_Logic（拠点/野営の段階解禁） |
+| うかみ離脱後に防衛線を再編する納得感 | 3.1 Story_Flag_Master（`UKAMI_LEFT_KATSURAGI`）/ 1.4 修復と鍛造の循環 |
 
 ## 2. Moved from SYS-22 (参照マップ)
 
@@ -27,6 +28,7 @@
 | 氷の静止/冷却分岐 | SYS-30「氷属性サブタイプ（静止/冷却）」 |
 | 黄泉戸喫のリスクと解除 | SYS-30「黄泉戸喫・黄泉の呪い（確定仕様）」 |
 | 行者還しの条件式 | SYS-30「行者還し（Gyoja Gaeshi）条件式」 |
+| うかみ主壁とマヒト重壁の役割分離 | SYS-30「Character_Base_Master / Weapon_Evolution_Master / Character_Equipment_Master」 |
 | 幕の物語背景 | NAR-10「Narrative, Characters, and Act Guide」 |
 
 ## 3. Moved from NAR-10 (実装フラグ順序対応)

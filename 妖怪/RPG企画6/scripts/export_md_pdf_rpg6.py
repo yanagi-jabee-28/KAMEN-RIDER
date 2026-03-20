@@ -290,4 +290,10 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        script_dir = Path(__file__).resolve().parent
+        project_root = script_dir.parent
+        fallback_pdf = project_root / DEFAULT_OUTPUT_NAME
+        if fallback_pdf.is_file() and fallback_pdf.stat().st_size > 0:
+            print(f"割り込みを受けましたがPDFは生成済みです: {fallback_pdf}")
+            sys.exit(0)
         sys.exit("中断されました。")
