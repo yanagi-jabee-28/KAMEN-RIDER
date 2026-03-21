@@ -204,12 +204,17 @@ Can_Use_Daijuku = (
   StoryFlag.MAHITO_JOINED_ACT2 == TRUE
 )
 
-Can_Use_Mahito_Base_Forge = (
+Can_Use_Mahito_Lv1_Forge = (
   StoryFlag.MAHITO_JOINED_ACT2 == TRUE
 )
 
+Can_Use_Forbidden_Forging_Lv2 = (
+  StoryFlag.FORBIDDEN_FORGING_LV2_UNLOCKED == TRUE
+  AND (CurrentContext == BASE_CAMP OR StoryFlag.TAKEMIKAZUCHI_REVENGE_CLEARED == TRUE)
+)
+
 Can_Use_Mahito_Field_Lv2 = (
-  Can_Use_Mahito_Base_Forge == TRUE
+  Can_Use_Forbidden_Forging_Lv2 == TRUE
   AND StoryFlag.TAKEMIKAZUCHI_REVENGE_CLEARED == TRUE
 )
 
@@ -218,8 +223,7 @@ IF Can_Use_Mahito_Field_Lv2 == TRUE THEN
 END IF
 
 Can_Use_Tsukumogami_Awakening = (
-  Can_Use_Mahito_Base_Forge == TRUE
-  AND StoryFlag.KAGUTSUCHI_QUELLED == TRUE
+  Can_Use_Forbidden_Forging_Lv2 == TRUE
   AND (CurrentContext == BASE_CAMP OR StoryFlag.MAHITO_FIELD_LV2_UNLOCKED == TRUE)
 )
 
@@ -265,11 +269,12 @@ END IF
 | Flag_ID | 発火条件（要約） | 主な副作用 | 参照元文書 |
 |---|---|---|---|
 | `UKAMI_JOINED_EARLY` | 第1幕でうかみ初期加入が成立 | うかみ斥候ロジック有効化 | NAR-10 / SYS-20 |
-| `MAHITO_JOINED_ACT2` | 第2幕でマヒト加入 | 代受苦/鍛造系導線の基点解放 | NAR-10 / SYS-20 |
-| `KAGUTSUCHI_QUELLED` | 第3幕系節目を突破 | 付喪神化前提の解放条件を満たす | NAR-10 |
-| `WHITE_CORRIDOR_CLEARED` | 白堊の回廊を突破 | 第2幕中盤以降の導線を開く | NAR-10 |
-| `TAKEMIKAZUCHI_REVENGE_CLEARED` | 第3幕の雪辱戦を突破 | 野外鍛造Lv2解放条件を満たす | NAR-10 / SYS-20 |
-| `MAHITO_FIELD_LV2_UNLOCKED` | `TAKEMIKAZUCHI_REVENGE_CLEARED` が成立 | 野外での鍛造運用を許可 | SYS-20 / DEV-12 |
+| `TACHIBANA_JOINED_ACT2_EARLY` | 第2幕序盤で白堊の回廊迂回ルート到達時 | タチバナ加入、流動的逸らし戦術スロット解放 | NAR-10 / SYS-20 |
+| `MAHITO_JOINED_ACT2` | 第2幕序盤でマヒト加入（灼熱たたら場） | Lv1鍛造導線の基点解放 | NAR-10 / SYS-20 |
+| `FORBIDDEN_FORGING_LV2_UNLOCKED` | 第2幕中盤でカグツチの怨念覚醒時点 | 禁忌鋳造Lv2の初解放（拠点のみ） | NAR-10 / SYS-20 |
+| `WHITE_CORRIDOR_CLEARED` | 禁忌Lv2習得後に白堊の回廊を突破 | 第2幕後半導線を開く | NAR-10 |
+| `TAKEMIKAZUCHI_REVENGE_CLEARED` | 第3幕後半の雪辱戦を突破 | 野外鍛造Lv2解放条件を満たす | NAR-10 / SYS-20 |
+| `MAHITO_FIELD_LV2_UNLOCKED` | `TAKEMIKAZUCHI_REVENGE_CLEARED` が成立 | 野外での禁忌Lv2運用を許可 | SYS-20 / DEV-12 |
 | `SHRINE_FORGE_LV3_UNLOCKED` | 拠点鍛造Lv3の条件成立 | 神器級鍛造導線を開放 | SYS-20 / DEV-12 |
 | `UKAMI_LEFT_KATSURAGI` | 葛城山離脱イベント発生 | 継承手甲・強制継承スキル発火 | NAR-10 |
 | `NAKIME_BATTLE_ACTIVE` | ワカヒコ加入戦の特殊戦闘中 | 返し矢反動ルールを一時変更 | SYS-20 |

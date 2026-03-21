@@ -16,11 +16,16 @@
 | SYS-20: 1.2 修復と継承の感情曲線 | `Core_of_Regret.Created` | 1.4 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 2 三条の熱源 | `Kakkon_Value`, `Jonetsu_Value`, `Durability_new` | 1.1 / 1.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3 境界状態 | `State_Shigurui`, `State_Karakara` | 1.1 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.3 固有戦術の体感差（マヒト鍛造段階） | `MAHITO_JOINED_ACT2`, `FORBIDDEN_FORGING_LV2_UNLOCKED`, `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.2 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.8 黄泉戸喫のリスク運用 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.7 行者還し | `GYOJAGAESHI_CLEARED`, `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
-| NAR-10: 第2幕（葛城山） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
-| NAR-10: 第3幕後半（タケミカヅチ雪辱戦） | `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
-| NAR-10: 第3幕（逆転する勝利） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第1幕終盤（白堊の回廊への初突入） | `WHITE_CORRIDOR_INITIAL_FAILED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第2幕序盤（タチバナ加入） | `TACHIBANA_JOINED_ACT2_EARLY` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第2幕序盤～中盤（灼熱たたら場とマヒト加入） | `MAHITO_JOINED_ACT2` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第2幕中盤（禁忌鋳造Lv2の目覚めと白堊の突破） | `FORBIDDEN_FORGING_LV2_UNLOCKED`, `WHITE_CORRIDOR_CLEARED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第2幕後半（葛城山の喪失と継承） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第3幕後半（タケミカヅチ雪辱戦と野外Lv2拡張） | `TAKEMIKAZUCHI_REVENGE_CLEARED`, `MAHITO_FIELD_LV2_UNLOCKED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 第3幕（偽終幕と絶望の真実） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 真裏ボス導線 | `OROCHI_TAIL_BREACHED`, `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
