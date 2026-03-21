@@ -82,10 +82,15 @@ END IF
 
 ### 1.5 Character-Specific Logic
 ```text
+// ミコト：実体刀2本同時保持による過熱・耐久消耗・腕摩擦の倍化
 IF Character == MIKOTO AND Mikoto_Gauntlet_Permanent == TRUE
  AND Offhand_Weapon_Equipped == TRUE AND Trigger_Dual_Stance == TRUE THEN
   DualStanceActive = TRUE
-  Stance_Multiplier = 1.3
+  // 両手に実体刀を同時に保持するため、武器過熱と腕への摩擦が倍になる
+  Weapon_Heat_Accumulation_Rate *= 2.0
+  Durability_Loss_Rate *= 2.0
+  Arm_Friction_Cost *= 2.0
+  Stance_Multiplier = 1.3  // 圧力出力増加
 END IF
 
 IF Character == WAKAHIKO AND MainWeapon_Category == BOW_RANGED THEN
