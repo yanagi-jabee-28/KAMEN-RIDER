@@ -49,15 +49,15 @@
 | 活魂 | `Kakkon_Value`, `State_Dead` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 情念 | `Jonetsu_Value`, `State_Karakara` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 武器耐久度 | `Durability_new`, `Weapon_Durability` | 1.2 / 1.3 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
-| 代受苦 | `Can_Use_Daijuku`, `Incoming_Damage=0` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 代受苦 | `Can_Use_Daijuku`, `Damage_Redirect_To_Weapon`, `Incoming_Damage=0` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 極大代受苦 | `Use_Extreme_Daijuku`, `Weapon_Destroyed` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 空殻 | `State_Karakara`, `Can_Recover_From_Karakara`, `SkillTag.JONETSU_RECOVERY`, `SkillTag.MORALE_BOOST`, `SkillTag.RESTART`, `SkillTag.GEKIYAKU` | 1.1 / 1.8 | WRD-02 / SYS-20 / SYS-22 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-22 |
-| 死狂い | `State_Shigurui`, `Has_Shigurui_Passive` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 死狂い | `State_Shigurui`, `Has_Shigurui_Passive`, `Jonetsu_Value` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |
 | 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `YOMOTSU_ENCOUNTERED`, `YOMOTSU_UNDERSTOOD`, `Yomotsu_Command_Visible`, `Can_Use_Yomotsu_Command`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 / NAR-10 | DEV-11 → DEV-10 → WRD-02/SYS-20/NAR-10 |
-| 継承（技継承/武器継承） | `ForcedSkills.*`, `Core_of_Regret.Stored_Traits`, `Kintsugi_Transfer_Executed` | 1.4 / 2.3 | WRD-02 / NAR-10 / SYS-20 | DEV-11 → DEV-10 → WRD-02/NAR-10/SYS-20 |
-| 武器劣化段階（錆/蝕/朽） | `WEAPON_SABI`, `WEAPON_SHOKU`, `WEAPON_KUCHI`, `Weapon_Degradation_Stage`, `Durability_new` | 1.2 / 1.6 | WRD-02 / SYS-20 / SYS-30 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-30 |
+| 継承（技継承/武器継承） | `ForcedSkills.*`, `ShinUtsushi_Slot_Capacity`, `Core_of_Regret.Stored_Traits`, `Kintsugi_Transfer_Executed` | 1.4 / 2.3 | WRD-02 / NAR-10 / SYS-20 | DEV-11 → DEV-10 → WRD-02/NAR-10/SYS-20 |
+| 武器劣化段階（錆/蝕/朽） | `WEAPON_SABI`, `WEAPON_SHOKU`, `WEAPON_KUCHI`, `Weapon_Degradation_Stage`, `Durability_Drain_Rate`, `Durability_new` | 1.2 / 1.6 | WRD-02 / SYS-20 / SYS-30 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-30 |
 | 実体二刀流（ミコト） | `Can_Unlock_Dual_Stance`, `DualStanceActive`, `Sync_Control_Occupied_By_Ukami`, `Mikoto_Gauntlet_Permanent` | 1.5 | WRD-02 / SYS-20 / NAR-10 | DEV-11 → DEV-10 → WRD-02/SYS-20/NAR-10 |
 
 ## 1.6 整合性課題の解消状況

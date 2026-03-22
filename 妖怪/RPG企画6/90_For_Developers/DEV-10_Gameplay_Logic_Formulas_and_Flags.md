@@ -218,18 +218,25 @@ IF State_Karakara == TRUE AND Can_Recover_From_Karakara == TRUE THEN
   State_Karakara = FALSE
 END IF
 
-// 死狂いは1Tick延命。行動未選択中は疑似ヘイト低下、選択で集中
-IF State_Shigurui == TRUE AND Tick_Remain_Shigurui <= 0 THEN
-  State_Dead = TRUE
+// 死狂いは「情念が尽きるまで」の境界状態
+IF State_Shigurui == TRUE THEN
+  Jonetsu_Value -= Shigurui_Jonetsu_Drain_Per_Action
+  IF Jonetsu_Value <= 0 THEN
+    State_Dead = TRUE
+  END IF
 END IF
 
-// 代受苦の判断優先
+// 代受苦は通常ガードではなく、武器へ致死因果を肩代わりさせる契約処理
 Can_Trigger_Daijuku = (Incoming_Damage >= Fatal_Threshold AND Weapon_Durability > 0)
 Can_Trigger_Extreme_Daijuku = (
   Can_Trigger_Daijuku == TRUE
   AND Is_Tsukumogami == TRUE
   AND Is_Destiny_Battle == TRUE
 )
+
+IF Can_Trigger_Daijuku == TRUE THEN
+  Damage_Redirect_To_Weapon = Incoming_Damage
+END IF
 
 // 位相の最小公開値（SYS-20公開整合用）
 // STERILE_CURTAIN: Heal_Output_Mult=0.6, SelfCost_Mult=1.25
@@ -301,6 +308,9 @@ Can_Use_Extreme_Daijuku = (
 ```yaml
 TriggerFlag: UKAMI_LEFT_KATSURAGI
 TargetCharacter: MIKOTO
+OnTrigger:
+  ShinUtsushi_Slot_Capacity: "+=2"
+  FixedInheritedSlotCount: "+=2"
 ForcedSkills:
   - SkillId: INHERITED_SARUTA_BREAK
     Name: 猿田の破岩撃 (剛)
