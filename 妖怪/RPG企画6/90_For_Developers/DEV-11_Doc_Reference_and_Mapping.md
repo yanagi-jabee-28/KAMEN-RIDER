@@ -33,6 +33,8 @@
 | NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 真裏ボス導線 | `OROCHI_TAIL_BREACHED`, `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| SYS-30: 2.2 Status_Effect_Master（毒/混乱/服従の深度運用） | `POISON`, `CONFUSION`, `CHARM`, `StatusDepth_Internal` | 1.1 / 1.6 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
+| SYS-30: 2.2 Status_Effect_Master（武器劣化3段階） | `WEAPON_SABI`, `WEAPON_SHOKU`, `WEAPON_KUCHI`, `Durability_new` | 1.2 / 1.6 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
 | SYS-30: 2.4 Weapon_Evolution_Master | `OROCHI_TAIL_BREACHED` | 2.5 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
 | SYS-30: 2.7b 耐性語の読み方（公開側定義） | `KUSANAGI_WEAR`, `HISTORY_ERASE`, `Durability_new` | 1.2 / 1.6 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
 | SYS-30: 2.8a 属性×状態異常×位相の干渉早見表 | `ICE_STAGNATION`, `ICE_COOLING`, `PURE_PROVISION`, `WHITE_OATH` | 1.6 / 1.7 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
@@ -53,6 +55,7 @@
 | 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 継承（技継承/武器継承） | `ForcedSkills.*`, `Core_of_Regret.Stored_Traits`, `Kintsugi_Transfer_Executed` | 1.4 / 2.3 | WRD-02 / NAR-10 / SYS-20 | DEV-11 → DEV-10 → WRD-02/NAR-10/SYS-20 |
+| 武器劣化段階（錆/蝕/朽） | `WEAPON_SABI`, `WEAPON_SHOKU`, `WEAPON_KUCHI`, `Weapon_Degradation_Stage`, `Durability_new` | 1.2 / 1.6 | WRD-02 / SYS-20 / SYS-30 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-30 |
 
 ## 1.6 整合性課題の解消状況
 
