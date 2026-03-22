@@ -37,6 +37,7 @@ FILES = [
     "90_For_Developers/DEV-11_Doc_Reference_and_Mapping.md",
     "90_For_Developers/DEV-12_Art_Production_and_Prompt_Protocol.md",
     "90_For_Developers/DEV-13_Document_Metadata_and_Reading_Order.md",
+    "99_Archive_and_References/REF-00_merged_gemini.md",
     "99_Archive_and_References/REF-00_References_and_Archive.md",
     "99_Archive_and_References/REF-50_External_RPG_Reference_Dictionary.md",
 ]
