@@ -19,6 +19,8 @@
 | SYS-20: 3.3 境界状態の復帰フロー（判断版） | `State_Karakara`, `State_Shigurui`, `State_Yomotsu_Curse`, `Disable_Standard_Recovery` | 1.1 / 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3.2 空殻（タグ限定復帰） | `SkillTag.JONETSU_RECOVERY`, `SkillTag.MORALE_BOOST`, `SkillTag.RESTART`, `SkillTag.GEKIYAKU`, `Can_Recover_From_Karakara` | 1.8 | SYS-20 / SYS-22 | DEV-11 → DEV-10 → SYS-20/SYS-22 |
 | SYS-20: 4.2.1 代受苦/極大代受苦の判断フロー | `Can_Use_Daijuku`, `Can_Use_Extreme_Daijuku`, `Weapon_Destroyed`, `Generate_Core_of_Regret` | 1.3 / 2.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.2 代受苦（防御型/攻撃型） | `Can_Use_Daijuku_Defense`, `Can_Use_Daijuku_Offense`, `Daijuku_Mode` | 1.3 / 1.8 | SYS-20 / SYS-22 | DEV-11 → DEV-10 → SYS-20/SYS-22 |
+| SYS-20: 4.2.1 極大代受苦（全員権利・条件付き） | `Character_Has_Extreme_Daijuku_Clearance`, `Can_Use_Extreme_Daijuku`, `Weapon_Has_Tsukumogami_Persona` | 1.8 / 2.2 | SYS-20 / WRD-02 | DEV-11 → DEV-10 → SYS-20/WRD-02 |
 | SYS-20: 4.4.1 位相ごとの戦術優先順位 | `Heal_Output_Mult`, `SelfCost_Mult`, `Recovery_Reversal_Rate`, `Jonetsu_Gain_Mult` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.3 固有戦術の体感差（マヒト鍛造段階） | `MAHITO_JOINED_ACT2`, `FORBIDDEN_FORGING_LV2_UNLOCKED`, `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.2 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.8 黄泉戸喫のリスク運用（段階解放） | `YOMOTSU_ENCOUNTERED`, `YOMOTSU_UNDERSTOOD`, `Yomotsu_Command_Visible`, `Can_Use_Yomotsu_Command`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 / NAR-10 | DEV-11 → DEV-10 → SYS-20/NAR-10 |
@@ -29,10 +31,12 @@
 | NAR-10: 第2幕序盤～中盤（灼熱たたら場とマヒト加入） | `MAHITO_JOINED_ACT2` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第2幕中盤（禁忌鋳造Lv2の目覚めと白堊の突破） | `FORBIDDEN_FORGING_LV2_UNLOCKED`, `WHITE_CORRIDOR_CLEARED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第2幕後半（葛城山の喪失と継承） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 斥候うかみの一瞬顕現（葛城山） | `Scout_Ukami_Extreme_Window`, `UKAMI_LEFT_KATSURAGI` | 1.8 / 2.5 | NAR-10 / SYS-20 | DEV-11 → DEV-10 → NAR-10/SYS-20 |
 | NAR-10: 第3幕後半（タケミカヅチ雪辱戦と野外Lv2拡張） | `TAKEMIKAZUCHI_REVENGE_CLEARED`, `MAHITO_FIELD_LV2_UNLOCKED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第3幕（偽終幕と絶望の真実） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 位相と戦術の橋渡し（読解用） | `Field_State`, `StoryFlag.*`（幕遷移関連） | 1.6 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 行者うかみの自律極大代受苦 | `Gyoja_Ukami_Auto_Extreme_Daijuku`, `UKAMI_RETURNED_YOMOTSU` | 1.8 / 3.4 | NAR-10 / SYS-22 | DEV-11 → DEV-10 → NAR-10/SYS-22 |
 | NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 真裏ボス導線 | `OROCHI_TAIL_BREACHED`, `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | SYS-30: 2.2 Status_Effect_Master（毒/混乱/服従の深度運用） | `POISON`, `CONFUSION`, `CHARM`, `StatusDepth_Internal` | 1.1 / 1.6 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
@@ -50,7 +54,9 @@
 | 情念 | `Jonetsu_Value`, `State_Karakara` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 武器耐久度 | `Durability_new`, `Weapon_Durability` | 1.2 / 1.3 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 代受苦 | `Can_Use_Daijuku`, `Damage_Redirect_To_Weapon`, `Incoming_Damage=0` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 代受苦（防御型/攻撃型） | `Can_Use_Daijuku_Defense`, `Can_Use_Daijuku_Offense`, `Daijuku_Mode` | 1.3 / 1.8 | WRD-02 / SYS-20 / SYS-22 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-22 |
 | 極大代受苦 | `Use_Extreme_Daijuku`, `Weapon_Destroyed` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 極大代受苦（全員権利・条件付き） | `Character_Has_Extreme_Daijuku_Clearance`, `Weapon_Has_Tsukumogami_Persona`, `Can_Use_Extreme_Daijuku` | 1.8 / 2.2 | WRD-02 / SYS-20 / NAR-10 | DEV-11 → DEV-10 → WRD-02/SYS-20/NAR-10 |
 | 空殻 | `State_Karakara`, `Can_Recover_From_Karakara`, `SkillTag.JONETSU_RECOVERY`, `SkillTag.MORALE_BOOST`, `SkillTag.RESTART`, `SkillTag.GEKIYAKU` | 1.1 / 1.8 | WRD-02 / SYS-20 / SYS-22 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-22 |
 | 死狂い | `State_Shigurui`, `Has_Shigurui_Passive`, `Jonetsu_Value` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |

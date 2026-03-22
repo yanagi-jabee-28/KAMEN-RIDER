@@ -49,10 +49,23 @@ Durability_new = max(0, Durability_old - (
 ### 1.3 Kintsugi Cycle
 ```text
 Can_Use_Daijuku = (Weapon_Durability > 0)
+Can_Use_Daijuku_Defense = (Can_Use_Daijuku == TRUE)
+Can_Use_Daijuku_Offense = (
+  Can_Use_Daijuku == TRUE
+  AND Weapon_Durability >= Offensive_Daijuku_Min_Durability
+)
 
 IF Incoming_Damage >= Fatal_Threshold AND Can_Use_Daijuku THEN
   Weapon_Durability = max(0, Weapon_Durability - Daijuku_Durability_Cost)
   Incoming_Damage = 0
+END IF
+
+IF Use_Daijuku_Offense == TRUE AND Can_Use_Daijuku_Offense == TRUE THEN
+  Daijuku_Offense_Power =
+    Base_Daijuku_Offense_Power
+    + floor(Weapon_Durability * Offensive_Daijuku_Durability_Convert_Rate)
+  Weapon_Durability = max(0, Weapon_Durability - Offensive_Daijuku_Durability_Cost)
+  Apply_Damage(Target, Daijuku_Offense_Power)
 END IF
 
 IF Is_Tsukumogami == TRUE AND Is_Destiny_Battle == TRUE AND Use_Extreme_Daijuku == TRUE THEN
@@ -228,14 +241,56 @@ END IF
 
 // 代受苦は通常ガードではなく、武器へ致死因果を肩代わりさせる契約処理
 Can_Trigger_Daijuku = (Incoming_Damage >= Fatal_Threshold AND Weapon_Durability > 0)
+
+Daijuku_Mode = SELECT(
+  Incoming_Damage >= Fatal_Threshold => DEFENSE,
+  Use_Daijuku_Offense == TRUE => OFFENSE,
+  DEFAULT => NONE
+)
+
+Can_Use_Daijuku_Defense = (
+  Daijuku_Mode == DEFENSE
+  AND Can_Trigger_Daijuku == TRUE
+)
+
+Can_Use_Daijuku_Offense = (
+  Daijuku_Mode == OFFENSE
+  AND Weapon_Durability >= Offensive_Daijuku_Min_Durability
+)
+
+Character_Has_Extreme_Daijuku_Clearance = (
+  Character_ID IN [MIKOTO, UKAMI_SCOUT, SUKUNA, UZU, TACHIBANA, MAHITO, WAKAHIKO, UKAMI_GYOJA]
+  AND Weapon_Has_Tsukumogami_Persona == TRUE
+  AND Weapon_Bond_Hours >= Extreme_Daijuku_Bond_Threshold
+  AND Kintsugi_History_Count >= Extreme_Daijuku_Kintsugi_Threshold
+)
+
+Scout_Ukami_Extreme_Window = (
+  Character_ID == UKAMI_SCOUT
+  AND Battle_Location == KATSURAGI
+  AND StoryFlag.UKAMI_LEFT_KATSURAGI == FALSE
+)
+
+Gyoja_Ukami_Auto_Extreme_Daijuku = (
+  Character_ID == UKAMI_GYOJA
+  AND StoryFlag.UKAMI_RETURNED_YOMOTSU == TRUE
+  AND Party_Wipe_Risk >= Auto_Extreme_Daijuku_Threshold
+  AND Battle_Location IN [YOMOTSU_HIRASAKA, YOMI_NO_KUNI, TOKOYO]
+)
+
 Can_Trigger_Extreme_Daijuku = (
   Can_Trigger_Daijuku == TRUE
-  AND Is_Tsukumogami == TRUE
+  AND Character_Has_Extreme_Daijuku_Clearance == TRUE
   AND Is_Destiny_Battle == TRUE
+  AND (Scout_Ukami_Extreme_Window == TRUE OR Character_ID != UKAMI_SCOUT)
 )
 
 IF Can_Trigger_Daijuku == TRUE THEN
   Damage_Redirect_To_Weapon = Incoming_Damage
+END IF
+
+IF Gyoja_Ukami_Auto_Extreme_Daijuku == TRUE THEN
+  Force_Use_Extreme_Daijuku = TRUE
 END IF
 
 // 位相の最小公開値（SYS-20公開整合用）
@@ -300,7 +355,7 @@ Can_Use_Tsukumogami_Awakening = (
 
 Can_Use_Extreme_Daijuku = (
   Can_Use_Tsukumogami_Awakening == TRUE
-  AND Is_Tsukumogami == TRUE
+  AND Character_Has_Extreme_Daijuku_Clearance == TRUE
 )
 ```
 

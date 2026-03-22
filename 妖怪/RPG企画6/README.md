@@ -23,6 +23,8 @@
 3. **[02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md](02_How_to_Play_and_Mechanics/SYS-22_Skill_Matrix.md)**: 術式・ロール索引
 4. **[02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)**: データカタログ（一般向け）
 
+補足: 現行仕様では、代受苦は「防御型/攻撃型」に公式分離されています。極大代受苦は全員に行使権がありますが、武器履歴と同調条件を満たした場合のみ発動します。
+
 ## 実装と運用を担当する方へ（プログラミング・データ設計）
 
 内部仕様、参照マッピング、制作プロトコルを扱う導線です。
