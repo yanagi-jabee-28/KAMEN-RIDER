@@ -174,6 +174,37 @@ Ri_Level_25_Psychological = Uses(Pattern_Penalty)
 Ri_Level_3_Absolute = Uses(Noise_Resistance_High)
 ```
 
+### 1.8 Recovery / Daijuku / Phase Priority Notes
+```text
+// 空殻復帰は自然回復禁止。注入か摩擦熱余波のみ許可
+Can_Recover_From_Karakara = (
+  Receive_Jonetsu_Injection == TRUE
+  OR Friction_Heat_After_Daijuku >= 1
+)
+
+IF State_Karakara == TRUE AND Can_Recover_From_Karakara == TRUE THEN
+  Jonetsu_Value = max(1, Jonetsu_Value)
+  State_Karakara = FALSE
+END IF
+
+// 死狂いは1ターン延命。行動未選択中は疑似ヘイト低下、選択で集中
+IF State_Shigurui == TRUE AND Turn_Remain_Shigurui <= 0 THEN
+  State_Dead = TRUE
+END IF
+
+// 代受苦の判断優先
+Can_Trigger_Daijuku = (Incoming_Damage >= Fatal_Threshold AND Weapon_Durability > 0)
+Can_Trigger_Extreme_Daijuku = (
+  Can_Trigger_Daijuku == TRUE
+  AND Is_Tsukumogami == TRUE
+  AND Is_Destiny_Battle == TRUE
+)
+
+// 位相の最小公開値（SYS-20公開整合用）
+// STERILE_CURTAIN: Heal_Output_Mult=0.6, SelfCost_Mult=1.25
+// BLOOD_MUDPIT: Jonetsu_Gain_Mult=1.2, Recovery_Reversal_Rate=YomotsuRecoveryReversalRate
+```
+
 ## 2. Story Flags
 
 ### 2.1 Story_Flag_Master

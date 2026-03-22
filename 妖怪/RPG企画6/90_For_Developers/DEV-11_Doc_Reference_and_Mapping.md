@@ -16,6 +16,9 @@
 | SYS-20: 1.2 修復と継承の感情曲線 | `Core_of_Regret.Created` | 1.4 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 2 三条の熱源 | `Kakkon_Value`, `Jonetsu_Value`, `Durability_new` | 1.1 / 1.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3 境界状態 | `State_Shigurui`, `State_Karakara` | 1.1 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 3.3 境界状態の復帰フロー（判断版） | `State_Karakara`, `State_Shigurui`, `State_Yomotsu_Curse`, `Disable_Standard_Recovery` | 1.1 / 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.2.1 代受苦/極大代受苦の判断フロー | `Can_Use_Daijuku`, `Can_Use_Extreme_Daijuku`, `Weapon_Destroyed`, `Generate_Core_of_Regret` | 1.3 / 2.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.4.1 位相ごとの戦術優先順位 | `Heal_Output_Mult`, `SelfCost_Mult`, `Recovery_Reversal_Rate`, `Jonetsu_Gain_Mult` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.3 固有戦術の体感差（マヒト鍛造段階） | `MAHITO_JOINED_ACT2`, `FORBIDDEN_FORGING_LV2_UNLOCKED`, `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.2 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.8 黄泉戸喫のリスク運用 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.7 行者還し | `GYOJAGAESHI_CLEARED`, `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
@@ -26,10 +29,13 @@
 | NAR-10: 第2幕後半（葛城山の喪失と継承） | `UKAMI_LEFT_KATSURAGI` | 2.3 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第3幕後半（タケミカヅチ雪辱戦と野外Lv2拡張） | `TAKEMIKAZUCHI_REVENGE_CLEARED`, `MAHITO_FIELD_LV2_UNLOCKED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第3幕（偽終幕と絶望の真実） | `TSUKUYOMI_FAKE_LASBOSS` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
+| NAR-10: 位相と戦術の橋渡し（読解用） | `Field_State`, `StoryFlag.*`（幕遷移関連） | 1.6 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第4幕（再接続） | `UKAMI_RETURNED_YOMOTSU` | 1.5 / 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 終幕（永遠の拒絶） | `ETERNITY_REJECTED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 真裏ボス導線 | `OROCHI_TAIL_BREACHED`, `AMENO_MURAKUMO_AWAKENED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | SYS-30: 2.4 Weapon_Evolution_Master | `OROCHI_TAIL_BREACHED` | 2.5 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
+| SYS-30: 2.7b 耐性語の読み方（公開側定義） | `KUSANAGI_WEAR`, `HISTORY_ERASE`, `Durability_new` | 1.2 / 1.6 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
+| SYS-30: 2.8a 属性×状態異常×位相の干渉早見表 | `ICE_STAGNATION`, `ICE_COOLING`, `PURE_PROVISION`, `WHITE_OATH` | 1.6 / 1.7 | SYS-30 | DEV-11 → DEV-10 → SYS-30 |
 | ART-40: 付喪神化の視覚定義 | `Is_Tsukumogami`, `Generate_Core_of_Regret` | 1.3 / 1.4 | DEV-12 | DEV-11 → DEV-10 → DEV-12 |
 
 ## 1.5 保護語彙の三点対応（WRD-02基準）
@@ -46,6 +52,7 @@
 | 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |
 | 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 継承（技継承/武器継承） | `ForcedSkills.*`, `Core_of_Regret.Stored_Traits`, `Kintsugi_Transfer_Executed` | 1.4 / 2.3 | WRD-02 / NAR-10 / SYS-20 | DEV-11 → DEV-10 → WRD-02/NAR-10/SYS-20 |
 
 ## 1.6 整合性課題の解消状況
 
