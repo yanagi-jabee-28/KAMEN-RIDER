@@ -17,10 +17,12 @@
 | SYS-20: 2 三条の熱源 | `Kakkon_Value`, `Jonetsu_Value`, `Durability_new` | 1.1 / 1.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3 境界状態 | `State_Shigurui`, `State_Karakara` | 1.1 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 3.3 境界状態の復帰フロー（判断版） | `State_Karakara`, `State_Shigurui`, `State_Yomotsu_Curse`, `Disable_Standard_Recovery` | 1.1 / 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 3.2 空殻（タグ限定復帰） | `SkillTag.JONETSU_RECOVERY`, `SkillTag.MORALE_BOOST`, `SkillTag.RESTART`, `SkillTag.GEKIYAKU`, `Can_Recover_From_Karakara` | 1.8 | SYS-20 / SYS-22 | DEV-11 → DEV-10 → SYS-20/SYS-22 |
 | SYS-20: 4.2.1 代受苦/極大代受苦の判断フロー | `Can_Use_Daijuku`, `Can_Use_Extreme_Daijuku`, `Weapon_Destroyed`, `Generate_Core_of_Regret` | 1.3 / 2.2 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.4.1 位相ごとの戦術優先順位 | `Heal_Output_Mult`, `SelfCost_Mult`, `Recovery_Reversal_Rate`, `Jonetsu_Gain_Mult` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | SYS-20: 4.3 固有戦術の体感差（マヒト鍛造段階） | `MAHITO_JOINED_ACT2`, `FORBIDDEN_FORGING_LV2_UNLOCKED`, `TAKEMIKAZUCHI_REVENGE_CLEARED` | 2.2 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
-| SYS-20: 4.8 黄泉戸喫のリスク運用 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
+| SYS-20: 4.8 黄泉戸喫のリスク運用（段階解放） | `YOMOTSU_ENCOUNTERED`, `YOMOTSU_UNDERSTOOD`, `Yomotsu_Command_Visible`, `Can_Use_Yomotsu_Command`, `Auto_Consume_Yomotsu_By_Ukami` | 1.6 | SYS-20 / NAR-10 | DEV-11 → DEV-10 → SYS-20/NAR-10 |
+| SYS-20: 4.3 固有戦術の体感差（ミコト二刀流ロック） | `Can_Unlock_Dual_Stance`, `Sync_Control_Occupied_By_Ukami`, `UKAMI_LEFT_KATSURAGI`, `Mikoto_Gauntlet_Permanent` | 1.5 | SYS-20 / NAR-10 | DEV-11 → DEV-10 → SYS-20/NAR-10 |
 | SYS-20: 4.7 行者還し | `GYOJAGAESHI_CLEARED`, `SUSANOO_TRIAL_UNLOCKED` | 2.4 / 2.5 | SYS-20 | DEV-11 → DEV-10 → SYS-20 |
 | NAR-10: 第1幕終盤（白堊の回廊への初突入） | `WHITE_CORRIDOR_INITIAL_FAILED` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
 | NAR-10: 第2幕序盤（タチバナ加入） | `TACHIBANA_JOINED_ACT2_EARLY` | 2.5 | NAR-10 | DEV-11 → DEV-10 → NAR-10 |
@@ -49,13 +51,14 @@
 | 武器耐久度 | `Durability_new`, `Weapon_Durability` | 1.2 / 1.3 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 代受苦 | `Can_Use_Daijuku`, `Incoming_Damage=0` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 極大代受苦 | `Use_Extreme_Daijuku`, `Weapon_Destroyed` | 1.3 / 2.2 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
-| 空殻 | `State_Karakara` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 空殻 | `State_Karakara`, `Can_Recover_From_Karakara`, `SkillTag.JONETSU_RECOVERY`, `SkillTag.MORALE_BOOST`, `SkillTag.RESTART`, `SkillTag.GEKIYAKU` | 1.1 / 1.8 | WRD-02 / SYS-20 / SYS-22 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-22 |
 | 死狂い | `State_Shigurui`, `Has_Shigurui_Passive` | 1.1 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
 | 位相 | `StoryFlag.*`（幕遷移関連） | 2.5 | WRD-02 / NAR-10 | DEV-11 → DEV-10 → WRD-02/NAR-10 |
 | 金継ぎ | `Generate_Core_of_Regret`, `Kintsugi_Transfer_Executed` | 1.3 / 1.4 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
-| 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 | DEV-11 → DEV-10 → WRD-02/SYS-20 |
+| 黄泉戸喫 | `Use_Item==Yomotsu_Mud_Fruit`, `YOMOTSU_ENCOUNTERED`, `YOMOTSU_UNDERSTOOD`, `Yomotsu_Command_Visible`, `Can_Use_Yomotsu_Command`, `Auto_Consume_Yomotsu_By_Ukami`, `State_Yomotsu_Curse` | 1.6 | WRD-02 / SYS-20 / NAR-10 | DEV-11 → DEV-10 → WRD-02/SYS-20/NAR-10 |
 | 継承（技継承/武器継承） | `ForcedSkills.*`, `Core_of_Regret.Stored_Traits`, `Kintsugi_Transfer_Executed` | 1.4 / 2.3 | WRD-02 / NAR-10 / SYS-20 | DEV-11 → DEV-10 → WRD-02/NAR-10/SYS-20 |
 | 武器劣化段階（錆/蝕/朽） | `WEAPON_SABI`, `WEAPON_SHOKU`, `WEAPON_KUCHI`, `Weapon_Degradation_Stage`, `Durability_new` | 1.2 / 1.6 | WRD-02 / SYS-20 / SYS-30 | DEV-11 → DEV-10 → WRD-02/SYS-20/SYS-30 |
+| 実体二刀流（ミコト） | `Can_Unlock_Dual_Stance`, `DualStanceActive`, `Sync_Control_Occupied_By_Ukami`, `Mikoto_Gauntlet_Permanent` | 1.5 | WRD-02 / SYS-20 / NAR-10 | DEV-11 → DEV-10 → WRD-02/SYS-20/NAR-10 |
 
 ## 1.6 整合性課題の解消状況
 
@@ -64,7 +67,7 @@
 | 論点 | 状態 | 確定内容 | 関連文書 |
 |---|---|---|---|
 | マヒト鍛造Lv2解放条件 | 解消済み | 拠点は加入直後、野外Lv2は雪辱戦突破後に固定 | SYS-20 / NAR-10 / DEV-10 / DEV-11 |
-| 黄泉戸喫の説明密度 | 解消済み | 任意使用と、うかみ自律摂取の併用仕様に固定 | SYS-20 / WRD-02 / DEV-10 / DEV-11 |
+| 黄泉戸喫の説明密度 | 解消済み | 遭遇→理解→解放の段階導線に固定し、任意使用と行者うかみ自律摂取を併用 | SYS-20 / NAR-10 / WRD-02 / DEV-10 / DEV-11 |
 
 ## 2. イベント起点の逆引き（フラグ優先）
 

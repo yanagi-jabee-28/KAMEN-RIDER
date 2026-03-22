@@ -84,7 +84,9 @@ END IF
 ```text
 // ミコト：実体刀2本同時保持による過熱・耐久消耗・腕摩擦の倍化
 IF Character == MIKOTO AND Mikoto_Gauntlet_Permanent == TRUE
- AND Offhand_Weapon_Equipped == TRUE AND Trigger_Dual_Stance == TRUE THEN
+ AND Offhand_Weapon_Equipped == TRUE
+ AND Trigger_Dual_Stance == TRUE
+ AND Can_Unlock_Dual_Stance == TRUE THEN
   DualStanceActive = TRUE
   // 両手に実体刀を同時に保持するため、武器過熱と腕への摩擦が倍になる
   Weapon_Heat_Accumulation_Rate *= 2.0
@@ -113,6 +115,14 @@ IF StoryFlag.UKAMI_RETURNED_YOMOTSU == TRUE
   Ukami_Uses_Party_Resource = FALSE
   Ukami_AutoIntercept = TRUE
 END IF
+
+// ミコト二刀流のナラティブ・ロック
+// 序盤は同調補助のため片腕制御系が占有され、継承手甲恒久化後にのみ解放される
+IF StoryFlag.UKAMI_LEFT_KATSURAGI == TRUE
+ AND Mikoto_Gauntlet_Permanent == TRUE
+ AND Sync_Control_Occupied_By_Ukami == FALSE THEN
+  Can_Unlock_Dual_Stance = TRUE
+END IF
 ```
 
 ### 1.6 Field and Curse Logic
@@ -127,10 +137,24 @@ IF Field_State == BLOOD_MUDPIT THEN
   Jonetsu_Gain_Mult = 1.2
 END IF
 
-IF Use_Item == Yomotsu_Mud_Fruit THEN
+IF Use_Item == Yomotsu_Mud_Fruit AND Can_Use_Yomotsu_Command == TRUE THEN
   Kakkon_Value = Kakkon_Max
   Jonetsu_Value = Jonetsu_Max
 END IF
+
+// 黄泉戸喫の段階解放（遭遇 -> 理解 -> 解放）
+IF StoryFlag.YOMOTSU_ENCOUNTERED == TRUE THEN
+  Yomotsu_Knowledge_Shown = TRUE
+END IF
+
+IF StoryFlag.YOMOTSU_UNDERSTOOD == TRUE THEN
+  Yomotsu_Command_Visible = TRUE
+END IF
+
+Can_Use_Yomotsu_Command = (
+  Yomotsu_Command_Visible == TRUE
+  AND Yomotsu_UseWarning_Acknowledged == TRUE
+)
 
 IF Use_Item == Yomotsu_Mud_Fruit AND User != UKAMI_GYOJA THEN
   Inventory -= 1
@@ -177,8 +201,15 @@ Ri_Level_3_Absolute = Uses(Noise_Resistance_High)
 ### 1.8 Recovery / Daijuku / Phase Priority Notes
 ```text
 // 空殻復帰は自然回復禁止。注入か摩擦熱余波のみ許可
+Has_Karakara_Override_Tag = (
+  SkillTag.JONETSU_RECOVERY == TRUE
+  OR SkillTag.MORALE_BOOST == TRUE
+  OR SkillTag.RESTART == TRUE
+  OR SkillTag.GEKIYAKU == TRUE
+)
+
 Can_Recover_From_Karakara = (
-  Receive_Jonetsu_Injection == TRUE
+  (Receive_Jonetsu_Injection == TRUE AND Has_Karakara_Override_Tag == TRUE)
   OR Friction_Heat_After_Daijuku >= 1
 )
 
@@ -187,8 +218,8 @@ IF State_Karakara == TRUE AND Can_Recover_From_Karakara == TRUE THEN
   State_Karakara = FALSE
 END IF
 
-// 死狂いは1ターン延命。行動未選択中は疑似ヘイト低下、選択で集中
-IF State_Shigurui == TRUE AND Turn_Remain_Shigurui <= 0 THEN
+// 死狂いは1Tick延命。行動未選択中は疑似ヘイト低下、選択で集中
+IF State_Shigurui == TRUE AND Tick_Remain_Shigurui <= 0 THEN
   State_Dead = TRUE
 END IF
 
@@ -228,6 +259,8 @@ Can_Trigger_Extreme_Daijuku = (
 - OROCHI_TAIL_BREACHED
 - ETERNITY_REJECTED
 - AMENO_MURAKUMO_AWAKENED
+- YOMOTSU_ENCOUNTERED
+- YOMOTSU_UNDERSTOOD
 
 ### 2.2 Camp Maintenance Logic
 ```text
