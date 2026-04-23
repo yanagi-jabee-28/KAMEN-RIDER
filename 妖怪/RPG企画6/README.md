@@ -24,6 +24,7 @@
 4. **[02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md](02_How_to_Play_and_Mechanics/SYS-30_Data_and_Logic_Architecture.md)**: データカタログ（一般向け）
 
 補足: 現行仕様では、代受苦は「防御型/攻撃型」に公式分離されています。極大代受苦は全員に行使権がありますが、武器履歴と同調条件を満たした場合のみ発動します。
+補足2: 行動順は `Tick` ベースの待機値で進行します。読み方の入口は `SYS-20` の最短ガイドと `SYS-22` の運用節を参照してください。
 
 ## 実装と運用を担当する方へ（プログラミング・データ設計）
 

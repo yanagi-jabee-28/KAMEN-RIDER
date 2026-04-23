@@ -32,6 +32,7 @@ influences:
 - **武器進化と装備方針を知りたい**: `2.4 Weapon_Evolution_Master` と `2.5 Character_Equipment_Master`
 - **詰まり敵の傾向を把握したい**: `2.6 Enemy_Master` と `2.7 Enemy_Tier_Template_Master`
 - **状態異常の意味だけ確認したい**: `2.2 Status_Effect_Master`
+- **行動順の考え方を確認したい**: `SYS-20` の `0.2a 行動Tickの発生順（Tickライン）` を参照
 
 ## 1. コア要素（概要）
 
@@ -45,6 +46,7 @@ influences:
 - 極大代受苦は全員に権利があるが、武器履歴と同調条件を満たした場合にのみ成立する。
 - 付喪神化と継承で、喪失を次の強さへ接続する。
 - 位相ギミックと学習神AIで、同じ戦法の反復を許さない。
+- 行動順は `Tickライン`（待機値の並び）で読み、停止/攪乱/剥離の差し込み位置を戦術の主軸として扱う。
 
 ## 2. 実装マスターデータ（Master Tables）
 
